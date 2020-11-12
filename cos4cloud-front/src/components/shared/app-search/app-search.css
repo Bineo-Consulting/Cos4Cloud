@@ -1,0 +1,45 @@
+:host {
+  display: block;
+}
+ion-checkbox {
+  margin-inline-end: 8px;
+}
+.app-grid {
+  max-width: 600px;
+}
+.center {
+  place-content: center;
+}
+.row-filters {
+  position: relative;
+  margin: 0 auto;
+  text-align: center;
+  /*display: inline-flex;*/
+  width: 100%;
+  left: 0;
+  transition: height .5s;
+  height: 0;
+  overflow: hidden;
+  top: 120px;
+}
+/*.row-filters.active {
+  height: max-content;
+  overflow: visible;
+}*/
+.row-filters-container {
+  display: flex;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+.row-filters:focus-within,
+.row-filters:hover {
+  /*height: max-content;*/
+  overflow: visible;
+  z-index: 9;
+}
+.row-filters {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+.row-filters:focus {
+  outline: none;
+}

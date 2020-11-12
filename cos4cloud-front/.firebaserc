@@ -1,0 +1,17 @@
+{
+  "projects": {
+    "default": "cos4cloud-2d9d3"
+  },
+  "targets": {
+    "cos4cloud-2d9d3": {
+      "hosting": {
+        "cos4cloud": [
+          "cos4cloud"
+        ],
+        "cos4cloud-2d9d3": [
+          "cos4cloud-2d9d3"
+        ]
+      }
+    }
+  }
+}

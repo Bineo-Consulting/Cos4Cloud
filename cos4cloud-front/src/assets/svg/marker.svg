@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="20px" viewBox="0 0 16 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>map-marker-1</title>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="icons/location" transform="translate(-10.000000, -8.000000)" stroke="#000000" stroke-width="1.7496">
+            <g id="map-marker-1" transform="translate(11.000000, 9.000000)">
+                <path d="M6.9984,17.496 C6.9984,17.496 0,13.5594 0,7.17336 C-0.0471702538,5.28714325 0.669282302,3.46179202 1.98688426,2.11125001 C3.30448622,0.760708003 5.11159362,-0.000589721484 6.9984,-3.4235529e-07 C8.88520638,-0.000589721484 10.6923138,0.760708003 12.0099157,2.11125001 C13.3275177,3.46179202 14.0439703,5.28714325 13.9968,7.17336 C13.9968,13.5594 6.9984,17.496 6.9984,17.496 Z" id="Path"></path>
+                <circle id="Oval" cx="6.9984" cy="6.9984" r="2.6244"></circle>
+            </g>
+        </g>
+    </g>
+</svg>

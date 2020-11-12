@@ -1,0 +1,141 @@
+swagger: "2.0"
+info:
+  version: "0.0.7"
+  title: Expert Portals Back
+# during dev, should point to your local machine
+host: localhost:10010
+# basePath prefixes all resource paths 
+basePath: /
+# 
+schemes:
+  # tip: remove http to make production-grade
+  - http
+  - https
+# format of bodies a client can send (Content-Type)
+consumes:
+  - application/json
+# format of the responses to the client (Accepts)
+produces:
+  - application/json
+paths:
+  /observations:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: observations
+    get:
+      description: Returns 'Observations' from portals
+      # used as the method name of the controller
+      operationId: getObservations
+      parameters:
+        - name: page
+          in: query
+          description: The page number
+          required: false
+          type: number
+        - name: per_page
+          in: query
+          description: The page number
+          required: false
+          type: number
+        - name: taxon_name
+          in: query
+          description: The name of the person to whom to say hello
+          required: false
+          type: string
+        - name: iconic_taxa
+          in: query
+          description: The name of the person to whom to say hello
+          required: false
+          collectionFormat: csv
+          type: array
+          items:
+            type: string
+            enum: [Plantae, Animalia, Reptilia, Fungi]
+        - name: swlat
+          in: query
+          description: The swlat of bbox
+          required: false
+          type: number
+        - name: swlng
+          in: query
+          description: The swlng of bbox
+          required: false
+          type: number
+        - name: nelat
+          in: query
+          description: The nelat of bbox
+          required: false
+          type: number
+        - name: nelng
+          in: query
+          description: The nelng of bbox
+          required: false
+          type: number
+        - name: has
+          in: query
+          required: false
+          type: array
+          collectionFormat: csv
+          items:
+            type: string
+            enum: [id_please, geo, photos]
+        - name: quality_grade
+          in: query
+          required: false
+          type: array
+          maxLength: 2
+          collectionFormat: csv
+          items:
+            type: string
+            enum: [research, casual]
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/HelloWorldResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /images:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: observations
+    get:
+      description: Returns 'Images' from portals
+      operationId: getImages
+      parameters:
+        - name: ids
+          in: query
+          required: false
+          type: array
+          collectionFormat: csv
+          items:
+            type: string
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/HelloWorldResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /swagger:
+    x-swagger-pipe: swagger_raw
+# complex objects have schema definitions
+definitions:
+  HelloWorldResponse:
+    required:
+      - message
+    properties:
+      message:
+        type: string
+  ErrorResponse:
+    required:
+      - message
+    properties:
+      message:
+        type: string

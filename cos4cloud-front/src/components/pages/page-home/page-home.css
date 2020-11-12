@@ -1,0 +1,21 @@
+:host {
+  display: block;
+}
+
+header {
+  /*background: var(--c-3);*/
+  padding-top: 4rem;
+  padding-bottom: 12rem;
+}
+
+header h1 {
+  font-family: var(--ion-font-family);
+  font-size: 6rem;
+  text-align: center;
+}
+h3 {
+  font-size: var(--fz-h3);
+  margin: 0.5rem 0;
+  text-indent: 3rem;
+  text-align: center;
+}

@@ -1,0 +1,21 @@
+:host {
+  display: block;
+}
+
+.grid {
+  transform: translateZ(0);
+  background-color: white;
+  display: grid;
+  grid-gap: 3rem 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr)) !important;
+  width: calc(100% - 4rem);
+  max-width: 1400px;
+  margin: auto;
+  padding: 4rem 2rem;
+  min-height: 100vh;
+}
+.spinner {
+  text-align: center;
+  width: 100%;
+  background-color: white;
+}

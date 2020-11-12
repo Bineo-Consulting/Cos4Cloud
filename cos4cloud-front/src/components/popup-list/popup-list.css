@@ -1,0 +1,23 @@
+.popup {
+  background: var(--c-0);
+  display: flex;
+  flex-flow: column;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0.5rem 1rem 1rem #00000014;
+  margin-top: 1rem;
+}
+.popup a {
+  cursor: pointer;
+  font-family: var(--main-font);
+  line-height: initial;
+  padding: 1rem 2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 20rem;
+  user-select: none;
+}
+.popup a:focus-within {
+  background: var(--c-3);
+}

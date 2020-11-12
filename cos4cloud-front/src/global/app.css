@@ -1,0 +1,211 @@
+@font-face {
+  font-family: "Gilroy";
+  src: url(/assets/gilroy-extrabold-webfont.woff2);
+  font-weight: bold;
+}
+@font-face {
+  font-family: "Gilroy";
+  src: url(/assets/gilroy-light-webfont.woff2);
+  font-weight: normal;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.4rem;
+  color: var(--c-1);
+  font-family: var(--main-font);
+}
+
+:root {
+  /* fonts */
+  --main-font: "Gilroy", "Roboto", sans-serif;
+  --sub-font: "Roboto", sans-serif;
+  --fz-h2: 6rem;
+  --fz-h3: 4rem;
+  --fz-h4: 2.3rem;
+  --fz-h5: 1.8rem;
+  --fz-h6: 1.4rem;
+  --fz-p: 1.4rem;
+  --fz-a: 1.4rem;
+  --fz-btn: 1.6rem;
+  /* colors */
+  --c-0: #fff;
+  --c-1: #626262;
+  --c-2: #1025df;
+  --c-3: #eaeaea;
+  --c-4: #898989;
+
+  /* IONIC */
+  --ion-font-family: var(--main-font), inherit;
+  --ion-color-primary: #626262;
+  --ion-color-primary-rgb: 98, 98, 98;
+  --ion-color-primary-contrast: #fff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #727272;
+  --ion-color-primary-tint: #828282;
+}
+
+// TEXT
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  -webkit-font-smoothing: antialiased;
+}
+h1 {
+  font-size: var(--fz-h1);
+}
+h2 {
+  font-size: var(--fz-h2);
+}
+h3 {
+  font-size: var(--fz-h3);
+  margin: 0.5rem 0;
+  white-space: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+h4 {
+  font-size: var(--fz-h4);
+}
+h5 {
+  font-size: var(--fz-h5);
+  margin: 0;
+}
+h6 {
+  font-size: var(--fz-h6);
+  margin: 0;
+}
+a {
+  font-size: var(--fz-a);
+  text-decoration: none;
+  color: var(--c-1);
+}
+
+.btn {
+  a {
+    text-decoration: none;
+    line-height: 4rem;
+    height: 100%;
+    display: flex;
+    flex-flow: wrap;
+    align-items: center;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    img {
+      margin-right: 0.8rem;
+    }
+  }
+}
+.btn-1 {
+  a {
+    background: var(--c-1);
+    color: var(--c-0);
+    font-family: var(--sub-font);
+    font-size: var(--fz-btn);
+    font-weight: 500;
+  }
+}
+.btn-2 {
+  a {
+    border: 1px solid var(--c-1);
+    font-family: var(--sub-font);
+    font-size: var(--fz-btn);
+    font-weight: 500;
+  }
+}
+
+// img
+.img-fit {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+// cnt GENERAL
+.bg-top {
+  background: var(--c-3);
+  padding-top: 1rem;
+  padding-bottom: 10rem;
+}
+header,
+footer {
+  padding: 1rem 2rem;
+}
+.mxw {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  max-width: 1400px;
+}
+
+
+/****** Dropdowns *********/
+.dropdown-content {
+  display: none;
+}
+.pcssc-invisible {
+  display: none !important;
+}
+.pcssc-dropdown .click-toggle {
+  display: none;
+}
+.pcssc-dropdown .focus-toggle {
+  display: inline-block;
+}
+.pcssc-dropdown .dropdown-toggle {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pcssc-dropdown .dropdown-toggle:focus {
+  pointer-events: none;
+  outline: none;
+}
+.pcssc-dropdown .dropdown-toggle:focus ~ .dropdown-content {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+.pcssc-dropdown .dropdown-content {
+  position: absolute;
+  z-index: 1;
+  visibility: hidden;
+  width: auto;
+}
+.pcssc-dropdown .dropdown-content .dropdown-menu-item {
+  list-style-type: none;
+  white-space: nowrap;
+}
+.pcssc-dropdown .dropdown-content .dropdown-menu-item .dropdown-action-item {
+  background: transparent;
+}
+
+ul.dropdown-content {
+  padding: 0;
+}

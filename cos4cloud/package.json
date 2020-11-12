@@ -1,0 +1,20 @@
+{
+  "name": "cos4cloud",
+  "version": "0.0.1",
+  "private": true,
+  "description": "New Swagger API Project",
+  "keywords": [],
+  "author": "",
+  "license": "",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.12.3",
+    "node-fetch": "^2.6.1",
+    "swagger-express-mw": "^0.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node app.js",
+    "test": "swagger project test"
+  }
+}

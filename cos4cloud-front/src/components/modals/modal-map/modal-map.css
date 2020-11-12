@@ -1,0 +1,11 @@
+:host {
+  display: block;
+}
+.map {
+  width: -webkit-fill-available;
+  height: -webkit-fill-available;
+}
+
+canvas {
+  filter: saturate(1.5);
+}

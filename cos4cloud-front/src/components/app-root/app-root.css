@@ -1,0 +1,109 @@
+nav {
+  background-color: var(--c-3);
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem 1rem;
+}
+nav .logo img {
+  width: 8rem;
+  height: auto;
+}
+nav ul {
+  list-style: none;
+  margin: 0;
+  display: flex;
+  flex-flow: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+nav ul li {
+  display: flex;
+}
+nav ul li.language {
+  position: relative;
+  margin-right: 0.5rem;
+  z-index: 23;
+}
+
+nav ul li.user {
+  margin-right: 1rem;
+}
+nav ul li.user a {
+  cursor: pointer;
+}
+nav ul li a {
+  text-decoration: none;
+  line-height: 5.5rem;
+  height: 100%;
+  display: flex;
+  flex-flow: wrap;
+  align-items: center;
+  font-family: var(--sub-font);
+  position: relative;
+  z-index: 8899;
+}
+nav ul li a img.icon-arrow {
+  height: auto;
+  width: 1.5rem;
+  margin-left: 0.8rem;
+}
+nav ul li a img.icon-user {
+  width: 4rem;
+  height: 4rem;
+  margin-left: 0.8rem;
+}
+nav ul li a img.icon-notifications {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+nav a:hover img {
+  transform: scale(0.95);
+}
+
+main {
+  height: calc(100vh - 75px);
+  overflow: auto;
+}
+
+.shadow-scroll {
+  background: linear-gradient(#eaeaea 20%, rgba(230,230,230, 0)), linear-gradient(rgba(230,230,230, 0), #eaeaea 50%) 0 100%, radial-gradient(farthest-side at 50% 0, rgb(34 34 34 / 34%), rgba(0,0,0,0)), radial-gradient(farthest-side at 50% 100%, rgb(34 34 34 / 31%), rgba(0,0,0,0)) 0 100%;
+  background-color: #eaeaea;
+  background-repeat: no-repeat;
+  background-attachment: local, local, scroll, scroll;
+  background-size: 100% 27px, 100% 27px, 100% 9px, 100% 9px;
+}
+
+.avatar.avatar-lg {
+  font-size: 1.2rem;
+  height: 3.8rem;
+  width: 3.8rem;
+}
+.mr-2 {
+  margin-right: .4rem!important;
+}
+.avatar {
+  background: var(--c-1);
+  border-radius: 50%;
+  color: rgba(255,255,255,.85);
+  display: inline-block;
+  font-size: .8rem;
+  font-weight: 300;
+  height: 1.6rem;
+  line-height: 1.25;
+  margin: 0;
+  position: relative;
+  vertical-align: middle;
+  width: 1.6rem;
+}
+.avatar[data-initial]:before {
+  color: currentColor;
+  content: attr(data-initial);
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 1;
+}

@@ -1,0 +1,39 @@
+:host {
+  display: block;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+h2 {
+  font-family: var(--main-font);
+  font-size: var(--fz-h2);
+}
+
+.modal-login-content, .modal-welcome-content {
+    background: var(--c-0);
+    width: 45rem;
+    height: 35rem;
+    margin: auto;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    position: relative;
+}
+.modal__content {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+    color: rgba(0, 0, 0, 0.8);
+}
+.close-btn {
+  margin: 5px;
+  right: 5px;
+  top: 5px;
+  position: absolute;
+}

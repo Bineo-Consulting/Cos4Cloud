@@ -1,0 +1,69 @@
+:host {
+  display: block;
+}
+ion-slides {
+  width: 100%;
+  max-width: 768px;
+  background-color: black;
+}
+.swiper-slide img {
+  width: -webkit-fill-available !important;
+}
+
+.contain {
+  max-width: 768px;
+  margin: 10px auto;
+  padding: 0 10px;
+}
+.cnt-text {
+  padding: 10px
+}
+.cnt-text .text-l p {
+  margin: 0.2rem 0;
+  font-family: var(--sub-font);
+  color: var(--c-4);
+}
+.cnt-text .text-l > p {
+  color: var(--c-1);
+  font-style: italic;
+}
+.cnt-text .text-l .interactions {
+  font-style: normal;
+  display: flex;
+  flex-flow: wrap;
+  margin-top: 1.5rem;
+  font-size: 1.4rem;
+}
+.cnt-text .text-l ion-icon {
+  padding-right: 2px;
+}
+.cnt-text .text-l .origin {
+  padding: 4px 0;
+}
+.cnt-text .text-l .origin .origin-name {
+  font-size: 1.4rem;
+  font-weight: 400;
+  vertical-align: top;
+}
+.cnt-text .text-l .interactions div {
+  display: flex;
+  flex-flow: wrap;
+  margin-right: 1rem;
+}
+.cnt-text .text-l .interactions div img {
+  margin-right: 0.3rem;
+}
+.cnt-text .text-r {
+  width: 40%;
+  height: 100%;
+  padding-top: 1rem;
+  display: flex;
+  flex-flow: column;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.cnt-text .text-r a {
+  font-size: var(--fz-p);
+  padding: 1rem;
+  line-height: 1.4rem;
+}
