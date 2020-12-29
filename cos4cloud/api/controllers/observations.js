@@ -21,6 +21,9 @@ function getObservations(req, res) {
     params[key] = req.swagger.params[key].value || null
   })
 
+
+  console.log(req.swagger.params)
+
   MappingService.get(params).then(aux => res.json(aux))
 }
 

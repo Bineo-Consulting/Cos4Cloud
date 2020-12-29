@@ -12,6 +12,8 @@ export namespace Components {
     }
     interface AppComments {
     }
+    interface AppDownload {
+    }
     interface AppFooter {
     }
     interface AppGrid {
@@ -75,6 +77,12 @@ declare global {
     var HTMLAppCommentsElement: {
         prototype: HTMLAppCommentsElement;
         new (): HTMLAppCommentsElement;
+    };
+    interface HTMLAppDownloadElement extends Components.AppDownload, HTMLStencilElement {
+    }
+    var HTMLAppDownloadElement: {
+        prototype: HTMLAppDownloadElement;
+        new (): HTMLAppDownloadElement;
     };
     interface HTMLAppFooterElement extends Components.AppFooter, HTMLStencilElement {
     }
@@ -169,6 +177,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "app-comment": HTMLAppCommentElement;
         "app-comments": HTMLAppCommentsElement;
+        "app-download": HTMLAppDownloadElement;
         "app-footer": HTMLAppFooterElement;
         "app-grid": HTMLAppGridElement;
         "app-multiselect": HTMLAppMultiselectElement;
@@ -191,6 +200,9 @@ declare namespace LocalJSX {
         "item"?: any;
     }
     interface AppComments {
+    }
+    interface AppDownload {
+        "onDownload"?: (event: CustomEvent<any>) => void;
     }
     interface AppFooter {
     }
@@ -248,6 +260,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "app-comment": AppComment;
         "app-comments": AppComments;
+        "app-download": AppDownload;
         "app-footer": AppFooter;
         "app-grid": AppGrid;
         "app-multiselect": AppMultiselect;
@@ -271,6 +284,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "app-comment": LocalJSX.AppComment & JSXBase.HTMLAttributes<HTMLAppCommentElement>;
             "app-comments": LocalJSX.AppComments & JSXBase.HTMLAttributes<HTMLAppCommentsElement>;
+            "app-download": LocalJSX.AppDownload & JSXBase.HTMLAttributes<HTMLAppDownloadElement>;
             "app-footer": LocalJSX.AppFooter & JSXBase.HTMLAttributes<HTMLAppFooterElement>;
             "app-grid": LocalJSX.AppGrid & JSXBase.HTMLAttributes<HTMLAppGridElement>;
             "app-multiselect": LocalJSX.AppMultiselect & JSXBase.HTMLAttributes<HTMLAppMultiselectElement>;

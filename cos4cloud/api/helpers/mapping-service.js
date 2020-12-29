@@ -8,6 +8,7 @@ const toQueryString = object => '?' + Object.keys(object)
 
 class MappingService {
   static get(params) {
+    console.log('MappingService', params)
     const queryParams = params ? toQueryString(params) : ''
     const promises = []
     const origin = params.origin
@@ -35,6 +36,7 @@ class MappingService {
     if (!origin || origin.includes('ispot')) {
       per_page = 31
     }
+    console.log(queryParams + '&per_page=' + per_page)
     return fetch('https://natusfera.gbif.es/observations.json' + queryParams + '&per_page=' + per_page)
     .then(res => res.json())
     .then(items => items.map(this.parseNatusfera))

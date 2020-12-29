@@ -41,6 +41,11 @@ paths:
           description: The name of the person to whom to say hello
           required: false
           type: string
+        - name: origin
+          in: query
+          description: portal name
+          required: false
+          type: string
         - name: iconic_taxa
           in: query
           description: The name of the person to whom to say hello

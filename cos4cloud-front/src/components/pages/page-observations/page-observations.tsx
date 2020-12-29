@@ -40,12 +40,16 @@ export class PageObservations {
     }
   }
 
-  search(params) {
+  search(params, reset = false) {
     this.page = 0
     const q = toQueryString(params)
     this.history.push('/observations' + q, {
       query: params
     })
+    if (reset) {
+      this.items = []
+    }
+    console.log('search', {...params})
     MappingService.get(params)
     .then((res) => {
       console.log(res)
@@ -97,13 +101,34 @@ export class PageObservations {
     }
   }
 
+  presentLoading() {
+    const loading: any = document.createElement('ion-loading');
+
+    loading.cssClass = 'my-custom-class';
+    loading.message = 'Wait...';
+    loading.duration = 10000;
+
+    document.body.appendChild(loading);
+    loading.present();
+    return loading
+  }
+
+  async download() {
+    const l = this.presentLoading()
+    try {
+      await MappingService.export()
+    } catch(_) {}
+    l.dismiss()
+  }
+
   render() {
     return (
       <Host>
         <app-search
           specie={this.history.location.query.taxon_name}
           place={this.history.location.query.place}
-          onSearch={(ev) => this.search(ev.detail)}></app-search>
+          onSearch={(ev) => this.search(ev.detail, true)}></app-search>
+        <app-download onClick={() => this.download()}/>
         <app-grid
           onLoad={() => this.loadMore()}
           show-spinner="true"

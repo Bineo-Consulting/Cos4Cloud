@@ -59,7 +59,17 @@ export class PageObservation {
     return modalElement.present();
   }
 
+  async presentToast(msg) {
+    const toast: any = document.createElement('ion-toast');
+    toast.message = msg;
+    toast.duration = 2000;
+
+    document.body.appendChild(toast);
+    return toast.present();
+  }
+
   async openModalLogin() {
+    this.presentToast('You need to be logged')
     const modalElement: any = document.createElement('ion-modal');
     modalElement.component = 'page-login';
 

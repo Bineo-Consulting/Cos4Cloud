@@ -1,9 +1,10 @@
 import { Config } from '@stencil/core';
 import replace from '@rollup/plugin-replace';
 
+const cloudHost = 'https://europe-west2-cos4cloud-2d9d3.cloudfunctions.net'
 const dev: boolean = process.argv && process.argv.indexOf('--dev') > -1;
 const apiEnv: string = dev ? 'dev' : 'prod';
-const HOST = process.env.HOST || 'http://localhost:10010'
+const HOST = process.env.HOST || (dev ? 'http://localhost:10010' : cloudHost)
 
 export const config: Config = {
   globalStyle: 'src/global/app.css',

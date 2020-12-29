@@ -85,12 +85,12 @@ export class AppSearch {
       setTimeout(() => {
         const el = ev.path[0]
         this[key][el.value] = el.checked ? 'true' : 'false'
-      }, 100)
+      }, 200)
     } else {
       setTimeout(() => {
         const el = ev.path[0]
         this[el.value] = el.checked ? 'true' : 'false'
-      }, 100)
+      }, 200)
     }
   }
 
@@ -133,28 +133,28 @@ export class AppSearch {
                 <ion-item>
                   <ion-checkbox slot="start" value="Plantae"
                     checked={this.iconic_taxa.Plantae}
-                    onIonFocus={(ev) => this.onChecked(ev, 'iconic_taxa')}></ion-checkbox>
+                    onIonChange={(ev) => this.onChecked(ev, 'iconic_taxa')}></ion-checkbox>
                   <ion-label>🌿 Plantae</ion-label>
                 </ion-item>
 
                 <ion-item>
                   <ion-checkbox slot="start" value="Animalia"
                     checked={this.iconic_taxa.Animalia}
-                    onIonFocus={(ev) => this.onChecked(ev, 'iconic_taxa')}></ion-checkbox>
+                    onIonChange={(ev) => this.onChecked(ev, 'iconic_taxa')}></ion-checkbox>
                   <ion-label>🐱 Animalia</ion-label>
                 </ion-item>
 
                 <ion-item>
                   <ion-checkbox slot="start" value="Fungi"
                     checked={this.iconic_taxa.Fungi}
-                    onIonFocus={(ev) => this.onChecked(ev, 'iconic_taxa')}></ion-checkbox>
+                    onIonChange={(ev) => this.onChecked(ev, 'iconic_taxa')}></ion-checkbox>
                   <ion-label>🍄 Fungi</ion-label>
                 </ion-item>
 
                 <ion-item>
                   <ion-checkbox slot="start" value="Reptilia"
                     checked={this.iconic_taxa.Reptilia}
-                    onIonFocus={(ev) => this.onChecked(ev, 'iconic_taxa')}></ion-checkbox>
+                    onIonChange={(ev) => this.onChecked(ev, 'iconic_taxa')}></ion-checkbox>
                   <ion-label>🦎 Reptilia</ion-label>
                 </ion-item>
               </ion-list>
@@ -164,14 +164,14 @@ export class AppSearch {
                 <ion-item>
                   <ion-checkbox slot="start" value="natusfera"
                     checked={this.origin.natusfera}
-                    onIonFocus={(ev) => this.onChecked(ev, 'origin')}></ion-checkbox>
+                    onIonChange={(ev) => this.onChecked(ev, 'origin')}></ion-checkbox>
                   <ion-label>Natusfera</ion-label>
                 </ion-item>
 
                 <ion-item>
                   <ion-checkbox slot="start" value="ispot"
                     checked={this.origin.ispot}
-                    onIonFocus={(ev) => this.onChecked(ev, 'origin')}></ion-checkbox>
+                    onIonChange={(ev) => this.onChecked(ev, 'origin')}></ion-checkbox>
                   <ion-label>iSpot</ion-label>
                 </ion-item>
 
@@ -186,28 +186,28 @@ export class AppSearch {
                 <ion-item>
                   <ion-checkbox slot="start" value="research"
                     checked={this.quality_grade.research}
-                    onIonFocus={(ev) => this.onChecked(ev, 'quality_grade')}></ion-checkbox>
+                    onIonChange={(ev) => this.onChecked(ev, 'quality_grade')}></ion-checkbox>
                   <ion-label>Research</ion-label>
                 </ion-item>
 
                 <ion-item>
                   <ion-checkbox slot="start" value="casual"
                     checked={this.quality_grade.casual}
-                    onIonFocus={(ev) => this.onChecked(ev, 'quality_grade')}></ion-checkbox>
+                    onIonChange={(ev) => this.onChecked(ev, 'quality_grade')}></ion-checkbox>
                   <ion-label>Casual</ion-label>
                 </ion-item>
 
                 <ion-item>
                   <ion-checkbox slot="start" value="geo"
                     checked={this.has.geo}
-                    onIonFocus={(ev) => this.onChecked(ev, 'has')}></ion-checkbox>
+                    onIonChange={(ev) => this.onChecked(ev, 'has')}></ion-checkbox>
                   <ion-label>With geo</ion-label>
                 </ion-item>
 
                 <ion-item>
                   <ion-checkbox slot="start" value="photos"
                     checked={this.has.photos}
-                    onIonFocus={(ev) => this.onChecked(ev, 'has')}></ion-checkbox>
+                    onIonChange={(ev) => this.onChecked(ev, 'has')}></ion-checkbox>
                   <ion-label>With photos</ion-label>
                 </ion-item>
 

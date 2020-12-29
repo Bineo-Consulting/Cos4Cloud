@@ -1,10 +1,12 @@
 import { toQueryString } from '../utils/to-query-string';
 import { timeAgo } from '../utils/time-ago';
 import resources from '../resources'
+import { downloadFile } from '../utils/download-file'
 
 // const url = 'https://natusfera.gbif.es/observations.json'
 // const url = 'http://81.169.128.191:10010/observations'
-const host = resources.host || 'https://europe-west2-cos4cloud-2d9d3.cloudfunctions.net'
+const cloudHost = 'https://europe-west2-cos4cloud-2d9d3.cloudfunctions.net'
+const host = resources.host || cloudHost
 const url = `${host}/observations`
 const urliSpot = `${host}/images`
 
@@ -65,4 +67,11 @@ export class MappingService {
     const q = Object.keys(params).map(k => `${k}=${params[k]}`).join('&')
     return fetch(`https://natusfera.gbif.es/observations/add_identification?${q}`)
   }
+
+  static async export() {
+    const href = `${cloudHost}/export` + location.search
+    const data = await fetch(href).then(res => res.text())
+    downloadFile(data, `c4c_download_${Date.now()}.csv`)
+    return null
+  } 
 }
