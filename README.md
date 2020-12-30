@@ -35,8 +35,7 @@ Once you have installed this sotfware on your machine the only thing that you ha
 
 and that's all 🙌
 
-Now you can open your favourite browser and type: http://.....
+Now you can open your favourite browser and type: http://localhost:3333
 
-
-## API - Documentation
+and Enjoy!!
 
