@@ -4,10 +4,10 @@ const FormData = require('form-data');
 
 const dJSON = JSON;
 
-const toQueryString = object => '?' + encodeURIComponent(Object.keys(object)
-  .map(key => object[key] && `${key}=${object[key].toString()}`)
+const toQueryString = object => '?' + Object.keys(object)
+  .map(key => object[key] && `${key}=${encodeURIComponent(object[key].toString())}`)
   .filter(Boolean)
-  .join('&'));
+  .join('&');
 
 class MappingService {
   static get(params) {
@@ -109,6 +109,7 @@ exports.observations = functions.region('europe-west2').https.onRequest((req, re
   } 
 
   const params = req.query;
+  console.log(params)
   // Object.keys(req.query).map(key => {
   //   params[key] = req.query[key].value || null
   // })
