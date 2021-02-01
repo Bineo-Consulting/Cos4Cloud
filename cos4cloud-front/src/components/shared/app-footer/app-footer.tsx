@@ -1,4 +1,5 @@
 import { Component, Host, h } from '@stencil/core';
+import { fetchTranslations } from '../../../utils/translation'
 
 @Component({
   tag: 'app-footer',
@@ -6,6 +7,12 @@ import { Component, Host, h } from '@stencil/core';
   shadow: true,
 })
 export class AppFooter {
+
+  i18n: any = {}
+
+  async componentWillLoad() {
+    this.i18n = await fetchTranslations()
+  }
 
   render() {
     return (
@@ -20,16 +27,16 @@ export class AppFooter {
           <div class="cnt-footer">
             <div class="nav-footer">
               <div class="tabs">
-                <a href="/about.html">About</a>
-                <a href="/help.html">Help</a>
-                <a href="/privacy.html">Privacy Policy</a>
-                <a href="/terms.html">Terms of Service</a>
-                <a href="/contact.html">Contact</a>
+                <a href="/about.html" innerHTML={this.i18n.footer.about}></a>
+                <a href="/help.html" innerHTML={this.i18n.footer.help}></a>
+                <a href="/privacy.html" innerHTML={this.i18n.footer.privacy}></a>
+                <a href="/terms.html" innerHTML={this.i18n.footer.terms}></a>
+                <a href="/contact.html" innerHTML={this.i18n.footer.contact}></a>
               </div>
             </div>
 
             <div class="rrss">
-              <p>Follow us:</p>
+              <p innerHTML={this.i18n.footer.follow_us}></p>
               <div class="icons-rrss">
                 <a href="https://www.linkedin.com/company/cos4cloud-project/" target="_blank"><img loading="lazy" src="./assets/svg/in-logo.svg" alt="Linkedin logo"/></a>
                 <a href="https://twitter.com/Cos4Cloud" target="_blank"><img loading="lazy" src="./assets/svg/tw-logo.svg" alt="Twitter logo"/></a>

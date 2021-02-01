@@ -1,12 +1,14 @@
-const version = '1.0'
+import resources from '../resources'
+import dJSON from 'dirty-json'
+
 function getLocale() {
   return localStorage.lang || 'es'
 }
 
 async function fetchTranslations() {
   const locale = getLocale();
-  const existingTranslations = JSON.parse(sessionStorage.getItem(`i18n.${locale}`));
-  if (existingTranslations && existingTranslations.version === version) {
+  const existingTranslations = dJSON.parse(sessionStorage.getItem(`i18n.${locale}`));
+  if (!resources.fetch_i18n && existingTranslations && existingTranslations.version === resources.version) {
     return existingTranslations;
   } else {
     try {

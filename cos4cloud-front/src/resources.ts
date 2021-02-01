@@ -3,10 +3,14 @@ export let host: string = '__HOST__';
 
 const resources = {
   dev: {
-    host
+    host,
+    fetch_i18n: false,
+    version: '1.0'
   },
   prod: {
-    host
+    host,
+    fetch_i18n: true,
+    version: '1.0'
   }
 };
 
