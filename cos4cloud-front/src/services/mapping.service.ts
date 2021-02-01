@@ -34,7 +34,10 @@ export class MappingService {
   }
 
   static parse(item) {
-    item.$$photos = (item.photos || item.observation_photos || []).map(item => ({medium_url: (item.photo ? item.photo.medium_url : item.medium_url).replace('http:', 'https:')}))
+    item.$$photos = (item.photos || item.observation_photos || []).map(item => ({
+      medium_url: (item.photo ? item.photo.medium_url : item.medium_url).replace('http:', 'https:'),
+      large_url: (item.photo ? item.photo.large_url : item.large_url).replace('http:', 'https:')
+    }))
     item.medium_url = item.$$photos.slice(0, 1).map(photo => {
       return photo.medium_url
     })[0]

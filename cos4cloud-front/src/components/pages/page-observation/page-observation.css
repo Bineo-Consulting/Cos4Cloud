@@ -6,6 +6,9 @@ ion-slides {
   max-width: 768px;
   background-color: black;
 }
+ion-slide {
+  max-height: calc(100vh - 60px);
+}
 .swiper-slide img {
   width: -webkit-fill-available !important;
 }

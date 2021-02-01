@@ -25,6 +25,7 @@ export class AppRoot {
       },
       event: ev
     });
+    popover.id = 'popover-languages'
     document.body.appendChild(popover);
     popover.present();
     popover.onDidDismiss().then((res) => {
@@ -91,10 +92,8 @@ export class AppRoot {
 
           <ul class="desktop-menu">
             <li class="language pcssc-dropdown" onClick={(ev) => this.openLanguages(ev)}>
-              <a tabindex="0" class="dropdown-toggle focus-toggle pure-button">Language
-                <img class="icon-arrow" src="/assets/svg/arrow.svg" alt="arrow"/>
-              </a>
-              <label htmlFor="menu-toggle" class="pure-button click-toggle" aria-label="Toggle">Dropdown Buton</label>
+              <ion-icon name="globe-outline"></ion-icon>
+              <img class="icon-arrow" src="/assets/svg/arrow.svg" alt="arrow"/>
             </li>
             <li class="user">
               <a>

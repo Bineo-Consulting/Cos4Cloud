@@ -3,6 +3,7 @@ import { Component, Host, Prop, State, h } from '@stencil/core';
 import { MappingService } from '../../../services/mapping.service'
 import { RouterHistory } from '@stencil/router';
 import { toQueryString } from '../../../utils/to-query-string';
+import { fetchTranslations } from '../../../utils/translation'
 
 @Component({
   tag: 'page-home',
@@ -14,8 +15,14 @@ export class PageHome {
   @State() items: any[] = []
   @Prop() history: RouterHistory;
   @State() images: any = {}
+  i18n: any = {
+    home_title: 'All the biodiversity<br/>observations in one place',
+    last_obersations: 'Last observations i18n'
+  }
 
-  componentWillLoad() {
+  async componentWillLoad() {
+    this.i18n = await fetchTranslations()
+
     if (!(this.items && this.items.length)) {
       MappingService.get({quality_grade: 'casual', limit: 60})
       .then((res) => {
@@ -72,11 +79,11 @@ export class PageHome {
       <Host>
         <header class="cnt-1">
           <div class="cnt-1-i">
-            <h1 class="title">All the biodiversity<br/>observations in one place</h1>
+            <h1 class="title" innerHTML={this.i18n.home_title}></h1>
             <app-search onSearch={(ev) => this.search(ev.detail)}></app-search>
           </div>
         </header>
-        <h3>Last observations</h3>
+        <h3 innerHTML={this.i18n.last_obersations}></h3>
         <app-grid items={this.items} images={this.images}></app-grid>
         <app-footer></app-footer>
       </Host>

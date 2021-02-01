@@ -102,7 +102,7 @@ export class PageObservation {
       <Host>
         <ion-slides pager={true} options={this.slideOpts}>
           {this.item.$$photos.map(photo => <ion-slide>
-            <img src={photo.medium_url}/>
+            <img src={photo.large_url}/>
           </ion-slide>)}
         </ion-slides>
 
