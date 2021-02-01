@@ -1,0 +1,40 @@
+https://cos4cloud.demo.secure-dimensions.de/test/v1.0/Observations?$expand=Datastream/ObservedProperty&$filter=Datastream/ObservedProperty/name%20eq%20%27Taxon%27
+
+https://cos4cloud.demo.secure-dimensions.de/test/v1.0/Observations?$expand=Datastream/ObservedProperty&$filter=Datastream/ObservedProperty/name%20eq%20%27Picture%27
+
+
+
+PARAMETER VALUE
+client_id b364a732-440a-0bf9-8a2c-803c5c012e63
+client_secret 5cb3a8d43f529921e78eb31450320d931579ea4367f759eaec9b5f42793dc41d
+grant_type  authorization_code refresh_token
+scopes  openid profile offline_access saml offline_access
+redirect_uri  https://natusfera.gbif.es/oauth/bounce_back
+
+
+curl -X POST "https://www.authenix.eu/oauth/token" -H "accept: application/json" -H "Content-Type: application/x-www-form-urlencoded" -d "client_id=b364a732-440a-0bf9-8a2c-803c5c012e63&grant_type=authorization_code&scopes=openid&code_verifier=true&code=?"
+
+1- No entendemos el error siguiente:
+
+
+curl -X POST "https://www.authenix.eu/oauth/token" -H "accept: application/json" -H "Content-Type: application/x-www-form-urlencoded" -d "client_id=b364a732-440a-0bf9-8a2c-803c5c012e63&grant_type=authorization_code&scopes=openid&code_verifier=true&code=19612d16248e78992758b2e2cbc314c02fd80b93"
+
+
+{"error":"invalid_grant","error_description":"Authorization code doesn't exist or is invalid for the client"}
+
+
+2- Cómo tenemos que implementar el redirect_uri en el back de natusfera
+https://natusfera.gbif.es/oauth/bounce_back
+
+
+####################################################################################
+####################################################################################
+
+
+PARAMETER VALUE
+client_id e51ef41e-79ae-6944-ed71-1d2c15220a9f
+client_secret this application type has no client_secret
+grant_type  implicit
+scopes  
+redirect_uri  https://cos4cloud-2d9d3.web.app http://localhost:3333
+

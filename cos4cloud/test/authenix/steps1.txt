@@ -1,0 +1,187 @@
+1. click login
+2.1 Inject html authentix in modal? (without redirect?)
+2.2 Redirect to url with callback
+3. get access_token...
+
+# later
+4. send access_token to natusfera
+5. verify access_token in natusfera back
+
+
+https://www.authenix.eu/oauth/authorize?response_type=token&client_id=e51ef41e-79ae-6944-ed71-1d2c15220a9f&redirect_uri=https%3A%2F%2Fcos4cloud-2d9d3.web.app&state=xyz&nonce=123
+
+# logout
+https://www.authenix.eu/oauth/logout?token=1d81bb0b4f2b27db6ec9f3290ea9625b4e00cb00&return=https%3A%2F%2Fcos4cloud-2d9d3.web.app
+
+
+PARAMETER VALUE
+client_id b364a732-440a-0bf9-8a2c-803c5c012e63
+client_secret 5cb3a8d43f529921e78eb31450320d931579ea4367f759eaec9b5f42793dc41d
+grant_type  authorization_code refresh_token
+scopes  openid profile offline_access saml offline_access
+redirect_uri  https://natusfera.gbif.es/oauth/bounce_back
+
+
+curl -X POST "https://www.authenix.eu/oauth/token" -H "accept: application/json" -H "Content-Type: application/x-www-form-urlencoded" -d "client_id=b364a732-440a-0bf9-8a2c-803c5c012e63&grant_type=authorization_code&scopes=openid&code_verifier=true&code=?"
+
+1- No entendemos el error siguiente:
+
+curl -X POST "https://www.authenix.eu/oauth/token" -H "accept: application/json" -H "Content-Type: application/x-www-form-urlencoded" -d "client_id=b364a732-440a-0bf9-8a2c-803c5c012e63&grant_type=authorization_code&scopes=openid&code_verifier=true&code=19612d16248e78992758b2e2cbc314c02fd80b93"
+
+
+{"error":"invalid_grant","error_description":"Authorization code doesn't exist or is invalid for the client"}
+
+
+2- Cómo tenemos que implementar el redirect_uri en el back de natusfera
+https://natusfera.gbif.es/oauth/bounce_back
+
+
+####################################################################################
+####################################################################################
+
+
+PARAMETER VALUE
+client_id e51ef41e-79ae-6944-ed71-1d2c15220a9f
+client_secret this application type has no client_secret
+grant_type  implicit
+scopes  
+redirect_uri  https://cos4cloud-2d9d3.web.app http://localhost:3333
+
+
+
+
+
+
+
+
+
+PARAMETER VALUE
+client_id df4b4fd7-f57c-5c1c-10ce-84dfdbb495a3
+client_secret 0bd623bdcc5467595c70466c2d755b5821bd14d6b7aa9d8ea6fb0bff716ed0e7
+grant_type  client_credentials
+scopes  openid
+redirect_uri  https://cos4cloud-2d9d3.web.app http://localhost:3333
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+https://cos4cloud.demo.secure-dimensions.de/test/v1.0/Observations?$expand=Datastream/ObservedProperty&$filter=Datastream/ObservedProperty/name%20eq%20%27Taxon%27
+
+https://cos4cloud.demo.secure-dimensions.de/test/v1.0/Observations?$expand=Datastream/ObservedProperty&$filter=Datastream/ObservedProperty/name%20eq%20%27Picture%27
+
+
+
+
+# refresh token
+# send Identification/comment with authToken
+OK
+
+curl -X POST "https://www.authenix.eu/oauth/tokeninfo" -u df4b4fd7-f57c-5c1c-10ce-84dfdbb495a3:0bd623bdcc5467595c70466c2d755b5821bd14d6b7aa9d8ea6fb0bff716ed0e7 -H "accept: application/json" -H "Content-Type: application/x-www-form-urlencoded" -d "token=e46dbd04d8fb6dbda8e060cb8ab6252c726ac0d5&token_type_hint=access_token"
+
+
+def post_form(path, form_params)
+  encoded_form = URI.encode_www_form(form_params)
+  headers = { content_type: "application/x-www-form-urlencoded" }
+  http_client.request_post(path, encoded_form, headers)
+end
+
+def http_client
+  http_client = Net::HTTP.new(@host, @port)
+  http_client
+end
+
+params =  {
+  :token   => "e46dbd04d8fb6dbda8e060cb8ab6252c726ac0d5",
+  :token_type_hint => "access_token",
+  :client_id   => "df4b4fd7-f57c-5c1c-10ce-84dfdbb495a3",
+  :client_secret => "0bd623bdcc5467595c70466c2d755b5821bd14d6b7aa9d8ea6fb0bff716ed0e7"
+}
+
+uri = URI('https://www.authenix.eu/oauth/tokeninfo')
+response = Net::HTTP::Post.new('https://www.authenix.eu/oauth/tokeninfo').set_form_data(params)
+
+path = 'https://www.authenix.eu/oauth/tokeninfo'
+
+
+def getUser(token)
+  # token = "f8cf54de29268054c858accee17e13194e1b8bfa"
+  urlInfo = "https://www.authenix.eu/oauth/tokeninfo"
+  clientId = "df4b4fd7-f57c-5c1c-10ce-84dfdbb495a3"
+  clientSecret = "0bd623bdcc5467595c70466c2d755b5821bd14d6b7aa9d8ea6fb0bff716ed0e7"
+  data = "token=#{token}&token_type_hint=access_token"
+  res = `curl -X POST #{urlInfo} -u #{clientId}: -H "accept: application/json" -H "Content-Type: application/x-www-form-urlencoded" -d "#{data}"`
+
+  aux = JSON.parse(res)
+  if (aux['active']) 
+    return aux['username']
+  else
+    return nil
+  end
+end
+
+
+
+
+
+
+
+
+
+curl -X POST "https://www.authenix.eu/oauth/token" -H "accept: application/json" -H "Authorization: Basic ZGY0YjRmZDctZjU3Yy01YzFjLTEwY2UtODRkZmRiYjQ5NWEzOjBiZDYyM2JkY2M1NDY3NTk1YzcwNDY2YzJkNzU1YjU4MjFiZDE0ZDZiN2FhOWQ4ZWE2ZmIwYmZmNzE2ZWQwZTc=" -H "Content-Type: application/x-www-form-urlencoded"
+
+
+
+
+curl -X POST "https://www.authenix.eu/oauth/tokeninfo" -u df4b4fd7-f57c-5c1c-10ce-84dfdbb495a3:0bd623bdcc5467595c70466c2d755b5821bd14d6b7aa9d8ea6fb0bff716ed0e7 -H "accept: application/json" -H "Content-Type: application/x-www-form-urlencoded" -d "token=e6718fa948ffefd51e2944b6d5d98fcc8f10a09e&token_type_hint=access_token"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Application Registration Result
+Your application is successfully registered with the Authorization Server.
+Your application must use the following OAuth2 parameters to request access tokens and id tokens.
+
+PARAMETER VALUE
+client_id c1d079f6-e0be-4c25-df4a-a881bb41afa1
+client_secret fc18afdb5c493b6e5be63623dfd814bcdd8dd635abe175a12fe330e3d4dc9386
+grant_type  
+scopes  openid profile email saml
+redirect_uri  https://cos4cloud-2d9d3.web.app http://localhost:3333
+
+
+curl -X POST "https://www.authenix.eu/oauth/tokeninfo" -u c1d079f6-e0be-4c25-df4a-a881bb41afa1:fc18afdb5c493b6e5be63623dfd814bcdd8dd635abe175a12fe330e3d4dc9386 -H "accept: application/json" -H "Content-Type: application/x-www-form-urlencoded" -d "token=e6718fa948ffefd51e2944b6d5d98fcc8f10a09e&token_type_hint=access_token"
+
+
+
+
+
+# Refresh token
+
+
+curl -X POST "https://www.authenix.eu/oauth/token" -H "accept: application/json" -H "Authorization: Basic ZGY0YjRmZDctZjU3Yy01YzFjLTEwY2UtODRkZmRiYjQ5NWEzOjBiZDYyM2JkY2M1NDY3NTk1YzcwNDY2YzJkNzU1YjU4MjFiZDE0ZDZiN2FhOWQ4ZWE2ZmIwYmZmNzE2ZWQwZTc=" -H "Content-Type: application/x-www-form-urlencoded" -d "grant_type=refresh_token&refresh_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IkFTUHVibGljS2V5In0.eyJpc3MiOiJodHRwczpcL1wvd3d3LmF1dGhlbml4LmV1Iiwic3ViIjoiZmM3OWMxMjQtZTZmNS0zN2Y4LWE3MTItZWRkYjYyNGYyZWZlIiwiYXVkIjoiZTUxZWY0MWUtNzlhZS02OTQ0LWVkNzEtMWQyYzE1MjIwYTlmIiwiaWF0IjoxNjA0MDE3NzI1LCJleHAiOjE2MDQwMjEzMjUsIm5vbmNlIjoiMTIzIiwiYXRfaGFzaCI6IndpbzExaHpVc0E0OUNHRkNiTDFaQkEifQ.WEOw1ax_x1PXiobRBcCirolYI31tzwDEz5uj38kjBVVz1DdjgKeX_cAsxKgJhpBF1Ynk4Wm6IrRjuIxXvMyG7bQdjpR-Xa4zLnVB5_pzeyrje-IgKSzUnLyDhiFhPb8qK7eYOG8LHb7Y_FeNVQH5cQ3czP0hmlBqET7VF6nJhhKFdk72aFMN3vrjL9bsAxCa4trgMvwNlbllPo8NjCBeDwmzJeG_tVDw9Mciexx0OcHSy_zuby8wQbE-ZFisl1gKT5AL5JckySsXHnro058LuBfdf0i9xMXgFN_nd1OmwQ7gpVVrqrY5U9raTaasb-9vFfcozDOTdEWWdt7r96FOvA"
+

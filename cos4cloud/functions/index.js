@@ -1,7 +1,5 @@
 const functions = require('firebase-functions')
 const fetch = require('node-fetch')
-const FormData = require('form-data');
-
 const dJSON = JSON;
 
 const toQueryString = object => '?' + Object.keys(object)
@@ -211,6 +209,7 @@ exports.userInfo = functions
     res.set('Access-Control-Max-Age', '360000');
     return res.status(204).send('');
   }
+  const FormData = require('form-data');
   const clientId = 'c1d079f6-e0be-4c25-df4a-a881bb41afa1'
   const clientSecret = 'fc18afdb5c493b6e5be63623dfd814bcdd8dd635abe175a12fe330e3d4dc9386'
   

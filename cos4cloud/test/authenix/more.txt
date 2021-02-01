@@ -1,0 +1,26 @@
+curl -X GET "https://www.authenix.eu/oauth/authorize?response_type=token&client_id=a771a192-3bd40-3603-831a2-425df818a463&redirect_uri=https%3A%2F%2Fredirect.me%2Fcallback%2F&scope=openid&state=xyz&nonce=123" -H "accept: text/html"
+
+
+https://www.authenix.eu/oauth/authorize?response_type=token&client_id=a771a192-3bd40-3603-831a2-425df818a463&redirect_uri=https%3A%2F%2Fredirect.me%2Fcallback%2F&scope=openid&state=xyz&nonce=123
+
+
+curl -X POST "https://www.authenix.eu/oauth/token" -H "accept: application/json" -H "Content-Type: application/x-www-form-urlencoded"
+
+
+
+PARAMETERVALUE
+client_id 24cfef06-4b8a-e886-98e6-a3c1fa76e642
+client_secret 94f7a18c478f13cbc30bddc44ca1aef58eafae9f9113e4c5daf198591ef3948c
+grant_type  client_credentials
+scopes  openid
+redirect_uri
+
+
+PARAMETERVALUE
+client_id b364a732-440a-0bf9-8a2c-803c5c012e63
+client_secret 5cb3a8d43f529921e78eb31450320d931579ea4367f759eaec9b5f42793dc41d
+grant_type  authorization_code refresh_token
+scopes  openid profile offline_access saml offline_access
+redirect_uri  https://natusfera.gbif.es/oauth/bounce_back
+
+https://natusfera.gbif.es/oauth/bounce_back
