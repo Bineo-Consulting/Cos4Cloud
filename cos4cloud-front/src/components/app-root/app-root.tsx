@@ -14,9 +14,11 @@ export class AppRoot {
       component: 'popup-list',
       componentProps: {
         items: [{
-          text: 'English'
+          text: 'English',
+          value: 'en'
         }, {
-          text: 'Spanish'
+          text: 'Spanish',
+          value: 'es'
         }, {
           text: 'French'
         }, {
@@ -30,6 +32,10 @@ export class AppRoot {
     popover.present();
     popover.onDidDismiss().then((res) => {
       console.log('dismiss', res.data)
+      if (res.data && res.data.value) {
+        localStorage.lang = res.data.value
+        location.reload()
+      }
     })
     return null
   }

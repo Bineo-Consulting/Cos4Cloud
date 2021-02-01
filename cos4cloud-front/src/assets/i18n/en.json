@@ -3,12 +3,11 @@
   "observations": "observations",
   "last_obersations": "Last observations",
   "footer": {
-    about: "About",
+    "about": "About",
     "help": "Help",
     "privacy": "Privacy Policy",
     "term": "Terms of Service",
     "contact": "Contact",
     "follow_us": "Follow us:"
-  },
-  "version": "1.0"
+  }
 }

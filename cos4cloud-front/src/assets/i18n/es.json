@@ -1,5 +1,5 @@
 {
-  "home_title": "Toda la biodiversidad<br/>de observaciones en un lugar",
+  "home_title": "Toda la biodiversidad<br/>en un solo lugar",
   "observations": "observaciones",
   "last_obersations": "Observaciones recientes",
   "footer": {
@@ -9,6 +9,5 @@
     "term": "Términos y condiciones",
     "contact": "Contacto",
     "follow_us": "Síguenos:"
-  },
-  "version": "1.0"
+  }
 }
