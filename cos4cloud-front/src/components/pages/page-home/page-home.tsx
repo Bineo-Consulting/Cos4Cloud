@@ -8,20 +8,17 @@ import { fetchTranslations } from '../../../utils/translation'
 @Component({
   tag: 'page-home',
   styleUrl: 'page-home.css',
-  shadow: true,
+  shadow: true
 })
 export class PageHome {
 
   @State() items: any[] = []
   @Prop() history: RouterHistory;
   @State() images: any = {}
-  i18n: any = {
-    home_title: 'All the biodiversity<br/>observations in one place',
-    last_obersations: 'Last observations i18n'
-  }
+  i18n: any = {}
 
   async componentWillLoad() {
-    this.i18n = await fetchTranslations()
+    this.i18n = await fetchTranslations(this.i18n)
 
     if (!(this.items && this.items.length)) {
       MappingService.get({quality_grade: 'casual', limit: 60})

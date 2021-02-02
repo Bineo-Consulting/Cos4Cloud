@@ -1,4 +1,5 @@
 import { Component, Host, Prop, h } from '@stencil/core';
+import { fetchTranslations } from '../../../utils/translation'
 
 @Component({
   tag: 'app-comment',
@@ -8,6 +9,16 @@ import { Component, Host, Prop, h } from '@stencil/core';
 export class AppComment {
 
   @Prop() item: any;
+  i18n: any = {
+    comments: {
+      has_identified: 'has identified this observation',
+      someone: 'Someone'
+    }
+  }
+
+  async componentWillLoad() {
+    this.i18n = await fetchTranslations(this.i18n)
+  }
 
   render() {
     return (
@@ -19,7 +30,7 @@ export class AppComment {
                 <img class="img-fit" loading="lazy" src="/assets/svg/img.jpg" alt="avatar"/>
               </div>
               <div class="user-text">
-                <h6>{this.item.user.name || 'Someone'} has identified this observation</h6>
+                <h6>{this.item.user.name || this.i18n.comment.someone} {this.i18n.comments.has_identified}</h6>
               </div>
             </div>
             <div class="date">

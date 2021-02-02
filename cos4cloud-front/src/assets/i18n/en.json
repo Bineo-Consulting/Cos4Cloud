@@ -8,6 +8,7 @@
     comments: 'Comments',
     type_comment: 'Enter any notes here...',
     add_identification: 'Add identification',
+    has_identified: 'has identified this observation'
   },
   "footer": {
     "about": "About",
