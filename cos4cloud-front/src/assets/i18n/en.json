@@ -2,12 +2,19 @@
   "home_title": "All the biodiversity<br/>observations in one place",
   "observations": "observations",
   "last_obersations": "Last observations",
+  need_login: 'You need to be logged',
+  search_species: 'Search species',
+  comments: {
+    comments: 'Comments',
+    type_comment: 'Enter any notes here...',
+    add_identification: 'Add identification',
+  },
   "footer": {
     "about": "About",
     "help": "Help",
     "privacy": "Privacy Policy",
     "term": "Terms of Service",
     "contact": "Contact",
-    "follow_us": "Follow us:"
+    "follow_us": "Follow us:",
   }
 }

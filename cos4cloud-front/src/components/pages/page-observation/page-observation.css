@@ -42,6 +42,7 @@ ion-slide {
 }
 .cnt-text .text-l .origin {
   padding: 4px 0;
+  cursor: pointer;
 }
 .cnt-text .text-l .origin .origin-name {
   font-size: 1.4rem;

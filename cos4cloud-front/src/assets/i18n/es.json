@@ -2,6 +2,13 @@
   "home_title": "Toda la biodiversidad<br/>en un solo lugar",
   "observations": "observaciones",
   "last_obersations": "Observaciones recientes",
+  "need_login": 'Necesitas estar logueado',
+  "search_species": 'Buscar especies',
+  "comments": {
+    "comments": 'Comentarios',
+    "type_comment": 'Escribe tus comentarios...',
+    "add_identification": 'Añadir identificación',
+  },
   "footer": {
     "about": "Sobre nosotros",
     "help": "Ayuda",

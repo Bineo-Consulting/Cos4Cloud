@@ -7,7 +7,7 @@ import { Component, Host, Prop, h } from '@stencil/core';
 })
 export class AppComment {
 
-  @Prop() item: any
+  @Prop() item: any;
 
   render() {
     return (

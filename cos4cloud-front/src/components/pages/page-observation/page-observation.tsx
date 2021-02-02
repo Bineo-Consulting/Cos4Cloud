@@ -31,13 +31,16 @@ export class PageObservation {
   i18n: any = {
     need_login: 'You need to be logged',
     search_species: 'Search species',
-    add_identification: 'Add identifications',
-    comments: 'Comments',
-    type_comments: 'Enter any notes here...'
+    comments: {
+      comments: 'Comments',
+      type_comment: 'Enter any notes here...',
+      add_identification: 'Add identification',
+      add_comment_identification: 'Add comment/identification'
+    }
   }
 
   async componentWillLoad() {
-    Object.assign(this.i18n, await fetchTranslations())
+    this.i18n = await fetchTranslations(this.i18n)
     this.id = Number(this.match.params.id)
     MappingService.getById(this.id)
     .then((res) => {
@@ -137,12 +140,12 @@ export class PageObservation {
               </div>
             </div>
             <div class="origin">
-              <ion-icon size="small" name="globe-outline"></ion-icon>
+              <ion-icon size="small" name="earth-outline"></ion-icon>
               <span class="origin-name">Natusfera {this.item.id_please ? ' (Needs Help)' : ''}</span>
             </div>
 
             <div class="origin">
-              <ion-icon size="small" name="earth-outline"></ion-icon>
+              <ion-icon size="small" name="location-outline"></ion-icon>
               <span class="origin-name" onClick={() => this.openMap()}>Lat {this.item.latitude}, Lon {this.item.longitude}</span>
             </div>
           </div>
@@ -156,23 +159,23 @@ export class PageObservation {
             <app-comment item={identification}></app-comment>
           )}
 
-          <h3>Add comment/identification</h3>
+          <h3>{this.i18n.comments.add_comment_identification}</h3>
           <app-searchbar
             value={this.specie}
             placeholder={this.i18n.search_species}
             onChoose={(e) => this.onSpecie(e)} service={GbifService}></app-searchbar>
           <ion-item>
             {/*fixed" | "floating" | "stacked*/}
-            <ion-label position="floating">{this.i18n.comments}</ion-label>
+            <ion-label position="floating">{this.i18n.comments.comments}</ion-label>
             <ion-textarea
               onChange={(ev) => this.body = ev.detail}
               rows="6"
               cols="20"
-              placeholder={this.i18n.type_comments}></ion-textarea>
+              placeholder={this.i18n.comments.type_comment}></ion-textarea>
           </ion-item>
           <ion-item>
             <ion-button
-              onClick={() => this.addIdentification()}>{this.i18n.add_identification}</ion-button>
+              onClick={() => this.addIdentification()}>{this.i18n.comments.add_identification}</ion-button>
           </ion-item>
 
           <br/><br/>
