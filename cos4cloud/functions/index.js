@@ -133,7 +133,7 @@ exports.images = functions.region('europe-west2').https.onRequest((req, res) => 
   // })
 
   queryParams = params.ids.map(i => `ids%5B%5D=${i}`).join('&')
-  return fetch("https://api.ispotnature.org/ispotapi/image/bulk/medium?" + queryParams, {
+  return fetch("https://api.ispotnature.org/ispotapi/image/bulk/small?" + queryParams, {
     "headers": {
       "authority": "api.ispotnature.org",
       "accept": "application/json, text/plain, */*",
