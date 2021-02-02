@@ -2,6 +2,7 @@ import { Component, Host, Prop, State, h } from '@stencil/core';
 import { MatchResults, RouterHistory } from '@stencil/router';
 import { MappingService } from '../../../services/mapping.service';
 import { GbifService } from '../../../services/gbif.service';
+import { fetchTranslations } from '../../../utils/translation'
 
 @Component({
   tag: 'page-observation',
@@ -27,8 +28,16 @@ export class PageObservation {
   id: number | string;
   body: string | void;
   specie: string;
+  i18n: any = {
+    need_login: 'You need to be logged',
+    search_species: 'Search species',
+    add_identification: 'Add identifications',
+    comments: 'Comments',
+    type_comments: 'Enter any notes here...'
+  }
 
-  componentWillLoad() {
+  async componentWillLoad() {
+    Object.assign(this.i18n, await fetchTranslations())
     this.id = Number(this.match.params.id)
     MappingService.getById(this.id)
     .then((res) => {
@@ -69,7 +78,7 @@ export class PageObservation {
   }
 
   async openModalLogin() {
-    this.presentToast('You need to be logged')
+    this.presentToast(this.i18n.need_login)
     const modalElement: any = document.createElement('ion-modal');
     modalElement.component = 'page-login';
 
@@ -140,7 +149,6 @@ export class PageObservation {
         </div>
 
         <div class="contain">
-          <h3>Comments</h3>
           {this.item.$$comments.map(comment =>
             <app-comment item={comment}></app-comment>
           )}
@@ -151,20 +159,20 @@ export class PageObservation {
           <h3>Add comment/identification</h3>
           <app-searchbar
             value={this.specie}
-            placeholder="Search species"
+            placeholder={this.i18n.search_species}
             onChoose={(e) => this.onSpecie(e)} service={GbifService}></app-searchbar>
           <ion-item>
             {/*fixed" | "floating" | "stacked*/}
-            <ion-label position="floating">Comments</ion-label>
+            <ion-label position="floating">{this.i18n.comments}</ion-label>
             <ion-textarea
               onChange={(ev) => this.body = ev.detail}
               rows="6"
               cols="20"
-              placeholder="Enter any notes here..."></ion-textarea>
+              placeholder={this.i18n.type_comments}></ion-textarea>
           </ion-item>
           <ion-item>
             <ion-button
-              onClick={() => this.addIdentification()}>Add Identification</ion-button>
+              onClick={() => this.addIdentification()}>{this.i18n.add_identification}</ion-button>
           </ion-item>
 
           <br/><br/>

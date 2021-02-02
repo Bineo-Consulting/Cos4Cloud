@@ -15,14 +15,20 @@ export class AppRoot {
       componentProps: {
         items: [{
           text: 'English',
-          value: 'en'
+          value: 'en',
+          selected: localStorage.lang === 'en'
         }, {
-          text: 'Spanish',
-          value: 'es'
+          text: 'Español',
+          value: 'es',
+          selected: localStorage.lang === 'es'
         }, {
-          text: 'French'
+          text: 'Français',
+          value: 'fr',
+          selected: localStorage.lang === 'fr'
         }, {
-          text: 'German'
+          text: 'Deutsche',
+          value: 'de',
+          selected: localStorage.lang === 'de'
         }]
       },
       event: ev
@@ -31,10 +37,9 @@ export class AppRoot {
     document.body.appendChild(popover);
     popover.present();
     popover.onDidDismiss().then((res) => {
-      console.log('dismiss', res.data)
-      if (res.data && res.data.value) {
+      if (res.data && res.data.value && localStorage.lang !== res.data.value) {
         localStorage.lang = res.data.value
-        location.reload()
+        location.reload(false)
       }
     })
     return null
