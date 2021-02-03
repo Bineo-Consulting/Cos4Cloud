@@ -198,10 +198,10 @@ export class PageObservation {
               cols="20"
               placeholder={this.i18n.comments.type_comment}></ion-textarea>
           </ion-item>
-          <ion-item>
+          {this.item.origin === 'Natusfera' && <ion-item>
             <ion-button
               onClick={() => this.addIdentification()}>{this.i18n.comments.add_identification}</ion-button>
-          </ion-item>
+          </ion-item>}
 
           <br/><br/>
         </div>
