@@ -10,7 +10,7 @@ const resources = {
   prod: {
     host,
     cache_i18n: true,
-    version: '1.0'
+    version: Date.now()
   }
 };
 

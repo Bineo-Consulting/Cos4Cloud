@@ -21,7 +21,7 @@ export class PageHome {
     this.i18n = await fetchTranslations(this.i18n)
 
     if (!(this.items && this.items.length)) {
-      MappingService.get({quality_grade: 'casual', limit: 60})
+      MappingService.get({quality_grade: 'casual', limit: 60}, true)
       .then((res) => {
         this.items = res
         this.loadImages()
@@ -45,22 +45,20 @@ export class PageHome {
     }
   }
 
-
   loadImages() {
     const ii = this.items.filter(i => i.origin === 'iSpot' && !i.$$photos.length)
     const ispot = ii.map(i => i.ID).join(',')
-    console.log({ispot})
     MappingService.images(ispot)
     .then(res => {
       ii.map(i => {
         if (res[i.ID]) {
           const photo = 'https:' + res[i.ID].src.replace(/\\\//g, '/')
-          this.images = {
-            ...this.images,
-            [i.ID]: photo
-          }
+          this.images[i.ID] = photo
         }
       })
+      this.images = {...this.images}
+      MappingService.updateCacheImages(ii, this.images)
+      MappingService.updateCache()
     })
   }
 

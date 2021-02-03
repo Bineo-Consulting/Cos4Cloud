@@ -49,7 +49,7 @@ export class PageObservations {
     if (reset) {
       this.items = []
     }
-    console.log('search', {...params})
+
     MappingService.get(params)
     .then((res) => {
       console.log(res)
@@ -73,18 +73,16 @@ export class PageObservations {
   loadImages() {
     const ii = this.items.filter(i => i.origin === 'iSpot' && !i.$$photos.length)
     const ispot = ii.map(i => i.ID).join(',')
-    console.log({ispot})
     MappingService.images(ispot)
     .then(res => {
       ii.map(i => {
         if (res[i.ID]) {
           const photo = 'https:' + res[i.ID].src.replace(/\\\//g, '/')
-          this.images = {
-            ...this.images,
-            [i.ID]: photo
-          }
+          this.images[i.ID] = photo
         }
       })
+      this.images = {...this.images}
+      MappingService.updateCacheImages(ii, this.images)
     })
   }
 
@@ -93,7 +91,6 @@ export class PageObservations {
       const params = this.history.location.query
       const page = Math.ceil(this.items.length / this.perPage)
 
-      console.log({params, page})
       this.search({
         ...params,
         page

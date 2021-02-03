@@ -39,17 +39,42 @@ export class PageObservation {
     }
   }
 
+  async presentLoading() {
+    const loading: any = document.createElement('ion-loading');
+
+    loading.cssClass = 'my-loader';
+    loading.message = 'Loading...';
+
+    document.body.appendChild(loading);
+    loading.present();
+    return loading
+  }
+
+  loadingDismiss() {
+    const loading: any = document.body.querySelector('ion-loading')
+    if (loading) loading.dismiss()
+  }
+
+  loading: any;
   async componentWillLoad() {
     this.i18n = await fetchTranslations(this.i18n)
-    this.id = Number(this.match.params.id)
+    this.id = this.match.params.id
+    this.item = MappingService.getCache(this.id)
+    this.loading = this.presentLoading()
     MappingService.getById(this.id)
     .then((res) => {
-      console.log({res})
       this.item = res
+      this.loadingDismiss()
     })
     .catch((error) => {
+      this.loadingDismiss()
       alert(error)
     })
+  }
+
+  componentDidLoad() {
+    const scrollEl = document.querySelector('.shadow-scroll')
+    scrollEl && scrollEl.scrollTo(0, 0)
   }
 
   onSpecie(ev) {
@@ -141,7 +166,7 @@ export class PageObservation {
             </div>
             <div class="origin">
               <ion-icon size="small" name="earth-outline"></ion-icon>
-              <span class="origin-name">Natusfera {this.item.id_please ? ' (Needs Help)' : ''}</span>
+              <span class="origin-name">{this.item.origin} {this.item.id_please ? ' (Needs Help)' : ''}</span>
             </div>
 
             <div class="origin">

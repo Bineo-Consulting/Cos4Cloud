@@ -5,20 +5,75 @@ import { downloadFile } from '../utils/download-file'
 
 // const url = 'https://natusfera.gbif.es/observations.json'
 // const url = 'http://81.169.128.191:10010/observations'
+// const url = 'http://localhost:5001/observations'
+// const urliSpot = 'http://localhost:5001/images'
+
 const cloudHost = 'https://europe-west2-cos4cloud-2d9d3.cloudfunctions.net'
 const host = resources.host || cloudHost
 const url = `${host}/observations`
 const urliSpot = `${host}/images`
 
-// const url = 'http://localhost:5001/observations'
-// const urliSpot = 'http://localhost:5001/images'
-
 export class MappingService {
-  static get(params?) {
+
+  static cache = JSON.parse(localStorage.cache || '{"time": 0}')
+
+  static async get(params?, cache = false) {
     const queryParams = params ? toQueryString(params) : ''
+
+    if (cache && this.cache.last && this.cache.time > Date.now() - 90 * 1000) {
+      this.cache.last.map(i => this.cache[i.id] = i)
+      return this.cache.last
+    }
     return fetch(url + queryParams)
     .then(res => res.json())
-    .then(items => items.map(this.parse))
+    .then(items => {
+      items.map(i => this.cache[i.id] = i)
+      if (cache) {
+        this.cache.last = items
+        this.updateCache()
+      }
+      return items.map(this.parseNatusfera)
+    })
+  }
+
+  static getCache(id) {
+    return this.cache[id] || {
+      $$photos: [],
+      $$comments: [],
+      $$identifications: []
+    }
+  }
+
+  static updateCache() {
+    localStorage.setItem('cache', JSON.stringify({
+      last: this.cache.last,
+      time: Date.now()
+    }))
+  }
+
+  static updateCacheImages(items, images) {
+    items.map(item => {
+      const photos = [
+        {
+          small_url: images[item.ID],
+          medium_url: images[item.ID],
+          large_url: images[item.ID]
+        }
+      ]
+      this.cache[item.id].photos = photos
+      this.cache[item.id].$$photos = photos
+      this.cache[item.id].medium_url = images[item.ID]
+    })
+  }
+
+  static getById(id: any) {
+    return fetch(`${host}/observation/${id}`)
+    .then(res => res.json())
+    .then(res => {
+      if (res.origin.toLowerCase() === 'natusfera') {
+        return this.parseNatusfera(res)
+      } else return this.parseiSpot(res)
+    })
   }
 
   static images(ids?) {
@@ -27,13 +82,8 @@ export class MappingService {
     .then(items => items[0].data)
   }
 
-  static getById(id: number) {
-    return fetch(`https://natusfera.gbif.es/observations/${id}.json`)
-    .then(res => res.json())
-    .then(item => this.parse(item))
-  }
-
-  static parse(item) {
+  static parseNatusfera(item) {
+    item.id = `${item.id}`.includes('-') ? item.id : `natusfera-${item.id}`
     item.$$photos = (item.photos || item.observation_photos || []).map(item => ({
       medium_url: (item.photo ? item.photo.medium_url : item.medium_url).replace('http:', 'https:'),
       large_url: (item.photo ? item.photo.large_url : item.large_url).replace('http:', 'https:')
@@ -54,6 +104,37 @@ export class MappingService {
       c.$$date = timeAgo(c.created_at)
       return c
     }).sort((a:any, b:any) => Date.parse(a.created_at) - Date.parse(b.created_at))
+
+    item.taxon = item.taxon || {}
+    return item
+  }
+
+  static parseiSpot(item) {
+    // item.id = 'ispot-' + (item.ID ? item.ID : (item.data || {}).ID)
+    item.created_at = new Date(item.created * 1000)//.toISOString()
+    item.comments_count = item.meta.comments || 0
+    item.identifications_count = item.meta.identifications || 0
+    item.observation_photos_count = (item.images || []).length || 1
+    item.comments = []
+    item.taxon = item.taxon || {}
+    item.identifications = []
+    item.longitude = (item.location || {}).lng
+    item.latitude = (item.location || {}).lat
+    item.quality_grade = 'casual'
+    item.species_name = (item.likely || {}).scientific_name || item.title || 'Something...'
+    item.origin = 'iSpot'
+
+    item.$$photos = (item.photos || item.observation_photos || []).map(item => ({
+      medium_url: (item.photo ? item.photo.medium_url : item.medium_url).replace('http:', 'https:'),
+      large_url: (item.photo ? item.photo.large_url : item.large_url).replace('http:', 'https:')
+    }))
+    item.medium_url = item.$$photos.slice(0, 1).map(photo => {
+      return photo.medium_url
+    })[0]
+    item.$$date = timeAgo(item.created_at)
+    item.$$species_name = item.species_name || (item.taxon || {}).name || 'Something...'
+    item.$$comments = []
+    item.$$identifications = []
     return item
   }
 
@@ -76,5 +157,6 @@ export class MappingService {
     const data = await fetch(href).then(res => res.text())
     downloadFile(data, `c4c_download_${Date.now()}.csv`)
     return null
-  } 
+  }
+
 }

@@ -30,7 +30,7 @@ async function fetchTranslations(i18n?) {
   const locale = getLocale();
   const existingTranslations = JSON.parse(localStorage.getItem(`i18n.${locale}`));
   if (resources.cache_i18n && existingTranslations && existingTranslations.version === resources.version) {
-    return existingTranslations;
+    return mergeDeep(i18n || {}, existingTranslations);
   } else {
     try {
       const result = await fetch(`/assets/i18n/${locale}.json`)
