@@ -2,13 +2,48 @@
   "home_title": "All the biodiversity<br/>observations in one place",
   "observations": "observations",
   "last_obersations": "Last observations",
-  need_login: 'You need to be logged',
-  search_species: 'Search species',
-  comments: {
-    comments: 'Comments',
-    type_comment: 'Enter any notes here...',
-    add_identification: 'Add identification',
-    has_identified: 'has identified this observation'
+  "need_login": "You need to be logged",
+  "english": "English",
+  "spanish": "Spanish",
+  "french": "French",
+  "german": "German",
+  "login":{
+    "login": "Login",
+    "user": "User",
+    "password": "Password",
+  },
+  "user":{
+    "logout": "Logout",
+    "info": "Info",
+    "role": "Role",
+    "identifications": "identifications",
+    "species": "species",
+  },
+  "filters":{
+    "search_species": "Search species",
+    "search_places": "Search places",
+    "filter": "Filters",
+    "types": "Types",
+    "portals": "Portals",    
+    "search": "Search",
+    "quality": "Quality",
+    "research": "Research",
+    "casual": "Casual",
+    "with_geo": "With geo",
+    "with_photos": "With photos",
+  },
+  "observation":{
+
+  },
+  "search_species": "Search species",
+  "comments": {
+    "comments": "Comments",
+    "type_comment": "Enter any notes here...",
+    "add_identification": "Add identification",
+    "has_identified": "has identified this observation",
+    "add_comment_identification": "Add comment/identification",
+    "help": " (Needs help)",
+    "someone": "Someone"
   },
   "footer": {
     "about": "About",

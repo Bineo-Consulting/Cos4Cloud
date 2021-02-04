@@ -1,6 +1,7 @@
 import { Component, Host, Prop, h } from '@stencil/core';
 import { MatchResults } from '@stencil/router';
 import { toQueryString } from '../../../utils/to-query-string';
+import { fetchTranslations } from '../../../utils/translation'
 
 @Component({
   tag: 'page-user',
@@ -10,6 +11,11 @@ import { toQueryString } from '../../../utils/to-query-string';
 export class PageUser {
 
   @Prop() match: MatchResults;
+  i18n: any = {};
+
+  async componentWillLoad() {
+    this.i18n = await fetchTranslations(this.i18n)
+  }
 
   logout() {
     const user = JSON.parse(localStorage.user)
@@ -56,10 +62,6 @@ export class PageUser {
             </div>
 
             <div class="user-information">
-              <div class="user-name">
-                <h5>Name Last Name</h5>
-                <p>City, Country</p>
-              </div>
               <div class="user-role">
                 <p>User role</p>
               </div>
@@ -74,11 +76,11 @@ export class PageUser {
             </div>
 
             <div class="user-statistics">
-              <p>XXX identifications</p>
-              <p>XXX species</p>
+              <p>{this.i18n.user.identifications}</p>
+              <p>{this.i18n.user.species}</p>
               <div class="user-btn-settings btn btn-1">
-                <ion-button onClick={() => this.logout()}>Logout</ion-button>
-                <ion-button onClick={() => this.info()}>Info</ion-button>
+                <ion-button onClick={() => this.logout()}>{this.i18n.user.logout}</ion-button>
+                <ion-button onClick={() => this.info()}>{this.i18n.user.info}</ion-button>
               </div>
             </div>
           </header>

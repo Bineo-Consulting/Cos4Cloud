@@ -2,7 +2,7 @@ import { Component, Host, Prop, State, h } from '@stencil/core';
 import { MatchResults, RouterHistory } from '@stencil/router';
 import { MappingService } from '../../../services/mapping.service';
 import { GbifService } from '../../../services/gbif.service';
-import { fetchTranslations } from '../../../utils/translation'
+import { fetchTranslations } from '../../../utils/translation';
 
 @Component({
   tag: 'page-observation',
@@ -166,7 +166,7 @@ export class PageObservation {
             </div>
             <div class="origin">
               <ion-icon size="small" name="earth-outline"></ion-icon>
-              <span class="origin-name">{this.item.origin} {this.item.id_please ? ' (Needs Help)' : ''}</span>
+              <span class="origin-name">{this.item.origin} {this.item.id_please ? this.i18n.comments.help : ''}</span>
             </div>
 
             <div class="origin">
@@ -187,7 +187,7 @@ export class PageObservation {
           <h3>{this.i18n.comments.add_comment_identification}</h3>
           <app-searchbar
             value={this.specie}
-            placeholder={this.i18n.search_species}
+            placeholder={this.i18n.filter.search_species}
             onChoose={(e) => this.onSpecie(e)} service={GbifService}></app-searchbar>
           <ion-item>
             {/*fixed" | "floating" | "stacked*/}

@@ -1,4 +1,5 @@
 import { Component, Host, State, h } from '@stencil/core';
+import { fetchTranslations } from '../../../utils/translation'
 
 @Component({
   tag: 'page-login',
@@ -9,6 +10,11 @@ export class PageLogin {
 
   @State() login: string;
   @State() password: string;
+  i18n: any = {}
+
+  async componentWillLoad() {
+    this.i18n = await fetchTranslations(this.i18n)
+  }
 
   close() {
     const pop: any = document.querySelector('ion-modal')
@@ -39,7 +45,7 @@ export class PageLogin {
 
         <header class="modal__header">
           <h2 class="modal__title" id="modal-login-title">
-            Login
+            {this.i18n.login.login}
           </h2>
         </header>
         <main class="modal__content modal-login-content" id="modal-login-content">
@@ -50,20 +56,20 @@ export class PageLogin {
           </div>*/}
 
           <ion-item>
-            <ion-label position="stacked">Login</ion-label>
+            <ion-label position="stacked">{this.i18n.login.user}</ion-label>
             <ion-input
               onIonChange={(ev) => this.login = ev.detail.value}
               name="login" type="login"></ion-input>
           </ion-item>
           <ion-item>
-            <ion-label position="stacked">Password</ion-label>
+            <ion-label position="stacked">{this.i18n.login.password}</ion-label>
             <ion-input
               onIonChange={(ev) => this.password = ev.detail.value}
               name="password" type="password"></ion-input>
           </ion-item>
           <br/>
 
-          <ion-button onClick={() => this.signin()}>Login</ion-button>
+          <ion-button onClick={() => this.signin()}>{this.i18n.login.login}</ion-button>
 
           <ion-button onClick={() => this.authenix()}>
             Authenix

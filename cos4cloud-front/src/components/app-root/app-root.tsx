@@ -1,4 +1,5 @@
 import { Component, State, h } from '@stencil/core';
+import { fetchTranslations } from '../../utils/translation';
 
 @Component({
   tag: 'app-root',
@@ -8,25 +9,30 @@ import { Component, State, h } from '@stencil/core';
 export class AppRoot {
 
   @State() user: any = null;
+  i18n: any = {}
+
+  async componentWillLoad() {
+    this.i18n = await fetchTranslations(this.i18n)
+  }
 
   openLanguages(ev) {
     const popover: any = Object.assign(document.createElement('ion-popover'), {
       component: 'popup-list',
       componentProps: {
         items: [{
-          text: 'English',
+          text: this.i18n.english,
           value: 'en',
           selected: localStorage.lang === 'en'
         }, {
-          text: 'Español',
+          text: this.i18n.spanish,
           value: 'es',
           selected: localStorage.lang === 'es'
         }, {
-          text: 'Français',
+          text: this.i18n.french,
           value: 'fr',
           selected: localStorage.lang === 'fr'
         }, {
-          text: 'Deutsche',
+          text: this.i18n.german,
           value: 'de',
           selected: localStorage.lang === 'de'
         }]

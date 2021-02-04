@@ -1,6 +1,7 @@
 import { Component, Event, EventEmitter, Host, Prop, State, h } from '@stencil/core';
 import { GbifService } from '../../../services/gbif.service';
 import { PlacesService } from '../../../services/places.service';
+import { fetchTranslations } from '../../../utils/translation';
 
 @Component({
   tag: 'app-search',
@@ -11,10 +12,12 @@ export class AppSearch {
 
   @Prop() specie: string;
   @Prop() place: string;
+  i18n: any = {};
 
   @Event() search: EventEmitter<any>;
 
   @State() filters: HTMLElement;
+
 
   params: any = {}
   iconic_taxa: any = {
@@ -35,6 +38,10 @@ export class AppSearch {
   origin: any = {
     natusfera: 'false',
     ispot: 'false'
+  }
+
+  async componentWillLoad() {
+    this.i18n = await fetchTranslations(this.i18n)
   }
 
   onSpecie(ev) {
@@ -103,14 +110,14 @@ export class AppSearch {
             <ion-col size="6" size-md="6">
               <app-searchbar
                 value={this.specie}
-                placeholder="Search species"
+                placeholder={this.i18n.filters.search_species}
                 onChoose={(e) => this.onSpecie(e)} service={GbifService}></app-searchbar>
             </ion-col>
 
             <ion-col size="6" size-md="6">
               <app-searchbar
                 value={this.place}
-                placeholder="Search places"
+                placeholder={this.i18n.filters.search_places}
                 onChoose={(e) => this.onPlace(e)} service={PlacesService}></app-searchbar>
             </ion-col>
           </ion-row>
@@ -118,18 +125,18 @@ export class AppSearch {
           <ion-row class="center">
             <ion-col size="3" size-sm="2" size-md="2" size-lg="2">
               <ion-button expand="block" fill="outline"
-                onClick={() => this.openFilters()}>Filters</ion-button>
+                onClick={() => this.openFilters()}>{this.i18n.filters.filter}</ion-button>
             </ion-col>
 
             <ion-col size="3" size-sm="2" size-md="2" size-lg="2">
-              <ion-button expand="block" onClick={() => this.onSearch()}>Search</ion-button>
+              <ion-button expand="block" onClick={() => this.onSearch()}>{this.i18n.filters.search}</ion-button>
             </ion-col>
           </ion-row>
 
           <ion-row ref={(e) => this.filters = e} tabIndex="-1" className="center row-filters">
             <div class="row-filters-container">
               <ion-list>
-                <ion-label>Types</ion-label>
+                <ion-label>{this.i18n.filters.types}</ion-label>
                 <ion-item>
                   <ion-checkbox slot="start" value="Plantae"
                     checked={this.iconic_taxa.Plantae}
@@ -160,7 +167,7 @@ export class AppSearch {
               </ion-list>
 
               <ion-list>
-                <ion-label>Portals</ion-label>
+                <ion-label>{this.i18n.filters.portals}</ion-label>
                 <ion-item>
                   <ion-checkbox slot="start" value="natusfera"
                     checked={this.origin.natusfera}
@@ -178,37 +185,42 @@ export class AppSearch {
                 <ion-item>
                   <ion-checkbox slot="start" value="artportalen" disabled></ion-checkbox>
                   <ion-label>ArtPortalen</ion-label>
+                </ion-item>              
+
+                <ion-item>
+                  <ion-checkbox slot="start" value="plantnet" disabled></ion-checkbox>
+                  <ion-label>Pl@ntNet</ion-label>
                 </ion-item>
-              </ion-list>
+              </ion-list>              
 
               <ion-list>
-                <ion-label>Quality</ion-label>
+                <ion-label>{this.i18n.filters.quality}</ion-label>
                 <ion-item>
                   <ion-checkbox slot="start" value="research"
                     checked={this.quality_grade.research}
                     onIonChange={(ev) => this.onChecked(ev, 'quality_grade')}></ion-checkbox>
-                  <ion-label>Research</ion-label>
+                  <ion-label>{this.i18n.filters.research}</ion-label>
                 </ion-item>
 
                 <ion-item>
                   <ion-checkbox slot="start" value="casual"
                     checked={this.quality_grade.casual}
                     onIonChange={(ev) => this.onChecked(ev, 'quality_grade')}></ion-checkbox>
-                  <ion-label>Casual</ion-label>
+                  <ion-label>{this.i18n.filters.casual}</ion-label>
                 </ion-item>
 
                 <ion-item>
                   <ion-checkbox slot="start" value="geo"
                     checked={this.has.geo}
                     onIonChange={(ev) => this.onChecked(ev, 'has')}></ion-checkbox>
-                  <ion-label>With geo</ion-label>
+                  <ion-label>{this.i18n.filters.with_geo}</ion-label>
                 </ion-item>
 
                 <ion-item>
                   <ion-checkbox slot="start" value="photos"
                     checked={this.has.photos}
                     onIonChange={(ev) => this.onChecked(ev, 'has')}></ion-checkbox>
-                  <ion-label>With photos</ion-label>
+                  <ion-label>{this.i18n.filters.with_photos}</ion-label>
                 </ion-item>
 
               </ion-list>

@@ -72,7 +72,7 @@
   align-items: flex-end;
 }
 .cnt-header-user .user-statistics p {
-  color: var(--c-0);
+  
 }
 .cnt-header-user .user-statistics p:first-child {
   margin-top: 3rem;
