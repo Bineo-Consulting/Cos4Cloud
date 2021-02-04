@@ -1,5 +1,6 @@
 import { Component, State, h } from '@stencil/core';
 import { fetchTranslations } from '../../utils/translation';
+import resources from '../../resources'
 
 @Component({
   tag: 'app-root',
@@ -17,7 +18,7 @@ export class AppRoot {
   }
 
   async componentWillLoad() {
-    this.i18n = await fetchTranslations(this.i18n)
+    this.i18n = await fetchTranslations(this.i18n, resources.cache_i18n)
   }
 
   openLanguages(ev) {

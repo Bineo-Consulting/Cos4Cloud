@@ -187,7 +187,7 @@ export class PageObservation {
           <h3>{this.i18n.comments.add_comment_identification}</h3>
           <app-searchbar
             value={this.specie}
-            placeholder={this.i18n.filter.search_species}
+            placeholder={this.i18n.filters.search_species}
             onChoose={(e) => this.onSpecie(e)} service={GbifService}></app-searchbar>
           <ion-item>
             {/*fixed" | "floating" | "stacked*/}

@@ -26,10 +26,10 @@ function getLocale() {
   return localStorage.lang || (navigator.language || 'en').split('-')[0]
 }
 
-async function fetchTranslations(i18n?) {
+async function fetchTranslations(i18n?, cache = true) {
   const locale = getLocale();
   const existingTranslations = JSON.parse(localStorage.getItem(`i18n.${locale}`));
-  if (resources.cache_i18n && existingTranslations && existingTranslations.version === resources.version) {
+  if (cache && existingTranslations && existingTranslations.version === resources.version) {
     return mergeDeep(i18n || {}, existingTranslations);
   } else {
     try {
