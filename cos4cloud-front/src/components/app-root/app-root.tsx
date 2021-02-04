@@ -9,7 +9,12 @@ import { fetchTranslations } from '../../utils/translation';
 export class AppRoot {
 
   @State() user: any = null;
-  i18n: any = {}
+  i18n: any = {
+    filters: {
+      search_species: 'Search species',
+      search_places: 'Search places'
+    }
+  }
 
   async componentWillLoad() {
     this.i18n = await fetchTranslations(this.i18n)
@@ -20,19 +25,19 @@ export class AppRoot {
       component: 'popup-list',
       componentProps: {
         items: [{
-          text: this.i18n.english,
+          text: 'English',
           value: 'en',
           selected: localStorage.lang === 'en'
         }, {
-          text: this.i18n.spanish,
+          text: 'Español',
           value: 'es',
           selected: localStorage.lang === 'es'
         }, {
-          text: this.i18n.french,
+          text: 'Français',
           value: 'fr',
           selected: localStorage.lang === 'fr'
         }, {
-          text: this.i18n.german,
+          text: 'Deutsche',
           value: 'de',
           selected: localStorage.lang === 'de'
         }]

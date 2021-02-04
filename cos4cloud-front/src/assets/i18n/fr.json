@@ -1,3 +1,54 @@
 {
-
+  "home_title": "Toda la biodiversidad<br/>en un solo lugar",
+  "observations": "observaciones",
+  "last_obersations": "Observaciones recientes",
+  "need_login": "Necesitas estar logueado",
+  "english": "Inglés",
+  "spanish": "Español",
+  "french": "Francés",
+  "german": "Aleman",  
+  "login":{
+    "login": "Acceso",
+    "user": "Usuario",
+    "password": "Contraseña",
+  },  
+  "filters":{
+    "search_species": "Buscar especie",
+    "search_places": "Buscar lugar",
+    "filter": "Filtros",
+    "types": "Tipos",
+    "portals": "Portales",        
+    "search": "Buscar",    
+    "quality": "Calidad",
+    "research": "Investigación",
+    "casual": "Casual",
+    "with_geo": "Con geo",
+    "with_photos": "Sin photos",    
+  },
+  "user":{
+    "logout": "Cerrar sesión",
+    "info": "Info.",
+    "role": "Rol",
+    "identifications": "identificaciones",
+    "species": "especies",
+    "types": "tipos"
+  },  
+  "search_species": "Buscar especies",
+  "comments": {
+    "comments": "Comentarios",
+    "type_comment": "Escribe tus comentarios...",
+    "add_identification": "Añadir identificación",
+    "has_identified": "observación identificada",
+    "add_comment_identification": "Añadir comentario/identificación",
+    "help": " (Necesito ayuda)",
+    "someone": "Alguien"
+  },
+  "footer": {
+    "about": "Sobre nosotros",
+    "help": "Ayuda",
+    "privacy": "Política de privacidad",
+    "term": "Términos y condiciones",
+    "contact": "Contacto",
+    "follow_us": "Síguenos:"
+  }
 }

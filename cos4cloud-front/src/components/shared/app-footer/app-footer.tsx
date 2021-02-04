@@ -8,7 +8,16 @@ import { fetchTranslations } from '../../../utils/translation'
 })
 export class AppFooter {
 
-  i18n: any = {}
+  i18n: any = {
+    footer: {
+      about: 'About',
+      help: 'Help',
+      privacy: 'Privacy',
+      terms: 'Terms',
+      contact: 'Contact',
+      follow_us: 'Follow Us'
+    }
+  }
 
   async componentWillLoad() {
     this.i18n = await fetchTranslations()
