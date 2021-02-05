@@ -115,7 +115,11 @@ export class MappingService {
     item.comments_count = item.meta.comments || 0
     item.identifications_count = item.meta.identifications || 0
     item.observation_photos_count = (item.images || []).length || 1
-    item.comments = []
+    item.$$comments = (item.comments || []).map(comment => {
+      const c = {...comment}
+      c.$$date = timeAgo(c.created_at)
+      return c
+    }).sort((a:any, b:any) => Date.parse(a.created_at) - Date.parse(b.created_at))
     item.taxon = item.taxon || {}
     item.identifications = []
     item.longitude = (item.location || {}).lng
@@ -133,7 +137,6 @@ export class MappingService {
     })[0]
     item.$$date = timeAgo(item.created_at)
     item.$$species_name = item.species_name || (item.taxon || {}).name || 'Something...'
-    item.$$comments = []
     item.$$identifications = []
     return item
   }
