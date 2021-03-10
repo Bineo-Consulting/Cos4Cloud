@@ -12,7 +12,9 @@ export class AppDownload {
   render() {
     return (
       <Host>
-        <ion-button fill="none" onClick={() => this.download.emit()}><ion-icon name="download"></ion-icon>CSV</ion-button>
+        <div class="wrapper">
+          <ion-button fill="none" onClick={() => this.download.emit()}><ion-icon name="download"></ion-icon>CSV</ion-button>
+        </div>
       </Host>
     );
   }
