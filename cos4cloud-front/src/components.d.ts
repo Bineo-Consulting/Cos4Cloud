@@ -210,7 +210,7 @@ declare namespace LocalJSX {
         "history"?: RouterHistory;
         "images"?: any;
         "items"?: any[];
-        "onLoad"?: (event: CustomEvent<any>) => void;
+        "onLoadmore"?: (event: CustomEvent<any>) => void;
         "showSpinner"?: boolean;
     }
     interface AppMultiselect {

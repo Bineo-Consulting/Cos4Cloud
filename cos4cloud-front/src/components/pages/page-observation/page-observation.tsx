@@ -193,15 +193,14 @@ export class PageObservation {
             {/*fixed" | "floating" | "stacked*/}
             <ion-label position="floating">{this.i18n.comments.comments}</ion-label>
             <ion-textarea
-              onChange={(ev) => this.body = ev.detail}
+              onIonChange={(ev) => this.body = ev.detail.value}
               rows="6"
               cols="20"
               placeholder={this.i18n.comments.type_comment}></ion-textarea>
           </ion-item>
-          {this.item.origin === 'Natusfera' && <ion-item>
-            <ion-button
+          {this.item.origin === 'Natusfera' && <ion-button class="add-identification"
               onClick={() => this.addIdentification()}>{this.i18n.comments.add_identification}</ion-button>
-          </ion-item>}
+          }
 
           <br/><br/>
         </div>

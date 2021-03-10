@@ -45,7 +45,7 @@ export class AppSearchbar {
           class="focused"
           mode="md"
           onIonChange={ev => this.onInput(ev)}
-          onIonClear={ev => this.onInputClear()}
+          onIonClear={() => this.onInputClear()}
           placeholder={this.placeholder}
           type="search"
           value={this.value}

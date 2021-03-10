@@ -11,19 +11,19 @@ export class AppGrid {
   @Prop() items: any[];
   @Prop() images: any;
   @Prop() showSpinner: boolean = false
-  @Event() load: EventEmitter<any>;
+  @Event() loadmore: EventEmitter<any>;
   @Prop() history: RouterHistory;
 
   spinner: HTMLElement;
   observer;
-  perPage: number = 80;
+  perPage: number = 30;
 
   componentWillUpdate() {
     const queryParams: any = location.search
     if (!queryParams.includes('origin')) {
-      this.perPage = 80
+      this.perPage = 30
     } else if (queryParams.includes('natusfera')) {
-      this.perPage = 80
+      this.perPage = 30
     } else if (queryParams.includes('ispot')) {
       this.perPage = 49
     }
@@ -34,7 +34,7 @@ export class AppGrid {
     const callback = (entries, _) => {
       entries.forEach(entry => {
         if (entry.intersectionRatio > 0) {
-          this.load.emit()
+          this.loadmore.emit()
         }
       })
     }

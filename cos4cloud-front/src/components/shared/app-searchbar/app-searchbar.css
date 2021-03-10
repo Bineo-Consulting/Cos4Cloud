@@ -29,6 +29,10 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 /*ion-searchbar.searchbar-has-value.focused + .list-dropdown {
   visibility: visible;
 }*/
+ion-searchbar.sc-ion-searchbar-md-h {
+  padding-inline-start: 0;
+  padding-inline-end: 0;
+}
 ion-searchbar.searchbar-has-value.searchbar-has-focus + .list-dropdown {
   visibility: visible;
 }

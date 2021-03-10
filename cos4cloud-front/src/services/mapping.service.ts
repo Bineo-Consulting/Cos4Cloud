@@ -148,12 +148,12 @@ export class MappingService {
     const params = {
       user_id: 1,
       observation_id: p.parent_id,
-      taxon: p.taxon,
-      type: null,
+      taxon: p.taxon || undefined,
+      type: undefined,
       token: user.access_token,
       body: p.body || 'by Cos4Cloud'
     }
-    const q = Object.keys(params).map(k => `${k}=${params[k]}`).join('&')
+    const q = Object.keys(JSON.parse(JSON.stringify(params))).map(k => `${k}=${params[k]}`).join('&')
     return fetch(`https://natusfera.gbif.es/observations/add_identification?${q}`)
   }
 

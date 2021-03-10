@@ -14,11 +14,12 @@ export class PageObservations {
   @Prop() history: RouterHistory;
   page: number = 0;
   @State() images: any = {}
-  perPage: number = 80;
+  perPage: number = 30;
 
   componentWillLoad() {
     this.calcPerPage()
     const queryParams = this.history.location.query
+    queryParams.page = null
     MappingService.get(queryParams)
     .then((res) => {
       this.items = res
@@ -32,9 +33,9 @@ export class PageObservations {
   calcPerPage() {
     const queryParams = this.history.location.query
     if (!queryParams.origin) {
-      this.perPage = 80
+      this.perPage = 30
     } else if (queryParams.origin.includes('natusfera')) {
-      this.perPage = 80
+      this.perPage = 30
     } else if (queryParams.origin.includes('ispot')) {
       this.perPage = 49
     }
@@ -127,7 +128,7 @@ export class PageObservations {
           onSearch={(ev) => this.search(ev.detail, true)}></app-search>
         <app-download onClick={() => this.download()}/>
         <app-grid
-          onLoad={() => this.loadMore()}
+          onLoadmore={() => this.loadMore()}
           show-spinner="true"
           items={this.items}
           images={this.images}></app-grid>
