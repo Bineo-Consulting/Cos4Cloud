@@ -61,7 +61,7 @@ export class PageUser {
     .then(res => res.json())
     .then(res => {
       console.log({res})
-      // alert(JSON.stringify(res))
+      alert(JSON.stringify(res))
     })
   }
   refresh() {
