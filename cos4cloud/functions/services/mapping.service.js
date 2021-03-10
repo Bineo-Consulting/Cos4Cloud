@@ -10,7 +10,7 @@ module.exports = class MappingService {
     if (!origin || origin.includes('natusfera')) {
       promises.push(this.getNatusfera(queryParams, params))
     }
-    if (!origin || origin.includes('ispot')) {
+    if (origin && origin.includes('ispot')) {
       promises.push(this.getiSpot(queryParams))
     }
 
@@ -120,7 +120,7 @@ module.exports = class MappingService {
       per_page = 31
     }
 
-    return fetch('https://natusfera.gbif.es/observations.json' + queryParams + '&per_page=' + per_page)
+    return fetch('https://natusfera.gbif.es/observations/project/1252.json' + queryParams + '&per_page=' + per_page)
     .then(res => res.json())
     .then(items => items.map(this.parseNatusfera))
   }

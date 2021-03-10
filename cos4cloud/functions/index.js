@@ -99,6 +99,7 @@ exports.runner = functions
 function btoa(b) {
   return Buffer.from(b).toString('base64');
 };
+
 exports.userInfo = functions
 .region('europe-west2')
 .runWith( { memory: '128MB' })
@@ -111,29 +112,60 @@ exports.userInfo = functions
     res.set('Access-Control-Max-Age', '360000');
     return res.status(204).send('');
   }
-  const FormData = require('form-data');
   const clientId = 'c1d079f6-e0be-4c25-df4a-a881bb41afa1'
   const clientSecret = 'fc18afdb5c493b6e5be63623dfd814bcdd8dd635abe175a12fe330e3d4dc9386'
   
   const url = 'https://www.authenix.eu/oauth/tokeninfo'
 
-  const fd = new FormData()
-  fd.append('client_id', clientId)
-  fd.append('client_secret', clientSecret)
-  fd.append('token', req.query.access_token)
-  fd.append('token_type_hint', 'access_token')
+  return fetch(url, {
+    method: 'POST',
+    headers: {
+      Authorization: 'Basic ' + btoa(`${clientId}:${clientSecret}`),
+      accept: 'application/json',
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: `token=${req.query.access_token}&token_type_hint=access_token`
+  }).then(r => r.json())
+  .then(r => res.json(r))
+  .catch(r => res.error({
+    res: r,
+    query: req.query.access_token
+  }))
+})
+
+exports.userRefresh = functions
+.region('europe-west2')
+.runWith( { memory: '128MB' })
+.https.onRequest((req, res) => {
+  res.set('Access-Control-Allow-Origin', '*');
+
+  if (req.method === 'OPTIONS') {
+    res.set('Access-Control-Allow-Methods', '*');
+    res.set('Access-Control-Allow-Headers', '*');
+    res.set('Access-Control-Max-Age', '360000');
+    return res.status(204).send('');
+  }
+  const clientId = 'c1d079f6-e0be-4c25-df4a-a881bb41afa1'
+  const clientSecret = 'fc18afdb5c493b6e5be63623dfd814bcdd8dd635abe175a12fe330e3d4dc9386'
+  
+  const url = 'https://www.authenix.eu/oauth/token'
+  const FormData = require('form-data')
+  const f = new FormData()
+  f.append('grant_type', 'refresh_token')
+  f.append('refresh_token', req.query.access_token)
 
   return fetch(url, {
     method: 'POST',
     headers: {
       Authorization: 'Basic ' + btoa(`${clientId}:${clientSecret}`),
-      'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+      accept: 'application/json',
+      'Content-Type': 'application/x-www-form-urlencoded',
     },
-    body: fd
-  })
-  .then(r => r.json())
-  .then(r => {
-    return res.json(r)
-  })
-  .catch(r => res.json(r))
+    body: `grant_type=refresh_token&refresh_token=${req.query.access_token}`,
+  }).then(r => r.json())
+  .then(r => res.json(r))
+  .catch(r => res.error({
+    res: r,
+    query: req.query.access_token
+  }))
 })
