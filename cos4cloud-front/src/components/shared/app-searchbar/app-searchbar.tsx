@@ -16,16 +16,25 @@ export class AppSearchbar {
   @State() items = [];
 
   async onInput(ev) {
-    const items = await this.service.get({
-      value: ev.target.value
-    })
-    console.log({items})
-    this.items = this.service.process(items)
+    if (ev.detail.value) {
+      const items = await this.service.get({
+        value: ev.target.value
+      })
+      this.items = this.service.process(items)
+    } else {
+      this.items = []
+      this.value = null
+      this.choose.emit(null)
+    }
   }
 
   itemClicked(item) {
     this.value = item.name
     this.choose.emit(item)
+  }
+  onInputClear() {
+    this.value = null
+    this.choose.emit(null)
   }
 
   render() {
@@ -36,6 +45,7 @@ export class AppSearchbar {
           class="focused"
           mode="md"
           onIonChange={ev => this.onInput(ev)}
+          onIonClear={ev => this.onInputClear()}
           placeholder={this.placeholder}
           type="search"
           value={this.value}

@@ -29,7 +29,8 @@ h2 {
     margin-top: 2rem;
     margin-bottom: 2rem;
     line-height: 1.5;
-    color: rgba(0, 0, 0, 0.8);
+    color: var(--c-4);
+    font-size: 1.5rem;
 }
 .close-btn {
   margin: 5px;

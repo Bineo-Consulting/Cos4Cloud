@@ -48,16 +48,16 @@ body {
   --c-1: #626262;
   --c-2: #1025df;
   --c-3: #eaeaea;
-  --c-4: #898989;
+  --c-4: #525252;
 
   /* IONIC */
   --ion-font-family: var(--main-font), inherit;
-  --ion-color-primary: #626262;
+  --ion-color-primary: #525252;
   --ion-color-primary-rgb: 98, 98, 98;
   --ion-color-primary-contrast: #fff;
   --ion-color-primary-contrast-rgb: 255, 255, 255;
   --ion-color-primary-shade: #727272;
-  --ion-color-primary-tint: #828282;
+  --ion-color-primary-tint: #525252;
 }
 
 // TEXT

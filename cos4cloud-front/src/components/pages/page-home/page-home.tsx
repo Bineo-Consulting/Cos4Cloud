@@ -27,7 +27,7 @@ export class PageHome {
         this.loadImages()
       })
       .catch((error) => {
-        alert(error)
+        alert('Home =>' + error)
       })
     }
   }

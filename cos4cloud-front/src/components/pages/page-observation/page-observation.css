@@ -29,7 +29,7 @@ ion-slide {
   color: var(--c-4);
 }
 .cnt-text .text-l > p {
-  color: var(--c-1);
+  color: var(--c-4);
   font-style: italic;
 }
 .cnt-text .text-l .interactions {

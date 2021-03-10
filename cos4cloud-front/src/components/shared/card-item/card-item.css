@@ -53,7 +53,7 @@ a:active {
 .card-item .cnt-text .text-l p {
   margin: 0.2rem 0;
   font-family: var(--sub-font);
-  color: var(--c-4);
+  color: var(--c-1);
 }
 .card-item .cnt-text .text-l > p {
   color: var(--c-1);

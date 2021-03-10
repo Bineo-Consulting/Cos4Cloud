@@ -25,7 +25,7 @@ export class PageObservation {
     slidesPerView: 1,
     speed: 400
   };
-  id: number | string;
+  id: string;
   body: string | void;
   specie: string;
   i18n: any = {
@@ -124,7 +124,7 @@ export class PageObservation {
   async addIdentification() {
     if (localStorage.user) {
       await MappingService.addIdentification({
-        parent_id: this.id,
+        parent_id: this.id.split('-').map(Number).filter(Boolean).pop(),
         body: this.body,
         taxon: this.specie
       })

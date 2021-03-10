@@ -20,10 +20,12 @@ export class MappingService {
   static async get(params?, cache = false) {
     const queryParams = params ? toQueryString(params) : ''
 
-    if (cache && this.cache.last && this.cache.time > Date.now() - 90 * 1000) {
-      this.cache.last.map(i => this.cache[i.id] = i)
+    console.log({c: this.cache, cache}, cache && this.cache && this.cache.last && this.cache.time)
+    if (cache && this.cache && this.cache.last && this.cache.time > Date.now() - 90 * 1000) {
+      // this.cache.last.map(i => this.cache.last[i.id] = i)
       return this.cache.last
     }
+    console.log('fetch:', fetch + queryParams)
     return fetch(url + queryParams)
     .then(res => res.json())
     .then(items => {

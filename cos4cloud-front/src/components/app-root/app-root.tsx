@@ -93,7 +93,7 @@ export class AppRoot {
       localStorage.setItem('user', JSON.stringify(this.user))
     }
     if (location.hash) {
-      alert(location.href)
+      // alert(location.href)
       history.pushState('', document.title, window.location.pathname + window.location.search);
     }
   }

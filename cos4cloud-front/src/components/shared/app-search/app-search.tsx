@@ -46,17 +46,29 @@ export class AppSearch {
 
   onSpecie(ev) {
     const item = (ev || {}).detail
-    const name = (item.name || '').split(' ').slice(0, 2).join(' ')
-    this.params.taxon_name = name || null
+    if (item) {
+      const name = (item.name || '').split(' ').slice(0, 2).join(' ')
+      this.params.taxon_name = name || null
+    } else {
+      this.params.taxon_name = null
+    }
   }
 
   onPlace(ev) {
     const item = (ev || {}).detail
-    this.params.swlat = Number(item.bbox[0])
-    this.params.swlng = Number(item.bbox[2])
-    this.params.nelat = Number(item.bbox[1])
-    this.params.nelng = Number(item.bbox[3])
-    this.params.place = item.name || null
+    if (item) {
+      this.params.swlat = Number(item.bbox[0])
+      this.params.swlng = Number(item.bbox[2])
+      this.params.nelat = Number(item.bbox[1])
+      this.params.nelng = Number(item.bbox[3])
+      this.params.place = item.name || null
+    } else {
+      this.params.swlat = null
+      this.params.swlng = null
+      this.params.nelat = null
+      this.params.nelng = null
+      this.params.place = null
+    }
   }
 
   openFilters() {
