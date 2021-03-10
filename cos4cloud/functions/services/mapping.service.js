@@ -115,8 +115,8 @@ module.exports = class MappingService {
 
   static getNatusfera(queryParams, params) {
     const origin = params.origin || ''
-    let per_page = 80
-    if (!origin || origin.includes('ispot')) {
+    let per_page = 30
+    if (origin && origin.includes('ispot')) {
       per_page = 31
     }
 
