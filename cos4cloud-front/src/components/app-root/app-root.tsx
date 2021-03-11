@@ -79,6 +79,22 @@ export class AppRoot {
     this.setUser()
   }
 
+  checkUser() {
+    if (this.user && this.user.access_token) {
+      const user = JSON.parse(localStorage.user)
+      const url = resources.host + '/userInfo?access_token=' + user.access_token
+      fetch(url)
+      .then(res => res.json())
+      .then(res => {
+        console.log('checkUser:', res.active)
+        if (!res.active) {
+          this.user = null
+          localStorage.removeItem('user')
+        }
+      })
+    }
+  }
+
   setUser() {
     this.user = localStorage.user ? JSON.parse(localStorage.user) : null
     if (!this.user && !(this.user || {}).access_token && location.hash) {
@@ -96,18 +112,7 @@ export class AppRoot {
       // alert(location.href)
       history.pushState('', document.title, window.location.pathname + window.location.search);
     }
-    if (this.user && this.user.access_token) {
-      const user = JSON.parse(localStorage.user)
-      const url = resources.host + '/userInfo?access_token=' + user.access_token
-      fetch(url)
-      .then(res => res.json())
-      .then(res => {
-        if (!res.active) {
-          this.user = null
-          localStorage.removeItem('user')
-        }
-      })
-    }
+    setTimeout(() => this.checkUser(), 1000)
   }
 
   openProfile() {

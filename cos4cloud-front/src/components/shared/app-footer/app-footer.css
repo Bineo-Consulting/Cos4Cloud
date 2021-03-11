@@ -11,6 +11,7 @@ footer h3,
 footer p,
 footer a {
   color: var(--c-0);
+  text-decoration: none;
 }
 h3 {
   font-size: var(--fz-h3);

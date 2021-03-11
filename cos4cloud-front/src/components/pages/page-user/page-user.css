@@ -18,14 +18,17 @@
   bottom: -11rem;
   width: 100%;
   height: 20rem;
-  padding: 0 2rem;
+  /*padding: 0 2rem;*/
   display: flex;
   flex-flow: wrap;
   justify-content: space-between;
   max-width: 1400px;
   margin: auto;
-  right: 0;
-  left: 0;
+  /*right: 0;*/
+  /*left: 0;*/
+}
+.wrapper {
+  margin: auto;
 }
 .cnt-header-user .user-photo {
   width: 15rem;
@@ -78,7 +81,16 @@
   margin-top: 3rem;
 }
 .cnt-header-user .user-statistics .user-btn-settings {
+  display: flex;
   margin-top: 6rem;
+}
+.user-btn-settings {
+  display: flex;
+  flex-flow: column;
+}
+.user-btn-settings ion-button {
+  margin: auto;
+  margin-bottom: 10px;
 }
 
 .user-main {
