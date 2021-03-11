@@ -11,6 +11,7 @@
     "login": "Acceso",
     "user": "Usuario",
     "password": "Contraseña",
+    "message": "Va a loguearse a través del Sistema Federeado de Authenix. Para más información puede consultar la página del servicio en"
   },  
   "filters":{
     "search_species": "Buscar especie",
@@ -37,7 +38,7 @@
   "comments": {
     "comments": "Comentarios",
     "type_comment": "Escribe tus comentarios...",
-    "add_identification": "Añadir identificación",
+    "add_identification": "Enviar",
     "has_identified": "observación identificada",
     "add_comment_identification": "Añadir comentario/identificación",
     "help": " (Necesito ayuda)",

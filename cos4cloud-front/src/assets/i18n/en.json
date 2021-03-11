@@ -11,6 +11,7 @@
     "login": "Login",
     "user": "User",
     "password": "Password",
+    "message": "You are going to login using a Authenix Federeate system, if you can read more information about this service in"    
   },
   "user":{
     "logout": "Logout",
@@ -39,7 +40,7 @@
   "comments": {
     "comments": "Comments",
     "type_comment": "Enter any notes here...",
-    "add_identification": "Add identification",
+    "add_identification": "Send",
     "has_identified": "has identified this observation",
     "add_comment_identification": "Add comment/identification",
     "help": " (Needs help)",

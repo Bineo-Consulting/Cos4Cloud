@@ -13,6 +13,10 @@ h2 {
   font-size: var(--fz-h2);
 }
 
+.center {
+  text-align: center;
+}
+
 .modal-login-content, .modal-welcome-content {
     background: var(--c-0);
     width: 45rem;

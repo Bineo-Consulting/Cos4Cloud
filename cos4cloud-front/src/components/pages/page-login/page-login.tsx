@@ -62,12 +62,12 @@ export class PageLogin {
               name="login" type="login"></ion-input>
           </ion-item>
           <ion-item>
-            <ion-label position="stacked">{this.i18n.login.password}</ion-label>
+            <p position="stacked">{this.i18n.login.password} <a href="https://www.authenix.eu/" target="_blank">https://www.authenix.eu/</a></p>
             <ion-input
               onIonChange={(ev) => this.password = ev.detail.value}
               name="password" type="password"></ion-input>
           </ion-item>*/}
-          <p>Texto descriptivo de login y authenix ... {this.i18n.login.message}</p>
+          <p class="center">{this.i18n.login.message} <a href="https://www.authenix.eu/" target="_blank">https://www.authenix.eu/</a></p>
           <br/>
 
           {/*<ion-button onClick={() => this.signin()}>{this.i18n.login.login}</ion-button>*/}
