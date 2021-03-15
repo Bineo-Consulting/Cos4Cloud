@@ -17,9 +17,10 @@ export class PageObservations {
   perPage: number = 30;
 
   componentWillLoad() {
-    this.calcPerPage()
+    // this.calcPerPage()
     const queryParams = this.history.location.query
     queryParams.page = null
+    this.page = 0
     MappingService.get(queryParams)
     .then((res) => {
       this.items = res
@@ -30,19 +31,18 @@ export class PageObservations {
     })
   }
 
-  calcPerPage() {
-    const queryParams = this.history.location.query
-    if (!queryParams.origin) {
-      this.perPage = 30
-    } else if (queryParams.origin.includes('natusfera')) {
-      this.perPage = 30
-    } else if (queryParams.origin.includes('ispot')) {
-      this.perPage = 49
-    }
-  }
+  // calcPerPage() {
+  //   const queryParams = this.history.location.query
+  //   if (!queryParams.origin) {
+  //     this.perPage = 30
+  //   } else if (queryParams.origin.includes('natusfera')) {
+  //     this.perPage = 30
+  //   } else if (queryParams.origin.includes('ispot')) {
+  //     this.perPage = 49
+  //   }
+  // }
 
   search(params, reset = false) {
-    this.page = 0
     const q = toQueryString(params)
     this.history.push('/observations' + q, {
       query: params
@@ -90,7 +90,7 @@ export class PageObservations {
   loadMore() {
     if (this.items && this.items.length) {
       const params = this.history.location.query
-      const page = Math.ceil(this.items.length / this.perPage)
+      const page = ++this.page
 
       this.search({
         ...params,
@@ -112,6 +112,8 @@ export class PageObservations {
   }
 
   async download() {
+    const t = true
+    if (t) return false
     const l = this.presentLoading()
     try {
       await MappingService.export()
@@ -125,6 +127,7 @@ export class PageObservations {
         <app-search
           specie={this.history.location.query.taxon_name}
           place={this.history.location.query.place}
+          origin-list={this.history.location.query.origin}
           onSearch={(ev) => this.search(ev.detail, true)}></app-search>
         <app-download onClick={() => this.download()}/>
         <app-grid

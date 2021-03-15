@@ -16,18 +16,6 @@ export class AppGrid {
 
   spinner: HTMLElement;
   observer;
-  perPage: number = 30;
-
-  componentWillUpdate() {
-    const queryParams: any = location.search
-    if (!queryParams.includes('origin')) {
-      this.perPage = 30
-    } else if (queryParams.includes('natusfera')) {
-      this.perPage = 30
-    } else if (queryParams.includes('ispot')) {
-      this.perPage = 49
-    }
-  }
 
   setSpinnerEl(el) {
     this.spinner = el
@@ -51,8 +39,7 @@ export class AppGrid {
           {this.items.map(item => <card-item item={item} image={this.images[item.ID]}></card-item>)}
         </div>
         {
-          this.showSpinner &&
-          this.items.length % this.perPage === 0 &&
+          this.showSpinner && 
           <div class="spinner" ref={(el) => this.setSpinnerEl(el)}>
             <ion-spinner></ion-spinner>
           </div>

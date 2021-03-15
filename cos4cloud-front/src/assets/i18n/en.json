@@ -11,7 +11,7 @@
     "login": "Login",
     "user": "User",
     "password": "Password",
-    "message": "You are going to login using a Authenix Federeate system, if you can read more information about this service in"    
+    "message": "You are going to login using a Authenix Federeate system, for more information visit the web"    
   },
   "user":{
     "logout": "Logout",

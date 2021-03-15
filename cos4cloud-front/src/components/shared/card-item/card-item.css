@@ -1,6 +1,8 @@
 :host {
   display: block;
   place-self: center;
+  content-visibility: auto !important;
+  contain-intrinsic-size: 260px;
 }
 a:link {
   text-decoration: none;

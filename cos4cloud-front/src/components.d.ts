@@ -30,6 +30,7 @@ export namespace Components {
     interface AppRoot {
     }
     interface AppSearch {
+        "originList": string;
         "place": string;
         "specie": string;
     }
@@ -222,6 +223,7 @@ declare namespace LocalJSX {
     }
     interface AppSearch {
         "onSearch"?: (event: CustomEvent<any>) => void;
+        "originList"?: string;
         "place"?: string;
         "specie"?: string;
     }

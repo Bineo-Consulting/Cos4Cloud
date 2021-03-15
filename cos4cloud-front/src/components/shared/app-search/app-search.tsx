@@ -12,6 +12,7 @@ export class AppSearch {
 
   @Prop() specie: string;
   @Prop() place: string;
+  @Prop() originList: string;
   i18n: any = {};
 
   @Event() search: EventEmitter<any>;
@@ -37,11 +38,17 @@ export class AppSearch {
   }
   origin: any = {
     natusfera: 'false',
-    ispot: 'false'
+    ispot: 'false',
+    plantnet: 'false'
   }
 
   async componentWillLoad() {
     this.i18n = await fetchTranslations(this.i18n)
+    const origins = this.originList.split(',')
+    origins.map(item => {
+      this.origin[item] = 'true'
+    })
+    this.origin = {...this.origin}
   }
 
   onSpecie(ev) {
@@ -179,12 +186,20 @@ export class AppSearch {
               </ion-list>
 
               <ion-list>
+
                 <ion-label>{this.i18n.filters.portals}</ion-label>
                 <ion-item>
                   <ion-checkbox slot="start" value="natusfera"
                     checked={this.origin.natusfera}
                     onIonChange={(ev) => this.onChecked(ev, 'origin')}></ion-checkbox>
                   <ion-label>Natusfera</ion-label>
+                </ion-item>
+
+                <ion-item>
+                  <ion-checkbox slot="start" value="plantnet"
+                    checked={this.origin.plantnet}
+                    onIonChange={(ev) => this.onChecked(ev, 'origin')}></ion-checkbox>
+                  <ion-label>Pl@ntNet</ion-label>
                 </ion-item>
 
                 <ion-item>
@@ -199,10 +214,6 @@ export class AppSearch {
                   <ion-label>ArtPortalen</ion-label>
                 </ion-item>              
 
-                <ion-item>
-                  <ion-checkbox slot="start" value="plantnet" disabled></ion-checkbox>
-                  <ion-label>Pl@ntNet</ion-label>
-                </ion-item>
               </ion-list>              
 
               <ion-list>
