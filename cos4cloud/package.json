@@ -12,7 +12,10 @@
     "node-fetch": "^2.6.1",
     "swagger-express-mw": "^0.1.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-api-doc": "^2.2.0"
+  },
   "scripts": {
     "start": "node app.js",
     "test": "swagger project test"

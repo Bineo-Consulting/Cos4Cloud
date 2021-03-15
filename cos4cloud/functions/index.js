@@ -1,6 +1,57 @@
 const functions = require('firebase-functions')
+
+const routes = {
+  '/observations': (req, res) => require('./controllers/observations')(req, res),
+  '/images': (req, res) => require('./controllers/images')(req, res),
+  '/observation': (req, res) => require('./controllers/observation')(req, res),
+  '/export': (req, res) => require('./controllers/export')(req, res),
+  '/userInfo': (req, res) => require('./controllers/userInfo')(req, res),
+  '/userRefresh': (req, res) => require('./controllers/userRefresh')(req, res),
+}
+
+const setOptions = (req, res) => {
+  res.set('Access-Control-Allow-Origin', '*');
+
+  if (req.method === 'OPTIONS') {
+    res.set('Access-Control-Allow-Methods', '*');
+    res.set('Access-Control-Allow-Headers', '*');
+    res.set('Access-Control-Max-Age', '360000');
+    return res.status(204).send('');
+  }
+}
+
+exports.api = functions.region('europe-west2').https.onRequest((req, res) => {
+  if (setOptions(req, res)) {
+    return true
+  }
+  if (req.query && req.query.wakeup) {
+    return res.status(204).send('');
+  }
+
+  console.log('route => ' + req.path)
+
+  if (routes[req.path])
+    return routes[req.path](req, res)
+  else return res.status(404).send('Not found')
+})
+
+// exports.runner = functions
+// .region('europe-west2')
+// .runWith( { memory: '128MB' }).pubsub
+// .schedule('*/5 * * * *')
+// .onRun(async(context) => require('https').get('https://europe-west2-cos4cloud-2d9d3.cloudfunctions.net/observations?wakeup'))
+
+
+
+
+
+
+/*****************
+ OLD API
+******************/
+
 const fetch = require('node-fetch')
-const dJSON = JSON;
+// const dJSON = JSON;
 const toQueryString = require('./utils/toQueryString')
 const MappingService = require('./services/mapping.service')
 
@@ -16,7 +67,7 @@ exports.observations = functions.region('europe-west2').https.onRequest((req, re
 
   if (req.query && req.query.wakeup) {
     return res.status(204).send('');
-  } 
+  }
 
   const params = req.query;
 
@@ -89,12 +140,6 @@ exports.export = functions.region('europe-west2').https.onRequest((req, res) => 
   .then(r => r.text())
   .then(r => res.send(r))
 })
-
-exports.runner = functions
-.region('europe-west2')
-.runWith( { memory: '128MB' }).pubsub
-.schedule('*/5 * * * *')
-.onRun(async(context) => require('https').get('https://europe-west2-cos4cloud-2d9d3.cloudfunctions.net/observations?wakeup'))
 
 function btoa(b) {
   return Buffer.from(b).toString('base64');

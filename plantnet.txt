@@ -1,0 +1,24 @@
+Please find here some new routes for prototyping Pl@ntNet integration in the Expert Portal
+https://bourbonnais.cirad.fr:8083/?tags=cos4cloud (usual login/pwd and API token, that can be found in Confluence "Services Documentation")
+id : demo
+passwd : cos4cloud
+
+
+Especially :
+
+ * /v1/observations : get latest PlantNet observations sorted by creation date desc, paginated by 50. Filter by determinated/undeterminated, and/or by species name (latin name with authorship). As new observations are constantly added, use the returned "startKey" value (actually a timestamp) to get a consistent pagination
+
+ * ​/v1​/observations​/{id} : get details of an observation, including the latest automatic identification results
+
+ * /v1/observations/{id}/votes/determination : suggest (vote for) a latin name for the given observation. Important : the "score" you post is an arbitrary positive number; it's your job to make it representative of your platform's users opinion (for ex: score = number of people having voted for this latin name); if people from your platform already voted for a given latin name, you can find the current score in the observation data under "determinations[*].c4c" and increment it ("c4c" is the short name for Cos4Cloud partner); posting a new score for an existing latin name will replace the score; it's not yet decided how this score will compete with votes issued by other partners or PlantNet users.
+
+
+
+Also, please note that :
+
+ * the port changed from 8082 to 8083
+
+ * these are development routes intended for rough testing of integration capabilities; the domain will eventually change, and the return format might change slightly over time, and depending on your feedback
+
+ * the data served by those routes is test data; although it is mainly copied from real data, you might find some funny pictures at times :) This also means you can post test votes as you like
+

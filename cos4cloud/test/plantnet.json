@@ -1,0 +1,3666 @@
+{
+  "startKey": 1615810725076,
+  "observations": [
+    {
+      "id": "1009731499",
+      "author": {
+        "id": "102811926",
+        "name": "pons tom"
+      },
+      "dateObs": "Mar 15, 2021",
+      "dateUpdated": "Mar 15, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Sedum rupestre",
+        "author": "L.",
+        "family": "Crassulaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Sedum rupestre L.",
+      "images": [
+        {
+          "id": "1222943d98358c36629fcb9dbf7a9603b55aa444",
+          "o": "https://bs.plantnet.org/image/o/1222943d98358c36629fcb9dbf7a9603b55aa444",
+          "m": "https://bs.plantnet.org/image/m/1222943d98358c36629fcb9dbf7a9603b55aa444",
+          "s": "https://bs.plantnet.org/image/s/1222943d98358c36629fcb9dbf7a9603b55aa444",
+          "organ": "leaf"
+        }
+      ],
+      "isValid": true,
+      "isRevised": false,
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "1222943d98358c36629fcb9dbf7a9603b55aa444",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1009731498",
+      "author": {
+        "id": "102914098",
+        "name": "Mohsin Farooq"
+      },
+      "dateObs": "Mar 15, 2021",
+      "dateUpdated": "Mar 15, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Antirrhinum majus",
+        "author": "L.",
+        "family": "Plantaginaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Antirrhinum majus L.",
+      "images": [
+        {
+          "id": "28e5189c3af39864ee4354e4f21f94e374833acb",
+          "o": "https://bs.plantnet.org/image/o/28e5189c3af39864ee4354e4f21f94e374833acb",
+          "m": "https://bs.plantnet.org/image/m/28e5189c3af39864ee4354e4f21f94e374833acb",
+          "s": "https://bs.plantnet.org/image/s/28e5189c3af39864ee4354e4f21f94e374833acb",
+          "organ": "flower"
+        }
+      ],
+      "isValid": false,
+      "isRevised": false,
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "28e5189c3af39864ee4354e4f21f94e374833acb",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "flower",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1009731497",
+      "author": {
+        "id": "100881873",
+        "name": "Juan Francisco Iaconis"
+      },
+      "dateObs": "Mar 10, 2021",
+      "dateUpdated": "Mar 15, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Solanum mauritianum",
+        "author": "Scop.",
+        "family": "Solanaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Solanum mauritianum Scop.",
+      "images": [
+        {
+          "id": "3f2ef69d1fafe1a530f8433e99f891927dba66b7",
+          "o": "https://bs.plantnet.org/image/o/3f2ef69d1fafe1a530f8433e99f891927dba66b7",
+          "m": "https://bs.plantnet.org/image/m/3f2ef69d1fafe1a530f8433e99f891927dba66b7",
+          "s": "https://bs.plantnet.org/image/s/3f2ef69d1fafe1a530f8433e99f891927dba66b7",
+          "organ": "flower"
+        },
+        {
+          "id": "222793f3326b907af3871c07f5c49e5d412c59a6",
+          "o": "https://bs.plantnet.org/image/o/222793f3326b907af3871c07f5c49e5d412c59a6",
+          "m": "https://bs.plantnet.org/image/m/222793f3326b907af3871c07f5c49e5d412c59a6",
+          "s": "https://bs.plantnet.org/image/s/222793f3326b907af3871c07f5c49e5d412c59a6",
+          "organ": "leaf"
+        }
+      ],
+      "isValid": true,
+      "isRevised": false,
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "3f2ef69d1fafe1a530f8433e99f891927dba66b7",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "flower",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          },
+          {
+            "id": "222793f3326b907af3871c07f5c49e5d412c59a6",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1009731496",
+      "author": {
+        "id": "102811926",
+        "name": "pons tom"
+      },
+      "dateObs": "Mar 15, 2021",
+      "dateUpdated": "Mar 15, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Tradescantia pallida",
+        "author": "(Rose) D.R.Hunt",
+        "family": "Commelinaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Tradescantia pallida (Rose) D.R.Hunt",
+      "images": [
+        {
+          "id": "1b8dd6224e91d3099edcbca0c8fd2305a30d94aa",
+          "o": "https://bs.plantnet.org/image/o/1b8dd6224e91d3099edcbca0c8fd2305a30d94aa",
+          "m": "https://bs.plantnet.org/image/m/1b8dd6224e91d3099edcbca0c8fd2305a30d94aa",
+          "s": "https://bs.plantnet.org/image/s/1b8dd6224e91d3099edcbca0c8fd2305a30d94aa",
+          "organ": "leaf"
+        }
+      ],
+      "isValid": true,
+      "isRevised": false,
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "1b8dd6224e91d3099edcbca0c8fd2305a30d94aa",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1009731495",
+      "author": {
+        "id": "100881873",
+        "name": "Juan Francisco Iaconis"
+      },
+      "dateObs": "Mar 10, 2021",
+      "dateUpdated": "Mar 15, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Verbena bonariensis",
+        "author": "L.",
+        "family": "Verbenaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Verbena bonariensis L.",
+      "images": [
+        {
+          "id": "3c3121d97acdcaf7b6b8fe44cb1f1148ad874c33",
+          "o": "https://bs.plantnet.org/image/o/3c3121d97acdcaf7b6b8fe44cb1f1148ad874c33",
+          "m": "https://bs.plantnet.org/image/m/3c3121d97acdcaf7b6b8fe44cb1f1148ad874c33",
+          "s": "https://bs.plantnet.org/image/s/3c3121d97acdcaf7b6b8fe44cb1f1148ad874c33",
+          "organ": "flower"
+        },
+        {
+          "id": "0b2de1d2549c1cc044ff889e911d3b7a34dfcd4d",
+          "o": "https://bs.plantnet.org/image/o/0b2de1d2549c1cc044ff889e911d3b7a34dfcd4d",
+          "m": "https://bs.plantnet.org/image/m/0b2de1d2549c1cc044ff889e911d3b7a34dfcd4d",
+          "s": "https://bs.plantnet.org/image/s/0b2de1d2549c1cc044ff889e911d3b7a34dfcd4d",
+          "organ": "flower"
+        },
+        {
+          "id": "ae5438092555f00424e82c1662b194e197ee9bc7",
+          "o": "https://bs.plantnet.org/image/o/ae5438092555f00424e82c1662b194e197ee9bc7",
+          "m": "https://bs.plantnet.org/image/m/ae5438092555f00424e82c1662b194e197ee9bc7",
+          "s": "https://bs.plantnet.org/image/s/ae5438092555f00424e82c1662b194e197ee9bc7",
+          "organ": "leaf"
+        }
+      ],
+      "isValid": true,
+      "isRevised": true,
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "3c3121d97acdcaf7b6b8fe44cb1f1148ad874c33",
+            "quality": {
+              "plus": {
+                "count": 2,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "flower",
+                "count": 2,
+                "selected": false
+              }
+            ]
+          },
+          {
+            "id": "0b2de1d2549c1cc044ff889e911d3b7a34dfcd4d",
+            "quality": {
+              "plus": {
+                "count": 2,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "flower",
+                "count": 2,
+                "selected": false
+              }
+            ]
+          },
+          {
+            "id": "ae5438092555f00424e82c1662b194e197ee9bc7",
+            "quality": {
+              "plus": {
+                "count": 2,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 2,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1009731494",
+      "author": {
+        "id": "102350739",
+        "name": "Bacdayan Yuri"
+      },
+      "dateObs": "Mar 15, 2021",
+      "dateUpdated": "Mar 15, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Sedum morganianum",
+        "author": "E.Walther",
+        "family": "Crassulaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Sedum morganianum E.Walther",
+      "images": [
+        {
+          "id": "0b6b3a56709a46933e560200f9df9a2c45a0ef88",
+          "o": "https://bs.plantnet.org/image/o/0b6b3a56709a46933e560200f9df9a2c45a0ef88",
+          "m": "https://bs.plantnet.org/image/m/0b6b3a56709a46933e560200f9df9a2c45a0ef88",
+          "s": "https://bs.plantnet.org/image/s/0b6b3a56709a46933e560200f9df9a2c45a0ef88",
+          "organ": "flower"
+        }
+      ],
+      "isValid": true,
+      "isRevised": false,
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "0b6b3a56709a46933e560200f9df9a2c45a0ef88",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "flower",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1009731493",
+      "author": {
+        "id": "102905043",
+        "name": "Elisabeth Doro"
+      },
+      "dateObs": "Mar 15, 2021",
+      "dateUpdated": "Mar 15, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Euphorbia helioscopia",
+        "author": "L.",
+        "family": "Euphorbiaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Euphorbia helioscopia L.",
+      "images": [
+        {
+          "id": "e0be6872a3c6c006816901b83aab38a83a554725",
+          "o": "https://bs.plantnet.org/image/o/e0be6872a3c6c006816901b83aab38a83a554725",
+          "m": "https://bs.plantnet.org/image/m/e0be6872a3c6c006816901b83aab38a83a554725",
+          "s": "https://bs.plantnet.org/image/s/e0be6872a3c6c006816901b83aab38a83a554725",
+          "organ": "leaf"
+        }
+      ],
+      "isValid": false,
+      "isRevised": false,
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "e0be6872a3c6c006816901b83aab38a83a554725",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1009731492",
+      "author": {
+        "id": "101050527",
+        "name": "mieke de Leeuw"
+      },
+      "dateObs": "Mar 15, 2021",
+      "dateUpdated": "Mar 15, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Arum italicum",
+        "author": "Mill.",
+        "family": "Araceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Arum italicum Mill.",
+      "images": [
+        {
+          "id": "91bd00c28cd4c879a6001b2a149ee65319717608",
+          "o": "https://bs.plantnet.org/image/o/91bd00c28cd4c879a6001b2a149ee65319717608",
+          "m": "https://bs.plantnet.org/image/m/91bd00c28cd4c879a6001b2a149ee65319717608",
+          "s": "https://bs.plantnet.org/image/s/91bd00c28cd4c879a6001b2a149ee65319717608",
+          "organ": "leaf"
+        }
+      ],
+      "isValid": true,
+      "isRevised": true,
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "91bd00c28cd4c879a6001b2a149ee65319717608",
+            "quality": {
+              "plus": {
+                "count": 2,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 2,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1009731491",
+      "author": {
+        "id": "102428440",
+        "name": "Navas Sandra"
+      },
+      "dateObs": "Mar 15, 2021",
+      "dateUpdated": "Mar 15, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Fumaria capreolata",
+        "author": "L.",
+        "family": "Papaveraceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Fumaria capreolata L.",
+      "images": [
+        {
+          "id": "6bd4ac017be16d66337b3a43bc0417b300b01f32",
+          "o": "https://bs.plantnet.org/image/o/6bd4ac017be16d66337b3a43bc0417b300b01f32",
+          "m": "https://bs.plantnet.org/image/m/6bd4ac017be16d66337b3a43bc0417b300b01f32",
+          "s": "https://bs.plantnet.org/image/s/6bd4ac017be16d66337b3a43bc0417b300b01f32",
+          "organ": "leaf"
+        }
+      ],
+      "isValid": false,
+      "isRevised": true,
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "6bd4ac017be16d66337b3a43bc0417b300b01f32",
+            "quality": {
+              "plus": {
+                "count": 2,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 2,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1009731490",
+      "author": {
+        "id": "100881873",
+        "name": "Juan Francisco Iaconis"
+      },
+      "dateObs": "Mar 10, 2021",
+      "dateUpdated": "Mar 15, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Euryops chrysanthemoides",
+        "author": "(DC.) B.Nord.",
+        "family": "Compositae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Euryops chrysanthemoides (DC.) B.Nord.",
+      "images": [
+        {
+          "id": "6cabb996ec8af5a16b77cf7e4ebc710279874048",
+          "o": "https://bs.plantnet.org/image/o/6cabb996ec8af5a16b77cf7e4ebc710279874048",
+          "m": "https://bs.plantnet.org/image/m/6cabb996ec8af5a16b77cf7e4ebc710279874048",
+          "s": "https://bs.plantnet.org/image/s/6cabb996ec8af5a16b77cf7e4ebc710279874048",
+          "organ": "flower"
+        },
+        {
+          "id": "83bad145cc07092fb43c64e033e3627e30f3392a",
+          "o": "https://bs.plantnet.org/image/o/83bad145cc07092fb43c64e033e3627e30f3392a",
+          "m": "https://bs.plantnet.org/image/m/83bad145cc07092fb43c64e033e3627e30f3392a",
+          "s": "https://bs.plantnet.org/image/s/83bad145cc07092fb43c64e033e3627e30f3392a",
+          "organ": "leaf"
+        },
+        {
+          "id": "138785ef2ffd2d9783cb5466fca96a8575510ee8",
+          "o": "https://bs.plantnet.org/image/o/138785ef2ffd2d9783cb5466fca96a8575510ee8",
+          "m": "https://bs.plantnet.org/image/m/138785ef2ffd2d9783cb5466fca96a8575510ee8",
+          "s": "https://bs.plantnet.org/image/s/138785ef2ffd2d9783cb5466fca96a8575510ee8",
+          "organ": "habit"
+        }
+      ],
+      "isValid": true,
+      "isRevised": false,
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "6cabb996ec8af5a16b77cf7e4ebc710279874048",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "flower",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          },
+          {
+            "id": "83bad145cc07092fb43c64e033e3627e30f3392a",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          },
+          {
+            "id": "138785ef2ffd2d9783cb5466fca96a8575510ee8",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "habit",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1009731489",
+      "author": {
+        "id": "101415743",
+        "name": "botany arvind"
+      },
+      "dateObs": "Mar 15, 2021",
+      "dateUpdated": "Mar 15, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Salvia splendens",
+        "author": "Sellow ex Schult.",
+        "family": "Lamiaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Salvia splendens Sellow ex Schult.",
+      "images": [
+        {
+          "id": "95264478e274ef16ab2ec881b03d413de3a25e40",
+          "o": "https://bs.plantnet.org/image/o/95264478e274ef16ab2ec881b03d413de3a25e40",
+          "m": "https://bs.plantnet.org/image/m/95264478e274ef16ab2ec881b03d413de3a25e40",
+          "s": "https://bs.plantnet.org/image/s/95264478e274ef16ab2ec881b03d413de3a25e40",
+          "organ": "flower"
+        }
+      ],
+      "isValid": true,
+      "isRevised": false,
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "95264478e274ef16ab2ec881b03d413de3a25e40",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "flower",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1009731488",
+      "author": {
+        "id": "102914757",
+        "name": "Madera Cat Lluis"
+      },
+      "dateObs": "Mar 15, 2021",
+      "dateUpdated": "Mar 15, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Ficaria verna",
+        "author": "Huds.",
+        "family": "Ranunculaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Ficaria verna Huds.",
+      "images": [
+        {
+          "id": "5c92e39840630186621dfcdd92c84372189dee5a",
+          "o": "https://bs.plantnet.org/image/o/5c92e39840630186621dfcdd92c84372189dee5a",
+          "m": "https://bs.plantnet.org/image/m/5c92e39840630186621dfcdd92c84372189dee5a",
+          "s": "https://bs.plantnet.org/image/s/5c92e39840630186621dfcdd92c84372189dee5a",
+          "organ": "flower"
+        }
+      ],
+      "isValid": true,
+      "isRevised": true,
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "5c92e39840630186621dfcdd92c84372189dee5a",
+            "quality": {
+              "plus": {
+                "count": 2,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "flower",
+                "count": 2,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1009731487",
+      "author": {
+        "id": "101315155",
+        "name": "Malcom Clarance"
+      },
+      "dateObs": "Mar 14, 2021",
+      "dateUpdated": "Mar 15, 2021",
+      "license": "cc-by-sa",
+      "species": null,
+      "currentName": "Unidentified",
+      "submittedName": null,
+      "images": [
+        {
+          "id": "01d53105bc0374dcc5c3729f1ab557a6ac238e8b",
+          "o": "https://bs.plantnet.org/image/o/01d53105bc0374dcc5c3729f1ab557a6ac238e8b",
+          "m": "https://bs.plantnet.org/image/m/01d53105bc0374dcc5c3729f1ab557a6ac238e8b",
+          "s": "https://bs.plantnet.org/image/s/01d53105bc0374dcc5c3729f1ab557a6ac238e8b",
+          "organ": "leaf"
+        },
+        {
+          "id": "5c1c59fe1046492d9561f00bc3333ca2c165cefa",
+          "o": "https://bs.plantnet.org/image/o/5c1c59fe1046492d9561f00bc3333ca2c165cefa",
+          "m": "https://bs.plantnet.org/image/m/5c1c59fe1046492d9561f00bc3333ca2c165cefa",
+          "s": "https://bs.plantnet.org/image/s/5c1c59fe1046492d9561f00bc3333ca2c165cefa",
+          "organ": "habit"
+        }
+      ],
+      "isRevised": false,
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "01d53105bc0374dcc5c3729f1ab557a6ac238e8b",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          },
+          {
+            "id": "5c1c59fe1046492d9561f00bc3333ca2c165cefa",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "habit",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1009731486",
+      "author": {
+        "id": "100900212",
+        "name": "Walter Danilo Lozano Murillo"
+      },
+      "dateObs": "Mar 15, 2021",
+      "dateUpdated": "Mar 15, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Hypericum calycinum",
+        "author": "L.",
+        "family": "Hypericaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Hypericum calycinum L.",
+      "images": [
+        {
+          "id": "c820bcd559d1a68e64db41d17623f8997645c621",
+          "o": "https://bs.plantnet.org/image/o/c820bcd559d1a68e64db41d17623f8997645c621",
+          "m": "https://bs.plantnet.org/image/m/c820bcd559d1a68e64db41d17623f8997645c621",
+          "s": "https://bs.plantnet.org/image/s/c820bcd559d1a68e64db41d17623f8997645c621",
+          "organ": "flower"
+        }
+      ],
+      "isValid": false,
+      "isRevised": false,
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "c820bcd559d1a68e64db41d17623f8997645c621",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "flower",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1009731485",
+      "author": {
+        "id": "102892032",
+        "name": "Plantlord Rock"
+      },
+      "dateObs": "Mar 15, 2021",
+      "dateUpdated": "Mar 15, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Hedera helix",
+        "author": "L.",
+        "family": "Araliaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Hedera helix L.",
+      "images": [
+        {
+          "id": "c71d1c52bef98e65e93aca581d278bdece33a622",
+          "o": "https://bs.plantnet.org/image/o/c71d1c52bef98e65e93aca581d278bdece33a622",
+          "m": "https://bs.plantnet.org/image/m/c71d1c52bef98e65e93aca581d278bdece33a622",
+          "s": "https://bs.plantnet.org/image/s/c71d1c52bef98e65e93aca581d278bdece33a622",
+          "organ": "leaf"
+        },
+        {
+          "id": "a0fe483fb4d2da5153580869a8512a4a64de9ade",
+          "o": "https://bs.plantnet.org/image/o/a0fe483fb4d2da5153580869a8512a4a64de9ade",
+          "m": "https://bs.plantnet.org/image/m/a0fe483fb4d2da5153580869a8512a4a64de9ade",
+          "s": "https://bs.plantnet.org/image/s/a0fe483fb4d2da5153580869a8512a4a64de9ade",
+          "organ": "bark"
+        },
+        {
+          "id": "fe9c40e40c21dd28c7639801664418013123b4e6",
+          "o": "https://bs.plantnet.org/image/o/fe9c40e40c21dd28c7639801664418013123b4e6",
+          "m": "https://bs.plantnet.org/image/m/fe9c40e40c21dd28c7639801664418013123b4e6",
+          "s": "https://bs.plantnet.org/image/s/fe9c40e40c21dd28c7639801664418013123b4e6",
+          "organ": "habit"
+        }
+      ],
+      "isValid": false,
+      "isRevised": false,
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "c71d1c52bef98e65e93aca581d278bdece33a622",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          },
+          {
+            "id": "a0fe483fb4d2da5153580869a8512a4a64de9ade",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "bark",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          },
+          {
+            "id": "fe9c40e40c21dd28c7639801664418013123b4e6",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "habit",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1009731484",
+      "author": {
+        "id": "101549795",
+        "name": "Blanca Antonio"
+      },
+      "dateObs": "Mar 15, 2021",
+      "dateUpdated": "Mar 15, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Euphorbia serrata",
+        "author": "L.",
+        "family": "Euphorbiaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Euphorbia serrata L.",
+      "images": [
+        {
+          "id": "f9966d6b1d00f44822425ac0c9910d79e4badfd0",
+          "o": "https://bs.plantnet.org/image/o/f9966d6b1d00f44822425ac0c9910d79e4badfd0",
+          "m": "https://bs.plantnet.org/image/m/f9966d6b1d00f44822425ac0c9910d79e4badfd0",
+          "s": "https://bs.plantnet.org/image/s/f9966d6b1d00f44822425ac0c9910d79e4badfd0",
+          "organ": "leaf"
+        }
+      ],
+      "isValid": true,
+      "isRevised": false,
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "f9966d6b1d00f44822425ac0c9910d79e4badfd0",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1009731483",
+      "author": {
+        "id": "100881873",
+        "name": "Juan Francisco Iaconis"
+      },
+      "dateObs": "Mar 6, 2021",
+      "dateUpdated": "Mar 15, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Campsis grandiflora",
+        "author": "(Thunb.) K.Schum.",
+        "family": "Bignoniaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Campsis grandiflora (Thunb.) K.Schum.",
+      "images": [
+        {
+          "id": "305f2b76f874b3810a845692174dcb6899e0f408",
+          "o": "https://bs.plantnet.org/image/o/305f2b76f874b3810a845692174dcb6899e0f408",
+          "m": "https://bs.plantnet.org/image/m/305f2b76f874b3810a845692174dcb6899e0f408",
+          "s": "https://bs.plantnet.org/image/s/305f2b76f874b3810a845692174dcb6899e0f408",
+          "organ": "flower"
+        },
+        {
+          "id": "7efb1b1015a0e004087c71f3938d05129874534d",
+          "o": "https://bs.plantnet.org/image/o/7efb1b1015a0e004087c71f3938d05129874534d",
+          "m": "https://bs.plantnet.org/image/m/7efb1b1015a0e004087c71f3938d05129874534d",
+          "s": "https://bs.plantnet.org/image/s/7efb1b1015a0e004087c71f3938d05129874534d",
+          "organ": "flower"
+        },
+        {
+          "id": "e594705f25e3b835444567e6399a5546add832a3",
+          "o": "https://bs.plantnet.org/image/o/e594705f25e3b835444567e6399a5546add832a3",
+          "m": "https://bs.plantnet.org/image/m/e594705f25e3b835444567e6399a5546add832a3",
+          "s": "https://bs.plantnet.org/image/s/e594705f25e3b835444567e6399a5546add832a3",
+          "organ": "leaf"
+        },
+        {
+          "id": "1b65f6a1b0ab4c6f8c2d90f1166bf63235e4234c",
+          "o": "https://bs.plantnet.org/image/o/1b65f6a1b0ab4c6f8c2d90f1166bf63235e4234c",
+          "m": "https://bs.plantnet.org/image/m/1b65f6a1b0ab4c6f8c2d90f1166bf63235e4234c",
+          "s": "https://bs.plantnet.org/image/s/1b65f6a1b0ab4c6f8c2d90f1166bf63235e4234c",
+          "organ": "habit"
+        }
+      ],
+      "isValid": true,
+      "isRevised": false,
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "305f2b76f874b3810a845692174dcb6899e0f408",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "flower",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          },
+          {
+            "id": "7efb1b1015a0e004087c71f3938d05129874534d",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "flower",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          },
+          {
+            "id": "e594705f25e3b835444567e6399a5546add832a3",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          },
+          {
+            "id": "1b65f6a1b0ab4c6f8c2d90f1166bf63235e4234c",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "habit",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1009731482",
+      "author": {
+        "id": "101385286",
+        "name": "VM Alba"
+      },
+      "dateObs": "Mar 15, 2021",
+      "dateUpdated": "Mar 15, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Sinapis arvensis",
+        "author": "L.",
+        "family": "Brassicaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Sinapis arvensis L.",
+      "images": [
+        {
+          "id": "64fdec28a52315f48b4df65a8e9c1471b84d580b",
+          "o": "https://bs.plantnet.org/image/o/64fdec28a52315f48b4df65a8e9c1471b84d580b",
+          "m": "https://bs.plantnet.org/image/m/64fdec28a52315f48b4df65a8e9c1471b84d580b",
+          "s": "https://bs.plantnet.org/image/s/64fdec28a52315f48b4df65a8e9c1471b84d580b",
+          "organ": "leaf"
+        }
+      ],
+      "isValid": true,
+      "isRevised": false,
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "64fdec28a52315f48b4df65a8e9c1471b84d580b",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1009731481",
+      "author": {
+        "id": "102848102",
+        "name": "carole bowe"
+      },
+      "dateObs": "Mar 15, 2021",
+      "dateUpdated": "Mar 15, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Berberis aquifolium",
+        "author": "Pursh",
+        "family": "Berberidaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Berberis aquifolium Pursh",
+      "images": [
+        {
+          "id": "fe02bc608c477942c072a424d75686ec180193c6",
+          "o": "https://bs.plantnet.org/image/o/fe02bc608c477942c072a424d75686ec180193c6",
+          "m": "https://bs.plantnet.org/image/m/fe02bc608c477942c072a424d75686ec180193c6",
+          "s": "https://bs.plantnet.org/image/s/fe02bc608c477942c072a424d75686ec180193c6",
+          "organ": "flower"
+        }
+      ],
+      "isValid": true,
+      "isRevised": true,
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "fe02bc608c477942c072a424d75686ec180193c6",
+            "quality": {
+              "plus": {
+                "count": 2,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "flower",
+                "count": 2,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1009731480",
+      "author": {
+        "id": "102914701",
+        "name": "LB Sergio"
+      },
+      "dateObs": "Mar 15, 2021",
+      "dateUpdated": "Mar 15, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Erica arborea",
+        "author": "L.",
+        "family": "Ericaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Erica arborea L.",
+      "images": [
+        {
+          "id": "0260582bf64cd3122829c2fdfd9aac55a274bf26",
+          "o": "https://bs.plantnet.org/image/o/0260582bf64cd3122829c2fdfd9aac55a274bf26",
+          "m": "https://bs.plantnet.org/image/m/0260582bf64cd3122829c2fdfd9aac55a274bf26",
+          "s": "https://bs.plantnet.org/image/s/0260582bf64cd3122829c2fdfd9aac55a274bf26",
+          "organ": "flower"
+        }
+      ],
+      "isValid": false,
+      "isRevised": false,
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "0260582bf64cd3122829c2fdfd9aac55a274bf26",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "flower",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1009731479",
+      "author": {
+        "id": "101072539",
+        "name": "Matthias Fuchs"
+      },
+      "dateObs": "Mar 15, 2021",
+      "dateUpdated": "Mar 15, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Camellia japonica",
+        "author": "L.",
+        "family": "Theaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Camellia japonica L.",
+      "images": [
+        {
+          "id": "9632638ec83f1f33e791e0e8e5b13c5b77ae20d9",
+          "o": "https://bs.plantnet.org/image/o/9632638ec83f1f33e791e0e8e5b13c5b77ae20d9",
+          "m": "https://bs.plantnet.org/image/m/9632638ec83f1f33e791e0e8e5b13c5b77ae20d9",
+          "s": "https://bs.plantnet.org/image/s/9632638ec83f1f33e791e0e8e5b13c5b77ae20d9",
+          "organ": "flower"
+        }
+      ],
+      "isValid": true,
+      "isRevised": true,
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "9632638ec83f1f33e791e0e8e5b13c5b77ae20d9",
+            "quality": {
+              "plus": {
+                "count": 2,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "flower",
+                "count": 2,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1009731478",
+      "author": {
+        "id": "101549795",
+        "name": "Blanca Antonio"
+      },
+      "dateObs": "Mar 15, 2021",
+      "dateUpdated": "Mar 15, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Euphorbia serrata",
+        "author": "L.",
+        "family": "Euphorbiaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Euphorbia serrata L.",
+      "images": [
+        {
+          "id": "9149f2a108bfb6745d80fc61679afd718b52fe42",
+          "o": "https://bs.plantnet.org/image/o/9149f2a108bfb6745d80fc61679afd718b52fe42",
+          "m": "https://bs.plantnet.org/image/m/9149f2a108bfb6745d80fc61679afd718b52fe42",
+          "s": "https://bs.plantnet.org/image/s/9149f2a108bfb6745d80fc61679afd718b52fe42",
+          "organ": "leaf"
+        }
+      ],
+      "isValid": true,
+      "isRevised": false,
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "9149f2a108bfb6745d80fc61679afd718b52fe42",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1009731477",
+      "author": {
+        "id": "102909339",
+        "name": "Fernandez Silvina"
+      },
+      "dateObs": "Mar 15, 2021",
+      "dateUpdated": "Mar 15, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Erythrina crista-galli",
+        "author": "L.",
+        "family": "Leguminosae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Erythrina crista-galli L.",
+      "images": [
+        {
+          "id": "c4ecdeb09454c4a5051a4d978aa4bc12afff1ef7",
+          "o": "https://bs.plantnet.org/image/o/c4ecdeb09454c4a5051a4d978aa4bc12afff1ef7",
+          "m": "https://bs.plantnet.org/image/m/c4ecdeb09454c4a5051a4d978aa4bc12afff1ef7",
+          "s": "https://bs.plantnet.org/image/s/c4ecdeb09454c4a5051a4d978aa4bc12afff1ef7",
+          "organ": "leaf"
+        }
+      ],
+      "isValid": false,
+      "isRevised": false,
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "c4ecdeb09454c4a5051a4d978aa4bc12afff1ef7",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1009731476",
+      "author": {
+        "id": "100446590",
+        "name": "David Horcajada Tejero"
+      },
+      "dateObs": "Mar 15, 2021",
+      "dateUpdated": "Mar 15, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Rhamnus alaternus",
+        "author": "L.",
+        "family": "Rhamnaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Rhamnus alaternus L.",
+      "images": [
+        {
+          "id": "891955433fb05eac69a0050b2dc40a0ddd103705",
+          "o": "https://bs.plantnet.org/image/o/891955433fb05eac69a0050b2dc40a0ddd103705",
+          "m": "https://bs.plantnet.org/image/m/891955433fb05eac69a0050b2dc40a0ddd103705",
+          "s": "https://bs.plantnet.org/image/s/891955433fb05eac69a0050b2dc40a0ddd103705",
+          "organ": "flower"
+        }
+      ],
+      "isValid": true,
+      "isRevised": false,
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "891955433fb05eac69a0050b2dc40a0ddd103705",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "flower",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1009731475",
+      "author": {
+        "id": "102743256",
+        "name": "Elias Fernando"
+      },
+      "dateObs": "Mar 15, 2021",
+      "dateUpdated": "Mar 15, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Cymbalaria muralis",
+        "author": "P.Gaertn., B.Mey. & Scherb.",
+        "family": "Plantaginaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Cymbalaria muralis P.Gaertn., B.Mey. & Scherb.",
+      "images": [
+        {
+          "id": "4b58a9c3a9910ae74ef0405b6645052e7911fea6",
+          "o": "https://bs.plantnet.org/image/o/4b58a9c3a9910ae74ef0405b6645052e7911fea6",
+          "m": "https://bs.plantnet.org/image/m/4b58a9c3a9910ae74ef0405b6645052e7911fea6",
+          "s": "https://bs.plantnet.org/image/s/4b58a9c3a9910ae74ef0405b6645052e7911fea6",
+          "organ": "flower"
+        }
+      ],
+      "isValid": true,
+      "isRevised": true,
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "4b58a9c3a9910ae74ef0405b6645052e7911fea6",
+            "quality": {
+              "plus": {
+                "count": 2,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "flower",
+                "count": 2,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1009731474",
+      "author": {
+        "id": "100452193",
+        "name": "eszter24"
+      },
+      "dateObs": "Mar 15, 2021",
+      "dateUpdated": "Mar 15, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Euphorbia amygdaloides",
+        "author": "L.",
+        "family": "Euphorbiaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Euphorbia amygdaloides L.",
+      "images": [
+        {
+          "id": "5663bdd6f98a610d570d303e09e12c3fe3851100",
+          "o": "https://bs.plantnet.org/image/o/5663bdd6f98a610d570d303e09e12c3fe3851100",
+          "m": "https://bs.plantnet.org/image/m/5663bdd6f98a610d570d303e09e12c3fe3851100",
+          "s": "https://bs.plantnet.org/image/s/5663bdd6f98a610d570d303e09e12c3fe3851100",
+          "organ": "flower"
+        }
+      ],
+      "isValid": true,
+      "isRevised": false,
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "5663bdd6f98a610d570d303e09e12c3fe3851100",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "flower",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1009731473",
+      "author": {
+        "id": "101215593",
+        "name": "Caroline"
+      },
+      "dateObs": "Mar 15, 2021",
+      "dateUpdated": "Mar 15, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Stellaria media",
+        "author": "(L.) Vill.",
+        "family": "Caryophyllaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Stellaria media (L.) Vill.",
+      "images": [
+        {
+          "id": "4aefcd62fec9f11f7d9a657fc66f754efeb0dc2e",
+          "o": "https://bs.plantnet.org/image/o/4aefcd62fec9f11f7d9a657fc66f754efeb0dc2e",
+          "m": "https://bs.plantnet.org/image/m/4aefcd62fec9f11f7d9a657fc66f754efeb0dc2e",
+          "s": "https://bs.plantnet.org/image/s/4aefcd62fec9f11f7d9a657fc66f754efeb0dc2e",
+          "organ": "leaf"
+        }
+      ],
+      "isValid": false,
+      "isRevised": false,
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "4aefcd62fec9f11f7d9a657fc66f754efeb0dc2e",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1009731472",
+      "author": {
+        "id": "101415743",
+        "name": "botany arvind"
+      },
+      "dateObs": "Mar 15, 2021",
+      "dateUpdated": "Mar 15, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Begonia cucullata",
+        "author": "Willd.",
+        "family": "Begoniaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Begonia cucullata Willd.",
+      "images": [
+        {
+          "id": "4597879aa778f95a20af5ea682f30de30de09651",
+          "o": "https://bs.plantnet.org/image/o/4597879aa778f95a20af5ea682f30de30de09651",
+          "m": "https://bs.plantnet.org/image/m/4597879aa778f95a20af5ea682f30de30de09651",
+          "s": "https://bs.plantnet.org/image/s/4597879aa778f95a20af5ea682f30de30de09651",
+          "organ": "flower"
+        }
+      ],
+      "isValid": true,
+      "isRevised": false,
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "4597879aa778f95a20af5ea682f30de30de09651",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "flower",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1009731471",
+      "author": {
+        "id": "102914701",
+        "name": "LB Sergio"
+      },
+      "dateObs": "Mar 15, 2021",
+      "dateUpdated": "Mar 15, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Verbascum pulverulentum",
+        "author": "Vill.",
+        "family": "Scrophulariaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Verbascum pulverulentum Vill.",
+      "images": [
+        {
+          "id": "ab3891b408bd3657318c04ca2052a6442ee8142d",
+          "o": "https://bs.plantnet.org/image/o/ab3891b408bd3657318c04ca2052a6442ee8142d",
+          "m": "https://bs.plantnet.org/image/m/ab3891b408bd3657318c04ca2052a6442ee8142d",
+          "s": "https://bs.plantnet.org/image/s/ab3891b408bd3657318c04ca2052a6442ee8142d",
+          "organ": "leaf"
+        }
+      ],
+      "isValid": false,
+      "isRevised": false,
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "ab3891b408bd3657318c04ca2052a6442ee8142d",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1009731470",
+      "author": {
+        "id": "102892032",
+        "name": "Plantlord Rock"
+      },
+      "dateObs": "Mar 15, 2021",
+      "dateUpdated": "Mar 15, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Hedera helix",
+        "author": "L.",
+        "family": "Araliaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Hedera helix L.",
+      "images": [
+        {
+          "id": "da2d4b2128ec743e51a27287a3aa17dab8bfcde6",
+          "o": "https://bs.plantnet.org/image/o/da2d4b2128ec743e51a27287a3aa17dab8bfcde6",
+          "m": "https://bs.plantnet.org/image/m/da2d4b2128ec743e51a27287a3aa17dab8bfcde6",
+          "s": "https://bs.plantnet.org/image/s/da2d4b2128ec743e51a27287a3aa17dab8bfcde6",
+          "organ": "leaf"
+        },
+        {
+          "id": "84a9f2885e9550635c45856af1442f038ca489b7",
+          "o": "https://bs.plantnet.org/image/o/84a9f2885e9550635c45856af1442f038ca489b7",
+          "m": "https://bs.plantnet.org/image/m/84a9f2885e9550635c45856af1442f038ca489b7",
+          "s": "https://bs.plantnet.org/image/s/84a9f2885e9550635c45856af1442f038ca489b7",
+          "organ": "fruit"
+        },
+        {
+          "id": "7dd8ccd94973bc0398db6a8398bfb007808953a0",
+          "o": "https://bs.plantnet.org/image/o/7dd8ccd94973bc0398db6a8398bfb007808953a0",
+          "m": "https://bs.plantnet.org/image/m/7dd8ccd94973bc0398db6a8398bfb007808953a0",
+          "s": "https://bs.plantnet.org/image/s/7dd8ccd94973bc0398db6a8398bfb007808953a0",
+          "organ": "habit"
+        }
+      ],
+      "isValid": false,
+      "isRevised": false,
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "da2d4b2128ec743e51a27287a3aa17dab8bfcde6",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          },
+          {
+            "id": "84a9f2885e9550635c45856af1442f038ca489b7",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "fruit",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          },
+          {
+            "id": "7dd8ccd94973bc0398db6a8398bfb007808953a0",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "habit",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1009731469",
+      "author": {
+        "id": "100660834",
+        "name": "telemo"
+      },
+      "dateObs": "Mar 15, 2021",
+      "dateUpdated": "Mar 15, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Prunus laurocerasus",
+        "author": "L.",
+        "family": "Rosaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Prunus laurocerasus L.",
+      "images": [
+        {
+          "id": "42bf882bb704ed23bd60229834d9cc02efed88d6",
+          "o": "https://bs.plantnet.org/image/o/42bf882bb704ed23bd60229834d9cc02efed88d6",
+          "m": "https://bs.plantnet.org/image/m/42bf882bb704ed23bd60229834d9cc02efed88d6",
+          "s": "https://bs.plantnet.org/image/s/42bf882bb704ed23bd60229834d9cc02efed88d6",
+          "organ": "leaf"
+        },
+        {
+          "id": "2b465097491dace86600329bd9016b3b03e2e092",
+          "o": "https://bs.plantnet.org/image/o/2b465097491dace86600329bd9016b3b03e2e092",
+          "m": "https://bs.plantnet.org/image/m/2b465097491dace86600329bd9016b3b03e2e092",
+          "s": "https://bs.plantnet.org/image/s/2b465097491dace86600329bd9016b3b03e2e092",
+          "organ": "flower"
+        }
+      ],
+      "isValid": true,
+      "isRevised": true,
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "42bf882bb704ed23bd60229834d9cc02efed88d6",
+            "quality": {
+              "plus": {
+                "count": 2,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 2,
+                "selected": false
+              }
+            ]
+          },
+          {
+            "id": "2b465097491dace86600329bd9016b3b03e2e092",
+            "quality": {
+              "plus": {
+                "count": 2,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "flower",
+                "count": 2,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1009731468",
+      "author": {
+        "id": "101546574",
+        "name": "Fonfría Jorge"
+      },
+      "dateObs": "Mar 15, 2021",
+      "dateUpdated": "Mar 15, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Petasites pyrenaicus",
+        "author": "(L.) G.López",
+        "family": "Compositae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Petasites pyrenaicus (L.) G.López",
+      "images": [
+        {
+          "id": "41307f6a6a766650427da47b6e3721c9f16c19cb",
+          "o": "https://bs.plantnet.org/image/o/41307f6a6a766650427da47b6e3721c9f16c19cb",
+          "m": "https://bs.plantnet.org/image/m/41307f6a6a766650427da47b6e3721c9f16c19cb",
+          "s": "https://bs.plantnet.org/image/s/41307f6a6a766650427da47b6e3721c9f16c19cb",
+          "organ": "leaf"
+        }
+      ],
+      "isValid": false,
+      "isRevised": false,
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "41307f6a6a766650427da47b6e3721c9f16c19cb",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1009731467",
+      "author": {
+        "id": "101283199",
+        "name": "Maamar Abdelaziz"
+      },
+      "dateObs": "Mar 13, 2021",
+      "dateUpdated": "Mar 15, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Dianthus barbatus",
+        "author": "L.",
+        "family": "Caryophyllaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Dianthus barbatus L.",
+      "images": [
+        {
+          "id": "f0860dfabd0ce8456987d8681809f3b5d95697eb",
+          "o": "https://bs.plantnet.org/image/o/f0860dfabd0ce8456987d8681809f3b5d95697eb",
+          "m": "https://bs.plantnet.org/image/m/f0860dfabd0ce8456987d8681809f3b5d95697eb",
+          "s": "https://bs.plantnet.org/image/s/f0860dfabd0ce8456987d8681809f3b5d95697eb",
+          "organ": "flower"
+        }
+      ],
+      "isValid": false,
+      "isRevised": false,
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "f0860dfabd0ce8456987d8681809f3b5d95697eb",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "flower",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1009731466",
+      "author": {
+        "id": "100881859",
+        "name": "Bego Bego"
+      },
+      "dateObs": "Mar 15, 2021",
+      "dateUpdated": "Mar 15, 2021",
+      "license": "cc-by-sa",
+      "species": null,
+      "currentName": "Oxalis regnellii",
+      "submittedName": "Oxalis regnellii",
+      "images": [
+        {
+          "id": "df2a4a80845f828ec2acc0656e0a20c0469dd74d",
+          "o": "https://bs.plantnet.org/image/o/df2a4a80845f828ec2acc0656e0a20c0469dd74d",
+          "m": "https://bs.plantnet.org/image/m/df2a4a80845f828ec2acc0656e0a20c0469dd74d",
+          "s": "https://bs.plantnet.org/image/s/df2a4a80845f828ec2acc0656e0a20c0469dd74d",
+          "organ": "flower"
+        },
+        {
+          "id": "ff747cdac1c0542bdaeeb22a7cffdaba5a888754",
+          "o": "https://bs.plantnet.org/image/o/ff747cdac1c0542bdaeeb22a7cffdaba5a888754",
+          "m": "https://bs.plantnet.org/image/m/ff747cdac1c0542bdaeeb22a7cffdaba5a888754",
+          "s": "https://bs.plantnet.org/image/s/ff747cdac1c0542bdaeeb22a7cffdaba5a888754",
+          "organ": "flower"
+        }
+      ],
+      "isValid": false,
+      "isRevised": false,
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "df2a4a80845f828ec2acc0656e0a20c0469dd74d",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "flower",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          },
+          {
+            "id": "ff747cdac1c0542bdaeeb22a7cffdaba5a888754",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "flower",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1009731465",
+      "author": {
+        "id": "101956685",
+        "name": "izik izikk"
+      },
+      "dateObs": "Mar 15, 2021",
+      "dateUpdated": "Mar 15, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Asphodeline lutea",
+        "author": "(L.) Rchb.",
+        "family": "Liliaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Asphodeline lutea (L.) Rchb.",
+      "images": [
+        {
+          "id": "20dcb5fd17622fb8843ca34486c40c2c5e22a344",
+          "o": "https://bs.plantnet.org/image/o/20dcb5fd17622fb8843ca34486c40c2c5e22a344",
+          "m": "https://bs.plantnet.org/image/m/20dcb5fd17622fb8843ca34486c40c2c5e22a344",
+          "s": "https://bs.plantnet.org/image/s/20dcb5fd17622fb8843ca34486c40c2c5e22a344",
+          "organ": "flower"
+        }
+      ],
+      "isValid": true,
+      "isRevised": false,
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "20dcb5fd17622fb8843ca34486c40c2c5e22a344",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "flower",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1009731464",
+      "author": {
+        "id": "102914531",
+        "name": "Hena Adlakha"
+      },
+      "dateObs": "Mar 15, 2021",
+      "dateUpdated": "Mar 15, 2021",
+      "license": "cc-by-sa",
+      "species": null,
+      "currentName": "Unidentified",
+      "submittedName": null,
+      "images": [
+        {
+          "id": "c7330d15416bdd6fb77bedbfe4088242a3a38a62",
+          "o": "https://bs.plantnet.org/image/o/c7330d15416bdd6fb77bedbfe4088242a3a38a62",
+          "m": "https://bs.plantnet.org/image/m/c7330d15416bdd6fb77bedbfe4088242a3a38a62",
+          "s": "https://bs.plantnet.org/image/s/c7330d15416bdd6fb77bedbfe4088242a3a38a62",
+          "organ": "leaf"
+        }
+      ],
+      "isValid": false,
+      "isRevised": false,
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "c7330d15416bdd6fb77bedbfe4088242a3a38a62",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1009731463",
+      "author": {
+        "id": "102055875",
+        "name": "Sneha Wadhera"
+      },
+      "dateObs": "Mar 15, 2021",
+      "dateUpdated": "Mar 15, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Tropaeolum majus",
+        "author": "L.",
+        "family": "Tropaeolaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Tropaeolum majus L.",
+      "images": [
+        {
+          "id": "e276d4613aa418478f508d9c4332cbe46a973dea",
+          "o": "https://bs.plantnet.org/image/o/e276d4613aa418478f508d9c4332cbe46a973dea",
+          "m": "https://bs.plantnet.org/image/m/e276d4613aa418478f508d9c4332cbe46a973dea",
+          "s": "https://bs.plantnet.org/image/s/e276d4613aa418478f508d9c4332cbe46a973dea",
+          "organ": "flower"
+        }
+      ],
+      "isValid": false,
+      "isRevised": false,
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "e276d4613aa418478f508d9c4332cbe46a973dea",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "flower",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1009731462",
+      "author": {
+        "id": "101993274",
+        "name": "helmova Lýdia"
+      },
+      "dateObs": "Mar 15, 2021",
+      "dateUpdated": "Mar 15, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Sempervivum tectorum",
+        "author": "L.",
+        "family": "Crassulaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Sempervivum tectorum L.",
+      "images": [
+        {
+          "id": "2bfab7954d7b4347fdda8121ba6d003f8de9dd43",
+          "o": "https://bs.plantnet.org/image/o/2bfab7954d7b4347fdda8121ba6d003f8de9dd43",
+          "m": "https://bs.plantnet.org/image/m/2bfab7954d7b4347fdda8121ba6d003f8de9dd43",
+          "s": "https://bs.plantnet.org/image/s/2bfab7954d7b4347fdda8121ba6d003f8de9dd43",
+          "organ": "leaf"
+        }
+      ],
+      "isValid": false,
+      "isRevised": false,
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "2bfab7954d7b4347fdda8121ba6d003f8de9dd43",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1009731461",
+      "author": {
+        "id": "102914591",
+        "name": "annecé monin"
+      },
+      "dateObs": "Mar 15, 2021",
+      "dateUpdated": "Mar 15, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Matthiola incana",
+        "author": "(L.) R.Br.",
+        "family": "Brassicaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Matthiola incana (L.) R.Br.",
+      "images": [
+        {
+          "id": "c4b458f8b04bf707c5ecddd49097e833d1f7bdfb",
+          "o": "https://bs.plantnet.org/image/o/c4b458f8b04bf707c5ecddd49097e833d1f7bdfb",
+          "m": "https://bs.plantnet.org/image/m/c4b458f8b04bf707c5ecddd49097e833d1f7bdfb",
+          "s": "https://bs.plantnet.org/image/s/c4b458f8b04bf707c5ecddd49097e833d1f7bdfb",
+          "organ": "flower"
+        }
+      ],
+      "isValid": false,
+      "isRevised": false,
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "c4b458f8b04bf707c5ecddd49097e833d1f7bdfb",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "flower",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1009731460",
+      "author": {
+        "id": "102914531",
+        "name": "Hena Adlakha"
+      },
+      "dateObs": "Mar 15, 2021",
+      "dateUpdated": "Mar 15, 2021",
+      "license": "cc-by-sa",
+      "species": null,
+      "currentName": "Unidentified",
+      "submittedName": null,
+      "images": [
+        {
+          "id": "9a3222e987311f8bd4102ae2701d57dddcdb5f8d",
+          "o": "https://bs.plantnet.org/image/o/9a3222e987311f8bd4102ae2701d57dddcdb5f8d",
+          "m": "https://bs.plantnet.org/image/m/9a3222e987311f8bd4102ae2701d57dddcdb5f8d",
+          "s": "https://bs.plantnet.org/image/s/9a3222e987311f8bd4102ae2701d57dddcdb5f8d",
+          "organ": "leaf"
+        }
+      ],
+      "isValid": false,
+      "isRevised": false,
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "9a3222e987311f8bd4102ae2701d57dddcdb5f8d",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1009731459",
+      "author": {
+        "id": "102880451",
+        "name": "Boris Beaudoin"
+      },
+      "dateObs": "Mar 15, 2021",
+      "dateUpdated": "Mar 15, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Stachys byzantina",
+        "author": "K.Koch",
+        "family": "Lamiaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Stachys byzantina K.Koch",
+      "images": [
+        {
+          "id": "17fd3480c08acd462a159c081fe12de243138859",
+          "o": "https://bs.plantnet.org/image/o/17fd3480c08acd462a159c081fe12de243138859",
+          "m": "https://bs.plantnet.org/image/m/17fd3480c08acd462a159c081fe12de243138859",
+          "s": "https://bs.plantnet.org/image/s/17fd3480c08acd462a159c081fe12de243138859",
+          "organ": "flower"
+        }
+      ],
+      "isValid": false,
+      "isRevised": false,
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "17fd3480c08acd462a159c081fe12de243138859",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              },
+              {
+                "name": "flower",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1009731458",
+      "author": {
+        "id": "102083091",
+        "name": "Paul FRANCK"
+      },
+      "dateObs": "Mar 15, 2021",
+      "dateUpdated": "Mar 15, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Lobularia maritima",
+        "author": "(L.) Desv.",
+        "family": "Brassicaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Lobularia maritima (L.) Desv.",
+      "images": [
+        {
+          "id": "12767734f57b7bfedb9a67a3ed81cfe59ba26980",
+          "o": "https://bs.plantnet.org/image/o/12767734f57b7bfedb9a67a3ed81cfe59ba26980",
+          "m": "https://bs.plantnet.org/image/m/12767734f57b7bfedb9a67a3ed81cfe59ba26980",
+          "s": "https://bs.plantnet.org/image/s/12767734f57b7bfedb9a67a3ed81cfe59ba26980",
+          "organ": "flower"
+        },
+        {
+          "id": "e4e3cc7867ac56e86ef4a87b371f006c153e95c4",
+          "o": "https://bs.plantnet.org/image/o/e4e3cc7867ac56e86ef4a87b371f006c153e95c4",
+          "m": "https://bs.plantnet.org/image/m/e4e3cc7867ac56e86ef4a87b371f006c153e95c4",
+          "s": "https://bs.plantnet.org/image/s/e4e3cc7867ac56e86ef4a87b371f006c153e95c4",
+          "organ": "leaf"
+        },
+        {
+          "id": "63cd5e84a7403a419cacccc74c165438c2da32e5",
+          "o": "https://bs.plantnet.org/image/o/63cd5e84a7403a419cacccc74c165438c2da32e5",
+          "m": "https://bs.plantnet.org/image/m/63cd5e84a7403a419cacccc74c165438c2da32e5",
+          "s": "https://bs.plantnet.org/image/s/63cd5e84a7403a419cacccc74c165438c2da32e5",
+          "organ": "flower"
+        }
+      ],
+      "isValid": true,
+      "isRevised": true,
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "12767734f57b7bfedb9a67a3ed81cfe59ba26980",
+            "quality": {
+              "plus": {
+                "count": 2,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "flower",
+                "count": 2,
+                "selected": false
+              }
+            ]
+          },
+          {
+            "id": "e4e3cc7867ac56e86ef4a87b371f006c153e95c4",
+            "quality": {
+              "plus": {
+                "count": 2,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 2,
+                "selected": false
+              }
+            ]
+          },
+          {
+            "id": "63cd5e84a7403a419cacccc74c165438c2da32e5",
+            "quality": {
+              "plus": {
+                "count": 2,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "flower",
+                "count": 2,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1009731457",
+      "author": {
+        "id": "102049489",
+        "name": "sophie Denis"
+      },
+      "dateObs": "Mar 15, 2021",
+      "dateUpdated": "Mar 15, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Lithodora fruticosa",
+        "author": "(L.) Griseb.",
+        "family": "Boraginaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Lithodora fruticosa (L.) Griseb.",
+      "images": [
+        {
+          "id": "20b5cd11be8fc3782e93f66634a7c665e32e3700",
+          "o": "https://bs.plantnet.org/image/o/20b5cd11be8fc3782e93f66634a7c665e32e3700",
+          "m": "https://bs.plantnet.org/image/m/20b5cd11be8fc3782e93f66634a7c665e32e3700",
+          "s": "https://bs.plantnet.org/image/s/20b5cd11be8fc3782e93f66634a7c665e32e3700",
+          "organ": "flower"
+        }
+      ],
+      "isValid": true,
+      "isRevised": true,
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "20b5cd11be8fc3782e93f66634a7c665e32e3700",
+            "quality": {
+              "plus": {
+                "count": 2,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "flower",
+                "count": 2,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1009731456",
+      "author": {
+        "id": "100776272",
+        "name": "Ángel Hernández"
+      },
+      "dateObs": "Mar 13, 2021",
+      "dateUpdated": "Mar 15, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Cyclamen purpurascens",
+        "author": "Mill.",
+        "family": "Primulaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Cyclamen purpurascens Mill.",
+      "images": [
+        {
+          "id": "79708a544f2e7d1697f87863030f461c1f26aa85",
+          "o": "https://bs.plantnet.org/image/o/79708a544f2e7d1697f87863030f461c1f26aa85",
+          "m": "https://bs.plantnet.org/image/m/79708a544f2e7d1697f87863030f461c1f26aa85",
+          "s": "https://bs.plantnet.org/image/s/79708a544f2e7d1697f87863030f461c1f26aa85",
+          "organ": "leaf"
+        }
+      ],
+      "isValid": true,
+      "isRevised": false,
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "79708a544f2e7d1697f87863030f461c1f26aa85",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1009731455",
+      "author": {
+        "id": "102909339",
+        "name": "Fernandez Silvina"
+      },
+      "dateObs": "Mar 15, 2021",
+      "dateUpdated": "Mar 15, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Casuarina cunninghamiana",
+        "author": "Miq.",
+        "family": "Casuarinaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Casuarina cunninghamiana Miq.",
+      "images": [
+        {
+          "id": "9ab3c4ab3f4359cce343ae7e5a9a80207c09978b",
+          "o": "https://bs.plantnet.org/image/o/9ab3c4ab3f4359cce343ae7e5a9a80207c09978b",
+          "m": "https://bs.plantnet.org/image/m/9ab3c4ab3f4359cce343ae7e5a9a80207c09978b",
+          "s": "https://bs.plantnet.org/image/s/9ab3c4ab3f4359cce343ae7e5a9a80207c09978b",
+          "organ": "leaf"
+        }
+      ],
+      "isValid": false,
+      "isRevised": false,
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "9ab3c4ab3f4359cce343ae7e5a9a80207c09978b",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1009731454",
+      "author": {
+        "id": "102691888",
+        "name": "Henriquez Osvaldo"
+      },
+      "dateObs": "Mar 15, 2021",
+      "dateUpdated": "Mar 15, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Solanum lycopersicum",
+        "author": "L.",
+        "family": "Solanaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Solanum lycopersicum L.",
+      "images": [
+        {
+          "id": "6f5c0efcef58c1e75fd8e1c504cf2f2dbd897d6c",
+          "o": "https://bs.plantnet.org/image/o/6f5c0efcef58c1e75fd8e1c504cf2f2dbd897d6c",
+          "m": "https://bs.plantnet.org/image/m/6f5c0efcef58c1e75fd8e1c504cf2f2dbd897d6c",
+          "s": "https://bs.plantnet.org/image/s/6f5c0efcef58c1e75fd8e1c504cf2f2dbd897d6c",
+          "organ": "leaf"
+        }
+      ],
+      "isValid": false,
+      "isRevised": false,
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "6f5c0efcef58c1e75fd8e1c504cf2f2dbd897d6c",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1009731453",
+      "author": {
+        "id": "100881873",
+        "name": "Juan Francisco Iaconis"
+      },
+      "dateObs": "Mar 4, 2021",
+      "dateUpdated": "Mar 15, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Hedera algeriensis",
+        "author": "Hibberd",
+        "family": "Araliaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Hedera algeriensis Hibberd",
+      "images": [
+        {
+          "id": "2dfe49d4bea250659e916969bb5dec8a440a9be8",
+          "o": "https://bs.plantnet.org/image/o/2dfe49d4bea250659e916969bb5dec8a440a9be8",
+          "m": "https://bs.plantnet.org/image/m/2dfe49d4bea250659e916969bb5dec8a440a9be8",
+          "s": "https://bs.plantnet.org/image/s/2dfe49d4bea250659e916969bb5dec8a440a9be8",
+          "organ": "leaf"
+        }
+      ],
+      "isValid": true,
+      "isRevised": false,
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "2dfe49d4bea250659e916969bb5dec8a440a9be8",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1009731452",
+      "author": {
+        "id": "100758565",
+        "name": "Dana Mkz"
+      },
+      "dateObs": "Mar 15, 2021",
+      "dateUpdated": "Mar 15, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Erysimum cheiri",
+        "author": "(L.) Crantz",
+        "family": "Brassicaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Erysimum cheiri (L.) Crantz",
+      "images": [
+        {
+          "id": "89142fe203f339589f37444011b57eedfefae4dd",
+          "o": "https://bs.plantnet.org/image/o/89142fe203f339589f37444011b57eedfefae4dd",
+          "m": "https://bs.plantnet.org/image/m/89142fe203f339589f37444011b57eedfefae4dd",
+          "s": "https://bs.plantnet.org/image/s/89142fe203f339589f37444011b57eedfefae4dd",
+          "organ": "leaf"
+        }
+      ],
+      "isValid": false,
+      "isRevised": false,
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "89142fe203f339589f37444011b57eedfefae4dd",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1009731451",
+      "author": {
+        "id": "101624117",
+        "name": "Belastegui XAVIER"
+      },
+      "dateObs": "Mar 15, 2021",
+      "dateUpdated": "Mar 15, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Lavandula multifida",
+        "author": "L.",
+        "family": "Lamiaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Lavandula multifida L.",
+      "images": [
+        {
+          "id": "4acdc1d757f38fae6f7498fc42b7c67e721817a3",
+          "o": "https://bs.plantnet.org/image/o/4acdc1d757f38fae6f7498fc42b7c67e721817a3",
+          "m": "https://bs.plantnet.org/image/m/4acdc1d757f38fae6f7498fc42b7c67e721817a3",
+          "s": "https://bs.plantnet.org/image/s/4acdc1d757f38fae6f7498fc42b7c67e721817a3",
+          "organ": "flower"
+        }
+      ],
+      "isValid": true,
+      "isRevised": false,
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "4acdc1d757f38fae6f7498fc42b7c67e721817a3",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "flower",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1009731450",
+      "author": {
+        "id": "101910830",
+        "name": "Prithiraj Sutradhar"
+      },
+      "dateObs": "Mar 7, 2021",
+      "dateUpdated": "Mar 15, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Toona sinensis",
+        "author": "(Juss.) M.Roem.",
+        "family": "Meliaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Toona sinensis (Juss.) M.Roem.",
+      "images": [
+        {
+          "id": "69a7a2d10f8f9ac3c7d12b5560be594084748fc2",
+          "o": "https://bs.plantnet.org/image/o/69a7a2d10f8f9ac3c7d12b5560be594084748fc2",
+          "m": "https://bs.plantnet.org/image/m/69a7a2d10f8f9ac3c7d12b5560be594084748fc2",
+          "s": "https://bs.plantnet.org/image/s/69a7a2d10f8f9ac3c7d12b5560be594084748fc2",
+          "organ": "leaf"
+        }
+      ],
+      "isValid": false,
+      "isRevised": false,
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "69a7a2d10f8f9ac3c7d12b5560be594084748fc2",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    }
+  ]
+}

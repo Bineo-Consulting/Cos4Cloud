@@ -13,14 +13,13 @@ module.exports = class MappingService {
     if (origin && origin.includes('ispot')) {
       promises.push(this.getiSpot(queryParams))
     }
+    if (origin && origin.includes('plantnet')) {
+      promises.push(this.getPlantnet(queryParams, params))
+    }
 
     return Promise.all(promises).then((res) => {
-      let aux
-      if (res && res[0] && res[1]) {
-        aux = [...res[0], ...res[1]]
-      } else if (res) {
-        aux = [...res[0]]
-      }
+      const aux = []
+      res.filter(Boolean).map(i => aux.push(...i))
       return aux.sort((a, b) => b.created_at.getTime() - a.created_at.getTime())
     })
   }
@@ -125,6 +124,25 @@ module.exports = class MappingService {
     .then(items => items.map(this.parseNatusfera))
   }
 
+  static getPlantnet(queryParams, params) {
+    const token = 'd9cfe6cf9bf71d42f67b4b0d80b56efa145abce2'
+    const url = 'https://bourbonnais.cirad.fr:8082/v1'
+    const p = toQueryString({
+      page: params.page,
+      token
+    })
+
+    return fetch(`${url}/observations${p}`, {
+      headers: {
+        'content-type': 'application/json'
+      }
+    })
+    .then(r => r.json())
+    .then(res => {
+      return res.observations.map(this.parsePlantnet);
+    })
+  }
+
   static getiSpot(queryParams) {
     return fetch("https://api.ispotnature.org/ispotapi/content/observations/gallery" + queryParams, {
       "headers": {
@@ -157,6 +175,30 @@ module.exports = class MappingService {
     item.$$date = (item.created_at)
     item.$$species_name = item.species_name || (item.taxon || {}).name || 'Something...'
     item.origin = 'Natusfera'
+    return item
+  }
+
+  static parsePlantnet(item) {
+    item.id = 'plantnet-' + item.id
+    item.created_at = new Date(item.dateObs || item.dateUpdated)
+    item.comments_count = 0
+    item.identifications_count = 0
+    item.observation_photos_count = (item.images || []).length || 1
+    item.comments = []
+    item.identifications = []
+    item.longitude = 0
+    item.latitude = 0
+    item.photos = [
+      ...(item.images || []).map(i => ({
+        small_url: i.s,
+        medium_url: i.m,
+        large_url: i.o,
+        original_url: i.o
+      }))
+    ]
+    item.quality_grade = item.isValid && item.isRevised ? 'research' : 'casual'
+    item.species_name = (item.species || {}).name || item.submittedName || 'Something...'
+    item.origin = 'plantnet'
     return item
   }
 

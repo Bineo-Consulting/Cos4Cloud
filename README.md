@@ -39,3 +39,12 @@ Now you can open your favourite browser and type: http://localhost:3333
 
 and Enjoy!!
 
+
+### front-end
+#### cd cos4cloud-frontend
+```npm start```
+
+### backend development mode
+#### https://www.npmjs.com/package/firebase-tools
+#### cd cos4cloud/functions
+```npm run serve```
