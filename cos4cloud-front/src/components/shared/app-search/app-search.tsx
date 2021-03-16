@@ -43,7 +43,7 @@ export class AppSearch {
 
   async componentWillLoad() {
     this.i18n = await fetchTranslations(this.i18n)
-    const origins = this.originList.split(',')
+    const origins = (this.originList || '').split(',')
     origins.map(item => {
       this.origin[item] = 'true'
     })
