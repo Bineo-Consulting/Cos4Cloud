@@ -19,7 +19,6 @@ export class AppSearch {
 
   @State() filters: HTMLElement;
 
-
   params: any = {}
   iconic_taxa: any = {
     Plantae: 'false',
