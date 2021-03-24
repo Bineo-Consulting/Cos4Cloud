@@ -21,7 +21,7 @@ log.txt
 node_modules/
 $RECYCLE.BIN/
 
-.DS_Store
+**.DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate
 .env
