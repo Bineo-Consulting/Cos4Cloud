@@ -1,5 +1,6 @@
 const fetch = require('node-fetch')
 const toQueryString = require('../utils/toQueryString')
+const ISpotService = require('./ispot.service')
 
 module.exports = class MappingService {
 
@@ -11,7 +12,7 @@ module.exports = class MappingService {
       promises.push(this.getNatusfera(queryParams, params))
     }
     if (origin && origin.includes('ispot')) {
-      promises.push(this.getiSpot(queryParams))
+      promises.push(this.getiSpot(queryParams, params))
     }
     if (origin && origin.includes('plantnet')) {
       promises.push(this.getPlantnet(queryParams, params))
@@ -177,8 +178,33 @@ module.exports = class MappingService {
     })
   }
 
-  static getiSpot(queryParams) {
-    return fetch("https://api.ispotnature.org/ispotapi/content/observations/gallery" + queryParams, {
+  static getiSpot(queryParams, params) {
+    /*
+      https://api.ispotnature.org/ispotapi/content/observations/gallery?filters=[
+        {"comparator":"LIKE","key":"scientific_name","value":"Rosa+chinensis"},
+        {"comparator":"=","key":"species_key","value":308580}
+      ]&page=1
+    */
+    /*
+      filters:[
+        {"comparator":"IN","key":"group",
+          "value":[{"ID":26394,"name":"Fungi+and+Lichens","slug":"fungi-and-lichens","$$hashKey":"object:1350"}]
+        }
+      ]
+    */
+    const {page, taxon_name, iconic_taxa} = params
+    const q = {page}
+    if (params.taxon_name) {
+      q.filters = q.filters || []
+      q.filters.push({"comparator":"LIKE","key":"scientific_name","value": params.taxon_name})
+    }
+    if (params.iconic_taxa) {
+      q.filters = q.filters || []
+      q.filters.push(ISpotService.getGroups(params.iconic_taxa))
+    }
+    const qp = q.filters ? toQueryString({...q, filters: JSON.stringify(q.filters)}) : toQueryString(q)
+    console.log(JSON.stringify(q, null, 2))
+    return fetch("https://api.ispotnature.org/ispotapi/content/observations/gallery" + qp, {
       "headers": {
         "authority": "api.ispotnature.org",
         "accept": "application/json, text/plain, */*",

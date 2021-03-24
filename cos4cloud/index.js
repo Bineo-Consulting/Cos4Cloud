@@ -32,10 +32,7 @@ exports.api = functions.region('europe-west2').https.onRequest((req, res) => {
 
   if (routes[resource] && id) return routes[`${resource}/:id`](req, res)
   else if (routes[resource]) return routes[resource](req, res)
-  else {
-    routesPath = Object.keys(routes)
-    return res.status(404).send(`<meta http-equiv="refresh" content="0; URL=https://cos4cloud-2d9d3.web.app/apidoc/index.html"/>`)
-  }
+  else return res.status(404).send(`<meta http-equiv="refresh" content="0; URL=https://cos4cloud-2d9d3.web.app/apidoc/index.html"/>`)
 })
 
 // exports.runner = functions
