@@ -4,12 +4,11 @@ info:
   title: Cos4Bio API
   description: All the biodiversity observations in one place
 # during dev, should point to your local machine
-host: https://europe-west2-cos4cloud-2d9d3.cloudfunctions.net
+host: europe-west2-cos4cloud-2d9d3.cloudfunctions.net
 # basePath prefixes all resource paths 
 basePath: /api
 schemes:
   # tip: remove http to make production-grade
-  - http
   - https
 # format of bodies a client can send (Content-Type)
 consumes:
