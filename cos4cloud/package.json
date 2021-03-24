@@ -1,23 +1,33 @@
 {
-  "name": "cos4cloud",
+  "name": "cos4bio",
   "version": "0.0.1",
   "private": true,
   "description": "New Swagger API Project",
   "keywords": [],
   "author": "",
   "license": "",
-  "main": "app.js",
   "dependencies": {
-    "express": "^4.12.3",
     "node-fetch": "^2.6.1",
-    "swagger-express-mw": "^0.1.0"
+    "firebase-admin": "^8.10.0",
+    "firebase-functions": "^3.6.1",
+    "form-data": "^3.0.0"
+  },
+  "engines": {
+    "node": "10"
   },
   "devDependencies": {
-    "gulp": "^4.0.2",
-    "gulp-api-doc": "^2.2.0"
+    "express": "^4.12.3",
+    "swagger-express-mw": "^0.1.0",
+    "firebase-functions-test": "^0.2.0"
   },
   "scripts": {
     "start": "node app.js",
-    "test": "swagger project test"
+    "edit": "swagger project edit",
+    "test": "swagger project test",
+    "f:serve": "firebase emulators:start --only functions",
+    "f:shell": "firebase functions:shell",
+    "f:start": "firebase emulators:start --only functions",
+    "f:deploy": "firebase deploy --only functions",
+    "f:logs": "firebase functions:log"
   }
 }

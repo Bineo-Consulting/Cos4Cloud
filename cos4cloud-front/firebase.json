@@ -2,6 +2,7 @@
   "hosting": [{
     "public": "www",
     "target": "cos4cloud",
+    "cleanUrls": true,
     "ignore": [
       "firebase.json",
       "**/.*",

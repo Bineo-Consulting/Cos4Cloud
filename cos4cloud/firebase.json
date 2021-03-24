@@ -1,1 +1,24 @@
-{}
+{
+  "functions": {
+    "source": ".",
+    "ignore": [
+      "**/config/**",
+      "**/test/**",
+      "**/Dockerfile**",
+      "**/node_modules/**",
+      "**/_functions/**",
+      "**/.*",
+      "**/api/swagger/**",
+      "**/controllers/**",
+      "**/cos4cloud-front/**",
+      "**/_functions/**",
+      "**/firebase_debug.json**",
+      "**/firebase.json**",
+      "**/package-lock.json**",
+      "**/gulpfile**",
+      "**/out.csv**",
+      "**/app.js**",
+      "**README.md**"
+    ]
+  }
+}

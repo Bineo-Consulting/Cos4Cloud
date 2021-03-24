@@ -4,7 +4,7 @@ import replace from '@rollup/plugin-replace';
 const cloudHost = 'https://europe-west2-cos4cloud-2d9d3.cloudfunctions.net'
 const dev: boolean = process.argv && process.argv.indexOf('--dev') > -1;
 const apiEnv: string = dev ? 'dev' : 'prod';
-const HOST = process.env.HOST || (dev ? 'http://localhost:5001/cos4cloud-2d9d3/europe-west2' : cloudHost)
+const HOST = process.env.HOST || (dev ? 'http://localhost:5001/cos4cloud-2d9d3/europe-west2/api' : cloudHost)
 
 export const config: Config = {
   globalStyle: 'src/global/app.css',

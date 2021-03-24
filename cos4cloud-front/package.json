@@ -4,11 +4,13 @@
   "version": "0.0.1",
   "description": "Stencil App Starter",
   "scripts": {
-    "build": "stencil build --prod",
+    "build": "stencil build --prod; npm run swagger; npm run apidoc;",
     "start": "stencil build --dev --watch --serve --no-open",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",
+    "swagger": "yaml2json ../cos4cloud/api/swagger/swagger.yaml > ./www/swagger.json",
+    "apidoc": "cp -r apidoc www/",
     "deploy": "rm -rf www; npm run build; firebase deploy --only hosting:cos4cloud-2d9d3"
   },
   "devDependencies": {

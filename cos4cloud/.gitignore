@@ -1,6 +1,8 @@
 # IDE files
 .idea
 
+**.DS_Store**
+
 # Logs
 logs
 *.log

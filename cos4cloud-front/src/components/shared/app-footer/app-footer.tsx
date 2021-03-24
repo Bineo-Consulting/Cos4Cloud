@@ -27,16 +27,11 @@ export class AppFooter {
     return (
       <Host>
         <footer>
-{/*          <h3>Take bio-earth with you</h3>
-          <div class="download">
-            <img src="./assets/svg/download-ios.svg" alt=""/>
-            <img src="./assets/svg/download-md.svg" alt=""/>
-          </div>*/}
-
           <div class="cnt-footer">
             <div class="nav-footer">
               <div class="tabs">
                 <a href="/about.html" innerHTML={this.i18n.footer.about}></a>
+                <a href="/apidoc/index.html">API</a>
                 <a href="/help.html" innerHTML={this.i18n.footer.help}></a>
                 <a href="/privacy.html" innerHTML={this.i18n.footer.privacy}></a>
                 <a href="/terms.html" innerHTML={this.i18n.footer.terms}></a>

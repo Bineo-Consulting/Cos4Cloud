@@ -8,7 +8,7 @@ import { downloadFile } from '../utils/download-file'
 // const url = 'http://localhost:5001/observations'
 // const urliSpot = 'http://localhost:5001/images'
 
-const cloudHost = 'https://europe-west2-cos4cloud-2d9d3.cloudfunctions.net'
+const cloudHost = 'https://europe-west2-cos4cloud-2d9d3.cloudfunctions.net/api'
 const host = resources.host || cloudHost
 const url = `${host}/observations`
 const urliSpot = `${host}/images`
@@ -69,12 +69,13 @@ export class MappingService {
   }
 
   static getById(id: any) {
-    return fetch(`${host}/observation/${id}`)
+    return fetch(`${host}/observations/${id}`)
     .then(res => res.json())
     .then(res => {
-      if (res.origin.toLowerCase() === 'natusfera') {
-        return this.parseNatusfera(res)
-      } else return this.parseiSpot(res)
+      if (res.origin.toLowerCase() === 'ispot') {
+        return this.parseiSpot(res)
+      }
+      else return this.parseNatusfera(res)
     })
   }
 
