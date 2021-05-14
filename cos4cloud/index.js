@@ -1,4 +1,5 @@
 const functions = require('firebase-functions')
+const setCors = require('./utils/setCors')
 
 const routes = {
   'observations': (req, res) => require('./api/controllers/observations').observations(req, res),
@@ -6,27 +7,13 @@ const routes = {
   'observations/:id': (req, res) => require('./api/controllers/observation').observation(req, res),
   'export': (req, res) => require('./api/controllers/export').exportReq(req, res),
   'userInfo': (req, res) => require('./api/controllers/userInfo').userInfo(req, res),
-  'userRefresh': (req, res) => require('./api/controllers/userRefresh').userRefresh(req, res)
-}
-
-const setOptions = (req, res) => {
-  res.set('Access-Control-Allow-Origin', '*');
-
-  if (req.method === 'OPTIONS') {
-    res.set('Access-Control-Allow-Methods', '*');
-    res.set('Access-Control-Allow-Headers', '*');
-    res.set('Access-Control-Max-Age', '360000');
-    return res.status(204).send('');
-  }
+  'userRefresh': (req, res) => require('./api/controllers/userRefresh').userRefresh(req, res),
+  'comments': (req, res) => require('./api/controllers/comments').addComment(req, res),
 }
 
 exports.api = functions.region('europe-west2').https.onRequest((req, res) => {
-  if (setOptions(req, res)) {
-    return true
-  }
-  if (req.query && req.query.wakeup) {
-    return res.status(204).send('');
-  }
+  if (setCors(req, res)) return true
+  if (req.query && req.query.wakeup) return res.status(204).send('');
 
   const [resource, id] = (req.path || '/').split('/').filter(Boolean)
 
@@ -34,10 +21,3 @@ exports.api = functions.region('europe-west2').https.onRequest((req, res) => {
   else if (routes[resource]) return routes[resource](req, res)
   else return res.status(404).send(`<meta http-equiv="refresh" content="0; URL=https://cos4cloud-2d9d3.web.app/apidoc/index.html"/>`)
 })
-
-// exports.runner = functions
-// .region('europe-west2')
-// .runWith( { memory: '128MB' }).pubsub
-// .schedule('*/5 * * * *')
-// .onRun(async(context) => require('https').get('https://europe-west2-cos4cloud-2d9d3.cloudfunctions.net/observations?wakeup'))
-

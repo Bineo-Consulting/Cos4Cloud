@@ -78,8 +78,8 @@ export class PageObservation {
   }
 
   onSpecie(ev) {
-    const item = (ev || {}).detail
-    const name = (item.name || '').split(' ').slice(0, 2).join(' ')
+    const item = (ev || {}).detail
+    const name = (item.name || '').split(' ').slice(0, 2).join(' ')
     this.specie = name
   }
 
@@ -124,7 +124,7 @@ export class PageObservation {
   async addIdentification() {
     if (localStorage.user) {
       await MappingService.addIdentification({
-        parent_id: this.id.split('-').map(Number).filter(Boolean).pop(),
+        parent_id: this.id,
         body: this.body,
         taxon: this.specie
       })
@@ -198,8 +198,8 @@ export class PageObservation {
               cols="20"
               placeholder={this.i18n.comments.type_comment}></ion-textarea>
           </ion-item>
-          {this.item.origin === 'Natusfera' && <ion-button class="add-identification"
-              onClick={() => this.addIdentification()}>{this.i18n.comments.add_identification}</ion-button>
+          {(this.item.origin === 'natusfera' || this.item.origin === 'plantnet') && <ion-button class="add-identification"
+            onClick={() => this.addIdentification()}>{this.i18n.comments.add_identification}</ion-button>
           }
 
           <br/><br/>

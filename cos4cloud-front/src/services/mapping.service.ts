@@ -20,7 +20,6 @@ export class MappingService {
   static async get(params?, cache = false) {
     const queryParams = params ? toQueryString(params) : ''
 
-    console.log({c: this.cache, cache}, cache && this.cache && this.cache.last && this.cache.time)
     if (cache && this.cache && this.cache.last && this.cache.time > Date.now() - 90 * 1000) {
       // this.cache.last.map(i => this.cache.last[i.id] = i)
       return this.cache.last
@@ -72,7 +71,7 @@ export class MappingService {
     return fetch(`${host}/observations/${id}`)
     .then(res => res.json())
     .then(res => {
-      if (res.origin.toLowerCase() === 'ispot') {
+      if (res.origin && res.origin.toLowerCase() === 'ispot') {
         return this.parseiSpot(res)
       }
       else return this.parseNatusfera(res)
@@ -154,8 +153,9 @@ export class MappingService {
       token: user.access_token,
       body: p.body || 'by Cos4Cloud'
     }
-    const q = Object.keys(JSON.parse(JSON.stringify(params))).map(k => `${k}=${params[k]}`).join('&')
-    return fetch(`https://natusfera.gbif.es/observations/add_identification?${q}`)
+    const q = toQueryString(params)
+    // return fetch(`https://natusfera.gbif.es/observations/add_identification?${q}`)
+    return fetch(`${host}/comments${q}`)
   }
 
   static async export() {

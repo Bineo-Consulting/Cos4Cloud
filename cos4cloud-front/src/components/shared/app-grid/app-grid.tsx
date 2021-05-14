@@ -1,4 +1,4 @@
-import { Component, Event, EventEmitter, Host, Prop, h } from '@stencil/core';
+import { Component, Event, EventEmitter, Prop, h } from '@stencil/core';
 import { RouterHistory } from '@stencil/router';
 
 @Component({
@@ -34,7 +34,7 @@ export class AppGrid {
 
   render() {
     return (
-      <Host>
+      <div class="container-grid">
         <div class="grid">
           {this.items.map(item => <card-item item={item} image={this.images[item.ID]}></card-item>)}
         </div>
@@ -44,7 +44,7 @@ export class AppGrid {
             <ion-spinner></ion-spinner>
           </div>
         }
-      </Host>
+      </div>
     );
   }
 

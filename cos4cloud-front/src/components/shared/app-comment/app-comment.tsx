@@ -40,10 +40,10 @@ export class AppComment {
           <div class="observation">
             <div class="observation-info">
               <div class="img-observation">
-                {this.item.taxon && <img class="img-fit" loading="lazy" src={(this.item.taxon || {}).image_url} alt="@@title"/>}
+                {this.item.taxon && <img class="img-fit" loading="lazy" src={(this.item.taxon || {}).image_url} alt="@@title"/>}
               </div>
               <div class="cnt-text">
-                <h5>{(this.item.taxon || {}).name}</h5>
+                <h5>{(this.item.taxon || {}).name}</h5>
               </div>
             </div>
           </div>

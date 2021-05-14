@@ -2,6 +2,10 @@
   display: block;
 }
 
+.container-grid {
+  min-height: 100vh;
+  background-color: white;
+}
 .grid {
   transform: translateZ(0);
   background-color: white;
@@ -12,7 +16,8 @@
   max-width: 1400px;
   margin: auto;
   padding: 4rem 2rem;
-  min-height: 100vh;
+  place-content: baseline;
+  /*min-height: 100vh;*/
 }
 .spinner {
   text-align: center;

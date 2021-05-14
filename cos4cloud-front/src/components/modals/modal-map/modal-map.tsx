@@ -64,6 +64,11 @@ export class ModalMap {
 
   }
 
+  close() {
+    const pop: any = document.querySelector('ion-modal')
+    pop.dismiss()
+  }
+
   componentDidLoad() {
     this.loadMap()
   }
@@ -71,6 +76,9 @@ export class ModalMap {
   render() {
     return (
       <Host>
+        <ion-fab-button onClick={this.close} class="close-btn" size="small">
+          <ion-icon name="close"></ion-icon>
+        </ion-fab-button>
         <div class="map" ref={(el) => this.el = el}></div>
       </Host>
     );

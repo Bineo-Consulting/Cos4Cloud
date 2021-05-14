@@ -1,0 +1,3383 @@
+{
+  "startKey": 1619104877849,
+  "observations": [
+    {
+      "id": "1003054772",
+      "author": {
+        "id": "10885203",
+        "name": "Hugo test"
+      },
+      "dateObs": "Apr 22, 2021",
+      "dateUpdated": "Apr 22, 2021",
+      "license": "cc-by-sa",
+      "species": null,
+      "currentName": "Unidentified",
+      "submittedName": null,
+      "images": [
+        {
+          "id": "8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "o": "https://bs.plantnet.org/image/o/8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "m": "https://bs.plantnet.org/image/m/8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "s": "https://bs.plantnet.org/image/s/8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "organ": "leaf"
+        }
+      ],
+      "isRevised": false,
+      "groups": [],
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "8170013ffbafa48c04b96e19a5f761b0a273fd86",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1003054771",
+      "author": {
+        "id": "10885203",
+        "name": "Hugo test"
+      },
+      "dateObs": "Apr 22, 2021",
+      "dateUpdated": "Apr 22, 2021",
+      "license": "cc-by-sa",
+      "species": null,
+      "currentName": "Unidentified",
+      "submittedName": null,
+      "images": [
+        {
+          "id": "2e46399226e131f08a336d0c7fb6fcecd5f3f298",
+          "o": "https://bs.plantnet.org/image/o/2e46399226e131f08a336d0c7fb6fcecd5f3f298",
+          "m": "https://bs.plantnet.org/image/m/2e46399226e131f08a336d0c7fb6fcecd5f3f298",
+          "s": "https://bs.plantnet.org/image/s/2e46399226e131f08a336d0c7fb6fcecd5f3f298",
+          "organ": "leaf"
+        }
+      ],
+      "isRevised": false,
+      "groups": [],
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "2e46399226e131f08a336d0c7fb6fcecd5f3f298",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1003054770",
+      "author": {
+        "id": "10885203",
+        "name": "Hugo test"
+      },
+      "dateObs": "Apr 22, 2021",
+      "dateUpdated": "Apr 22, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Delosperma cooperi",
+        "author": "(Hook.f.) L.Bolus",
+        "family": "Aizoaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Delosperma cooperi (Hook.f.) L.Bolus",
+      "images": [
+        {
+          "id": "505148b9680365f6ffe5ccf8f175cd69d6d40223",
+          "o": "https://bs.plantnet.org/image/o/505148b9680365f6ffe5ccf8f175cd69d6d40223",
+          "m": "https://bs.plantnet.org/image/m/505148b9680365f6ffe5ccf8f175cd69d6d40223",
+          "s": "https://bs.plantnet.org/image/s/505148b9680365f6ffe5ccf8f175cd69d6d40223",
+          "organ": "leaf"
+        }
+      ],
+      "isValid": true,
+      "isRevised": false,
+      "groups": [],
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "505148b9680365f6ffe5ccf8f175cd69d6d40223",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1003054769",
+      "author": {
+        "id": "10885203",
+        "name": "Hugo test"
+      },
+      "dateObs": "Apr 22, 2021",
+      "dateUpdated": "Apr 22, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Citrus aurantium",
+        "author": "L.",
+        "family": "Rutaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Citrus aurantium L.",
+      "images": [
+        {
+          "id": "8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "o": "https://bs.plantnet.org/image/o/8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "m": "https://bs.plantnet.org/image/m/8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "s": "https://bs.plantnet.org/image/s/8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "organ": "leaf"
+        }
+      ],
+      "isValid": true,
+      "isRevised": false,
+      "groups": [],
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "8170013ffbafa48c04b96e19a5f761b0a273fd86",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1003054768",
+      "author": {
+        "id": "10885203",
+        "name": "Hugo test"
+      },
+      "dateObs": "Apr 22, 2021",
+      "dateUpdated": "Apr 22, 2021",
+      "license": "cc-by-sa",
+      "species": null,
+      "currentName": "Unidentified",
+      "submittedName": null,
+      "images": [
+        {
+          "id": "5bff6d6b3ca908fe9d7098f55e9d0b5e8cd10456",
+          "o": "https://bs.plantnet.org/image/o/5bff6d6b3ca908fe9d7098f55e9d0b5e8cd10456",
+          "m": "https://bs.plantnet.org/image/m/5bff6d6b3ca908fe9d7098f55e9d0b5e8cd10456",
+          "s": "https://bs.plantnet.org/image/s/5bff6d6b3ca908fe9d7098f55e9d0b5e8cd10456",
+          "organ": "leaf"
+        }
+      ],
+      "isRevised": false,
+      "groups": [],
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "5bff6d6b3ca908fe9d7098f55e9d0b5e8cd10456",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1003054767",
+      "author": {
+        "id": "10885203",
+        "name": "Hugo test"
+      },
+      "dateObs": "Apr 16, 2021",
+      "dateUpdated": "Apr 20, 2021",
+      "license": "cc-by-sa",
+      "species": null,
+      "currentName": "Pinus canariensis C.Sm.",
+      "submittedName": "Pinus canariensis C.Sm.",
+      "images": [
+        {
+          "id": "3c2475b00f43fbe22cc6304168f3af1194702cb0",
+          "o": "https://bs.plantnet.org/image/o/3c2475b00f43fbe22cc6304168f3af1194702cb0",
+          "m": "https://bs.plantnet.org/image/m/3c2475b00f43fbe22cc6304168f3af1194702cb0",
+          "s": "https://bs.plantnet.org/image/s/3c2475b00f43fbe22cc6304168f3af1194702cb0",
+          "organ": "leaf"
+        }
+      ],
+      "isValid": false,
+      "isRevised": false,
+      "groups": [],
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "3c2475b00f43fbe22cc6304168f3af1194702cb0",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1003054766",
+      "author": {
+        "id": "10885203",
+        "name": "Hugo test"
+      },
+      "dateObs": "Apr 16, 2021",
+      "dateUpdated": "Apr 20, 2021",
+      "license": "cc-by-sa",
+      "species": null,
+      "currentName": "Citrus aurantium L.",
+      "submittedName": "Citrus sinensis (L.) Osbeck",
+      "images": [
+        {
+          "id": "8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "o": "https://bs.plantnet.org/image/o/8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "m": "https://bs.plantnet.org/image/m/8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "s": "https://bs.plantnet.org/image/s/8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "organ": "flower"
+        }
+      ],
+      "isValid": false,
+      "isRevised": false,
+      "groups": [],
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "8170013ffbafa48c04b96e19a5f761b0a273fd86",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "flower",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1003054765",
+      "author": {
+        "id": "10885203",
+        "name": "Hugo test"
+      },
+      "dateObs": "Apr 15, 2021",
+      "dateUpdated": "Apr 20, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Ocimum basilicum",
+        "author": "L.",
+        "family": "Lamiaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Ocimum basilicum L.",
+      "images": [
+        {
+          "id": "8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "o": "https://bs.plantnet.org/image/o/8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "m": "https://bs.plantnet.org/image/m/8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "s": "https://bs.plantnet.org/image/s/8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "organ": "bark"
+        },
+        {
+          "id": "5bff6d6b3ca908fe9d7098f55e9d0b5e8cd10456",
+          "o": "https://bs.plantnet.org/image/o/5bff6d6b3ca908fe9d7098f55e9d0b5e8cd10456",
+          "m": "https://bs.plantnet.org/image/m/5bff6d6b3ca908fe9d7098f55e9d0b5e8cd10456",
+          "s": "https://bs.plantnet.org/image/s/5bff6d6b3ca908fe9d7098f55e9d0b5e8cd10456",
+          "organ": "habit"
+        }
+      ],
+      "isValid": true,
+      "isRevised": true,
+      "groups": [],
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "8170013ffbafa48c04b96e19a5f761b0a273fd86",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "bark",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          },
+          {
+            "id": "5bff6d6b3ca908fe9d7098f55e9d0b5e8cd10456",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "habit",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1003054764",
+      "author": {
+        "id": "10885203",
+        "name": "Hugo test"
+      },
+      "dateObs": "Apr 15, 2021",
+      "dateUpdated": "Apr 20, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Begonia cucullata",
+        "author": "Willd.",
+        "family": "Begoniaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Begonia cucullata Willd.",
+      "images": [
+        {
+          "id": "8c18c9e48013bb88a014b82fcd3de199507bd62a",
+          "o": "https://bs.plantnet.org/image/o/8c18c9e48013bb88a014b82fcd3de199507bd62a",
+          "m": "https://bs.plantnet.org/image/m/8c18c9e48013bb88a014b82fcd3de199507bd62a",
+          "s": "https://bs.plantnet.org/image/s/8c18c9e48013bb88a014b82fcd3de199507bd62a",
+          "organ": "leaf"
+        }
+      ],
+      "isValid": true,
+      "isRevised": true,
+      "groups": [],
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "8c18c9e48013bb88a014b82fcd3de199507bd62a",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1003054762",
+      "author": {
+        "id": "10885203",
+        "name": "Hugo test"
+      },
+      "dateObs": "Apr 8, 2021",
+      "dateUpdated": "Apr 20, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Deschampsia media",
+        "author": "(Gouan) Roem. & Schult.",
+        "family": "Poaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Citrus sinensis (L.) Osbeck",
+      "images": [
+        {
+          "id": "8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "o": "https://bs.plantnet.org/image/o/8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "m": "https://bs.plantnet.org/image/m/8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "s": "https://bs.plantnet.org/image/s/8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "organ": "fruit"
+        }
+      ],
+      "isValid": false,
+      "isRevised": false,
+      "groups": [],
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "8170013ffbafa48c04b96e19a5f761b0a273fd86",
+            "quality": {
+              "plus": {
+                "count": 0,
+                "selected": false
+              },
+              "minus": {
+                "count": 1,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "fruit",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1003054761",
+      "author": {
+        "id": "10230546",
+        "name": "Antoine AFFOUARD"
+      },
+      "dateObs": "Apr 8, 2021",
+      "dateUpdated": "Apr 20, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Malva sylvestris",
+        "author": "L.",
+        "family": "Malvaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": null,
+      "images": [
+        {
+          "id": "d20498664b9089a6bf6c1c2a4f59061801b1b0e4",
+          "o": "https://bs.plantnet.org/image/o/d20498664b9089a6bf6c1c2a4f59061801b1b0e4",
+          "m": "https://bs.plantnet.org/image/m/d20498664b9089a6bf6c1c2a4f59061801b1b0e4",
+          "s": "https://bs.plantnet.org/image/s/d20498664b9089a6bf6c1c2a4f59061801b1b0e4",
+          "organ": "flower"
+        }
+      ],
+      "isValid": true,
+      "isRevised": true,
+      "groups": [],
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "d20498664b9089a6bf6c1c2a4f59061801b1b0e4",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "flower",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1003054760",
+      "author": {
+        "id": "10230546",
+        "name": "Antoine AFFOUARD"
+      },
+      "dateObs": "Jul 28, 2020",
+      "dateUpdated": "Apr 14, 2021",
+      "license": "cc-by-sa",
+      "species": null,
+      "currentName": "Unidentified",
+      "submittedName": null,
+      "images": [
+        {
+          "id": "0b534a20cf59121f019e216ccdb206c582349ad3",
+          "o": "https://bs.plantnet.org/image/o/0b534a20cf59121f019e216ccdb206c582349ad3",
+          "m": "https://bs.plantnet.org/image/m/0b534a20cf59121f019e216ccdb206c582349ad3",
+          "s": "https://bs.plantnet.org/image/s/0b534a20cf59121f019e216ccdb206c582349ad3",
+          "organ": "flower"
+        }
+      ],
+      "isRevised": false,
+      "groups": [],
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "0b534a20cf59121f019e216ccdb206c582349ad3",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "flower",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1003054759",
+      "author": {
+        "id": "10951997",
+        "name": "Plant Net"
+      },
+      "dateObs": "Sep 1, 2020",
+      "dateUpdated": "Apr 2, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Senna alata",
+        "author": "(L.) Roxb.",
+        "family": "Leguminosae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Senna alata (L.) Roxb.",
+      "images": [
+        {
+          "id": "4920bae3c098f96c5020965fa2889c9a7007078e",
+          "o": "https://bs.plantnet.org/image/o/4920bae3c098f96c5020965fa2889c9a7007078e",
+          "m": "https://bs.plantnet.org/image/m/4920bae3c098f96c5020965fa2889c9a7007078e",
+          "s": "https://bs.plantnet.org/image/s/4920bae3c098f96c5020965fa2889c9a7007078e",
+          "organ": "leaf"
+        }
+      ],
+      "isValid": false,
+      "isRevised": false,
+      "groups": [],
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "4920bae3c098f96c5020965fa2889c9a7007078e",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1003054758",
+      "author": {
+        "id": "10885203",
+        "name": "Hugo test"
+      },
+      "dateObs": "Apr 1, 2021",
+      "dateUpdated": "Apr 20, 2021",
+      "license": "cc-by-sa",
+      "species": null,
+      "currentName": "Unidentified",
+      "submittedName": null,
+      "images": [
+        {
+          "id": "8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "o": "https://bs.plantnet.org/image/o/8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "m": "https://bs.plantnet.org/image/m/8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "s": "https://bs.plantnet.org/image/s/8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "organ": "bark"
+        },
+        {
+          "id": "2e46399226e131f08a336d0c7fb6fcecd5f3f298",
+          "o": "https://bs.plantnet.org/image/o/2e46399226e131f08a336d0c7fb6fcecd5f3f298",
+          "m": "https://bs.plantnet.org/image/m/2e46399226e131f08a336d0c7fb6fcecd5f3f298",
+          "s": "https://bs.plantnet.org/image/s/2e46399226e131f08a336d0c7fb6fcecd5f3f298",
+          "organ": "leaf"
+        },
+        {
+          "id": "6f9d73f735be2d664aba1cd9d2d5387f1055b2fc",
+          "o": "https://bs.plantnet.org/image/o/6f9d73f735be2d664aba1cd9d2d5387f1055b2fc",
+          "m": "https://bs.plantnet.org/image/m/6f9d73f735be2d664aba1cd9d2d5387f1055b2fc",
+          "s": "https://bs.plantnet.org/image/s/6f9d73f735be2d664aba1cd9d2d5387f1055b2fc",
+          "organ": "bark"
+        }
+      ],
+      "isValid": false,
+      "isRevised": false,
+      "groups": [],
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "8170013ffbafa48c04b96e19a5f761b0a273fd86",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "bark",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          },
+          {
+            "id": "2e46399226e131f08a336d0c7fb6fcecd5f3f298",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          },
+          {
+            "id": "6f9d73f735be2d664aba1cd9d2d5387f1055b2fc",
+            "quality": {
+              "plus": {
+                "count": 0,
+                "selected": false
+              },
+              "minus": {
+                "count": 1,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "bark",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1003054757",
+      "author": {
+        "id": "10885203",
+        "name": "Hugo test"
+      },
+      "dateObs": "Mar 31, 2021",
+      "dateUpdated": "Apr 20, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Citrus sinensis",
+        "author": "(L.) Osbeck",
+        "family": "Rutaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Citrus sinensis (L.) Osbeck",
+      "images": [
+        {
+          "id": "8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "o": "https://bs.plantnet.org/image/o/8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "m": "https://bs.plantnet.org/image/m/8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "s": "https://bs.plantnet.org/image/s/8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "organ": "fruit"
+        }
+      ],
+      "isValid": true,
+      "isRevised": false,
+      "groups": [],
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "8170013ffbafa48c04b96e19a5f761b0a273fd86",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "fruit",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1003054756",
+      "author": {
+        "id": "10885203",
+        "name": "Hugo test"
+      },
+      "dateObs": "Mar 29, 2021",
+      "dateUpdated": "Apr 20, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Citrus sinensis",
+        "author": "(L.) Osbeck",
+        "family": "Rutaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Citrus sinensis (L.) Osbeck",
+      "images": [
+        {
+          "id": "8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "o": "https://bs.plantnet.org/image/o/8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "m": "https://bs.plantnet.org/image/m/8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "s": "https://bs.plantnet.org/image/s/8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "organ": "leaf"
+        }
+      ],
+      "isValid": true,
+      "isRevised": false,
+      "groups": [],
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "8170013ffbafa48c04b96e19a5f761b0a273fd86",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1003054755",
+      "author": {
+        "id": "10064474",
+        "name": "Pierre Bonnet"
+      },
+      "dateObs": "Mar 29, 2021",
+      "dateUpdated": "Apr 20, 2021",
+      "license": "cc-by-sa",
+      "species": null,
+      "currentName": "Unidentified",
+      "submittedName": null,
+      "images": [
+        {
+          "id": "fe774e65bc2f1ed6726d8975132c10be9daae7bb",
+          "o": "https://bs.plantnet.org/image/o/fe774e65bc2f1ed6726d8975132c10be9daae7bb",
+          "m": "https://bs.plantnet.org/image/m/fe774e65bc2f1ed6726d8975132c10be9daae7bb",
+          "s": "https://bs.plantnet.org/image/s/fe774e65bc2f1ed6726d8975132c10be9daae7bb",
+          "organ": "flower"
+        }
+      ],
+      "isRevised": false,
+      "groups": [],
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "fe774e65bc2f1ed6726d8975132c10be9daae7bb",
+            "quality": {
+              "plus": {
+                "count": 2,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "flower",
+                "count": 1,
+                "selected": false
+              },
+              {
+                "name": "habit",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1003054754",
+      "author": {
+        "id": "10952435",
+        "name": "Pl"
+      },
+      "dateObs": "Mar 24, 2021",
+      "dateUpdated": "Apr 14, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Juniperus deppeana",
+        "author": "Steud.",
+        "family": "Cupressaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Austrocedrus chilensis (D.Don) Pic.Serm. & Bizzarri",
+      "images": [
+        {
+          "id": "1fa0675d0b7fde01f9e19bcd08ca6c07d079131c",
+          "o": "https://bs.plantnet.org/image/o/1fa0675d0b7fde01f9e19bcd08ca6c07d079131c",
+          "m": "https://bs.plantnet.org/image/m/1fa0675d0b7fde01f9e19bcd08ca6c07d079131c",
+          "s": "https://bs.plantnet.org/image/s/1fa0675d0b7fde01f9e19bcd08ca6c07d079131c",
+          "organ": "leaf"
+        }
+      ],
+      "isValid": false,
+      "isRevised": true,
+      "groups": [],
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "1fa0675d0b7fde01f9e19bcd08ca6c07d079131c",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1003054753",
+      "author": {
+        "id": "10885203",
+        "name": "Hugo test"
+      },
+      "dateObs": "Mar 23, 2021",
+      "dateUpdated": "Apr 20, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Citrus sinensis",
+        "author": "(L.) Osbeck",
+        "family": "Rutaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Citrus sinensis (L.) Osbeck",
+      "images": [
+        {
+          "id": "1fa6135aef9d41c27721fc1b1375cd84ea59ffaa",
+          "o": "https://bs.plantnet.org/image/o/1fa6135aef9d41c27721fc1b1375cd84ea59ffaa",
+          "m": "https://bs.plantnet.org/image/m/1fa6135aef9d41c27721fc1b1375cd84ea59ffaa",
+          "s": "https://bs.plantnet.org/image/s/1fa6135aef9d41c27721fc1b1375cd84ea59ffaa",
+          "organ": "leaf"
+        }
+      ],
+      "isValid": true,
+      "isRevised": false,
+      "groups": [],
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "1fa6135aef9d41c27721fc1b1375cd84ea59ffaa",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1003054752",
+      "author": {
+        "id": "10885203",
+        "name": "Hugo test"
+      },
+      "dateObs": "Mar 23, 2021",
+      "dateUpdated": "Apr 20, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Citrus sinensis",
+        "author": "(L.) Osbeck",
+        "family": "Rutaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Citrus sinensis (L.) Osbeck",
+      "images": [
+        {
+          "id": "8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "o": "https://bs.plantnet.org/image/o/8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "m": "https://bs.plantnet.org/image/m/8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "s": "https://bs.plantnet.org/image/s/8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "organ": "leaf"
+        }
+      ],
+      "isValid": true,
+      "isRevised": false,
+      "groups": [],
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "8170013ffbafa48c04b96e19a5f761b0a273fd86",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1003054751",
+      "author": {
+        "id": "10885203",
+        "name": "Hugo test"
+      },
+      "dateObs": "Mar 23, 2021",
+      "dateUpdated": "Apr 20, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Ferula communis",
+        "author": "L.",
+        "family": "Apiaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Ferula communis L.",
+      "images": [
+        {
+          "id": "2e46399226e131f08a336d0c7fb6fcecd5f3f298",
+          "o": "https://bs.plantnet.org/image/o/2e46399226e131f08a336d0c7fb6fcecd5f3f298",
+          "m": "https://bs.plantnet.org/image/m/2e46399226e131f08a336d0c7fb6fcecd5f3f298",
+          "s": "https://bs.plantnet.org/image/s/2e46399226e131f08a336d0c7fb6fcecd5f3f298",
+          "organ": "leaf"
+        }
+      ],
+      "isValid": true,
+      "isRevised": false,
+      "groups": [],
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "2e46399226e131f08a336d0c7fb6fcecd5f3f298",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1003054750",
+      "author": {
+        "id": "10885203",
+        "name": "Hugo test"
+      },
+      "dateObs": "Mar 23, 2021",
+      "dateUpdated": "Apr 20, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Begonia spp.",
+        "author": null,
+        "family": "Begoniaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Begonia spp.",
+      "images": [
+        {
+          "id": "8c18c9e48013bb88a014b82fcd3de199507bd62a",
+          "o": "https://bs.plantnet.org/image/o/8c18c9e48013bb88a014b82fcd3de199507bd62a",
+          "m": "https://bs.plantnet.org/image/m/8c18c9e48013bb88a014b82fcd3de199507bd62a",
+          "s": "https://bs.plantnet.org/image/s/8c18c9e48013bb88a014b82fcd3de199507bd62a",
+          "organ": "fruit"
+        }
+      ],
+      "isValid": true,
+      "isRevised": false,
+      "groups": [],
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "8c18c9e48013bb88a014b82fcd3de199507bd62a",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "fruit",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1003054749",
+      "author": {
+        "id": "10885203",
+        "name": "Hugo test"
+      },
+      "dateObs": "Mar 23, 2021",
+      "dateUpdated": "Apr 20, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Begonia spp.",
+        "author": null,
+        "family": "Begoniaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Angelica archangelica L.",
+      "images": [
+        {
+          "id": "2e46399226e131f08a336d0c7fb6fcecd5f3f298",
+          "o": "https://bs.plantnet.org/image/o/2e46399226e131f08a336d0c7fb6fcecd5f3f298",
+          "m": "https://bs.plantnet.org/image/m/2e46399226e131f08a336d0c7fb6fcecd5f3f298",
+          "s": "https://bs.plantnet.org/image/s/2e46399226e131f08a336d0c7fb6fcecd5f3f298",
+          "organ": "leaf"
+        }
+      ],
+      "isValid": true,
+      "isRevised": false,
+      "groups": [],
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "2e46399226e131f08a336d0c7fb6fcecd5f3f298",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1003054748",
+      "author": {
+        "id": "10885203",
+        "name": "Hugo test"
+      },
+      "dateObs": "Mar 23, 2021",
+      "dateUpdated": "Apr 20, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Begonia spp.",
+        "author": null,
+        "family": "Begoniaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Begonia spp.",
+      "images": [
+        {
+          "id": "8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "o": "https://bs.plantnet.org/image/o/8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "m": "https://bs.plantnet.org/image/m/8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "s": "https://bs.plantnet.org/image/s/8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "organ": "leaf"
+        }
+      ],
+      "isValid": true,
+      "isRevised": false,
+      "groups": [],
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "8170013ffbafa48c04b96e19a5f761b0a273fd86",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1003054747",
+      "author": {
+        "id": "10936213",
+        "name": "hugogresse2"
+      },
+      "dateObs": "Mar 23, 2021",
+      "dateUpdated": "Apr 20, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Scrophularia auriculata",
+        "author": "L.",
+        "family": "Scrophulariaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Scrophularia auriculata L.",
+      "images": [
+        {
+          "id": "5c1fc2ad01d4daca54bdb2c3f730b2b59fe3e679",
+          "o": "https://bs.plantnet.org/image/o/5c1fc2ad01d4daca54bdb2c3f730b2b59fe3e679",
+          "m": "https://bs.plantnet.org/image/m/5c1fc2ad01d4daca54bdb2c3f730b2b59fe3e679",
+          "s": "https://bs.plantnet.org/image/s/5c1fc2ad01d4daca54bdb2c3f730b2b59fe3e679",
+          "organ": "bark"
+        },
+        {
+          "id": "86b77683fd843bf738a476af95e7afdc0eec3f6a",
+          "o": "https://bs.plantnet.org/image/o/86b77683fd843bf738a476af95e7afdc0eec3f6a",
+          "m": "https://bs.plantnet.org/image/m/86b77683fd843bf738a476af95e7afdc0eec3f6a",
+          "s": "https://bs.plantnet.org/image/s/86b77683fd843bf738a476af95e7afdc0eec3f6a",
+          "organ": "habit"
+        }
+      ],
+      "isValid": false,
+      "isRevised": false,
+      "groups": [],
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "5c1fc2ad01d4daca54bdb2c3f730b2b59fe3e679",
+            "quality": {
+              "plus": {
+                "count": 2,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "bark",
+                "count": 1,
+                "selected": false
+              },
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          },
+          {
+            "id": "86b77683fd843bf738a476af95e7afdc0eec3f6a",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 1,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "habit",
+                "count": 1,
+                "selected": false
+              },
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1003054746",
+      "author": {
+        "id": "10885203",
+        "name": "Hugo test"
+      },
+      "dateObs": "Mar 22, 2021",
+      "dateUpdated": "Apr 20, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Citrus sinensis",
+        "author": "(L.) Osbeck",
+        "family": "Rutaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Citrus sinensis (L.) Osbeck",
+      "images": [
+        {
+          "id": "8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "o": "https://bs.plantnet.org/image/o/8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "m": "https://bs.plantnet.org/image/m/8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "s": "https://bs.plantnet.org/image/s/8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "organ": "leaf"
+        }
+      ],
+      "isValid": true,
+      "isRevised": false,
+      "groups": [],
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "8170013ffbafa48c04b96e19a5f761b0a273fd86",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1003054745",
+      "author": {
+        "id": "10885203",
+        "name": "Hugo test"
+      },
+      "dateObs": "Mar 22, 2021",
+      "dateUpdated": "Apr 20, 2021",
+      "license": "cc-by-sa",
+      "species": null,
+      "currentName": "Citrus sinensis (L.) Osbeck",
+      "submittedName": "Citrus sinensis (L.) Osbeck",
+      "images": [
+        {
+          "id": "1fa6135aef9d41c27721fc1b1375cd84ea59ffaa",
+          "o": "https://bs.plantnet.org/image/o/1fa6135aef9d41c27721fc1b1375cd84ea59ffaa",
+          "m": "https://bs.plantnet.org/image/m/1fa6135aef9d41c27721fc1b1375cd84ea59ffaa",
+          "s": "https://bs.plantnet.org/image/s/1fa6135aef9d41c27721fc1b1375cd84ea59ffaa",
+          "organ": "leaf"
+        }
+      ],
+      "isValid": false,
+      "isRevised": false,
+      "groups": [],
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "1fa6135aef9d41c27721fc1b1375cd84ea59ffaa",
+            "quality": {
+              "plus": {
+                "count": 0,
+                "selected": false
+              },
+              "minus": {
+                "count": 1,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1003054744",
+      "author": {
+        "id": "10885203",
+        "name": "Hugo test"
+      },
+      "dateObs": "Mar 18, 2021",
+      "dateUpdated": "Apr 20, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Delosperma cooperi",
+        "author": "(Hook.f.) L.Bolus",
+        "family": "Aizoaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Delosperma cooperi (Hook.f.) L.Bolus",
+      "images": [
+        {
+          "id": "505148b9680365f6ffe5ccf8f175cd69d6d40223",
+          "o": "https://bs.plantnet.org/image/o/505148b9680365f6ffe5ccf8f175cd69d6d40223",
+          "m": "https://bs.plantnet.org/image/m/505148b9680365f6ffe5ccf8f175cd69d6d40223",
+          "s": "https://bs.plantnet.org/image/s/505148b9680365f6ffe5ccf8f175cd69d6d40223",
+          "organ": "leaf"
+        }
+      ],
+      "isValid": true,
+      "isRevised": true,
+      "groups": [],
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "505148b9680365f6ffe5ccf8f175cd69d6d40223",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1003054743",
+      "author": {
+        "id": "10885203",
+        "name": "Hugo test"
+      },
+      "dateObs": "Mar 16, 2021",
+      "dateUpdated": "Apr 20, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Ocimum basilicum",
+        "author": "L.",
+        "family": "Lamiaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Ocimum basilicum L.",
+      "images": [
+        {
+          "id": "5bff6d6b3ca908fe9d7098f55e9d0b5e8cd10456",
+          "o": "https://bs.plantnet.org/image/o/5bff6d6b3ca908fe9d7098f55e9d0b5e8cd10456",
+          "m": "https://bs.plantnet.org/image/m/5bff6d6b3ca908fe9d7098f55e9d0b5e8cd10456",
+          "s": "https://bs.plantnet.org/image/s/5bff6d6b3ca908fe9d7098f55e9d0b5e8cd10456",
+          "organ": "leaf"
+        }
+      ],
+      "isValid": true,
+      "isRevised": false,
+      "groups": [],
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "5bff6d6b3ca908fe9d7098f55e9d0b5e8cd10456",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1003054742",
+      "author": {
+        "id": "10885203",
+        "name": "Hugo test"
+      },
+      "dateObs": "Mar 16, 2021",
+      "dateUpdated": "Apr 20, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Citrus sinensis",
+        "author": "(L.) Osbeck",
+        "family": "Rutaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Citrus sinensis (L.) Osbeck",
+      "images": [
+        {
+          "id": "8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "o": "https://bs.plantnet.org/image/o/8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "m": "https://bs.plantnet.org/image/m/8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "s": "https://bs.plantnet.org/image/s/8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "organ": "leaf"
+        }
+      ],
+      "isValid": true,
+      "isRevised": false,
+      "groups": [],
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "8170013ffbafa48c04b96e19a5f761b0a273fd86",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1003054741",
+      "author": {
+        "id": "10885203",
+        "name": "Hugo test"
+      },
+      "dateObs": "Mar 16, 2021",
+      "dateUpdated": "Apr 20, 2021",
+      "license": "cc-by-sa",
+      "species": null,
+      "currentName": "Unidentified",
+      "submittedName": null,
+      "images": [
+        {
+          "id": "505148b9680365f6ffe5ccf8f175cd69d6d40223",
+          "o": "https://bs.plantnet.org/image/o/505148b9680365f6ffe5ccf8f175cd69d6d40223",
+          "m": "https://bs.plantnet.org/image/m/505148b9680365f6ffe5ccf8f175cd69d6d40223",
+          "s": "https://bs.plantnet.org/image/s/505148b9680365f6ffe5ccf8f175cd69d6d40223",
+          "organ": "leaf"
+        }
+      ],
+      "isRevised": false,
+      "groups": [],
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "505148b9680365f6ffe5ccf8f175cd69d6d40223",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1003054740",
+      "author": {
+        "id": "10885203",
+        "name": "Hugo test"
+      },
+      "dateObs": "Mar 16, 2021",
+      "dateUpdated": "Apr 20, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Citrus sinensis",
+        "author": "(L.) Osbeck",
+        "family": "Rutaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Citrus sinensis (L.) Osbeck",
+      "images": [
+        {
+          "id": "8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "o": "https://bs.plantnet.org/image/o/8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "m": "https://bs.plantnet.org/image/m/8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "s": "https://bs.plantnet.org/image/s/8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "organ": "leaf"
+        }
+      ],
+      "isValid": true,
+      "isRevised": true,
+      "groups": [],
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "8170013ffbafa48c04b96e19a5f761b0a273fd86",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 2,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1003054739",
+      "author": {
+        "id": "10885203",
+        "name": "Hugo test"
+      },
+      "dateObs": "Mar 16, 2021",
+      "dateUpdated": "Apr 20, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Petasites hybridus",
+        "author": "(L.) G.Gaertn., B.Mey. & Scherb.",
+        "family": "Asteraceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Petasites hybridus (L.) G.Gaertn., B.Mey. & Scherb.",
+      "images": [
+        {
+          "id": "d6563232135955ab11faccd9f213648e0afe3229",
+          "o": "https://bs.plantnet.org/image/o/d6563232135955ab11faccd9f213648e0afe3229",
+          "m": "https://bs.plantnet.org/image/m/d6563232135955ab11faccd9f213648e0afe3229",
+          "s": "https://bs.plantnet.org/image/s/d6563232135955ab11faccd9f213648e0afe3229",
+          "organ": "fruit"
+        }
+      ],
+      "isValid": true,
+      "isRevised": false,
+      "groups": [],
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "d6563232135955ab11faccd9f213648e0afe3229",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "fruit",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1003054738",
+      "author": {
+        "id": "10885203",
+        "name": "Hugo test"
+      },
+      "dateObs": "Mar 16, 2021",
+      "dateUpdated": "Apr 20, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Solanum lycopersicum",
+        "author": "L.",
+        "family": "Solanaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Solanum lycopersicum L.",
+      "images": [
+        {
+          "id": "d030901ecb5b72a6955ba20cf28dfb6ad3e2f10f",
+          "o": "https://bs.plantnet.org/image/o/d030901ecb5b72a6955ba20cf28dfb6ad3e2f10f",
+          "m": "https://bs.plantnet.org/image/m/d030901ecb5b72a6955ba20cf28dfb6ad3e2f10f",
+          "s": "https://bs.plantnet.org/image/s/d030901ecb5b72a6955ba20cf28dfb6ad3e2f10f",
+          "organ": "leaf"
+        }
+      ],
+      "isValid": true,
+      "isRevised": false,
+      "groups": [],
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "d030901ecb5b72a6955ba20cf28dfb6ad3e2f10f",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1003054737",
+      "author": {
+        "id": "10885203",
+        "name": "Hugo test"
+      },
+      "dateObs": "Mar 16, 2021",
+      "dateUpdated": "Apr 20, 2021",
+      "license": "cc-by-sa",
+      "species": null,
+      "currentName": "Angelica archangelica L.",
+      "submittedName": "Angelica archangelica L.",
+      "images": [
+        {
+          "id": "2e46399226e131f08a336d0c7fb6fcecd5f3f298",
+          "o": "https://bs.plantnet.org/image/o/2e46399226e131f08a336d0c7fb6fcecd5f3f298",
+          "m": "https://bs.plantnet.org/image/m/2e46399226e131f08a336d0c7fb6fcecd5f3f298",
+          "s": "https://bs.plantnet.org/image/s/2e46399226e131f08a336d0c7fb6fcecd5f3f298",
+          "organ": "leaf"
+        }
+      ],
+      "isValid": false,
+      "isRevised": false,
+      "groups": [],
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "2e46399226e131f08a336d0c7fb6fcecd5f3f298",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1003054736",
+      "author": {
+        "id": "10885203",
+        "name": "Hugo test"
+      },
+      "dateObs": "Mar 16, 2021",
+      "dateUpdated": "Apr 20, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Citrus sinensis",
+        "author": "(L.) Osbeck",
+        "family": "Rutaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Citrus sinensis (L.) Osbeck",
+      "images": [
+        {
+          "id": "8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "o": "https://bs.plantnet.org/image/o/8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "m": "https://bs.plantnet.org/image/m/8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "s": "https://bs.plantnet.org/image/s/8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "organ": "leaf"
+        }
+      ],
+      "isValid": true,
+      "isRevised": false,
+      "groups": [],
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "8170013ffbafa48c04b96e19a5f761b0a273fd86",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1003054727",
+      "author": {
+        "id": "10885203",
+        "name": "Hugo test"
+      },
+      "dateObs": "Mar 11, 2021",
+      "dateUpdated": "Apr 20, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Azolla filiculoides",
+        "author": "Lam.",
+        "family": "Salviniaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Azolla filiculoides Lam.",
+      "images": [
+        {
+          "id": "d6563232135955ab11faccd9f213648e0afe3229",
+          "o": "https://bs.plantnet.org/image/o/d6563232135955ab11faccd9f213648e0afe3229",
+          "m": "https://bs.plantnet.org/image/m/d6563232135955ab11faccd9f213648e0afe3229",
+          "s": "https://bs.plantnet.org/image/s/d6563232135955ab11faccd9f213648e0afe3229",
+          "organ": "leaf"
+        }
+      ],
+      "isValid": true,
+      "isRevised": false,
+      "groups": [],
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "d6563232135955ab11faccd9f213648e0afe3229",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1003054726",
+      "author": {
+        "id": "10885203",
+        "name": "Hugo test"
+      },
+      "dateObs": "Mar 10, 2021",
+      "dateUpdated": "Apr 20, 2021",
+      "license": "cc-by-sa",
+      "species": null,
+      "currentName": "Unidentified",
+      "submittedName": null,
+      "images": [
+        {
+          "id": "8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "o": "https://bs.plantnet.org/image/o/8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "m": "https://bs.plantnet.org/image/m/8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "s": "https://bs.plantnet.org/image/s/8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "organ": "leaf"
+        }
+      ],
+      "isRevised": false,
+      "groups": [],
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "8170013ffbafa48c04b96e19a5f761b0a273fd86",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1003054725",
+      "author": {
+        "id": "10199062",
+        "name": "Hervé Goëau"
+      },
+      "dateObs": "Mar 10, 2021",
+      "dateUpdated": "Apr 20, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Geranium sanguineum",
+        "author": "L.",
+        "family": "Geraniaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Geranium sanguineum L.",
+      "images": [
+        {
+          "id": "0f770e77714cd7ff1d9a48bc2157fce150788dcb",
+          "o": "https://bs.plantnet.org/image/o/0f770e77714cd7ff1d9a48bc2157fce150788dcb",
+          "m": "https://bs.plantnet.org/image/m/0f770e77714cd7ff1d9a48bc2157fce150788dcb",
+          "s": "https://bs.plantnet.org/image/s/0f770e77714cd7ff1d9a48bc2157fce150788dcb",
+          "organ": "flower"
+        }
+      ],
+      "isValid": true,
+      "isRevised": true,
+      "groups": [],
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "0f770e77714cd7ff1d9a48bc2157fce150788dcb",
+            "quality": {
+              "plus": {
+                "count": 2,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "flower",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1003054724",
+      "author": {
+        "id": "10885203",
+        "name": "Hugo test"
+      },
+      "dateObs": "Feb 13, 2021",
+      "dateUpdated": "Apr 20, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Ocimum basilicum",
+        "author": "L.",
+        "family": "Lamiaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": "Ocimum basilicum L.",
+      "images": [
+        {
+          "id": "842078d8d0a03dc34bb9a35a11be851b0e2d24b4",
+          "o": "https://bs.plantnet.org/image/o/842078d8d0a03dc34bb9a35a11be851b0e2d24b4",
+          "m": "https://bs.plantnet.org/image/m/842078d8d0a03dc34bb9a35a11be851b0e2d24b4",
+          "s": "https://bs.plantnet.org/image/s/842078d8d0a03dc34bb9a35a11be851b0e2d24b4",
+          "organ": "fruit"
+        },
+        {
+          "id": "c9bb498243ff1c8fe07f6e5dc6b346282a93011a",
+          "o": "https://bs.plantnet.org/image/o/c9bb498243ff1c8fe07f6e5dc6b346282a93011a",
+          "m": "https://bs.plantnet.org/image/m/c9bb498243ff1c8fe07f6e5dc6b346282a93011a",
+          "s": "https://bs.plantnet.org/image/s/c9bb498243ff1c8fe07f6e5dc6b346282a93011a",
+          "organ": "leaf"
+        }
+      ],
+      "isValid": true,
+      "isRevised": false,
+      "groups": [],
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "842078d8d0a03dc34bb9a35a11be851b0e2d24b4",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 1,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "fruit",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          },
+          {
+            "id": "c9bb498243ff1c8fe07f6e5dc6b346282a93011a",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              },
+              {
+                "name": "fruit",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1003054722",
+      "author": {
+        "id": "10230546",
+        "name": "Antoine AFFOUARD"
+      },
+      "dateObs": "Jul 28, 2020",
+      "dateUpdated": "Apr 14, 2021",
+      "license": "cc-by-sa",
+      "species": null,
+      "currentName": "Unidentified",
+      "submittedName": null,
+      "images": [
+        {
+          "id": "0b534a20cf59121f019e216ccdb206c582349ad3",
+          "o": "https://bs.plantnet.org/image/o/0b534a20cf59121f019e216ccdb206c582349ad3",
+          "m": "https://bs.plantnet.org/image/m/0b534a20cf59121f019e216ccdb206c582349ad3",
+          "s": "https://bs.plantnet.org/image/s/0b534a20cf59121f019e216ccdb206c582349ad3",
+          "organ": "flower"
+        }
+      ],
+      "isRevised": false,
+      "groups": [],
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "0b534a20cf59121f019e216ccdb206c582349ad3",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "flower",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1003054721",
+      "author": {
+        "id": "10230546",
+        "name": "Antoine AFFOUARD"
+      },
+      "dateObs": "Jul 28, 2020",
+      "dateUpdated": "Apr 20, 2021",
+      "license": "cc-by-sa",
+      "species": {
+        "name": "Acer campestre",
+        "author": "L.",
+        "family": "Sapindaceae",
+        "commonNames": []
+      },
+      "currentName": null,
+      "submittedName": null,
+      "images": [
+        {
+          "id": "0b534a20cf59121f019e216ccdb206c582349ad3",
+          "o": "https://bs.plantnet.org/image/o/0b534a20cf59121f019e216ccdb206c582349ad3",
+          "m": "https://bs.plantnet.org/image/m/0b534a20cf59121f019e216ccdb206c582349ad3",
+          "s": "https://bs.plantnet.org/image/s/0b534a20cf59121f019e216ccdb206c582349ad3",
+          "organ": "flower"
+        }
+      ],
+      "isValid": true,
+      "isRevised": true,
+      "groups": [],
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "0b534a20cf59121f019e216ccdb206c582349ad3",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "flower",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1003054720",
+      "author": {
+        "id": "10230546",
+        "name": "Antoine AFFOUARD"
+      },
+      "dateObs": "Mar 3, 2021",
+      "dateUpdated": "Apr 14, 2021",
+      "license": "cc-by-sa",
+      "species": null,
+      "currentName": "Unidentified",
+      "submittedName": null,
+      "images": [
+        {
+          "id": "40a0b6556c925770f319c7cadb3727ec95d48fac",
+          "o": "https://bs.plantnet.org/image/o/40a0b6556c925770f319c7cadb3727ec95d48fac",
+          "m": "https://bs.plantnet.org/image/m/40a0b6556c925770f319c7cadb3727ec95d48fac",
+          "s": "https://bs.plantnet.org/image/s/40a0b6556c925770f319c7cadb3727ec95d48fac",
+          "organ": "fruit"
+        },
+        {
+          "id": "308a9599d7be269971348e8f33c5ee88fcb8c4af",
+          "o": "https://bs.plantnet.org/image/o/308a9599d7be269971348e8f33c5ee88fcb8c4af",
+          "m": "https://bs.plantnet.org/image/m/308a9599d7be269971348e8f33c5ee88fcb8c4af",
+          "s": "https://bs.plantnet.org/image/s/308a9599d7be269971348e8f33c5ee88fcb8c4af",
+          "organ": "habit"
+        }
+      ],
+      "isRevised": false,
+      "groups": [],
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "40a0b6556c925770f319c7cadb3727ec95d48fac",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "fruit",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          },
+          {
+            "id": "308a9599d7be269971348e8f33c5ee88fcb8c4af",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "habit",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1003054719",
+      "author": {
+        "id": "10230546",
+        "name": "Antoine AFFOUARD"
+      },
+      "dateObs": "Jan 2, 2021",
+      "dateUpdated": "Apr 14, 2021",
+      "license": "cc-by-sa",
+      "species": null,
+      "currentName": "Unidentified",
+      "submittedName": null,
+      "images": [
+        {
+          "id": "40a0b6556c925770f319c7cadb3727ec95d48fac",
+          "o": "https://bs.plantnet.org/image/o/40a0b6556c925770f319c7cadb3727ec95d48fac",
+          "m": "https://bs.plantnet.org/image/m/40a0b6556c925770f319c7cadb3727ec95d48fac",
+          "s": "https://bs.plantnet.org/image/s/40a0b6556c925770f319c7cadb3727ec95d48fac",
+          "organ": "fruit"
+        },
+        {
+          "id": "308a9599d7be269971348e8f33c5ee88fcb8c4af",
+          "o": "https://bs.plantnet.org/image/o/308a9599d7be269971348e8f33c5ee88fcb8c4af",
+          "m": "https://bs.plantnet.org/image/m/308a9599d7be269971348e8f33c5ee88fcb8c4af",
+          "s": "https://bs.plantnet.org/image/s/308a9599d7be269971348e8f33c5ee88fcb8c4af",
+          "organ": "habit"
+        }
+      ],
+      "isRevised": false,
+      "groups": [],
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "40a0b6556c925770f319c7cadb3727ec95d48fac",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "fruit",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          },
+          {
+            "id": "308a9599d7be269971348e8f33c5ee88fcb8c4af",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "habit",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1003054718",
+      "author": {
+        "id": "10230546",
+        "name": "Antoine AFFOUARD"
+      },
+      "dateObs": "Mar 3, 2021",
+      "dateUpdated": "Apr 14, 2021",
+      "license": "cc-by-sa",
+      "species": null,
+      "currentName": "Unidentified",
+      "submittedName": null,
+      "images": [
+        {
+          "id": "40a0b6556c925770f319c7cadb3727ec95d48fac",
+          "o": "https://bs.plantnet.org/image/o/40a0b6556c925770f319c7cadb3727ec95d48fac",
+          "m": "https://bs.plantnet.org/image/m/40a0b6556c925770f319c7cadb3727ec95d48fac",
+          "s": "https://bs.plantnet.org/image/s/40a0b6556c925770f319c7cadb3727ec95d48fac",
+          "organ": "fruit"
+        },
+        {
+          "id": "308a9599d7be269971348e8f33c5ee88fcb8c4af",
+          "o": "https://bs.plantnet.org/image/o/308a9599d7be269971348e8f33c5ee88fcb8c4af",
+          "m": "https://bs.plantnet.org/image/m/308a9599d7be269971348e8f33c5ee88fcb8c4af",
+          "s": "https://bs.plantnet.org/image/s/308a9599d7be269971348e8f33c5ee88fcb8c4af",
+          "organ": "habit"
+        }
+      ],
+      "isRevised": false,
+      "groups": [],
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "40a0b6556c925770f319c7cadb3727ec95d48fac",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "fruit",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          },
+          {
+            "id": "308a9599d7be269971348e8f33c5ee88fcb8c4af",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "habit",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1003054717",
+      "author": {
+        "id": "10230546",
+        "name": "Antoine AFFOUARD"
+      },
+      "dateObs": "Mar 3, 2021",
+      "dateUpdated": "Apr 14, 2021",
+      "license": "cc-by-sa",
+      "species": null,
+      "currentName": "Unidentified",
+      "submittedName": null,
+      "images": [
+        {
+          "id": "40a0b6556c925770f319c7cadb3727ec95d48fac",
+          "o": "https://bs.plantnet.org/image/o/40a0b6556c925770f319c7cadb3727ec95d48fac",
+          "m": "https://bs.plantnet.org/image/m/40a0b6556c925770f319c7cadb3727ec95d48fac",
+          "s": "https://bs.plantnet.org/image/s/40a0b6556c925770f319c7cadb3727ec95d48fac",
+          "organ": "fruit"
+        },
+        {
+          "id": "308a9599d7be269971348e8f33c5ee88fcb8c4af",
+          "o": "https://bs.plantnet.org/image/o/308a9599d7be269971348e8f33c5ee88fcb8c4af",
+          "m": "https://bs.plantnet.org/image/m/308a9599d7be269971348e8f33c5ee88fcb8c4af",
+          "s": "https://bs.plantnet.org/image/s/308a9599d7be269971348e8f33c5ee88fcb8c4af",
+          "organ": "habit"
+        }
+      ],
+      "isRevised": false,
+      "groups": [],
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "40a0b6556c925770f319c7cadb3727ec95d48fac",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "fruit",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          },
+          {
+            "id": "308a9599d7be269971348e8f33c5ee88fcb8c4af",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "habit",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1003054713",
+      "author": {
+        "id": "10885203",
+        "name": "Hugo test"
+      },
+      "dateObs": "Mar 2, 2021",
+      "dateUpdated": "Apr 20, 2021",
+      "license": "cc-by-sa",
+      "species": null,
+      "currentName": "Unidentified",
+      "submittedName": null,
+      "images": [
+        {
+          "id": "d6563232135955ab11faccd9f213648e0afe3229",
+          "o": "https://bs.plantnet.org/image/o/d6563232135955ab11faccd9f213648e0afe3229",
+          "m": "https://bs.plantnet.org/image/m/d6563232135955ab11faccd9f213648e0afe3229",
+          "s": "https://bs.plantnet.org/image/s/d6563232135955ab11faccd9f213648e0afe3229",
+          "organ": "leaf"
+        }
+      ],
+      "isRevised": false,
+      "groups": [],
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "d6563232135955ab11faccd9f213648e0afe3229",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1003054712",
+      "author": {
+        "id": "10885203",
+        "name": "Hugo test"
+      },
+      "dateObs": "Mar 2, 2021",
+      "dateUpdated": "Apr 20, 2021",
+      "license": "cc-by-sa",
+      "species": null,
+      "currentName": "Unidentified",
+      "submittedName": null,
+      "images": [
+        {
+          "id": "d030901ecb5b72a6955ba20cf28dfb6ad3e2f10f",
+          "o": "https://bs.plantnet.org/image/o/d030901ecb5b72a6955ba20cf28dfb6ad3e2f10f",
+          "m": "https://bs.plantnet.org/image/m/d030901ecb5b72a6955ba20cf28dfb6ad3e2f10f",
+          "s": "https://bs.plantnet.org/image/s/d030901ecb5b72a6955ba20cf28dfb6ad3e2f10f",
+          "organ": "leaf"
+        }
+      ],
+      "isRevised": false,
+      "groups": [],
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "d030901ecb5b72a6955ba20cf28dfb6ad3e2f10f",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1003054711",
+      "author": {
+        "id": "10885203",
+        "name": "Hugo test"
+      },
+      "dateObs": "Mar 2, 2021",
+      "dateUpdated": "Apr 20, 2021",
+      "license": "cc-by-sa",
+      "species": null,
+      "currentName": "Unidentified",
+      "submittedName": null,
+      "images": [
+        {
+          "id": "5bff6d6b3ca908fe9d7098f55e9d0b5e8cd10456",
+          "o": "https://bs.plantnet.org/image/o/5bff6d6b3ca908fe9d7098f55e9d0b5e8cd10456",
+          "m": "https://bs.plantnet.org/image/m/5bff6d6b3ca908fe9d7098f55e9d0b5e8cd10456",
+          "s": "https://bs.plantnet.org/image/s/5bff6d6b3ca908fe9d7098f55e9d0b5e8cd10456",
+          "organ": "leaf"
+        }
+      ],
+      "isRevised": false,
+      "groups": [],
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "5bff6d6b3ca908fe9d7098f55e9d0b5e8cd10456",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "1003054710",
+      "author": {
+        "id": "10885203",
+        "name": "Hugo test"
+      },
+      "dateObs": "Mar 2, 2021",
+      "dateUpdated": "Apr 20, 2021",
+      "license": "cc-by-sa",
+      "species": null,
+      "currentName": "Unidentified",
+      "submittedName": null,
+      "images": [
+        {
+          "id": "8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "o": "https://bs.plantnet.org/image/o/8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "m": "https://bs.plantnet.org/image/m/8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "s": "https://bs.plantnet.org/image/s/8170013ffbafa48c04b96e19a5f761b0a273fd86",
+          "organ": "leaf"
+        }
+      ],
+      "isRevised": false,
+      "groups": [],
+      "votes": {
+        "determinations": [],
+        "malformed": {
+          "count": 0,
+          "selected": false
+        },
+        "images": [
+          {
+            "id": "8170013ffbafa48c04b96e19a5f761b0a273fd86",
+            "quality": {
+              "plus": {
+                "count": 1,
+                "selected": false
+              },
+              "minus": {
+                "count": 0,
+                "selected": false
+              }
+            },
+            "noplant": {
+              "count": 0,
+              "selected": false
+            },
+            "organs": [
+              {
+                "name": "leaf",
+                "count": 1,
+                "selected": false
+              }
+            ]
+          }
+        ]
+      },
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    }
+  ]
+}

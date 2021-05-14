@@ -38,7 +38,8 @@ export class AppSearch {
   origin: any = {
     natusfera: 'false',
     ispot: 'false',
-    plantnet: 'false'
+    plantnet: 'false',
+    artportalen: 'false'
   }
 
   async componentWillLoad() {
@@ -209,7 +210,9 @@ export class AppSearch {
                 </ion-item>
 
                 <ion-item>
-                  <ion-checkbox slot="start" value="artportalen" disabled></ion-checkbox>
+                  <ion-checkbox slot="start" value="artportalen"
+                  checked={this.origin.artportalen}
+                  onIonChange={(ev) => this.onChecked(ev, 'origin')}></ion-checkbox>
                   <ion-label>ArtPortalen</ion-label>
                 </ion-item>              
 

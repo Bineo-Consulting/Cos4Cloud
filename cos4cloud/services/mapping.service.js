@@ -1,6 +1,7 @@
 const fetch = require('node-fetch')
 const toQueryString = require('../utils/toQueryString')
 const ISpotService = require('./ispot.service')
+const ArtPortalenService = require('./artportalen.service')
 
 module.exports = class MappingService {
 
@@ -8,7 +9,7 @@ module.exports = class MappingService {
     const queryParams = params ? toQueryString(params) : ''
     const promises = []
     const origin = params.origin
-    if (!origin || origin.includes('natusfera')) {
+    if (!origin || origin.includes('natusfera')) {
       promises.push(this.getNatusfera(queryParams, params))
     }
     if (origin && origin.includes('ispot')) {
@@ -16,6 +17,9 @@ module.exports = class MappingService {
     }
     if (origin && origin.includes('plantnet')) {
       promises.push(this.getPlantnet(queryParams, params))
+    }
+    if (origin && origin.includes('artportalen')) {
+      promises.push(ArtPortalenService.get(queryParams, params))
     }
 
     return Promise.all(promises).then((res) => {
@@ -63,6 +67,9 @@ module.exports = class MappingService {
         photos: await imageFetch,
         comments: await commentsFetch
       })
+    } else if (path.includes('artportalen')) {
+      const id = path.split('/').filter(Boolean).pop().split('-').filter(Boolean).pop()
+      return ArtPortalenService.getById(id)
     } else if (path.includes('plantnet')) {
       const id = path.split('/').filter(Boolean).pop().split('-').filter(Boolean).pop()
       return this.getPlantnetById(id)
@@ -107,8 +114,8 @@ module.exports = class MappingService {
       return {
         id: item.ID,
         user: {
-          ...(item.author || {}),
-          name: (item.author || {}).first_name
+          ...(item.author || {}),
+          name: (item.author || {}).first_name
         },
         body: item.comment,
         created_at: new Date(item.created).toISOString()
@@ -117,21 +124,19 @@ module.exports = class MappingService {
   }
 
   static getNatusfera(queryParams, params) {
-    const origin = params.origin || ''
-    let per_page = 30
-    if (origin && origin.includes('ispot')) {
-      per_page = 31
-    }
-
-    return fetch('https://natusfera.gbif.es/observations/project/1252.json' + queryParams + '&per_page=' + per_page)
+    const qp = params ? toQueryString({
+      ...params,
+      page: Number(params.page || 0) + 1
+    }) : ''
+    return fetch('https://natusfera.gbif.es/observations/project/1252.json' + qp + '&per_page=30')
     .then(res => res.json())
     .then(items => items.map(this.parseNatusfera))
   }
 
   static getPlantnet(queryParams, params) {
     if (params.has === 'geo') return []
-    const token = 'd9cfe6cf9bf71d42f67b4b0d80b56efa145abce2'
-    const url = 'https://bourbonnais.cirad.fr:8082/v1'
+    const token = '2b10JYMpxAexS5HynCQCFpn6j'
+    const url = 'https://my-api.plantnet.org:444/v2'
     const identified = {
       '': 'all',
       research: 'identified',
@@ -141,12 +146,12 @@ module.exports = class MappingService {
       identified: identified[params.quality_grade] || undefined,
       species: params.taxon_name || params.iconic_taxa || undefined,
       page: params.page,
-      token
+      'api-key': token
     }))
     const p = toQueryString(_p)
     console.log(`${url}/observations${p}`)
 
-    return fetch(`${url}/observations${p}`, {
+    return fetch(`${url}/observations${p}`, {
       headers: {
         'content-type': 'application/json'
       }
@@ -161,10 +166,10 @@ module.exports = class MappingService {
   }
 
   static getPlantnetById(id) {
-    const token = 'd9cfe6cf9bf71d42f67b4b0d80b56efa145abce2'
-    const url = 'https://bourbonnais.cirad.fr:8082/v1'
+    const token = '2b10JYMpxAexS5HynCQCFpn6j'
+    const url = 'https://my-api.plantnet.org:444/v2'
     
-    return fetch(`${url}/observations/${id}?token=${token}`, {
+    return fetch(`${url}/observations/${id}?api-key=${token}`, {
       headers: {
         'content-type': 'application/json'
       }
@@ -195,11 +200,11 @@ module.exports = class MappingService {
     const {page, taxon_name, iconic_taxa} = params
     const q = {page}
     if (params.taxon_name) {
-      q.filters = q.filters || []
+      q.filters = q.filters || []
       q.filters.push({"comparator":"LIKE","key":"scientific_name","value": params.taxon_name})
     }
     if (params.iconic_taxa) {
-      q.filters = q.filters || []
+      q.filters = q.filters || []
       q.filters.push(ISpotService.getGroups(params.iconic_taxa))
     }
     const qp = q.filters ? toQueryString({...q, filters: JSON.stringify(q.filters)}) : toQueryString(q)
@@ -233,23 +238,23 @@ module.exports = class MappingService {
     item.id = `${item.id}`.includes('-') ? item.id : `natusfera-${item.id}`
     item.created_at = new Date(item.created_at)
     item.$$date = (item.created_at)
-    item.$$species_name = item.species_name || (item.taxon || {}).name || 'Something...'
+    item.$$species_name = item.species_name || (item.taxon || {}).name || 'Something...'
     item.origin = 'Natusfera'
     return item
   }
 
   static parsePlantnet(item) {
     item.id = 'plantnet-' + item.id
-    item.created_at = new Date(item.dateObs || item.dateUpdated)
+    item.created_at = new Date(item.dateObs || item.dateUpdated)
     item.comments_count = 0
     item.identifications_count = 0
-    item.observation_photos_count = (item.images || []).length || 1
+    item.observation_photos_count = (item.images || []).length || 1
     item.comments = []
     item.identifications = []
     item.longitude = 0
     item.latitude = 0
     item.photos = [
-      ...(item.images || []).map(i => ({
+      ...(item.images || []).map(i => ({
         small_url: i.s,
         medium_url: i.m,
         large_url: i.o,
@@ -257,23 +262,23 @@ module.exports = class MappingService {
       }))
     ]
     item.quality_grade = item.isValid && item.isRevised ? 'research' : 'casual'
-    item.species_name = (item.species || {}).name || item.submittedName || 'Something...'
+    item.species_name = (item.species || {}).name || item.submittedName || 'Something...'
     item.origin = 'plantnet'
     return item
   }
 
   static parseiSpot(item) {
-    item.id = 'ispot-' + (item.ID ? item.ID : (item.data || {}).ID)
+    item.id = 'ispot-' + (item.ID ? item.ID : (item.data || {}).ID)
     item.created_at = new Date(item.created * 1000)//.toISOString()
-    item.comments_count = item.meta.comments || 0
-    item.identifications_count = item.meta.identifications || 0
-    item.observation_photos_count = (item.images || []).length || 1
-    item.comments = item.comments || []
+    item.comments_count = item.meta.comments || 0
+    item.identifications_count = item.meta.identifications || 0
+    item.observation_photos_count = (item.images || []).length || 1
+    item.comments = item.comments || []
     item.identifications = []
-    item.longitude = (item.location || {}).lng
-    item.latitude = (item.location || {}).lat
+    item.longitude = (item.location || {}).lng
+    item.latitude = (item.location || {}).lat
     item.quality_grade = 'casual'
-    item.species_name = (item.likely || {}).scientific_name || item.title || 'Something...'
+    item.species_name = (item.likely || {}).scientific_name || item.title || 'Something...'
     item.origin = 'iSpot'
     return item
   }

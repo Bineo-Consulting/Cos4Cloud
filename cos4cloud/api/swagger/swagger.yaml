@@ -178,6 +178,49 @@ paths:
           description: Error
           schema:
             $ref: "#/definitions/ErrorResponse"
+  /comments:
+    x-swagger-router-controller: comments
+    get:
+      tags:
+        - Observations
+      description: Send Comment/Identification
+      operationId: addComment
+      parameters:
+        - name: user_id
+          in: query
+          description: The user_id from Authenix
+          required: true
+          type: string
+        - name: observation_id
+          in: query
+          description: The id of the observation (with the origin)
+          required: true
+          type: string
+        - name: taxon
+          in: query
+          description: The taxon guess of the specie
+          required: true
+          type: string
+        - name: token
+          in: query
+          description: The access_token from authenix
+          required: false
+          type: string
+        - name: body
+          in: query
+          description: The text/remarks of the comment
+          required: false
+          type: string
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/SuccessResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
 # complex objects have schema definitions
 definitions:
   SuccessResponse:
