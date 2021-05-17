@@ -142,9 +142,14 @@ module.exports = class MappingService {
       research: 'identified',
       casual: 'unidentified'
     }
+    const iconic_taxa = (params.iconic_taxa || '').toLowerCase()
+    console.log({iconic_taxa})
+    if (iconic_taxa && !iconic_taxa.includes('plantae')) {
+      return []
+    }
     const _p = JSON.parse(JSON.stringify({
       identified: identified[params.quality_grade] || undefined,
-      species: params.taxon_name || params.iconic_taxa || undefined,
+      species: params.taxon_name || undefined,
       page: params.page,
       'api-key': token
     }))
