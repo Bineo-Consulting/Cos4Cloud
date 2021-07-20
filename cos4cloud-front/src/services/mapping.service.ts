@@ -37,7 +37,7 @@ export class MappingService {
     })
   }
 
-  static getCache(id) {
+  static getCache(id) {
     return this.cache[id] || {
       $$photos: [],
       $$comments: [],
@@ -86,7 +86,7 @@ export class MappingService {
 
   static parseNatusfera(item) {
     item.id = `${item.id}`.includes('-') ? item.id : `natusfera-${item.id}`
-    item.$$photos = (item.photos || item.observation_photos || []).map(item => ({
+    item.$$photos = (item.photos || item.observation_photos || []).map(item => ({
       medium_url: (item.photo ? item.photo.medium_url : item.medium_url).replace('http:', 'https:'),
       large_url: (item.photo ? item.photo.large_url : item.large_url).replace('http:', 'https:')
     }))
@@ -94,43 +94,43 @@ export class MappingService {
       return photo.medium_url
     })[0]
     item.$$date = timeAgo(item.created_at)
-    item.$$species_name = item.species_name || (item.taxon || {}).name || 'Something...'
+    item.$$species_name = item.species_name || (item.taxon || {}).name || 'Something...'
     item.origin = item.origin || 'Natusfera'
-    item.$$comments = (item.comments || []).map(comment => {
+    item.$$comments = (item.comments || []).map(comment => {
       const c = {...comment}
       c.$$date = timeAgo(c.created_at)
       return c
     }).sort((a:any, b:any) => Date.parse(a.created_at) - Date.parse(b.created_at))
-    item.$$identifications = (item.identifications || []).map(identification => {
+    item.$$identifications = (item.identifications || []).map(identification => {
       const c = {...identification}
       c.$$date = timeAgo(c.created_at)
       return c
     }).sort((a:any, b:any) => Date.parse(a.created_at) - Date.parse(b.created_at))
 
-    item.taxon = item.taxon || {}
+    item.taxon = item.taxon || {}
     return item
   }
 
   static parseiSpot(item) {
-    // item.id = 'ispot-' + (item.ID ? item.ID : (item.data || {}).ID)
+    // item.id = 'ispot-' + (item.ID ? item.ID : (item.data || {}).ID)
     item.created_at = new Date(item.created * 1000)//.toISOString()
-    item.comments_count = item.meta.comments || 0
-    item.identifications_count = item.meta.identifications || 0
-    item.observation_photos_count = (item.images || []).length || 1
-    item.$$comments = (item.comments || []).map(comment => {
+    item.comments_count = item.meta.comments || 0
+    item.identifications_count = item.meta.identifications || 0
+    item.observation_photos_count = (item.images || []).length || 1
+    item.$$comments = (item.comments || []).map(comment => {
       const c = {...comment}
       c.$$date = timeAgo(c.created_at)
       return c
     }).sort((a:any, b:any) => Date.parse(a.created_at) - Date.parse(b.created_at))
-    item.taxon = item.taxon || {}
+    item.taxon = item.taxon || {}
     item.identifications = []
-    item.longitude = (item.location || {}).lng
-    item.latitude = (item.location || {}).lat
+    item.longitude = (item.location || {}).lng
+    item.latitude = (item.location || {}).lat
     item.quality_grade = 'casual'
-    item.species_name = (item.likely || {}).scientific_name || item.title || 'Something...'
+    item.species_name = (item.likely || {}).scientific_name || item.title || 'Something...'
     item.origin = 'iSpot'
 
-    item.$$photos = (item.photos || item.observation_photos || []).map(item => ({
+    item.$$photos = (item.photos || item.observation_photos || []).map(item => ({
       medium_url: (item.photo ? item.photo.medium_url : item.medium_url).replace('http:', 'https:'),
       large_url: (item.photo ? item.photo.large_url : item.large_url).replace('http:', 'https:')
     }))
@@ -138,7 +138,7 @@ export class MappingService {
       return photo.medium_url
     })[0]
     item.$$date = timeAgo(item.created_at)
-    item.$$species_name = item.species_name || (item.taxon || {}).name || 'Something...'
+    item.$$species_name = item.species_name || (item.taxon || {}).name || 'Something...'
     item.$$identifications = []
     return item
   }
@@ -151,7 +151,7 @@ export class MappingService {
       taxon: p.taxon || undefined,
       type: undefined,
       token: user.access_token,
-      body: p.body || 'by Cos4Cloud'
+      body: p.body || 'by Cos4Cloud'
     }
     const q = toQueryString(params)
     // return fetch(`https://natusfera.gbif.es/observations/add_identification?${q}`)

@@ -112,7 +112,7 @@ export class PageObservations {
   }
 
   async download() {
-    const t = true
+    const t = false
     if (t) return false
     const l = this.presentLoading()
     try {

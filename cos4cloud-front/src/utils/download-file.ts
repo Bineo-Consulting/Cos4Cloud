@@ -1,6 +1,5 @@
 function downloadFile(data, fileName) {
-  var csvData = data;
-  var blob = new Blob([ csvData ], {
+  const blob = new Blob([ data ], {
     type : 'application/csv;charset=utf-8;'
   });
 
@@ -9,8 +8,8 @@ function downloadFile(data, fileName) {
     navigator.msSaveBlob(blob, fileName);
   } else {
     // FOR OTHER BROWSERS
-    var link: any = document.createElement('a');
-    var csvUrl = URL.createObjectURL(blob);
+    const link: any = document.createElement('a');
+    const csvUrl = URL.createObjectURL(blob);
     link.href = csvUrl;
     link.style = 'visibility:hidden';
     link.download = fileName;
