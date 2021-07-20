@@ -9,7 +9,8 @@ const header = [
   'identifications_count',
   'observation_photos_count',
   'longitude',
-  'latitude'
+  'latitude',
+  'user_name'
 ]
 const headerDwc = [
   'key',
@@ -22,7 +23,8 @@ const headerDwc = [
   'identificationsCount',
   'mediaCount',
   'decimalLongitude',
-  'decimalLatitude'
+  'decimalLatitude',
+  'rightsHolder'
 ]
 
 const download = (items) => {

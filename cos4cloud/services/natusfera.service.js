@@ -4,7 +4,7 @@ const parseTaxon = (taxon) => {
     "ancestry": taxon.ancestry || null,
     "rank": taxon.rank || null,
     "rank_level": taxon.rank_level || null,
-    "kingdom": taxon.kingdom || taxon.iconic_taxon_name ||  || null,
+    "kingdom": taxon.kingdom || taxon.iconic_taxon_name || null,
     "phylum": taxon.phylum || null,
     "class": taxon.class || null,
     "order": taxon.order || null,
@@ -94,6 +94,7 @@ const parseNatusfera = (item) => {
   item.$$date = item.created_at
   item.$$species_name = item.species_name || (item.taxon || {}).name || 'Something...'
   item.identifications_count = item.identifications_count || 0
+  item.user_name = (item.user || {}).login
 
   item.$$photos = (item.photos || item.observation_photos || []).map(item => ({
     medium_url: (item.photo ? item.photo.medium_url : item.medium_url).replace('http:', 'https:'),
@@ -137,6 +138,7 @@ const get = (req, res) => {
   if (req.path.includes('/export')) {
     delete params.page
     delete params.perPage
+    params.perPage = 200
   }
   return getHandler(params, parseNatusfera)
 }
