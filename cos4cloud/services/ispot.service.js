@@ -26,4 +26,12 @@ module.exports = class ISpotService {
     }
   }
 
+  static get() {
+    return []
+  }
+
+  static dwcGet() {
+    return []
+  }
+
 }

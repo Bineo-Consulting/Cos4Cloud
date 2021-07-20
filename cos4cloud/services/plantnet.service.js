@@ -1,4 +1,10 @@
 class PlantnetService {
+  static get() {
+    return []
+  }
+  static dwcGet() {
+    return []
+  }
 }
 
 PlantnetService.config = {

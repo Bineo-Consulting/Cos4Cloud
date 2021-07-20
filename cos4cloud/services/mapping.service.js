@@ -2,24 +2,23 @@ const fetch = require('node-fetch')
 const toQueryString = require('../utils/toQueryString')
 const ISpotService = require('./ispot.service')
 const ArtPortalenService = require('./artportalen.service')
+const NatusferaService = require('./natusfera.service')
+const PlantnetService = require('./plantnet.service')
 
 module.exports = class MappingService {
 
-  static get(params) {
-    const queryParams = params ? toQueryString(params) : ''
+  static get(req, res) {
+    const path = req.path
+
     const promises = []
-    const origin = params.origin
-    if (!origin || origin.includes('natusfera')) {
-      promises.push(this.getNatusfera(queryParams, params))
-    }
-    if (origin && origin.includes('ispot')) {
-      promises.push(this.getiSpot(queryParams, params))
-    }
-    if (origin && origin.includes('plantnet')) {
-      promises.push(this.getPlantnet(queryParams, params))
-    }
-    if (origin && origin.includes('artportalen')) {
-      promises.push(ArtPortalenService.get(queryParams, params))
+    if (req.path.includes('/dwc/')) {
+      promises.push(NatusferaService.dwcGet(req, res))
+      promises.push(PlantnetService.dwcGet(req, res))
+      promises.push(ISpotService.dwcGet(req, res))
+    } else {
+      promises.push(NatusferaService.get(req, res))
+      promises.push(PlantnetService.get(req, res))
+      promises.push(ISpotService.get(req, res))
     }
 
     return Promise.all(promises).then((res) => {
@@ -29,7 +28,8 @@ module.exports = class MappingService {
     })
   }
 
-  static async getById(path, params) {
+  static async getById(req, res) {
+    const path = req.path
     if (path.includes('ispot')) {
       const id = path.split('/').filter(Boolean).pop().split('-').filter(Boolean).pop()
       const itemFetch = fetch('https://api.ispotnature.org/ispotapi/content/observations?ID=' + id, {
@@ -74,10 +74,9 @@ module.exports = class MappingService {
       const id = path.split('/').filter(Boolean).pop().split('-').filter(Boolean).pop()
       return this.getPlantnetById(id)
     } else { // natusfera
-      const id = path.split('/').filter(Boolean).pop().split('-').filter(Boolean).pop()
-      return fetch(`https://natusfera.gbif.es/observations/${id}.json`)
-      .then(res => res.json())
-      .then(res => this.parseNatusfera(res))
+      if (req.path.includes('/dwc/')) {
+        return NatusferaService.dwcGetById(req, res)
+      } else return NatusferaService.getById(req, res)
     }
   }
 
@@ -126,9 +125,14 @@ module.exports = class MappingService {
   static getNatusfera(queryParams, params) {
     const qp = params ? toQueryString({
       ...params,
+      perPage: null,
+      origin: null,
       page: Number(params.page || 0) + 1
     }) : ''
-    return fetch('https://natusfera.gbif.es/observations/project/1252.json' + qp + '&per_page=30')
+    const perPage = params.perPage || 30
+
+    console.log('https://natusfera.gbif.es/observations/project/1252.json' + qp + `&per_page=${perPage}`)
+    return fetch('https://natusfera.gbif.es/observations/project/1252.json' + qp + `&per_page=${perPage}`)
     .then(res => res.json())
     .then(items => items.map(this.parseNatusfera))
   }

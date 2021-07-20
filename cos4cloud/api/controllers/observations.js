@@ -1,7 +1,5 @@
-const MappingService = require('../../services/mapping.service')
-
 const observations = (req, res) => {
-  const params = req.query;
-  MappingService.get(params).then(aux => res.json(aux))
+  const MappingService = require('../../services/mapping.service')
+  return MappingService.get(req, res).then(aux => res.json(aux))
 }
-module.exports = {observations}
+module.exports = { observations }

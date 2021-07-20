@@ -55,7 +55,10 @@ const getSpecieId = async (term) => {
   })
 }
 
-const get = async (queryParams, params, stop) => {
+const get = async (req, res, stop) => {
+  const params = req.params || {}
+  const queryParams = params ? toQueryString(params) : ''
+
   const p = {
     skip: params.page || '0',
     take: 30,
@@ -68,7 +71,7 @@ const get = async (queryParams, params, stop) => {
   if (params.taxon_name) {
     taxonId = await getSpecieId(params.taxon_name)
   }
-  console.log(taxonId)
+
   return fetch(`https://api.artdatabanken.se/species-observation-system/v1/Observations/Search${q}`, {
     method: 'POST',
     headers: {
@@ -101,6 +104,9 @@ const get = async (queryParams, params, stop) => {
     return []
   })
 }
+const dwcGet = () => {
+  return []
+}
 
 const getById = (id) => {
   return fetch(`https://api.artdatabanken.se/species-observation-system/v1/Observations/${id}?protectedObservations=false`, {
@@ -123,6 +129,7 @@ const getById = (id) => {
     return []
   })
 }
+
 module.exports = {
-  get, getById, config
+  get, dwcGet, getById, config
 }

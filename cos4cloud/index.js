@@ -15,7 +15,9 @@ exports.api = functions.region('europe-west2').https.onRequest((req, res) => {
   if (setCors(req, res)) return true
   if (req.query && req.query.wakeup) return res.status(204).send('');
 
-  const [resource, id] = (req.path || '/').split('/').filter(Boolean)
+  const [resource, id] = req.path.includes('/dwc/') ?
+    (req.path || '/').split('/').filter(Boolean).filter(i => i !== 'dwc') :
+    (req.path || '/').split('/').filter(Boolean)
 
   if (routes[resource] && id) return routes[`${resource}/:id`](req, res)
   else if (routes[resource]) return routes[resource](req, res)

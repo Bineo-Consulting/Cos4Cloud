@@ -1,6 +1,5 @@
-const MappingService = require('../../services/mapping.service')
-
 const images = (req, res) => {
+  const MappingService = require('../../services/mapping.service')
   const params = {
     ids: req.query.ids.split(',')
   }

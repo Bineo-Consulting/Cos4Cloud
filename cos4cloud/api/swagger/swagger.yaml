@@ -6,7 +6,7 @@ info:
 # during dev, should point to your local machine
 host: europe-west2-cos4cloud-2d9d3.cloudfunctions.net
 # basePath prefixes all resource paths 
-basePath: /api
+basePath: /api/dwc
 schemes:
   # tip: remove http to make production-grade
   - https
@@ -40,7 +40,7 @@ paths:
           description: The name of the specie to filter
           required: false
           type: string
-        - name: origin
+        - name: ownerInstitutionCodeProperty
           in: query
           description: portal code
           required: false
@@ -49,7 +49,7 @@ paths:
           items:
             type: string
             enum: [natusfera, ispot, plantnet, artportalen]
-        - name: iconic_taxa
+        - name: scientificName
           in: query
           description: The name of the root specie to filter
           required: false
@@ -86,7 +86,7 @@ paths:
           items:
             type: string
             enum: [id_please, geo, photos]
-        - name: quality_grade
+        - name: identificationVerificationStatus
           in: query
           required: false
           type: array
@@ -99,7 +99,9 @@ paths:
         "200":
           description: Success
           schema:
-            $ref: '#/definitions/SuccessResponse'
+            type: array
+            items:
+              $ref: '#/definitions/Observation'
         default:
           description: Error
           schema:
@@ -122,7 +124,7 @@ paths:
           description: Success
           schema:
             # a pointer to a definition
-            $ref: "#/definitions/SuccessResponse"
+            $ref: "#/definitions/Observation"
         default:
           description: Error
           schema:
@@ -211,12 +213,18 @@ paths:
           description: The text/remarks of the comment
           required: false
           type: string
+        - name: comment
+          in: query
+          description: The text/remarks of the comment
+          required: false
+          type: string
       responses:
         "200":
           description: Success
           schema:
-            # a pointer to a definition
-            $ref: "#/definitions/SuccessResponse"
+            type: array
+            items:
+              $ref: "#/definitions/Comment"
         default:
           description: Error
           schema:
@@ -228,6 +236,166 @@ definitions:
       - message
     properties:
       message:
+        type: string
+  Observation:
+    required:
+      - id
+    properties:
+      id:
+        type: string
+      eventDate:
+        type: string
+      created_at:
+        type: string
+      observedOn:
+        type: string
+      scientificName:
+        type: string
+      ownerInstitutionCodeProperty:
+        type: string
+        enum: [natusfera, ispot, plantnet, artportalen]
+      origin:
+        type: string
+        enum: [natusfera, ispot, plantnet, artportalen]
+      kingdom:
+        type: string
+        enum: [Plantae, Animalia, Reptilia, Fungi]
+      identificationVerificationStatus:
+        type: string
+        enum: [reasearch, casual]
+      basisOfRecord:
+        type: string
+        enum: [PreservedSpecimen, FossilSpecimen, LivingSpecimen, MaterialSample, Event, HumanObservation, MachineObservation, Taxon, Occurrence]
+      type:
+        type: string
+      accessRight:
+        type: string
+      license:
+        type: string
+      rightsHolder:
+        type: string
+      description:
+        type: string
+      occurrenceStatus:
+        type: string
+      taxon:
+        $ref: '#/definitions/Taxon'
+      comments:
+        type: array
+        items:
+          $ref: '#/definitions/Comment'
+      identifications:
+        type: array
+        items:
+          $ref: '#/definitions/Identification'
+      media:
+        type: array
+        items:
+          $ref: '#/definitions/Media'
+      decimalLatitude:
+        type: number
+      decimalLongitude:
+        type: number
+  Comment:
+    required:
+      - id
+    properties:
+      id:
+        type: string
+      createdAt:
+        type: string
+      updatedAt:
+        type: string
+      observation_id:
+        type: number
+      origin:
+        type: string
+        enum: [natusfera, ispot, plantnet, artportalen]
+      user_id:
+        type: string
+      comment:
+        type: string
+      user:
+        $ref: '#/definitions/User'
+  Identification:
+    required:
+      - id
+    properties:
+      id:
+        type: string
+      createdAt:
+        type: string
+      updatedAt:
+        type: string
+      observation_id:
+        type: number
+      origin:
+        type: string
+        enum: [natusfera, ispot, plantnet, artportalen]
+      taxon_id:
+        type: number
+      user_id:
+        type: string
+      comment:
+        type: string
+      user:
+        $ref: '#/definitions/User'
+      taxon:
+        $ref: '#/definitions/Taxon'
+  Media:
+    properties:
+      type:
+        type: string
+      format:
+        type: string
+      license:
+        type: string
+      rightsHolder:
+        type: string
+      identifier:
+        type: string
+      medium_url:
+        type: string
+      large_url:
+        type: string
+  User:
+    required:
+      - login
+    properties:
+      login:
+        type: string
+  Taxon:
+    required:
+      - id
+    properties:
+      id:
+        type: string
+      ancestry:
+        type: string
+      rank:
+        type: string
+      rank_level:
+        type: number
+      kingdom:
+        type: string
+        enum: [Plantae, Animalia, Reptilia, Fungi]
+      phylum:
+        type: string
+      class:
+        type: string
+      order:
+        type: string
+      family:
+        type: string
+      genus:
+        type: string
+      name:
+        type: string
+      url:
+        type: string
+      common_name:
+        type: string
+      createdAt:
         type: string
   UserInfoResponse:
     required:
