@@ -11,15 +11,20 @@ const routes = {
   'comments': (req, res) => require('./api/controllers/comments').addComment(req, res),
 }
 
-exports.api = functions.region('europe-west2').https.onRequest((req, res) => {
+exports.api = functions.region('us-central1').https.onRequest((req, res) => {
   if (setCors(req, res)) return true
   if (req.query && req.query.wakeup) return res.status(204).send('');
 
-  const [resource, id] = req.path.includes('/dwc/') ?
-    (req.path || '/').split('/').filter(Boolean).filter(i => i !== 'dwc') :
-    (req.path || '/').split('/').filter(Boolean)
+  console.log({path: req.path})
+  const path = req.path.replace('/api', '')
+
+  const [resource, id] = path.includes('/dwc/') ?
+    (path || '/').split('/').filter(Boolean).filter(i => i !== 'dwc') :
+    (path || '/').split('/').filter(Boolean)
+
+  console.log({resource, id})
 
   if (routes[resource] && id) return routes[`${resource}/:id`](req, res)
   else if (routes[resource]) return routes[resource](req, res)
-  else return res.status(404).send(`<meta http-equiv="refresh" content="0; URL=https://cos4cloud-2d9d3.web.app/apidoc/index.html"/>`)
+  else return res.status(404).send(`<meta http-equiv="refresh" content="0; URL=https://cos4bio.eu/apidoc/index.html"/>`)
 })

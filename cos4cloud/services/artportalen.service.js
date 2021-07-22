@@ -40,6 +40,35 @@ const parseItem = (item) => {
   return item
 }
 
+const dwcParseItem = (item) => {
+  item.id = 'artportalen-' + item.occurrence.occurrenceId
+  item.created_at = new Date(item.created)
+  aux.eventDate = item.created_at
+  aux.observedOn = item.created_at
+
+  item.comments_count = item.meta.comments || 0
+  item.identifications_count = item.meta.identifications || 0
+  item.media_count = (item.images || []).length || 1
+  // reset
+  item.identification = item.identification || {}
+  item.taxon = item.taxon || {}
+  item.location = item.location || {}
+  // stats
+  item.observation_photos_count = 0
+  item.comments_count = 0
+  item.identifications_count = 0
+  item.comments = []
+  item.identifications = []
+  item.photos = []
+
+  item.longitude = item.location.decimalLongitude
+  item.latitude = item.location.decimalLatitude
+  item.quality_grade = item.identification.validated ? 'research' : 'casual'
+  item.species_name = item.taxon.scientificName || 'Something...'
+  item.origin = 'artportalen'
+  return item
+}
+
 const getSpecieId = async (term) => {
   return fetch(`${config.specie_host}?searchString=${term}`, {
     headers: {
@@ -58,6 +87,13 @@ const getSpecieId = async (term) => {
 const get = async (req, res, stop) => {
   const params = req.params || {}
   const queryParams = params ? toQueryString(params) : ''
+
+  if (params.ownerInstitutionCodeProperty) {
+    params.origin = params.ownerInstitutionCodeProperty
+  }
+  if (params.origin === 'ispot')
+    return getHandler(params, parseiSpot)
+  else return []
 
   const p = {
     skip: params.page || '0',
@@ -104,8 +140,61 @@ const get = async (req, res, stop) => {
     return []
   })
 }
-const dwcGet = () => {
-  return []
+const dwcGet = async (req, res, stop) => {
+  const params = req.params || {}
+  const queryParams = params ? toQueryString(params) : ''
+
+  if (params.ownerInstitutionCodeProperty) {
+    params.origin = params.ownerInstitutionCodeProperty
+  }
+  if (params.origin === 'ispot')
+    return getHandler(params, parseiSpot)
+  else return []
+
+  const p = {
+    skip: params.page || '0',
+    take: 30,
+    validateSearchFilter: false,
+    translationCultureCode: 'sv-SE',
+    protectedObservations: false,
+  }
+  const q = toQueryString(p)
+  let taxonId = null
+  if (params.taxon_name) {
+    taxonId = await getSpecieId(params.taxon_name)
+  }
+
+  return fetch(`https://api.artdatabanken.se/species-observation-system/v1/Observations/Search${q}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Ocp-Apim-Subscription-Key': config.token,
+      'Authorization': 'Bearer ' + config.auth
+    },
+    body: JSON.stringify({
+      onlyValidated: params.quality_grade === 'research' ? true : false,
+      taxon: {
+        ids: taxonId
+      }
+    })
+  })
+  .then(r => r.json())
+  .then(res => {
+    if (res.statusCode === 404) {
+      return []
+    }
+    if (!stop && res.statusCode === 500) {
+      return get(queryParams, params, true)
+    }
+    if (res && res.records) {
+      return res.records.map(parseItem);
+    }
+    return null
+  })
+  .catch(_ => {
+    console.error(_)
+    return []
+  })
 }
 
 const getById = (id) => {

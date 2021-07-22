@@ -35,21 +35,12 @@ paths:
           description: The page number (Don't use this)
           required: false
           type: number
-        - name: taxon_name
+        - name: scientificName
           in: query
           description: The name of the specie to filter
           required: false
           type: string
-        - name: ownerInstitutionCodeProperty
-          in: query
-          description: portal code
-          required: false
-          collectionFormat: csv
-          type: array
-          items:
-            type: string
-            enum: [natusfera, ispot, plantnet, artportalen]
-        - name: scientificName
+        - name: kingdom
           in: query
           description: The name of the root specie to filter
           required: false
@@ -95,6 +86,15 @@ paths:
           items:
             type: string
             enum: [research, casual]
+        - name: ownerInstitutionCodeProperty
+          in: query
+          description: portal code
+          required: false
+          collectionFormat: csv
+          type: array
+          items:
+            type: string
+            enum: [natusfera, ispot, plantnet, artportalen]
       responses:
         "200":
           description: Success

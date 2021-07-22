@@ -4,6 +4,12 @@ const ISpotService = require('./ispot.service')
 const ArtPortalenService = require('./artportalen.service')
 const NatusferaService = require('./natusfera.service')
 const PlantnetService = require('./plantnet.service')
+const originsConfig = require('../origins')
+const flat = require('../utils/flat')
+
+const getResourceId = (path) => {
+  return (path || '/').split('/').filter(Boolean)
+}
 
 module.exports = class MappingService {
 
@@ -12,20 +18,54 @@ module.exports = class MappingService {
 
     const promises = []
     if (req.path.includes('/dwc/')) {
-      promises.push(NatusferaService.dwcGet(req, res))
-      promises.push(PlantnetService.dwcGet(req, res))
+      promises.push(this.dwcGet(req, res))
+      // promises.push(NatusferaService.dwcGet(req, res))
+      // promises.push(PlantnetService.dwcGet(req, res))
       promises.push(ISpotService.dwcGet(req, res))
+      promises.push(ArtPortalenService.dwcGet(req, res))
     } else {
       promises.push(NatusferaService.get(req, res))
-      promises.push(PlantnetService.get(req, res))
+      // promises.push(PlantnetService.get(req, res))
       promises.push(ISpotService.get(req, res))
+      promises.push(ArtPortalenService.get(req, res))
     }
 
     return Promise.all(promises).then((res) => {
       const aux = []
       res.filter(Boolean).map(i => aux.push(...i))
-      return aux.sort((a, b) => b.created_at.getTime() - a.created_at.getTime())
+      return aux.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())
     })
+  }
+
+  static async dwcGet(req, res) {
+    const origin = req.query.ownerInstitutionCodeProperty || req.query.origin || ''
+    const origins = origin.split(',').filter(Boolean)
+    if (origins.length === 0) origins.push('natusfera')
+
+    const promises = origins.map(ogn => {
+      if (originsConfig[ogn]) {
+        const originConfig = originsConfig[ogn]
+        const originHeader = originsConfig[ogn].header || {}
+        let path = req.path.replace('/dwc', '').replace('/api', '')
+        let [resource, id] = getResourceId(path)
+        if (resource && id && originConfig.observation) {
+          path = originConfig.observation(id)
+        }
+        if (resource && !id && originConfig.observations) {
+          path = originConfig.observations()
+        }
+        return fetch(`${originConfig.url}${path}${toQueryString(req.query)}`, originHeader)
+        .then(res => res.json())
+        .then(res => {
+          const mapp = originConfig.mapping || ((i) => i)
+          if (res && res.results) return res.results.map(mapp)
+          else return res.map(mapp)
+        })
+      }
+      return []
+    })
+
+    return Promise.all(promises).then(flat)
   }
 
   static async getById(req, res) {
@@ -71,15 +111,41 @@ module.exports = class MappingService {
       const id = path.split('/').filter(Boolean).pop().split('-').filter(Boolean).pop()
       return ArtPortalenService.getById(id)
     } else if (path.includes('plantnet')) {
-      const id = path.split('/').filter(Boolean).pop().split('-').filter(Boolean).pop()
-      return this.getPlantnetById(id)
-    } else { // natusfera
-      if (req.path.includes('/dwc/')) {
-        return NatusferaService.dwcGetById(req, res)
-      } else return NatusferaService.getById(req, res)
+      // const id = path.split('/').filter(Boolean).pop().split('-').filter(Boolean).pop()
+      // return this.getPlantnetById(id)
+      return PlantnetService.getById(req, res)
+    } else { // general
+      return req.path.includes('/dwc/') ? this.dwcGetById(req, res) : NatusferaService.getById(req, res)
     }
   }
 
+  static async dwcGetById(req, res) {
+    let [ogn, id] = req.path.split('/').filter(Boolean).pop().split('-').filter(Boolean);
+    [ogn, id] = id ? [ogn, id] : ['natusfera', ogn]
+
+    if (originsConfig[ogn]) {
+      const originConfig = originsConfig[ogn]
+      const originHeader = originsConfig[ogn].header || {}
+      let path = req.path.replace('/dwc', '').replace('/api', '').replace(`${ogn}-`, '')
+      let [resource, id] = getResourceId(path)
+      if (resource && id && originConfig.observation) {
+        path = originConfig.observation(id)
+      }
+      if (resource && !id && originConfig.observations) {
+        path = originConfig.observations()
+      }
+      return fetch(`${originConfig.url}${path}${toQueryString(req.query)}`, originHeader)
+      .then(res => res.json())
+      .then(res => {
+        const mapp = originConfig.mapping || ((i) => i)
+        return mapp(res)
+      })
+    }
+    return {}
+  }
+
+
+  // CUSTOM REST
   static async comments(id) {
     console.log(`commentsURl => https://api.ispotnature.org/ispotapi/content/comments?entity_ID=${id}&page=1`)
     return fetch(`https://api.ispotnature.org/ispotapi/content/comments?entity_ID=${id}&page=1`, {
@@ -122,21 +188,6 @@ module.exports = class MappingService {
     }))
   }
 
-  static getNatusfera(queryParams, params) {
-    const qp = params ? toQueryString({
-      ...params,
-      perPage: null,
-      origin: null,
-      page: Number(params.page || 0) + 1
-    }) : ''
-    const perPage = params.perPage || 30
-
-    console.log('https://natusfera.gbif.es/observations/project/1252.json' + qp + `&per_page=${perPage}`)
-    return fetch('https://natusfera.gbif.es/observations/project/1252.json' + qp + `&per_page=${perPage}`)
-    .then(res => res.json())
-    .then(items => items.map(this.parseNatusfera))
-  }
-
   static getPlantnet(queryParams, params) {
     if (params.has === 'geo') return []
     const token = '2b10JYMpxAexS5HynCQCFpn6j'
@@ -175,30 +226,6 @@ module.exports = class MappingService {
   }
 
   static getPlantnetById(id) {
-    const token = '2b10JYMpxAexS5HynCQCFpn6j'
-    const url = 'https://my-api.plantnet.org:444/v2'
-    
-    return fetch(`${url}/observations/${id}?api-key=${token}`, {
-      headers: {
-        'content-type': 'application/json'
-      }
-    })
-    .then(r => r.json())
-    .then(res => {
-      if (res.statusCode === 404) {
-        return []
-      }
-      return this.parsePlantnet(res);
-    })
-  }
-
-  static parseNatusfera(item) {
-    item.id = `${item.id}`.includes('-') ? item.id : `natusfera-${item.id}`
-    item.created_at = new Date(item.created_at)
-    item.$$date = (item.created_at)
-    item.$$species_name = item.species_name || (item.taxon || {}).name || 'Something...'
-    item.origin = 'Natusfera'
-    return item
   }
 
   static parsePlantnet(item) {

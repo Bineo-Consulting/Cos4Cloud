@@ -1,3 +1,10 @@
+const http = require('http')
+const fetch = require('node-fetch');
+
+const config = {
+  url: 'https://natusfera.gbif.es'
+}
+
 const parseTaxon = (taxon) => {
   return {
     "id": taxon.id || null,
@@ -17,6 +24,7 @@ const parseTaxon = (taxon) => {
     "createdAt": new Date(taxon.created_at || null)
   }
 }
+
 const dwcParseNatusfera = (item) => {
   const aux = {}
   aux.id = `${item.id}`.includes('-') ? item.id : `natusfera-${item.id}`
@@ -87,90 +95,59 @@ const dwcParseNatusfera = (item) => {
 
   return aux
 }
-const parseNatusfera = (item) => {
-  item.id = `${item.id}`.includes('-') ? item.id : `natusfera-${item.id}`
-  item.created_at = new Date(item.created_at)
-  item.date = new Date(item.created_at)
-  item.$$date = item.created_at
-  item.$$species_name = item.species_name || (item.taxon || {}).name || 'Something...'
-  item.identifications_count = item.identifications_count || 0
-  item.user_name = (item.user || {}).login
 
-  item.$$photos = (item.photos || item.observation_photos || []).map(item => ({
-    medium_url: (item.photo ? item.photo.medium_url : item.medium_url).replace('http:', 'https:'),
-    large_url: (item.photo ? item.photo.large_url : item.large_url).replace('http:', 'https:')
-  }))
-  item.medium_url = item.$$photos.slice(0, 1).map(photo => {
-    return photo.medium_url
-  })[0]
-  item.large_url = item.$$photos.slice(0, 1).map(photo => {
-    return photo.large_url
-  })[0]
+const parseQuery = (url) => {
+  const Url = require('url');
+  const q = {...Url.parse(url, true).query}
 
-  item.origin = 'Natusfera'
-  return item
+  if (q.perPage) {
+    q.per_page = q.perPage
+  }
+  if (q.identificationVerificationStatus) {
+    q.quality_grade = q.identificationVerificationStatus
+    delete q.identificationVerificationStatus
+  }
+  if (q.scientificName) {
+    q.taxon_name = q.scientificName
+    delete q.scientificName
+  }
+  if (q.kingdom) {
+    q.iconic_taxa = q.kingdom
+    delete q.kingdom
+  }
+  return q
 }
-const getHandler = (params, parser) => {
-  const fetch = require('node-fetch')
-  const toQueryString = require('../utils/toQueryString')
 
-  const qp = params ? toQueryString({
-    ...params,
-    perPage: null,
-    origin: null,
-    page: Number(params.page || 0) + 1
-  }) : ''
-  const perPage = params.perPage || params.per_page || 30
+const toQueryString = object => '?' + Object.keys(object)
+  .map(key => object[key] && `${key}=${encodeURIComponent(object[key].toString())}`)
+  .filter(Boolean)
+  .join('&');
 
-  console.log({perPage})
-
-  console.log('https://natusfera.gbif.es/observations.json' + qp + `&per_page=${perPage}`)
-  return fetch('https://natusfera.gbif.es/observations.json' + qp + `&per_page=${perPage}`)
+const get = (path) => {
+  const url = `${config.url}/${path}`
+  return fetch(url)
   .then(res => res.json())
   .then(items => {
-    return items.map(parser)
+    if (items.splice) return items.map(dwcParseNatusfera)
+    else return dwcParseNatusfera(items)
   })
 }
 
-const get = (req, res) => {
-  const params = req.query || {}
+const requestListener = async (req, res) => {
+  res.writeHead(200);
+  let path = req.url.split('/').filter(Boolean).join('/')
+  path = path.includes('?') ? `${path.split('?')[0]}.json` : `${path}.json`
 
-  if (req.path.includes('/export')) {
-    delete params.page
-    delete params.perPage
-    params.perPage = 200
+  if (req.url.includes('?')) {
+    const qp = parseQuery(req.url)
+    path += toQueryString(qp)
   }
-  if (params.ownerInstitutionCodeProperty) {
-    params.origin = params.ownerInstitutionCodeProperty
+  if (path.includes('observations')) {
+    const aux = await get(path)
+    res.end(JSON.stringify(aux));
   }
-  if (params.origin === 'natusfera' || !params.origin)
-    return getHandler(params, parseNatusfera)
-  else return []
+  res.end('[]');
 }
 
-const dwcGet = (req, res) => {
-  const params = req.query || {}
-  if (params.identificationVerificationStatus) {
-    params.quality_grade = params.identificationVerificationStatus
-    delete params.identificationVerificationStatus
-  }
-  if (params.ownerInstitutionCodeProperty) {
-    params.origin = params.ownerInstitutionCodeProperty
-  }
-  if (params.origin === 'natusfera' || !params.origin)
-    return getHandler(params, dwcParseNatusfera)
-  else return []
-}
-
-const getById = (req, res) => {
-  const parser = req.path.includes('/dwc/') ? dwcParseNatusfera : parseNatusfera
-  const id = req.path.split('/').filter(Boolean).pop().split('-').filter(Boolean).pop()
-  const fetch = require('node-fetch')
-  return fetch(`https://natusfera.gbif.es/observations/${id}.json`)
-  .then(res => res.json())
-  .then(item => parser(item))
-  // .then(r => res.send(r))
-}
-
-
-module.exports = { get, dwcGet, getById }
+const server = http.createServer(requestListener);
+server.listen(9090);
