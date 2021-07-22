@@ -4,7 +4,7 @@ const PlantnetService = require('./services/plantnet.service')
 module.exports = {
   // natusfera: 'https://natusfera.gbif.es/dwc'
   natusfera: {
-    url: 'http://localhost:9090'
+    url: 'https://natusfera.gbif.es/dwc'
   },
   gbif: {
     url: 'https://api.gbif.org/v1',
