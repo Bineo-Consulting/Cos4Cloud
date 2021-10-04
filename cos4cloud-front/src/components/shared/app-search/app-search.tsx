@@ -39,8 +39,10 @@ export class AppSearch {
     natusfera: 'false',
     ispot: 'false',
     plantnet: 'false',
-    artportalen: 'false'
+    artportalen: 'false',
+    gbif: 'false'
   }
+  origins = Object.keys(this.origin) // hamelin
 
   async componentWillLoad() {
     this.i18n = await fetchTranslations(this.i18n)
@@ -52,9 +54,9 @@ export class AppSearch {
   }
 
   onSpecie(ev) {
-    const item = (ev || {}).detail
+    const item = (ev || {}).detail
     if (item) {
-      const name = (item.name || '').split(' ').slice(0, 2).join(' ')
+      const name = (item.name || '').split(' ').slice(0, 2).join(' ')
       this.params.taxon_name = name || null
     } else {
       this.params.taxon_name = null
@@ -62,14 +64,19 @@ export class AppSearch {
   }
 
   onPlace(ev) {
-    const item = (ev || {}).detail
+    const item = (ev || {}).detail
     if (item) {
-      this.params.swlat = Number(item.bbox[0])
-      this.params.swlng = Number(item.bbox[2])
-      this.params.nelat = Number(item.bbox[1])
-      this.params.nelng = Number(item.bbox[3])
-      this.params.place = item.name || null
+      // this.params.swlat = Number(item.bbox[0])
+      // this.params.swlng = Number(item.bbox[2])
+      // this.params.nelat = Number(item.bbox[1])
+      // this.params.nelng = Number(item.bbox[3])
+      console.log({bbox: item.bbox})
+      this.params.decimalLatitude = [Number(item.bbox[0]), Number(item.bbox[1])]
+      this.params.decimalLongitud = [Number(item.bbox[2]), Number(item.bbox[3])]
+      this.params.place = item.name || null
     } else {
+      this.params.decimalLongitud = null
+      this.params.decimalLatitude = null
       this.params.swlat = null
       this.params.swlng = null
       this.params.nelat = null
@@ -96,7 +103,13 @@ export class AppSearch {
     const has = Object.keys(this.has).map(key => {
       return this.has[key] === 'true' ? key : null
     }).filter(Boolean)
-    this.params.has = has.length ? has.join(',') : null
+    if (has.includes('id_please')) {
+      this.params.taxonId = '0'
+    }
+    if (has.includes('geo')) {
+      this.params.hasCoordinate = true
+    }
+    // this.params.has = has.length ? has.join(',') : null
 
     const origin = Object.keys(this.origin).map(key => {
       return this.origin[key] === 'true' ? key : null
@@ -188,33 +201,12 @@ export class AppSearch {
               <ion-list>
 
                 <ion-label>{this.i18n.filters.portals}</ion-label>
-                <ion-item>
-                  <ion-checkbox slot="start" value="natusfera"
-                    checked={this.origin.natusfera}
+                {this.origins.map(origin => <ion-item>
+                  <ion-checkbox slot="start" value={origin}
+                    checked={this.origin[origin]}
                     onIonChange={(ev) => this.onChecked(ev, 'origin')}></ion-checkbox>
-                  <ion-label>Natusfera</ion-label>
-                </ion-item>
-
-                <ion-item>
-                  <ion-checkbox slot="start" value="plantnet"
-                    checked={this.origin.plantnet}
-                    onIonChange={(ev) => this.onChecked(ev, 'origin')}></ion-checkbox>
-                  <ion-label>Pl@ntNet</ion-label>
-                </ion-item>
-
-                <ion-item>
-                  <ion-checkbox slot="start" value="ispot"
-                    checked={this.origin.ispot}
-                    onIonChange={(ev) => this.onChecked(ev, 'origin')}></ion-checkbox>
-                  <ion-label>iSpot</ion-label>
-                </ion-item>
-
-                <ion-item>
-                  <ion-checkbox slot="start" value="artportalen"
-                  checked={this.origin.artportalen}
-                  onIonChange={(ev) => this.onChecked(ev, 'origin')}></ion-checkbox>
-                  <ion-label>ArtPortalen</ion-label>
-                </ion-item>              
+                  <ion-label>{origin}</ion-label>
+                </ion-item>)}
 
               </ion-list>              
 

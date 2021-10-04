@@ -16,7 +16,7 @@ export class CardItem {
         <stencil-route-link url={'/observations/' + this.item.id} activeClass="link-active">
           <div class="card-item">
             <div class="cnt-img">
-              <img loading="lazy" src={this.image || this.item.medium_url}/>
+              <img loading="lazy" src={this.image || this.item.medium_url}/>
             </div>
             <div class="cnt-text">
               <div class="text-l">

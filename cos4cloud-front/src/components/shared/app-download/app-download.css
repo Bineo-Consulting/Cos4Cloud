@@ -7,8 +7,12 @@
   max-width: 1400px;
   width: calc(100% - 4rem);
   margin: auto;
+  pointer-events: none;
 }
 ion-button {
-  width: 100px;
-  margin-left: calc(100% - 100px);
+  padding: 0 15px;
+  pointer-events: all;
+  right: 0;
+  position: absolute;
+  margin-top: -35px;
 }

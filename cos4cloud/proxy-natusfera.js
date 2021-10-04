@@ -62,8 +62,8 @@ const dwcParseNatusfera = (item) => {
   aux.user = item.user || { login: item.user_login } || null
 
   // Location
-  aux.decimalLatitude = item.latitude
-  aux.decimalLongitud = item.longitude
+  aux.decimalLatitude = item.latitude || item.latitud
+  aux.decimalLongitud = item.longitude || item.longitud
 
   // comments
   aux.comments = (item.comments || []).map(item => {
@@ -115,6 +115,36 @@ const parseQuery = (url) => {
     q.iconic_taxa = q.kingdom
     delete q.kingdom
   }
+  if (q.hasCoordinate) {
+    q.has = (q.has || '').split(',').filter(Boolean).push('geo').join(',')
+    delete q.hasCoordinate
+  }
+
+  // Id_please
+  if (q.hasIdentification) {
+    q.has = (q.has || '').split(',').filter(Boolean).push('id_please').join(',')
+    delete q.hasIdentification
+  } else if (q.taxonKey == '0') {
+    q.has = (q.has || '').split(',').filter(Boolean).push('id_please').join(',')
+    delete q.taxonKey
+  } else if (q.issue === 'TAXON_MATCH_NONE') {
+    q.has = (q.has || '').split(',').filter(Boolean).push('id_please').join(',')
+    delete q.issue
+  }
+
+  // location
+  if (q.decimalLongitud && q.decimalLongitud.includes(',')) {
+    const [swlng, nelng] = q.decimalLongitud.split(',')
+    const [swlat, nelat] = q.decimalLatitude.split(',')
+
+    console.log({swlng, nelng, swlat, nelat})
+    q.swlat = swlat
+    q.swlng = swlng
+    q.nelat = nelat
+    q.nelng = nelng
+    delete q.decimalLongitud
+    delete q.decimalLatitude
+  }
   return q
 }
 
@@ -135,7 +165,10 @@ const get = (path) => {
 
 const requestListener = async (req, res) => {
   res.writeHead(200);
-  let path = req.url.split('/').filter(Boolean).join('/')
+  let path = req.url
+    .replace('occurrences', 'observations')
+    .replace('occurrence', 'observations')
+    .replace('/search', '').split('/').filter(Boolean).join('/')
   path = path.includes('?') ? `${path.split('?')[0]}.json` : `${path}.json`
 
   if (req.url.includes('?')) {
@@ -151,3 +184,4 @@ const requestListener = async (req, res) => {
 
 const server = http.createServer(requestListener);
 server.listen(9090);
+console.log('Listening on 9090 ☎️')

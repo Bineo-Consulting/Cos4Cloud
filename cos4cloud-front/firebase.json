@@ -10,6 +10,10 @@
     ],
     "rewrites": [
       {
+        "source": "/api{,/**}",
+        "function": "api"
+      },
+      {
         "source": "**",
         "destination": "/index.html"
       }
@@ -23,6 +27,10 @@
       "**/node_modules/**"
     ],
     "rewrites": [
+      {
+        "source": "/api{,/**}",
+        "function": "api"
+      },
       {
         "source": "**",
         "destination": "/index.html"

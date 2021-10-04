@@ -43,3 +43,6 @@ ion-checkbox {
 .row-filters:focus {
   outline: none;
 }
+ion-label {
+  text-transform: capitalize;
+}

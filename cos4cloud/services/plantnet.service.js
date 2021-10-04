@@ -24,6 +24,17 @@ class PlantnetService {
       return this.parsePlantnet(res);
     })
   }
+
+  static mapping(item) {
+    item.id = `${item.id}`.includes('-') ? item.id : `plantnet-${item.id}`
+    item.eventDate = new Date(item.eventDate)
+    item.created_at = item.eventDate
+    item.observedOn = item.eventDate
+
+    item.ownerInstitutionCodeProperty = 'plantnet'
+    item.origin = 'plantnet'
+    return item
+  }
 }
 
 PlantnetService.config = {

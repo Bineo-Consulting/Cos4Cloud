@@ -25,14 +25,13 @@ export class PageUser {
     const user = JSON.parse(localStorage.user)
     localStorage.removeItem('user')
     const url = 'https://www.authenix.eu/oauth/logout' + toQueryString({
-      client_id: 'c1d079f6-e0be-4c25-df4a-a881bb41afa1',
+      client_id: 'a55d6976-a46c-3989-97a4-a958936b480a',
       code: '',
       token: user.access_token,
       token_type_hint: 'access_token',
       return: encodeURIComponent(location.origin)
     })
     location.href = url
-
   }
 
   info() {

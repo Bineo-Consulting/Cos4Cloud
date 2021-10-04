@@ -294,7 +294,7 @@ definitions:
           $ref: '#/definitions/Media'
       decimalLatitude:
         type: number
-      decimalLongitude:
+      decimalLongitud:
         type: number
   Comment:
     required:

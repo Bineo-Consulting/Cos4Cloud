@@ -1,0 +1,21 @@
+FRONT:PARÁMETRO VALOR
+
+client_id a55d6976-a46c-3989-97a4-a958936b480a
+client_id_issued_at 1631784877
+expires 2031-07-26 09:34:37
+client_secret este tipo de aplicación no tiene client_secret
+grant_types implicit
+scopes  openid profile email
+redirect_uris https://cos4bio.eu http://localhost:3333 https://cos4cloud.web.app https://cos4cloud-2d9d3.web.app
+post_logout_redirect_uris https://cos4bio.eu http://localhost:3333 https://cos4cloud.web.app https://cos4cloud-2d9d3.web.app
+
+
+BACK:PARÁMETRO VALOR
+client_id 0b6e4956-02a5-340f-db59-77c98ce46190
+client_id_issued_at 1631785136
+expires 2031-07-26 09:38:56
+client_secret 7da71d89283a579502fec9897aee096c292e7b6c7b0f91949e18766e6e6aac6c
+grant_types authorization_code refresh_token
+scopes  openid profile email saml offline_access
+redirect_uris https://cos4bio.eu http://localhost:3333 https://cos4cloud.web.app https://cos4cloud-2d9d3.web.app
+post_logout_redirect_uris https://cos4bio.eu http://localhost:3333 https://cos4cloud.web.app https://cos4cloud-2d9d3.web.app

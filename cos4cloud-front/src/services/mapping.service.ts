@@ -8,10 +8,52 @@ import { downloadFile } from '../utils/download-file'
 // const url = 'http://localhost:5001/observations'
 // const urliSpot = 'http://localhost:5001/images'
 
-const cloudHost = 'https://europe-west2-cos4cloud-2d9d3.cloudfunctions.net/api'
+const cloudHost = 'https://cos4bio.eu/api'
 const host = resources.host || cloudHost
-const url = `${host}/observations`
+const url = `${host}/dwc/observations`
 const urliSpot = `${host}/images`
+
+const parseDwc = (item) => {
+  item.origin = item.origin || 'Natusfera'
+  item.id = `${item.id}`.includes('-') ? item.id : `${item.origin.toLowerCase()}-${item.id}`
+
+  item.$$photos = (item.media || item.photos || item.observation_photos || [])
+  .filter(item => item.photo ? item.photo.medium_url : (item.medium_url || item.identifier || item.references))
+  .map(item => ({
+    medium_url: (item.photo ? item.photo.medium_url : (item.medium_url || item.identifier || item.references)).replace('http:', 'https:').replace('rendering=original', 'rendering=standard'),
+    large_url: (item.photo ? item.photo.large_url : (item.large_url || item.identifier || item.references)).replace('http:', 'https:')
+  }))
+  item.medium_url = item.$$photos.slice(0, 1).map(photo => {
+    return photo.medium_url
+  })[0]
+  item.$$date = timeAgo(item.created_at)
+  item.$$species_name = item.scientificName || item.species_name || (item.taxon || {}).name || 'Something...'
+
+  item.$$comments = (item.comments || []).map(comment => {
+    const c = {...comment}
+    c.$$date = timeAgo(c.created_at)
+    return c
+  }).sort((a:any, b:any) => Date.parse(a.created_at) - Date.parse(b.created_at))
+  item.$$identifications = (item.identifications || []).map(identification => {
+    const c = {...identification}
+    c.$$date = timeAgo(c.created_at)
+    return c
+  }).sort((a:any, b:any) => Date.parse(a.created_at) - Date.parse(b.created_at))
+
+  item.latitude = item.decimalLatitude
+  item.latitud = item.decimalLatitude
+  item.longitud = item.decimalLongitud || item.decimalLongitud
+  item.longitude = item.decimalLongitud || item.decimalLongitud
+
+  item.quality_grade = item.identificationVerificationStatus
+
+  item.taxon = item.taxon || {}
+
+  item.comments_count = (item.comments || []).length
+  item.identifications_count = (item.identifications || []).length
+  item.observation_photos_count = (item.media || []).length
+  return item
+}
 
 export class MappingService {
 
@@ -24,7 +66,6 @@ export class MappingService {
       // this.cache.last.map(i => this.cache.last[i.id] = i)
       return this.cache.last
     }
-    console.log('fetch:', fetch + queryParams)
     return fetch(url + queryParams)
     .then(res => res.json())
     .then(items => {
@@ -33,7 +74,26 @@ export class MappingService {
         this.cache.last = items
         this.updateCache()
       }
-      return items.map(this.parseNatusfera)
+      console.log('include', url.includes('dwc'))
+      const mapp = url.includes('dwc') ? parseDwc : this.parseNatusfera
+      return items.map(mapp)
+    })
+  }
+
+  static getById(id: any) {
+    return fetch(`${url}/${id}`)
+    .then(res => res.json())
+    .then(res => {
+      console.log('host.includes', url)
+      if (url.includes('/dwc')) {
+        console.log('dwc', parseDwc(res))
+        return parseDwc(res)
+      } else {
+        if (res.origin && res.origin.toLowerCase() === 'ispot') {
+          return this.parseiSpot(res)
+        }
+        else return this.parseNatusfera(res)
+      }
     })
   }
 
@@ -64,17 +124,6 @@ export class MappingService {
       this.cache[item.id].photos = photos
       this.cache[item.id].$$photos = photos
       this.cache[item.id].medium_url = images[item.ID]
-    })
-  }
-
-  static getById(id: any) {
-    return fetch(`${host}/observations/${id}`)
-    .then(res => res.json())
-    .then(res => {
-      if (res.origin && res.origin.toLowerCase() === 'ispot') {
-        return this.parseiSpot(res)
-      }
-      else return this.parseNatusfera(res)
     })
   }
 

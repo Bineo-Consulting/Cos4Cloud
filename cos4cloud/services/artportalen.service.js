@@ -32,7 +32,7 @@ const parseItem = (item) => {
   item.identifications = []
   item.photos = []
 
-  item.longitude = item.location.decimalLongitude
+  item.longitude = item.location.decimalLongitud
   item.latitude = item.location.decimalLatitude
   item.quality_grade = item.identification.validated ? 'research' : 'casual'
   item.species_name = item.taxon.scientificName || 'Something...'
@@ -61,7 +61,7 @@ const dwcParseItem = (item) => {
   item.identifications = []
   item.photos = []
 
-  item.longitude = item.location.decimalLongitude
+  item.longitude = item.location.decimalLongitud
   item.latitude = item.location.decimalLatitude
   item.quality_grade = item.identification.validated ? 'research' : 'casual'
   item.species_name = item.taxon.scientificName || 'Something...'
