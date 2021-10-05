@@ -4,8 +4,8 @@ const PlantnetService = require('./services/plantnet.service')
 module.exports = {
   // natusfera: 'https://natusfera.gbif.es/dwc'
   natusfera: {
-    // url: 'https://natusfera.gbif.es/dwc',
-    url: 'http://localhost:9090',
+    url: 'https://natusfera.gbif.es/dwc',
+    //url: 'http://localhost:9090',
     observations: () => '/occurrence/search',
     observation: (id) => `/occurrence/${id}`,
   },

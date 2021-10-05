@@ -137,7 +137,6 @@ const parseQuery = (url) => {
     const [swlng, nelng] = q.decimalLongitud.split(',')
     const [swlat, nelat] = q.decimalLatitude.split(',')
 
-    console.log({swlng, nelng, swlat, nelat})
     q.swlat = swlat
     q.swlng = swlng
     q.nelat = nelat

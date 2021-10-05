@@ -33,6 +33,7 @@ const parseQuery = (query, origin) => {
     if (query.iconic_taxa) {
       query.q = query.iconic_taxa
     }
+    // location
     if (query.swlat) {
       query.geometry = bbox2wkt([
         query.swlng,
@@ -41,9 +42,15 @@ const parseQuery = (query, origin) => {
         query.nelat,
       ])
     }
-    // if (query.place) {
-    //   query.locality = query.place
-    // }
+    if (query.decimalLongitud && query.decimalLongitud.includes(',')) {
+      const [swlng, nelng] = query.decimalLongitud.split(',')
+      const [swlat, nelat] = query.decimalLatitude.split(',')
+
+      query.geometry = bbox2wkt([swlng, swlat, nelng, nelat])
+      delete query.decimalLongitud
+      delete query.decimalLatitude
+    }
+
   }
   if (query.taxon_name) {
     query.scientificName = query.taxon_name
