@@ -23,4 +23,8 @@
   text-align: center;
   width: 100%;
   background-color: white;
+  visibility:  hidden;
+}
+.spinner.show {
+  visibility:  visible;
 }

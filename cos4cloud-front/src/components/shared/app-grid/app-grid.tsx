@@ -39,8 +39,7 @@ export class AppGrid {
           {this.items.map(item => <card-item item={item} image={this.images[item.ID]}></card-item>)}
         </div>
         {
-          this.showSpinner && 
-          <div class="spinner" ref={(el) => this.setSpinnerEl(el)}>
+          <div class={'spinner ' + (this.showSpinner ? 'show' : '')} ref={(el) => this.setSpinnerEl(el)}>
             <ion-spinner></ion-spinner>
           </div>
         }

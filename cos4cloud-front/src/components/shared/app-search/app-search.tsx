@@ -70,12 +70,11 @@ export class AppSearch {
       // this.params.swlng = Number(item.bbox[2])
       // this.params.nelat = Number(item.bbox[1])
       // this.params.nelng = Number(item.bbox[3])
-      console.log({bbox: item.bbox})
       this.params.decimalLatitude = [Number(item.bbox[0]), Number(item.bbox[1])]
-      this.params.decimalLongitud = [Number(item.bbox[2]), Number(item.bbox[3])]
+      this.params.decimalLongitude = [Number(item.bbox[2]), Number(item.bbox[3])]
       this.params.place = item.name || null
     } else {
-      this.params.decimalLongitud = null
+      this.params.decimalLongitude = null
       this.params.decimalLatitude = null
       this.params.swlat = null
       this.params.swlng = null

@@ -47,6 +47,14 @@ export namespace Components {
         "lat": number;
         "lon": number;
     }
+    interface ModalSettings {
+        "data": any;
+        "header": any;
+    }
+    interface ModalShare {
+        "item": any;
+        "url": string;
+    }
     interface PageHome {
         "history": RouterHistory;
     }
@@ -61,6 +69,8 @@ export namespace Components {
     }
     interface PageUser {
         "match": MatchResults;
+        "owner": any;
+        "user": any;
     }
     interface PopupList {
         "items": {text: string, icon?: string}[];
@@ -139,6 +149,18 @@ declare global {
         prototype: HTMLModalMapElement;
         new (): HTMLModalMapElement;
     };
+    interface HTMLModalSettingsElement extends Components.ModalSettings, HTMLStencilElement {
+    }
+    var HTMLModalSettingsElement: {
+        prototype: HTMLModalSettingsElement;
+        new (): HTMLModalSettingsElement;
+    };
+    interface HTMLModalShareElement extends Components.ModalShare, HTMLStencilElement {
+    }
+    var HTMLModalShareElement: {
+        prototype: HTMLModalShareElement;
+        new (): HTMLModalShareElement;
+    };
     interface HTMLPageHomeElement extends Components.PageHome, HTMLStencilElement {
     }
     var HTMLPageHomeElement: {
@@ -188,6 +210,8 @@ declare global {
         "app-searchbar": HTMLAppSearchbarElement;
         "card-item": HTMLCardItemElement;
         "modal-map": HTMLModalMapElement;
+        "modal-settings": HTMLModalSettingsElement;
+        "modal-share": HTMLModalShareElement;
         "page-home": HTMLPageHomeElement;
         "page-login": HTMLPageLoginElement;
         "page-observation": HTMLPageObservationElement;
@@ -241,6 +265,14 @@ declare namespace LocalJSX {
         "lat"?: number;
         "lon"?: number;
     }
+    interface ModalSettings {
+        "data"?: any;
+        "header"?: any;
+    }
+    interface ModalShare {
+        "item"?: any;
+        "url"?: string;
+    }
     interface PageHome {
         "history"?: RouterHistory;
     }
@@ -255,6 +287,8 @@ declare namespace LocalJSX {
     }
     interface PageUser {
         "match"?: MatchResults;
+        "owner"?: any;
+        "user"?: any;
     }
     interface PopupList {
         "items"?: {text: string, icon?: string}[];
@@ -272,6 +306,8 @@ declare namespace LocalJSX {
         "app-searchbar": AppSearchbar;
         "card-item": CardItem;
         "modal-map": ModalMap;
+        "modal-settings": ModalSettings;
+        "modal-share": ModalShare;
         "page-home": PageHome;
         "page-login": PageLogin;
         "page-observation": PageObservation;
@@ -296,6 +332,8 @@ declare module "@stencil/core" {
             "app-searchbar": LocalJSX.AppSearchbar & JSXBase.HTMLAttributes<HTMLAppSearchbarElement>;
             "card-item": LocalJSX.CardItem & JSXBase.HTMLAttributes<HTMLCardItemElement>;
             "modal-map": LocalJSX.ModalMap & JSXBase.HTMLAttributes<HTMLModalMapElement>;
+            "modal-settings": LocalJSX.ModalSettings & JSXBase.HTMLAttributes<HTMLModalSettingsElement>;
+            "modal-share": LocalJSX.ModalShare & JSXBase.HTMLAttributes<HTMLModalShareElement>;
             "page-home": LocalJSX.PageHome & JSXBase.HTMLAttributes<HTMLPageHomeElement>;
             "page-login": LocalJSX.PageLogin & JSXBase.HTMLAttributes<HTMLPageLoginElement>;
             "page-observation": LocalJSX.PageObservation & JSXBase.HTMLAttributes<HTMLPageObservationElement>;

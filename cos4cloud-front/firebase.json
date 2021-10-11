@@ -10,8 +10,16 @@
     ],
     "rewrites": [
       {
+        "source": "/share{,/**}",
+        "function": "share"
+      },
+      {
         "source": "/api{,/**}",
         "function": "api"
+      },
+      {
+        "source": "/users{,/**}",
+        "function": "share"
       },
       {
         "source": "**",
@@ -28,8 +36,16 @@
     ],
     "rewrites": [
       {
+        "source": "/share{,/**}",
+        "function": "share"
+      },
+      {
         "source": "/api{,/**}",
         "function": "api"
+      },
+      {
+        "source": "/users{,/**}",
+        "function": "share"
       },
       {
         "source": "**",

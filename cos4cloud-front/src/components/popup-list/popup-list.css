@@ -18,6 +18,7 @@
   max-width: 20rem;
   user-select: none;
 }
-.popup a:focus-within {
+.popup a:focus-within,
+.popup a:focus {
   background: var(--c-3);
 }

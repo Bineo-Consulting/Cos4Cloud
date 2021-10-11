@@ -214,3 +214,8 @@ ul.dropdown-content {
   top: 60px;
   right: 98px;
 }
+
+.modal-share .modal-wrapper {
+  max-width: 360px;
+  max-height: 300px;
+}

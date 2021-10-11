@@ -1,0 +1,45 @@
+:host {
+  display: block;
+}
+.close-btn {
+  margin: 5px;
+  right: 5px;
+  top: 5px;
+  position: absolute;
+  z-index: 1;
+}
+ion-header {
+  height: 60px;
+  text-align: center;
+}
+
+.container {
+  max-width: 500px;
+  padding: 10px;
+  text-align: center;
+  margin: auto;
+}
+a {
+  float: left;
+}
+ion-icon {
+  zoom: 1.5;
+  padding: 10px;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+}
+.copy-url ion-icon {
+  font-size: 18px;
+  padding: 0;
+  margin: 0;
+}
+
+
+.cntcenter {
+  max-width: 500px;
+  margin: auto;
+  text-align: center;
+}

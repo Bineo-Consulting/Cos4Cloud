@@ -1,6 +1,7 @@
 import { Component, State, h } from '@stencil/core';
 import { fetchTranslations } from '../../utils/translation';
 import resources from '../../resources'
+import { toQueryString } from '../../utils/to-query-string';
 
 @Component({
   tag: 'app-root',
@@ -10,6 +11,8 @@ import resources from '../../resources'
 export class AppRoot {
 
   @State() user: any = null;
+  @State() pid: any = null;
+
   i18n: any = {
     filters: {
       search_species: 'Search species',
@@ -19,6 +22,7 @@ export class AppRoot {
 
   async componentWillLoad() {
     this.i18n = await fetchTranslations(this.i18n, resources.cache_i18n)
+    this.setUser()
   }
 
   openLanguages(ev) {
@@ -57,6 +61,65 @@ export class AppRoot {
     return null
   }
 
+  logout() {
+    const user = JSON.parse(localStorage.user)
+    localStorage.removeItem('user')
+    const url = 'https://www.authenix.eu/oauth/logout' + toQueryString({
+      client_id: 'a55d6976-a46c-3989-97a4-a958936b480a',
+      code: '',
+      token: user.access_token,
+      token_type_hint: 'access_token',
+      return: encodeURIComponent(location.origin)
+    })
+    location.href = url
+  }
+
+  async settings(title?) {
+    const modalElement: any = document.createElement('ion-modal');
+    modalElement.component = 'modal-settings';
+    modalElement.componentProps = {
+      header: title
+    }
+
+    // present the modal
+    document.body.appendChild(modalElement);
+    await modalElement.present();
+    await modalElement.onWillDismiss();
+  }
+
+  openMenu(ev) {
+    const user = JSON.parse(localStorage.user || 'false')
+    const popover: any = Object.assign(document.createElement('ion-popover'), {
+      component: 'popup-list',
+      componentProps: {
+        items: user ? [{
+          text: 'Logout',
+          value: 'logout'
+        }, {
+          text: 'Settings',
+          value: 'settings'
+        }] : [{
+          text: 'Login',
+          value: 'login'
+        }]
+      },
+      event: ev
+    });
+    popover.id = 'popover-languages'
+    document.body.appendChild(popover);
+    popover.present();
+    popover.onDidDismiss().then((res) => {
+      if (res.data && res.data.value === 'logout') {
+        this.logout()
+      } else if (res.data && res.data.value === 'settings') {
+        this.settings()
+      } else if (res.data && res.data.value === 'login') {
+        this.openModalLogin()
+      }
+    })
+    return null
+  }
+
   openNotifications() {
     // create the modal with the `modal-page` component
     const modalElement: any = document.createElement('ion-modal');
@@ -79,17 +142,41 @@ export class AppRoot {
     this.setUser()
   }
 
+  async updateUser(res) {
+    const { access_token } = JSON.parse(localStorage.user)
+
+    const url = resources.host + '/users/' + access_token
+    fetch(url, {
+      method: 'POST',
+      body: JSON.stringify({
+        access_token,
+        ...res
+      })
+    })
+
+  }
+
   checkUser() {
     if (this.user && this.user.access_token) {
       const user = JSON.parse(localStorage.user)
-      const url = resources.host + '/userInfo?access_token=' + user.access_token
-      fetch(url)
+      const url = resources.host + '/users/' + user.sub
+      fetch(url, {
+        method: 'POST',
+        body: JSON.stringify({access_token: user.access_token})
+      })
       .then(res => res.json())
       .then(res => {
-        console.log('checkUser:', res.active)
         if (!res.active) {
           this.user = null
           localStorage.removeItem('user')
+        } else {
+          localStorage.setItem('user', JSON.stringify({...user, ...res}))
+          // console.log('checkUser => ', {...user, ...res})
+          this.user = {...user, ...res}
+          this.updateUser(res)
+          if (this.user && !this.user.email) {
+            this.settings('Complete your profile')
+          }
         }
       })
     }
@@ -97,14 +184,14 @@ export class AppRoot {
 
   setUser() {
     this.user = localStorage.user ? JSON.parse(localStorage.user) : null
+    console.log('setUser', this.user)
     if (!this.user && !(this.user || {}).access_token && location.hash) {
       const params = {}
       ;(location.hash || '#').slice(1).split('&').map(i => {
         params[i.split('=')[0]] = i.split('=')[1] || null
       })
       this.user = {
-        ...params,
-        login: 'openid'
+        ...params
       }
       localStorage.setItem('user', JSON.stringify(this.user))
     }
@@ -112,15 +199,17 @@ export class AppRoot {
       // alert(location.href)
       history.pushState('', document.title, window.location.pathname + window.location.search);
     }
-    setTimeout(() => this.checkUser(), 1000)
+    if (!this.pid) {
+      this.pid = setInterval(() => this.checkUser(), 5 * 60 * 1000)
+    }
+    this.checkUser()
   }
 
   openProfile() {
-    location.href = (`/users/${this.user.login}`)
+    location.href = (`/users/${this.user.sub || this.user.name || this.user.login}`)
   }
 
   render() {
-    this.setUser()
     return (
       <div>
         <nav role="navigation">
@@ -133,13 +222,13 @@ export class AppRoot {
           <ul class="desktop-menu">
             <li class="language pcssc-dropdown" onClick={(ev) => this.openLanguages(ev)}>
               <ion-icon name="globe-outline"></ion-icon>
-              <img class="icon-arrow" src="/assets/svg/arrow.svg" alt="arrow"/>
+              {/*<img class="icon-arrow" src="/assets/svg/arrow.svg" alt="arrow"/>*/}
             </li>
             <li class="user">
               <a>
                 {this.user ? (<figure
                                   class="avatar avatar-lg"
-                                  data-initial={this.user.login ? (this.user.login[0] + this.user.login[1]) : '??'}
+                                  data-initial={this.user.name ? (this.user.name[0] + this.user.name[1]) : '..'}
                                   onClick={() => this.openProfile()}>
                                 </figure>) : (<img class="icon-user"
                                                   onClick={() => this.openModalLogin()}
@@ -154,6 +243,9 @@ export class AppRoot {
               </a>
               <label htmlFor="menu-toggle" class="pure-button click-toggle" aria-label="Toggle">Dropdown Buton</label>
             </div>
+            <li class="menu pcssc-dropdown" onClick={(ev) => this.openMenu(ev)}>
+              <ion-icon name="ellipsis-horizontal"></ion-icon>
+            </li>
           </ul>
         </nav>
 

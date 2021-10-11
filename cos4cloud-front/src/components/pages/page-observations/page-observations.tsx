@@ -15,19 +15,25 @@ export class PageObservations {
   page: number = 0;
   @State() images: any = {}
   perPage: number = 30;
+  @State() loading: boolean = true;
 
   componentWillLoad() {
     // this.calcPerPage()
     const queryParams = this.history.location.query
     queryParams.page = null
     this.page = 0
+    this.loading = true
     MappingService.get(queryParams)
     .then((res) => {
       this.items = res
       this.loadImages()
+      this.loadingDismiss()
+      this.loading = false
     })
-    .catch((error) => {
-      alert(error)
+    .catch((_) => {
+      // alert(error)
+      this.loadingDismiss()
+      this.loading = false
     })
   }
 
@@ -51,6 +57,7 @@ export class PageObservations {
       this.items = []
     }
 
+    this.loading = true
     MappingService.get(params)
     .then((res) => {
       console.log(res)
@@ -65,9 +72,11 @@ export class PageObservations {
       } else {
         this.items = res
       }
+      this.loading = false
     })
-    .catch((error) => {
-      alert(error)
+    .catch((_) => {
+      // alert(error)
+      this.loading = false
     })
   }
 
@@ -97,6 +106,11 @@ export class PageObservations {
         page
       })
     }
+  }
+
+  loadingDismiss() {
+    const loading: any = document.body.querySelector('ion-loading')
+    if (loading) loading.dismiss()
   }
 
   presentLoading() {
@@ -132,7 +146,7 @@ export class PageObservations {
         <app-download onClick={() => this.download()}/>
         <app-grid
           onLoadmore={() => this.loadMore()}
-          show-spinner="true"
+          show-spinner={this.loading}
           items={this.items}
           images={this.images}></app-grid>
       </Host>

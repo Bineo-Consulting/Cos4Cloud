@@ -1,6 +1,17 @@
 :host {
   display: block;
 }
+.cnt-header-title {
+  width: 100%;
+  height: 1rem;
+  /*padding: 0 2rem;*/
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-between;
+  /*max-width: 1400px;*/
+  margin: 2rem auto 4rem;
+  text-align: center;
+}
 .cnt-header-user {
   background: #898989;
   height: 20rem;
@@ -17,12 +28,12 @@
   position: absolute;
   bottom: -11rem;
   width: 100%;
-  height: 20rem;
+  height: 15rem;
   /*padding: 0 2rem;*/
   display: flex;
   flex-flow: wrap;
   justify-content: space-between;
-  max-width: 1400px;
+  /*max-width: 1400px;*/
   margin: auto;
   /*right: 0;*/
   /*left: 0;*/
@@ -44,6 +55,7 @@
 }
 .cnt-header-user .nickname {
   text-align: center;
+  margin: 10px 0;
 }
 .cnt-header-user .user-information {
   width: calc(100% - 30rem);
@@ -68,19 +80,26 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.cnt-header-user .user-statistics {
-  width: 15rem;
+.user-statistics {
+  max-width: 600px;
+  margin: auto;
   display: flex;
   flex-flow: column;
-  align-items: flex-end;
+  align-items: center;
 }
-.cnt-header-user .user-statistics p {
-  
+progress {
+  width:  50%;
 }
-.cnt-header-user .user-statistics p:first-child {
+.user-statistics ion-list {
+  width: 100%;
+}
+.user-statistics ion-title {
+  padding-inline: 4px;
+}
+.user-statistics p:first-child {
   margin-top: 3rem;
 }
-.cnt-header-user .user-statistics .user-btn-settings {
+.user-statistics .user-btn-settings {
   display: flex;
   margin-top: 6rem;
 }
@@ -109,4 +128,13 @@
 .user-main .user-sidebar {
   width: 28rem;
   margin-left: 2rem;
+}
+.share {
+  font-size: 22px;
+  position: absolute;
+  top: 0;
+  border-radius: 50%;
+  background: white;
+  padding: 10px;
+  box-shadow: 0 0 3px grey;
 }

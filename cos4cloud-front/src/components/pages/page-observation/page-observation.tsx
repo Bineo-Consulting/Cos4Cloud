@@ -66,9 +66,8 @@ export class PageObservation {
       this.item = res
       this.loadingDismiss()
     })
-    .catch((error) => {
+    .catch((_) => {
       this.loadingDismiss()
-      alert(error)
     })
   }
 
@@ -87,8 +86,8 @@ export class PageObservation {
     const modalElement: any = document.createElement('ion-modal');
     modalElement.component = 'modal-map';
     modalElement.componentProps = {
-      lat: this.item.latitude,
-      lon: this.item.longitude
+      lat: this.item.decimalLatitude,
+      lon: this.item.decimalLongitude || this.item.decimalLongitud
     }
 
     // present the modal
@@ -171,7 +170,7 @@ export class PageObservation {
 
             <div class="origin">
               <ion-icon size="small" name="location-outline"></ion-icon>
-              <span class="origin-name" onClick={() => this.openMap()}>Lat {this.item.latitude}, Lon {this.item.longitude}</span>
+              <span class="origin-name" onClick={() => this.openMap()}>Lat {this.item.decimalLatitude}, Lon {this.item.decimalLongitude || this.item.decimalLongitud}</span>
             </div>
           </div>
         </div>

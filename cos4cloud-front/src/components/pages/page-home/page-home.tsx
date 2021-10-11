@@ -21,10 +21,11 @@ export class PageHome {
     this.i18n = await fetchTranslations(this.i18n)
 
     if (!(this.items && this.items.length)) {
-      MappingService.get({quality_grade: 'casual', limit: 60}, true)
+      MappingService.get({quality_grade: 'research', limit: 60}, true)
       .then((res) => {
+        console.log('home', {res})
         this.items = res
-        this.loadImages()
+        // this.loadImages()
       })
       .catch((error) => {
         alert('Home =>' + error)
@@ -32,35 +33,22 @@ export class PageHome {
     }
   }
 
-  loadMore() {
-    if (this.items && this.items.length) {
-      const params = this.history.location.query
-      const page = Math.ceil(this.items.length / 80)
-
-      console.log({params, page})
-      this.search({
-        ...params,
-        page
-      })
-    }
-  }
-
-  loadImages() {
-    const ii = this.items.filter(i => i.origin === 'iSpot' && !i.$$photos.length)
-    const ispot = ii.map(i => i.ID).join(',')
-    MappingService.images(ispot)
-    .then(res => {
-      ii.map(i => {
-        if (res[i.ID]) {
-          const photo = 'https:' + res[i.ID].src.replace(/\\\//g, '/')
-          this.images[i.ID] = photo
-        }
-      })
-      this.images = {...this.images}
-      MappingService.updateCacheImages(ii, this.images)
-      MappingService.updateCache()
-    })
-  }
+  // loadImages() {
+  //   const ii = this.items.filter(i => i.origin === 'iSpot' && !i.$$photos.length)
+  //   const ispot = ii.map(i => i.ID).join(',')
+  //   MappingService.images(ispot)
+  //   .then(res => {
+  //     ii.map(i => {
+  //       if (res[i.ID]) {
+  //         const photo = 'https:' + res[i.ID].src.replace(/\\\//g, '/')
+  //         this.images[i.ID] = photo
+  //       }
+  //     })
+  //     this.images = {...this.images}
+  //     MappingService.updateCacheImages(ii, this.images)
+  //     MappingService.updateCache()
+  //   })
+  // }
 
   search(params) {
     const q = toQueryString(params)

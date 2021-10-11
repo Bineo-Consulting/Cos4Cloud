@@ -64,7 +64,8 @@ export class MappingService {
 
     if (cache && this.cache && this.cache.last && this.cache.time > Date.now() - 90 * 1000) {
       // this.cache.last.map(i => this.cache.last[i.id] = i)
-      return this.cache.last
+      console.log({last: this.cache.last})
+      return this.cache.last.map(parseDwc)
     }
     return fetch(url + queryParams)
     .then(res => res.json())
