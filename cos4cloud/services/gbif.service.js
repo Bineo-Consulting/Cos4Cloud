@@ -51,7 +51,7 @@ const dwcParse = (item) => {
 
   // Location
   aux.decimalLatitude = item.decimalLatitude || item.latitude || null
-  aux.decimalLongitud = item.decimalLongitud || item.longitude || null
+  aux.decimalLongitude = item.decimalLongitude || item.longitude || null
 
   // comments
   aux.comments = (item.comments || []).map(item => {

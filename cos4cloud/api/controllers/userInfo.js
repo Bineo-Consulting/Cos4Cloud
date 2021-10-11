@@ -23,4 +23,5 @@ const userInfo = (req, res) => {
     query: req.query.access_token
   }))
 }
-module.exports = {userInfo}
+
+module.exports = { userInfo }

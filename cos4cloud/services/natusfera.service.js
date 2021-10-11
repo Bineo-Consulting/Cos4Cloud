@@ -55,7 +55,7 @@ const dwcParseNatusfera = (item) => {
 
   // Location
   aux.decimalLatitude = item.latitude
-  aux.decimalLongitud = item.longitude
+  aux.decimalLongitude = item.longitude
 
   // comments
   aux.comments = (item.comments || []).map(item => {

@@ -42,22 +42,38 @@ const parseQuery = (query, origin) => {
         query.nelat,
       ])
     }
-    if (query.decimalLongitud && query.decimalLongitud.includes(',')) {
-      const [swlng, nelng] = query.decimalLongitud.split(',')
+    if (query.decimalLongitude && query.decimalLongitude.includes(',')) {
+      const [swlng, nelng] = query.decimalLongitude.split(',')
       const [swlat, nelat] = query.decimalLatitude.split(',')
 
       query.geometry = bbox2wkt([swlng, swlat, nelng, nelat])
-      delete query.decimalLongitud
+      delete query.decimalLongitude
       delete query.decimalLatitude
     }
 
   }
   if (query.taxon_name) {
     query.scientificName = query.taxon_name
+    delete query.taxon_name
   }
   if (origin === 'plantnet') {
     query['api-key'] = '2b10bmIKkNNcBL6D4jwq3il4rO'
+    if (query.decimalLongitude && query.decimalLongitude.includes(',')) {
+      const [minDecimalLongitude, maxDecimalLongitude] = query.decimalLongitude.split(',')
+      const [minDecimalLatitude, maxDecimalLatitude] = query.decimalLatitude.split(',')
+      query.minDecimalLongitude = minDecimalLongitude
+      query.maxDecimalLongitude = maxDecimalLongitude
+      query.minDecimalLatitude = minDecimalLatitude
+      query.maxDecimalLatitude = maxDecimalLatitude
+
+    }
+    delete query.decimalLongitude
+    delete query.decimalLongitud
+    delete query.decimalLatitude
     delete query.origin
+    delete query.place
+    delete query.iconic_taxa
+    delete query.ownerInstitutionCodeProperty
   }
 
   return { ...query }
@@ -166,10 +182,10 @@ module.exports = class MappingService {
     } else if (path.includes('artportalen')) {
       const id = path.split('/').filter(Boolean).pop().split('-').filter(Boolean).pop()
       return ArtPortalenService.getById(id)
-    } else if (path.includes('plantnet')) {
+    // } else if (path.includes('plantnet')) {
       // const id = path.split('/').filter(Boolean).pop().split('-').filter(Boolean).pop()
       // return this.getPlantnetById(id)
-      return PlantnetService.getById(req, res)
+      // return PlantnetService.getById(req, res)
     } else { // general
       return req.path.includes('/dwc/') ? this.dwcGetById(req, res) : NatusferaService.getById(req, res)
     }
@@ -182,7 +198,7 @@ module.exports = class MappingService {
     if (originsConfig[ogn]) {
       const originConfig = originsConfig[ogn]
       const originHeader = originsConfig[ogn].header || {}
-      let path = req.path.replace('/dwc', '').replace('/api', '').replace(`${ogn}-`, '')
+      let path = req.path.replace('/dwc', '').replace('observations', 'occurrence').replace('/api', '').replace(`${ogn}-`, '')
       let [resource, id] = getResourceId(path)
       if (resource && id && originConfig.observation) {
         path = originConfig.observation(id)
@@ -190,7 +206,8 @@ module.exports = class MappingService {
       if (resource && !id && originConfig.observations) {
         path = originConfig.observations()
       }
-      return fetch(`${originConfig.url}${path}${toQueryString(req.query)}`, originHeader)
+      console.log(`${originConfig.url}${path}${toQueryString(req.query)}`)
+      return fetch(`${originConfig.url}${path}?api-key=2b10bmIKkNNcBL6D4jwq3il4rO`, originHeader)
       .then(res => res.json())
       .then(res => {
         const mapp = originConfig.mapping || ((i) => i)
@@ -202,8 +219,8 @@ module.exports = class MappingService {
 
   static getPlantnet(queryParams, params) {
     if (params.has === 'geo' || params.hasCoordinate) return []
-    const token = '2b10JYMpxAexS5HynCQCFpn6j'
-    const url = 'https://my-api.plantnet.org:444/v2'
+    const token = '2b10bmIKkNNcBL6D4jwq3il4rO'
+    const url = 'https://my-api.plantnet.org/v2'
     const identified = {
       '': 'all',
       research: 'identified',

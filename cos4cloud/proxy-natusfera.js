@@ -63,7 +63,7 @@ const dwcParseNatusfera = (item) => {
 
   // Location
   aux.decimalLatitude = item.latitude || item.latitud
-  aux.decimalLongitud = item.longitude || item.longitud
+  aux.decimalLongitude = item.longitude || item.longitud
 
   // comments
   aux.comments = (item.comments || []).map(item => {
@@ -116,32 +116,40 @@ const parseQuery = (url) => {
     delete q.kingdom
   }
   if (q.hasCoordinate) {
-    q.has = (q.has || '').split(',').filter(Boolean).push('geo').join(',')
+    const has = (q.has || '').split(',').filter(Boolean)
+    has.push('geo')
+    q.has = has.join(',')
     delete q.hasCoordinate
   }
 
   // Id_please
   if (q.hasIdentification) {
-    q.has = (q.has || '').split(',').filter(Boolean).push('id_please').join(',')
+    const has = (q.has || '').split(',').filter(Boolean)
+    has.push('id_please')
+    q.has = has.join(',')
     delete q.hasIdentification
   } else if (q.taxonKey == '0') {
-    q.has = (q.has || '').split(',').filter(Boolean).push('id_please').join(',')
+    const has = (q.has || '').split(',').filter(Boolean)
+    has.push('id_please')
+    q.has = has.join(',')
     delete q.taxonKey
   } else if (q.issue === 'TAXON_MATCH_NONE') {
-    q.has = (q.has || '').split(',').filter(Boolean).push('id_please').join(',')
+    const has = (q.has || '').split(',').filter(Boolean)
+    has.push('id_please')
+    q.has = has.join(',')
     delete q.issue
   }
 
   // location
-  if (q.decimalLongitud && q.decimalLongitud.includes(',')) {
-    const [swlng, nelng] = q.decimalLongitud.split(',')
+  if (q.decimalLongitude && q.decimalLongitude.includes(',')) {
+    const [swlng, nelng] = q.decimalLongitude.split(',')
     const [swlat, nelat] = q.decimalLatitude.split(',')
 
     q.swlat = swlat
     q.swlng = swlng
     q.nelat = nelat
     q.nelng = nelng
-    delete q.decimalLongitud
+    delete q.decimalLongitude
     delete q.decimalLatitude
   }
   return q
@@ -169,6 +177,8 @@ const requestListener = async (req, res) => {
     .replace('occurrence', 'observations')
     .replace('/search', '').split('/').filter(Boolean).join('/')
   path = path.includes('?') ? `${path.split('?')[0]}.json` : `${path}.json`
+
+  console.log({path, url: req.url})
 
   if (req.url.includes('?')) {
     const qp = parseQuery(req.url)

@@ -49,26 +49,16 @@ paths:
           items:
             type: string
             enum: [Plantae, Animalia, Reptilia, Fungi]
-        - name: swlat
+        - name: decimalLatitude
           in: query
-          description: The swlat of bbox
+          description: The latitude of bbox (ex. '40.1, 44.2')
           required: false
-          type: number
-        - name: swlng
+          type: string
+        - name: decimalLongitude
           in: query
-          description: The swlng of bbox
+          description: The longitude of bbox (ex. '2.1, 6.2')
           required: false
-          type: number
-        - name: nelat
-          in: query
-          description: The nelat of bbox
-          required: false
-          type: number
-        - name: nelng
-          in: query
-          description: The nelng of bbox
-          required: false
-          type: number
+          type: string
         - name: has
           in: query
           required: false

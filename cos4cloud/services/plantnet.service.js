@@ -7,11 +7,12 @@ class PlantnetService {
   }
 
   static getById(req, res) {
+    const fetch = require('node-fetch')
     const id = req.path.split('/').filter(Boolean).pop().split('-').filter(Boolean).pop()
-    const token = '2b10JYMpxAexS5HynCQCFpn6j'
-    const url = 'https://my-api.plantnet.org:444/v2'
+    const token = '2b10bmIKkNNcBL6D4jwq3il4rO'
+    const url = 'https://my-api.plantnet.org/v2/dwc'
     
-    return fetch(`${url}/observations/${id}?api-key=${token}`, {
+    return fetch(`${url}/occurrence/${id}?api-key=${token}`, {
       headers: {
         'content-type': 'application/json'
       }
@@ -38,8 +39,8 @@ class PlantnetService {
 }
 
 PlantnetService.config = {
-  token: '2b10JYMpxAexS5HynCQCFpn6j',
-  host: 'https://my-api.plantnet.org:444/v2'
+  token: '2b10bmIKkNNcBL6D4jwq3il4rO',
+  host: 'https://my-api.plantnet.org/v2'
 }
 
 module.exports = PlantnetService
