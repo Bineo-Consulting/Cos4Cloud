@@ -73,6 +73,16 @@ export class ModalSettings {
               <ion-input value={this.data.profession} onIonChange={(ev) => this.data.profession = ev.detail.value} type="text"></ion-input>
             </ion-item>
 
+            <ion-item>
+              <ion-label position="stacked">City</ion-label>
+              <ion-input value={this.data.city} onIonChange={(ev) => this.data.city = ev.detail.value} type="text"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="stacked">Description</ion-label>
+              <ion-textarea value={this.data.description} onIonChange={(ev) => this.data.description = ev.detail.value} type="text"></ion-textarea>
+            </ion-item>
+
           </ion-list>
         </ion-content>
         <ion-button onClick={() => this.update()}>Update</ion-button>

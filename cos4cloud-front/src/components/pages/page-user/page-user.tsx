@@ -15,6 +15,8 @@ export class PageUser {
   @Prop() user: any;
   @Prop() owner: any;
 
+  chartRef: HTMLElement;
+
   async componentWillLoad() {
     this.i18n = await fetchTranslations(this.i18n)
     const user = JSON.parse(localStorage.user || 'false')
@@ -24,6 +26,8 @@ export class PageUser {
     // } else {
     this.info()
     // }
+
+    this.setCharts()
   }
   info() {
     const url = resources.host + '/users/' + this.match.params.name
@@ -49,6 +53,30 @@ export class PageUser {
     await modalElement.onWillDismiss();
   }
 
+  async setCharts(el?) {
+    if (el) {
+      const Chartist = await import('chartist')
+      // const Chartist = window['Chartist']
+      new Chartist.Pie(el, {
+        series: [20, 10, 30, 40]
+      }, {
+        // donut: true,
+        // donutWidth: 60,
+        // donutSolid: true,
+        // startAngle: 270,
+        // showLabel: true
+        donut: true,
+        donutWidth: 60,
+        donutSolid: true,
+        startAngle: 270,
+        showLabel: true,
+        // labelOffset: 30,
+        // labelDirection: 'explode',
+        // distributeSeries: true,
+      });
+    }
+  }
+
   render() {
     return (
       <Host>
@@ -58,12 +86,15 @@ export class PageUser {
               <div class="user-photo">
                 <img src="/assets/svg/user.svg" alt="user photo"/>
               </div>
-              <ion-icon onClick={() => this.share()} class="share" name="share-social"></ion-icon>
+              <ion-icon tabindex="-1" onClick={() => this.share()} class="share" name="share-social"></ion-icon>
             </div>
           </header>}
         </div>
         {this.user && <div class="cnt-header-title">
           <ion-title class="nickname"><b>{this.user.displayName}</b></ion-title>
+        </div>}
+        {this.user && this.user.description && <div class="cnt-header-description">
+          <p class="description">{this.user.description}</p>
         </div>}
         <div class="user-statistics">
 
@@ -87,6 +118,11 @@ export class PageUser {
               <ion-title position="stacked"><small>Profession</small></ion-title>
               <ion-label type="text"><b>{this.user.profession}</b></ion-label>
             </ion-item>
+
+            {this.user.city && <ion-item>
+              <ion-title position="stacked"><small>City</small></ion-title>
+              <ion-label type="text"><b>{this.user.city}</b></ion-label>
+            </ion-item>}
           </ion-list>}
 
         </div>
@@ -101,6 +137,18 @@ export class PageUser {
               <progress id="ident" value="32" max="100"> 32 </progress>
             </ion-item>
           </ion-list>
+        </div>
+
+        <div class="charts">
+
+          {this.user && <div class="cnt-header-title">
+            <ion-title class="nickname"><b>Stats</b></ion-title>
+          </div>}
+
+          <span ref={(el) => this.setCharts(el as HTMLElement)}class="ct-chart"></span>
+          <span ref={(el) => this.setCharts(el as HTMLElement)}class="ct-chart"></span>
+          <span ref={(el) => this.setCharts(el as HTMLElement)}class="ct-chart"></span>
+          
         </div>
       </Host>
     );
