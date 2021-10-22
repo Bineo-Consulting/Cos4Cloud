@@ -44,7 +44,9 @@
     "identifications": "identificaciones",
     "species": "especies",
     "types": "tipos",
-    "city": "Ciudad"
+    "city": "Ciudad",
+    "description": "Descripción",
+    "update": "Actualizar"
   },
   "profile":{
     "nickname": "Alias",
@@ -52,6 +54,7 @@
     "profession": "Profesión",
     "comments": "Comentarios",
     "identifications": "Identificaciones",
+    "email-noti": "Email (para notificaciones)",
   },
   "stats":{
     "comments_identi": "Comentarios e Identificaciones",

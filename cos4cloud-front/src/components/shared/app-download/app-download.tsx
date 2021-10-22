@@ -1,4 +1,5 @@
 import { Component, Host, h, Event, EventEmitter } from '@stencil/core';
+import { fetchTranslations } from '../../../utils/translation';
 
 @Component({
   tag: 'app-download',
@@ -10,6 +11,11 @@ export class AppDownload {
   @Event() download: EventEmitter<any>;
 
   reason: string = ''
+  i18n: any = {};
+
+  async componentWillLoad() {
+    this.i18n = await fetchTranslations(this.i18n)
+  }
 
   async openDownload() {
     const modalElement: any = document.createElement('ion-modal');
@@ -29,7 +35,7 @@ export class AppDownload {
     return (
       <Host>
         <div class="wrapper">
-          <ion-button fill="none" onClick={() => this.openDownload()}><ion-icon name="download"></ion-icon>Download</ion-button>
+          <ion-button fill="none" onClick={() => this.openDownload()}><ion-icon name="download"></ion-icon>{this.i18n.download.download_title}</ion-button>
         </div>
       </Host>
     );
