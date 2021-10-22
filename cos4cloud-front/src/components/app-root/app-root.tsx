@@ -95,16 +95,16 @@ export class AppRoot {
       component: 'popup-list',
       componentProps: {
         items: user ? [{
-          text: 'Logout',
+          text: this.i18n.menu.logout,
           value: 'logout'
         }, {
-          text: 'Settings',
+          text: this.i18n.menu.settings,
           value: 'settings'
         }, {
-          text: 'Download history',
+          text: this.i18n.menu.history,
           value: 'download_history'
         }] : [{
-          text: 'Login',
+          text: this.i18n.menu.login,
           value: 'login'
         }]
       },

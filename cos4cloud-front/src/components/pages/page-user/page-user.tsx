@@ -213,12 +213,12 @@ export class PageUser {
 
           {this.user && <ion-list>
             <ion-item>
-              <ion-title position="stacked"><small>Nickname</small></ion-title>
+              <ion-title position="stacked"><small>{this.i18n.profile.nickname}</small></ion-title>
               <ion-label type="name"><b>{this.user.name}</b></ion-label>
             </ion-item>
 
             <ion-item>
-              <ion-title position="stacked"><small>Name</small></ion-title>
+              <ion-title position="stacked"><small>{this.i18n.profile.name}</small></ion-title>
               <ion-label type="name"><b>{this.user.displayName}</b></ion-label>
             </ion-item>
 
@@ -228,12 +228,12 @@ export class PageUser {
             </ion-item>}
 
             <ion-item>
-              <ion-title position="stacked"><small>Profession</small></ion-title>
+              <ion-title position="stacked"><small>{this.i18n.profile.profession}</small></ion-title>
               <ion-label type="text"><b>{this.user.profession}</b></ion-label>
             </ion-item>
 
             {this.user.city && <ion-item>
-              <ion-title position="stacked"><small>City</small></ion-title>
+              <ion-title position="stacked"><small>{this.i18n.profile.city}</small></ion-title>
               <ion-label type="text"><b>{this.user.city}</b></ion-label>
             </ion-item>}
           </ion-list>}
@@ -242,11 +242,11 @@ export class PageUser {
         {this.user && this.commentsAgg && <div class="user-statistics">
           <ion-list>
             <ion-item>
-              <ion-title><small>Comments:</small></ion-title>
+              <ion-title><small>{this.i18n.profile.comments}:</small></ion-title>
               <progress id="comm" value={this.commentsAgg.comments_count} max="100"> {this.commentsAgg.comments_count} </progress>
             </ion-item>
             <ion-item>
-              <ion-title><small>Identifications:</small></ion-title>
+              <ion-title><small>{this.i18n.profile.identifications}:</small></ion-title>
               <progress id="ident" value={this.commentsAgg.identifications_count} max="100"> {this.commentsAgg.identifications_count} </progress>
             </ion-item>
           </ion-list>
@@ -255,7 +255,7 @@ export class PageUser {
         {this.user && <div class="charts">
 
           <div class="cnt-header-chart">
-            <ion-title class="title-chart"><b>Comments & identifications</b></ion-title>
+            <ion-title class="title-chart"><b>{this.i18n.stats.comments_identi}</b></ion-title>
           </div>
           <div class="cnt-header-chart">
             <ul class="period">
@@ -267,12 +267,12 @@ export class PageUser {
           <span ref={(el) => this.charts.comments12M = (el as HTMLElement)} class="ct-chart chart-bar"></span>
 
           <div class="cnt-header-chart">
-            <ion-title class="title-chart"><b>Comments & identifications by portals</b></ion-title>
+            <ion-title class="title-chart"><b>{this.i18n.stats.comm_id_by_portal}</b></ion-title>
           </div>
           <span ref={(el) => this.charts.origins = (el as HTMLElement)} class="ct-chart"></span>
 
           <div class="cnt-header-chart">
-            <ion-title class="title-chart"><b>Downloads</b></ion-title>
+            <ion-title class="title-chart"><b>{this.i18n.stats.downloads}</b></ion-title>
           </div>
 
           <div class="cnt-header-chart">
@@ -286,7 +286,7 @@ export class PageUser {
           
 
           <div class="cnt-header-chart">
-            <ion-title class="title-chart"><b>Download reasons</b></ion-title>
+            <ion-title class="title-chart"><b>{this.i18n.stats.downloads_reasons}</b></ion-title>
           </div>
           <span ref={(el) => this.charts.reasons = (el as HTMLElement)} class="ct-chart last-chart"></span>
 
