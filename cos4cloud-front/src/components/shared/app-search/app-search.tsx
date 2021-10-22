@@ -253,6 +253,7 @@ export class AppSearch {
       const rest = window['innerHeight'] - $event.clientY
 
       calendar.parentNode.style.position = 'relative'
+      calendar.parentNode.classList.add('calendar-div')
       calendar.classList.remove('top-left-triangle')
       calendar.classList.remove('top-right-triangle')
       calendar.classList.remove('.bottom-left-triangle')
@@ -264,6 +265,14 @@ export class AppSearch {
       calendar.style.left = `${-330}px`
     }, 100)
   }
+  clearDate() {
+    this.date = {
+      minEventDate: null,
+      maxEventDate: null
+    }
+    this.refs.dateInput.innerHTML = 'Date'
+    this.refs.dateInput.classList.remove('active')
+  }
 
   get portalTitle() {
     return Object.entries(this.origin).filter(([_, v]) => v === 'true').map(([k]) => k).filter(Boolean).join('+') || null
@@ -272,7 +281,7 @@ export class AppSearch {
     return Object.entries(this.iconic_taxa).filter(([_, v]) => v === 'true').map(([k]) => k).filter(Boolean).join('+') || null
   }
   get qualityTitle() {
-    return Object.entries(this.quality).filter(([_, v]) => v === 'true').map(([k]) => k).filter(Boolean).join('+') || null
+    return Object.entries(this.quality).filter(([_, v]) => v === 'true').map(([k]) => this.i18n.filters[k]).filter(Boolean).join('+') || null
   }
   get licenseTitle() {
     return Object.entries(this.license).filter(([_, v]) => v === 'true').map(([k]) => k).filter(Boolean).join('+') || null
@@ -356,6 +365,10 @@ export class AppSearch {
                 ref={(e) => (this.refs.dateInput = e, this.onMouseDown())}
                 onMouseUp={(e) => this.onMouseUp(e)}>Date</ion-chip>
               <span ref={e => this.refs.dateContainer = e}></span>
+              <ion-chip
+                ref={(e) => this.refs.clearDateInput = e}
+                onClick={_ => this.clearDate()}
+                class="clean">Clear</ion-chip>
 
             </ion-col>
           </ion-row>
@@ -396,7 +409,7 @@ export class AppSearch {
                   <ion-checkbox slot="start" value={item.value}
                     checked={this.quality[item.key]}
                     onIonChange={(ev) => this.onChecked(ev, 'quality')}></ion-checkbox>
-                  <ion-label>{item.label}</ion-label>
+                  <ion-label>{this.i18n.filters[item.key]}</ion-label>
                 </ion-item>)}
               </ion-list>
             </div>

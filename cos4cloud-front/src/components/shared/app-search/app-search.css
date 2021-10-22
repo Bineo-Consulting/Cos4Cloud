@@ -64,6 +64,17 @@ ion-list.lite ion-checkbox {
   margin: 8px;
 }
 
+.clean {
+  display: none;
+}
+.calendar-div + ion-chip.clean {
+  display: inline-flex;
+}
+
+/*************************
+ * CALENDAR **************
+ *************************/
+
 .calendar-wrapper {
   position: relative;
 }

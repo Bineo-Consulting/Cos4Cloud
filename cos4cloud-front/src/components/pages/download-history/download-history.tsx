@@ -36,6 +36,12 @@ export class DownloadHistory {
       this.items = res.map(item => {
         item.params = Object.entries(item.query)
         .filter(([k]) => k !== 'page' && k !== 'decimalLongitude' && k !== 'decimalLatitude')
+
+        if (item.reason) {
+          item.reasonI18n = item.reason.map(i => {
+            return this.i18n.stats[i]
+          })
+        }
         return item
       })
     })
@@ -80,8 +86,8 @@ export class DownloadHistory {
                 {item.params.map(([_, val]) => <ion-chip><b>{val}</b></ion-chip>)}
               </div>
               <div>
-                {item.reason && <i>{item.reason.join(', ')}</i>}
-                {!item.reason && <i>{ 'Other' }</i>}
+                {item.reasonI18n && <i>{item.reasonI18n.join(', ')}</i>}
+                {!item.reason && <i>{this.i18n.stats.other}</i>}
 
               </div>
             </ion-label>
