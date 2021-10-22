@@ -347,10 +347,10 @@ export class AppSearch {
                 onClick={() => this.openFilters('types')}>{this.typeTitle || 'Type'}</ion-chip>
               <ion-chip
                 ref={(e) => this.refs.quality = e}
-                onClick={() => this.openFilters('quality')}>Quality</ion-chip>
+                onClick={() => this.openFilters('quality')}>{this.qualityTitle || 'Quality'}</ion-chip>
               <ion-chip
                 ref={(e) => this.refs.licenses = e}
-                onClick={() => this.openFilters('licenses')}>License</ion-chip>
+                onClick={() => this.openFilters('licenses')}>{this.licenseTitle || 'License'}</ion-chip>
 
               <ion-chip
                 ref={(e) => (this.refs.dateInput = e, this.onMouseDown())}
