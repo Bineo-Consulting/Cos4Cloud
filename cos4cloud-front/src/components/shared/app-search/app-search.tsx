@@ -1,4 +1,4 @@
-import { Component, Event, EventEmitter, Host, Prop, h } from '@stencil/core';
+import { Component, Event, EventEmitter, Host, Prop, State, Watch, h } from '@stencil/core';
 import { GbifService } from '../../../services/gbif.service';
 import { PlacesService } from '../../../services/places.service';
 import { fetchTranslations } from '../../../utils/translation';
@@ -16,6 +16,12 @@ export class AppSearch {
   @Prop() query: any;
   @Event() search: EventEmitter<any>;
   
+  title: {[key: string]: string} = {
+    portal: null,
+    type: null,
+    quality: null,
+    license: null
+  }
   filters: { [key: string]: HTMLElement } = {};
   refs: { [key: string]: HTMLElement } = {};
 
@@ -41,14 +47,12 @@ export class AppSearch {
   quality: any = {
     research: 'false',
     casual: 'false',
-    // id_please: 'false',
     geo: 'false',
     photos: 'false'
   }
   qualities = [
     {key: 'research', value: 'research', label: '👨‍🔬 Research'},
     {key: 'casual', value: 'casual', label: '🤷‍♂️ Casual'},
-    // {key: 'id_please', value: 'id_please', label: 'id_please'},
     {key: 'geo', value: 'geo', label: '📍 Geo'},
     {key: 'photos', value: 'photos', label: '🖼 photos'}
   ]
@@ -64,24 +68,10 @@ export class AppSearch {
     {key: 'CC-BY-NC', value: 'CC-BY-NC', label: 'CC-BY-NC'},
   ]
 
-  // date = {}
-  // dates = [
-  //   {key: '7D', value: '7D', label: '7D'},
-  //   {key: '30D', value: '30D', label: '30D'},
-  //   {key: '3M', value: '3M', label: '3M'},
-  //   {key: '6M', value: '6M', label: '6M'},
-  //   {key: '1Y', value: '1Y', label: '1Y'},
-  //   {key: '2Y', value: '2Y', label: '2Y'},
-  //   {key: '3Y', value: '3Y', label: '3Y'},
-  //   // {key: 'This week', value: 'This week', label: 'This week'},
-  //   // {key: 'This month', value: 'This month', label: 'This month'},
-  //   // {key: 'This year', value: 'This year', label: 'This year'},
-  // ]
   date = {
     minEventDate: null,
     maxEventDate: null
   }
-
 
   async componentWillLoad() {
     this.i18n = await fetchTranslations(this.i18n)
@@ -98,7 +88,12 @@ export class AppSearch {
         this.iconic_taxa[item] = 'true'
       })
       this.iconic_taxa = {...this.iconic_taxa}
+
     }
+  }
+
+  componentDidLoad() {
+    this.setTitle()
   }
 
   onSpecie(ev) {
@@ -200,45 +195,23 @@ export class AppSearch {
       setTimeout(() => {
         const el = ev.path[0]
         this[key][el.value] = el.checked ? 'true' : 'false'
+        this.setTitle()
       }, 200)
     } else {
       setTimeout(() => {
         const el = ev.path[0]
         this[el.value] = el.checked ? 'true' : 'false'
+        this.setTitle()
       }, 200)
     }
-  }
-
-  // async openDatePicker(elem) {
-  //   await import('/assets/datepicker.js' as VanillajsDatepicker)
-  //   this.refs.datepicker = elem
-  //   // const DateRangePicker = window['DateRangePicker']
-  //   setTimeout(async () => {
-  //     const rangepicker = new window['DateRangePicker'](elem, {})
-  //   }, 1000)
-  // }
-
-
-  lazyCss(scriptUrl: string) {
-    const s = document.getElementById('style-calendar')
-    if (s) return new Promise(resolve => resolve(true))
-    else return new Promise(resolve => {
-      const linkElement = document.createElement('link')
-      linkElement.id = 'style-calendar'
-      linkElement.rel = 'stylesheet'
-      linkElement.charset = 'utf-8'
-      linkElement.href = scriptUrl
-      linkElement.onload = resolve
-      document.body.appendChild(linkElement)
-    })
   }
 
   when: any
   async setupDatePicker(ref1, ref2) {
     if (this.when) return null
-    const cssAwait = this.lazyCss('/assets/when.min.css')
+    // const cssAwait = null//this.lazyCss('/assets/when.min.css')
     const jsAwait = import('/assets/when.min.js' as VanillajsDatepicker)
-    await Promise.all([cssAwait, jsAwait])
+    await Promise.all([jsAwait])
 
     const varWhen = 'When'
     const when: any = window[varWhen]
@@ -268,11 +241,14 @@ export class AppSearch {
       calendar && calendar.addEventListener('click', _ => {
         const dateInput: any = this.refs.dateInput
         const when = dateInput.value
+
+        console.log({when})
         dateInput.innerHTML = when
         const [mm, dd, yyyy] = (when.split(' – ')[0] || '').split('/')
         const [mm2, dd2, yyyy2] = (when.split(' – ')[1] || '').split('/')
         this.date.minEventDate = [yyyy, mm, dd].join('-')
         this.date.maxEventDate = [yyyy2, mm2, dd2].join('-')
+        this.refs.dateInput.classList.add('active')
       })
       const rest = window['innerHeight'] - $event.clientY
 
@@ -287,6 +263,50 @@ export class AppSearch {
       calendar.style.top = `${top + 42}px`
       calendar.style.left = `${-330}px`
     }, 100)
+  }
+
+  get portalTitle() {
+    return Object.entries(this.origin).filter(([_, v]) => v === 'true').map(([k]) => k).filter(Boolean).join('+') || null
+  }
+  get typeTitle() {
+    return Object.entries(this.iconic_taxa).filter(([_, v]) => v === 'true').map(([k]) => k).filter(Boolean).join('+') || null
+  }
+  get qualityTitle() {
+    return Object.entries(this.quality).filter(([_, v]) => v === 'true').map(([k]) => k).filter(Boolean).join('+') || null
+  }
+  get licenseTitle() {
+    return Object.entries(this.license).filter(([_, v]) => v === 'true').map(([k]) => k).filter(Boolean).join('+') || null
+  }
+
+  setTitle() {
+    const portal = this.portalTitle
+    if (portal !== this.title.portal) {
+      this.title.portal = portal
+      this.refs.portals.innerHTML = this.title.portal || 'Portal'
+      if (portal) this.refs.portals && this.refs.portals.classList.add('active')
+      else this.refs.portals && this.refs.portals.classList.remove('active')
+    }
+    const type = this.typeTitle
+    if (type !== this.title.type) {
+      this.title.type = type
+      this.refs.types.innerHTML = this.title.type || 'Portal'
+      if (type) this.refs.types && this.refs.types.classList.add('active')
+      else this.refs.types && this.refs.types.classList.remove('active')
+    }
+    const quality = this.qualityTitle
+    if (quality !== this.title.quality) {
+      this.title.quality = quality
+      this.refs.quality.innerHTML = this.title.quality || 'Portal'
+      if (quality) this.refs.quality && this.refs.quality.classList.add('active')
+      else this.refs.quality && this.refs.quality.classList.remove('active')
+    }
+    const license = this.licenseTitle
+    if (license !== this.title.license) {
+      this.title.license = license
+      this.refs.licenses.innerHTML = this.title.license || 'Portal'
+      if (license) this.refs.licenses && this.refs.licenses.classList.add('active')
+      else this.refs.licenses && this.refs.licenses.classList.remove('active')
+    }
   }
 
   render() {
@@ -321,10 +341,10 @@ export class AppSearch {
 
               <ion-chip
                 ref={(e) => this.refs.portals = e}
-                onClick={() => this.openFilters('portals')}>Portal</ion-chip>
+                onClick={() => this.openFilters('portals')}>{this.portalTitle || 'Portal'}</ion-chip>
               <ion-chip
                 ref={(e) => this.refs.types = e}
-                onClick={() => this.openFilters('types')}>Type</ion-chip>
+                onClick={() => this.openFilters('types')}>{this.typeTitle || 'Type'}</ion-chip>
               <ion-chip
                 ref={(e) => this.refs.quality = e}
                 onClick={() => this.openFilters('quality')}>Quality</ion-chip>
