@@ -43,7 +43,7 @@ export class DownloadHistory {
 
         if (item.reason) {
           item.reasonI18n = item.reason.map(i => {
-            return this.i18n.stats[i]
+            return this.i18n.downloads_reasons_type[i]
           })
         }
         return item
@@ -91,7 +91,7 @@ export class DownloadHistory {
               </div>
               <div>
                 {item.reasonI18n && <i>{item.reasonI18n.join(', ')}</i>}
-                {!item.reason && <i>{this.i18n.stats.other}</i>}
+                {!item.reason && <i>{this.i18n.downloads_reasons_type.other}</i>}
 
               </div>
             </ion-label>
