@@ -29,13 +29,13 @@
     "casual": "Casual",
     "with_geo": "Con geo",
     "with_photos": "Sin photos",
-    "Licenses": "Licencias",
+    "licenses": "Licencias",
     "date": "Fecha",
-    "Portals": "Observatorios",
-    "Research": "Investigación",
-    "Casual": "Casual",
-    "Geo": "localización",
-    "Photos": "Fotos"
+    "portals": "Observatorios",
+    "research": "Investigación",
+    "casual": "Casual",
+    "geo": "localización",
+    "photos": "Fotos"
   },
   "user":{
     "logout": "Cerrar sesión",

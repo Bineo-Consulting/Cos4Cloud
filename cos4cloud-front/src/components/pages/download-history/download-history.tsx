@@ -4,6 +4,7 @@ import { toQueryString } from '../../../utils/to-query-string'
 import { MappingService } from '../../../services/mapping.service';
 import { timeAgo } from '../../../utils/time-ago'
 import { RouterHistory } from '@stencil/router';
+import { fetchTranslations } from '../../../utils/translation';
 
 @Component({
   tag: 'download-history',
@@ -14,8 +15,11 @@ export class DownloadHistory {
 
   @State() items: any[] = []
   @Prop() history: RouterHistory;
+  i18n: any = {}
 
-  componentWillLoad() {
+
+  async componentWillLoad() {
+    this.i18n = await fetchTranslations(this.i18n, resources.cache_i18n)
     this.load()
   }
 
