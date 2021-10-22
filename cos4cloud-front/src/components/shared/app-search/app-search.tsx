@@ -10,12 +10,12 @@ import { fetchTranslations } from '../../../utils/translation';
 })
 export class AppSearch {
 
-  i18n: any = {};
   @Prop() specie: string;
   @Prop() place: string;
   @Prop() query: any;
   @Event() search: EventEmitter<any>;
-  
+
+  i18n: any = {};  
   title: {[key: string]: string} = {
     portal: null,
     type: null,
