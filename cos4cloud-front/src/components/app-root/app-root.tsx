@@ -1,7 +1,8 @@
-import { Component, State, h } from '@stencil/core';
+import { Component, State, h, Prop } from '@stencil/core';
 import { fetchTranslations } from '../../utils/translation';
 import resources from '../../resources'
 import { toQueryString } from '../../utils/to-query-string';
+import { RouterHistory, injectHistory } from '@stencil/router';
 
 @Component({
   tag: 'app-root',
@@ -12,6 +13,7 @@ export class AppRoot {
 
   @State() user: any = null;
   @State() pid: any = null;
+  @Prop() history: RouterHistory;
 
   i18n: any = {
     filters: {
@@ -98,6 +100,9 @@ export class AppRoot {
         }, {
           text: 'Settings',
           value: 'settings'
+        }, {
+          text: 'Download history',
+          value: 'download_history'
         }] : [{
           text: 'Login',
           value: 'login'
@@ -115,6 +120,9 @@ export class AppRoot {
         this.settings()
       } else if (res.data && res.data.value === 'login') {
         this.openModalLogin()
+      } else if (res.data && res.data.value === 'download_history') {
+        history.pushState('', 'Download history', '/download_history');
+        this.history.push(`/download_history`, {});
       }
     })
     return null
@@ -143,14 +151,14 @@ export class AppRoot {
   }
 
   async updateUser(res) {
-    const { access_token } = JSON.parse(localStorage.user)
+    const { access_token, sub } = JSON.parse(localStorage.user)
 
-    const url = resources.host + '/users/' + access_token
+    const url = resources.host + '/users/' + sub
     fetch(url, {
       method: 'POST',
       body: JSON.stringify({
-        access_token,
-        ...res
+        ...res,
+        access_token
       })
     })
 
@@ -158,21 +166,21 @@ export class AppRoot {
 
   checkUser() {
     if (this.user && this.user.access_token) {
-      const user = JSON.parse(localStorage.user)
-      const url = resources.host + '/users/' + user.sub
+      const user = JSON.parse(localStorage.user || '{}')
+      const url = resources.host + '/users/' + (user.sub || this.user.sub || this.user.access_token)
       fetch(url, {
         method: 'POST',
-        body: JSON.stringify({access_token: user.access_token})
+        body: JSON.stringify({access_token: this.user.access_token})
       })
-      .then(res => res.json())
-      .then(res => {
+      .then(res => res.text())
+      .then(aux => {
+        const res: any = JSON.parse(aux || '{}')
         if (!res.active) {
           this.user = null
           localStorage.removeItem('user')
         } else {
-          localStorage.setItem('user', JSON.stringify({...user, ...res}))
-          // console.log('checkUser => ', {...user, ...res})
-          this.user = {...user, ...res}
+          localStorage.setItem('user', JSON.stringify({...user, ...res, access_token: this.user.access_token}))
+          this.user = {...user, ...res, access_token: this.user.access_token}
           this.updateUser(res)
           if (this.user && !this.user.email) {
             this.settings('Complete your profile')
@@ -184,7 +192,7 @@ export class AppRoot {
 
   setUser() {
     this.user = localStorage.user ? JSON.parse(localStorage.user) : null
-    console.log('setUser', this.user)
+
     if (!this.user && !(this.user || {}).access_token && location.hash) {
       const params = {}
       ;(location.hash || '#').slice(1).split('&').map(i => {
@@ -196,17 +204,17 @@ export class AppRoot {
       localStorage.setItem('user', JSON.stringify(this.user))
     }
     if (location.hash) {
-      // alert(location.href)
       history.pushState('', document.title, window.location.pathname + window.location.search);
     }
     if (!this.pid) {
       this.pid = setInterval(() => this.checkUser(), 5 * 60 * 1000)
     }
-    this.checkUser()
+    setTimeout(() => this.checkUser(), 300)
   }
 
   openProfile() {
-    location.href = (`/users/${this.user.sub || this.user.name || this.user.login}`)
+    // location.href = (`/users/${this.user.sub || this.user.name || this.user.login}`)
+    this.history.push(`/users/${this.user.sub || this.user.name || this.user.login}`, {})
   }
 
   render() {
@@ -214,9 +222,9 @@ export class AppRoot {
       <div>
         <nav role="navigation">
           <div class="logo">
-            <a href="/">
+            <stencil-route-link url="/">
               <img src="/assets/svg/logo-c4c.svg" alt="Bineo logo"/>
-            </a>
+            </stencil-route-link>
           </div>
 
           <ul class="desktop-menu">
@@ -256,6 +264,7 @@ export class AppRoot {
               <stencil-route url="/observations" component="page-observations" exact={true} />
               <stencil-route url="/observations/:id" component="page-observation" exact={true} />
               <stencil-route url="/users/:name" component="page-user" />
+              <stencil-route url="/download_history" component="download-history"/>
             </stencil-route-switch>
           </stencil-router>
         </main>
@@ -263,3 +272,5 @@ export class AppRoot {
     );
   }
 }
+
+injectHistory(AppRoot);

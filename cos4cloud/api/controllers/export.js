@@ -1,3 +1,4 @@
+const Mongo = require('../../services/mongo.service')
 const header = [
   'id',
   'created_at',
@@ -40,6 +41,25 @@ const download = (items) => {
  
 const exportReq = async (req, res) => {
   const MappingService = require('../../services/mapping.service')
+
+  if (req.query.did) {
+    await Mongo.update('downloads', {
+      updated_at: new Date(),
+      user_id: req.headers.sub,
+      path: req.path,
+      query: req.query,
+      id: req.query.did
+    })
+  } else {
+    await Mongo.update('downloads', {
+      created_at: new Date(),
+      updated_at: new Date(),
+      user_id: req.headers.sub,
+      reason: req.headers.reason ? req.headers.reason.split(',') : null,
+      path: req.path,
+      query: req.query
+    })
+  }
 
   const items = await MappingService.get(req, res)
 

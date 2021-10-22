@@ -10,7 +10,8 @@ const routes = {
   'userInfo': (req, res) => require('./api/controllers/userInfo').userInfo(req, res),
   'userRefresh': (req, res) => require('./api/controllers/userRefresh').userRefresh(req, res),
   'users': (req, res) => require('./api/controllers/users').users(req, res),
-  'users/:id': (req, res) => require('./api/controllers/users').users(req, res)
+  'users/:id': (req, res) => require('./api/controllers/users').users(req, res),
+  'generic': (req, res) => require('./api/controllers/generic').generic(req, res)
 }
 
 exports.api = functions.region('us-central1').https.onRequest((req, res) => {
@@ -23,8 +24,9 @@ exports.api = functions.region('us-central1').https.onRequest((req, res) => {
     (path || '/').split('/').filter(Boolean).filter(i => i !== 'dwc') :
     (path || '/').split('/').filter(Boolean)
 
-  if (routes[resource] && id) return routes[`${resource}/:id`](req, res)
-  else if (routes[resource]) return routes[resource](req, res)
+  if (routes[resource] && id && routes[`${resource}/:id`]) return routes[`${resource}/:id`](req, res)
+  else if (routes[resource] && !id) return routes[resource](req, res)
+  else if (resource && id) return routes.generic(req, res)
   else return res.status(404).send(`<meta http-equiv="refresh" content="0; URL=https://cos4bio.eu/apidoc/index.html"/>`)
 })
 

@@ -1,0 +1,17 @@
+:host {
+  display: block;
+}
+.close-btn {
+  margin: 5px;
+  right: 5px;
+  top: 5px;
+  position: absolute;
+  z-index: 1;
+}
+ion-header {
+  height: 60px;
+  text-align: center;
+}
+ion-label {
+  padding-left: 16px;
+}

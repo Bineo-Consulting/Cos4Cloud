@@ -1,7 +1,6 @@
 let cachedDb = null;
 async function connectToDatabase() {
   if (cachedDb) {
-    console.log('CACHED: connectToDatabase')
     return cachedDb;
   }
   const MongoClient = require('mongodb').MongoClient;
@@ -13,20 +12,150 @@ async function connectToDatabase() {
   return db;
 }
 
-exports.get = async (ref, id) => {
+exports.get = async (ref, id, opts) => {
   const db = await connectToDatabase();
 
   if (id) {
-    const data = await db.collection(ref).findOne({_id: id})
+    const data = await db.collection(ref).findOne({ _id: id })
     return data;
   } else {
-    const data = await db.collection(ref).find({}).limit(32).toArray();
+    const data = await db.collection(ref).find(opts || {}).sort({ created_at: -1 }).limit(64).toArray();
     return data;
   }
-};
+}
 
 exports.update = async (ref, data) => {
   const db = await connectToDatabase();
-  const aux = await db.collection('users').findOneAndUpdate({ _id: data.id }, { $set: { ...data } }, { upsert: true })
+  if (data.id) {
+    const aux = await db.collection(ref).findOneAndUpdate({ _id: data.id }, { $set: { ...data } }, { upsert: true })
+    return aux.value    
+  } else {
+    const aux = await db.collection(ref).insert(data)
+    return aux.value  
+  }
+}
+
+exports.delete = async (ref, id) => {
+  const db = await connectToDatabase();
+
+  const aux = await db.collection(ref).remove({ _id: id || null })
   return aux.value
+}
+
+const pad2 = s => String(s).padStart(2, '0')
+const padYear2 = y => String(y).padStart(2, '0').slice(-2)
+const getMonth = (d, n) => (new Date(new Date().setMonth(d.getMonth() - (n || 0)))).getMonth() + 1
+const getYear = (d, n) => (new Date(new Date().setMonth(d.getMonth() - (n || 0)))).getFullYear()
+
+const getDay = (d, n) => (new Date(new Date().setDate(d.getDate() - (n || 0)))).getDate()
+
+const getLast12M = (() => {
+  const d = new Date()
+  const loop = [...new Array(12)]
+
+  const aux = {}
+  loop.forEach((_, n) => {
+    aux[`${pad2(getMonth(d, 11 - n))}/${padYear2(getYear(d, 11 - n))}`] = 0
+  })
+  return aux
+})()
+
+const getLast30d = (() => {
+  const d = new Date()
+  const loop = [...new Array(30)]
+
+  const aux = {}
+  loop.forEach((_, n) => {
+    aux[`${pad2(getDay(d, 29 - n))}/${pad2(getMonth(d, 29 - n))}`] = 0
+  })
+  return aux
+})()
+
+// const total = await db.collection('users').countDocuments();
+exports.agg = async (ref, params) => {
+  const db = await connectToDatabase();
+  const aux = {last12M: {}, last30d: {}}
+
+  const today = new Date()
+  const last30d = new Date(new Date().setDate(today.getDate() - 30))
+  const last12M = new Date(new Date().setMonth(today.getMonth() - 12))
+
+  const items12M = await db.collection(ref).find({ created_at: {$gte: last12M} }).toArray();
+
+  const items30d = items12M.filter(i => new Date(i.created_at) >= last30d)
+
+  if (ref === 'comments') {
+    const originsAgg = await db.collection(ref).aggregate([
+      { $group: { _id: '$origin', count: { $sum: 1 } } }
+    ]).toArray();
+
+    aux.origins = [ ...originsAgg ]
+
+    const p = [
+      db.collection(ref).countDocuments({ type: 'comment' }),
+      db.collection(ref).countDocuments({ type: 'identification' })
+    ]
+    const [commentsCount, identificationsCount] = await Promise.all(p)
+    aux.comments_count = commentsCount
+    aux.identifications_count = identificationsCount
+
+    aux.last12M.comments = aux.last12M.comments || { ...getLast12M } 
+    aux.last12M.identifications = aux.last12M.identifications || { ...getLast12M }
+    aux.last30d.comments = aux.last30d.comments || { ...getLast30d } 
+    aux.last30d.identifications = aux.last30d.identifications || { ...getLast30d }
+
+    items12M.filter(i => !i.taxon).map(item => {
+      const d = new Date(item.created_at)
+      const key = `${pad2(getMonth(d))}/${padYear2(getYear(d))}`
+      aux.last12M.comments[key] = aux.last12M.comments[key] || 0
+      aux.last12M.comments[key] += 1
+    })
+    items12M.filter(i => i.taxon).map(item => {
+      const d = new Date(item.created_at)
+      const key = `${pad2(getMonth(d))}/${padYear2(getYear(d))}`
+      aux.last12M.identifications[key] = aux.last12M.identifications[key] || 0
+      aux.last12M.identifications[key] += 1
+    })
+
+    items30d.filter(i => !i.taxon).map(item => {
+      const d = new Date(item.created_at)
+      const key = `${d.getDate()}/${pad2(getMonth(d))}`
+      aux.last30d.comments[key] = aux.last30d.comments[key] || 0
+      aux.last30d.comments[key] += 1
+    })
+    items30d.filter(i => i.taxon).map(item => {
+      const d = new Date(item.created_at)
+      const key = `${d.getDate()}/${pad2(getMonth(d))}}`
+      aux.last30d.identifications[key] = aux.last30d.identifications[key] || 0
+      aux.last30d.identifications[key] += 1
+    })
+  } else {
+    aux.last12M = { ...getLast12M }
+    aux.last30d = { ...getLast30d }
+
+    if (ref === 'downloads') {
+      const reasonsAgg = await db.collection(ref).aggregate([
+        {$unwind: { path: '$reason', preserveNullAndEmptyArrays: true } },
+        { $group: { _id: '$reason', count: { $sum: 1 } } }
+      ]).toArray();
+
+      aux.reasons = [ ...reasonsAgg ]
+    }
+
+
+    items12M.filter(i => i.created_at).map(item => {
+      const d = new Date(item.created_at)
+      const key = `${pad2(getMonth(d))}/${padYear2(getYear(d))}`
+      aux.last12M[key] = aux.last12M[key] || 0
+      aux.last12M[key] += 1
+    })
+    items30d.filter(i => i.created_at).map(item => {
+      const d = new Date(item.created_at)
+      const key = `${d.getDate()}/${pad2(getMonth(d))}}`
+      aux.last30d[key] = aux.last30d[key] || 0
+      aux.last30d[key] += 1
+    })
+  }
+
+  return JSON.stringify({ ...aux }, null, 2)
 }

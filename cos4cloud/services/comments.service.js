@@ -1,6 +1,13 @@
 const fetch = require('node-fetch')
 const PlantnetService = require('./plantnet.service')
 const toQueryString = require('../utils/toQueryString')
+const Mongo = require('./mongo.service')
+const Auth = require('./auth.service')
+
+function randomDate(start, end) {
+  return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+}
+
 
 /* ADD
   user_id: 1,
@@ -8,7 +15,7 @@ const toQueryString = require('../utils/toQueryString')
   taxon: p.taxon || undefined,
   type: undefined,
   token: user.access_token,
-  body: p.body || 'by Cos4Cloud'
+  body: p.body || 'by Cos4Cloud'
 */
 const add = {
   natusfera: (path, params) => {
@@ -22,7 +29,7 @@ const add = {
 
     p.observation_id = params.id
     p.user_id = 1 // Default
-    p.body = p.body || 'by Cos4Cloud'
+    p.body = p.body || 'by Cos4Cloud'
     const q = toQueryString(p)
     return fetch(`https://natusfera.gbif.es/observations/add_identification?${q}`)
     .then(r => r.json())
@@ -54,11 +61,25 @@ const add = {
 
 module.exports = class CommentsService {
 
-  static add(path, params) {
+  static async add(path, params) {
     const { observation_id } = params
     const [origin, id] = observation_id.split('-')
 
-    return add[origin](path, { ...params, id })
+    const tokenInfo = await Auth.userinfo(params.token)
+    const userInfo = await Auth.info(params.token)
+
+    // await Mongo.delete('comments', null)
+    await Mongo.update('comments', {
+      created_at: randomDate(new Date(2021, 0, 1), new Date()),
+      user_id: userInfo.sub || params.sub,
+      origin: 'ispot',
+      parent_id: id,
+      taxon: params.taxon || null,
+      type: params.taxon ? 'identification' : 'comment',
+      body: params.body
+    })
+
+    return {}//add[origin](path, { ...params, id })
   }
 
 }

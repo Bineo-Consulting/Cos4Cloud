@@ -152,6 +152,14 @@ const parseQuery = (url) => {
     delete q.decimalLongitude
     delete q.decimalLatitude
   }
+
+  if (q.minEventDate) {
+    q.created_after = q.minEventDate
+  }
+  if (q.maxEventDate) {
+    q.created_before = q.maxEventDate
+  }
+
   return q
 }
 

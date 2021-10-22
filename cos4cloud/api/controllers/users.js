@@ -1,17 +1,18 @@
 const Mongo = require('../../services/mongo.service')
 const Auth = require('../../services/auth.service')
 
-
 const handleUpdate = async (req, res) => {
   const { access_token, ...data } = JSON.parse(req.body)
 
   const user = await Auth.info(access_token)
+  console.log({user})
 
   const aux = await Mongo.update('users', {
     id: user.sub,
-    access_token,
     ...data,
-    ...user
+    ...user,
+    active: user.active,
+    access_token
   })
   return res.send(aux)
 }

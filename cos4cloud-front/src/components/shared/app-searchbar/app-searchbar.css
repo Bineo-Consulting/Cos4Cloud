@@ -29,6 +29,11 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 /*ion-searchbar.searchbar-has-value.focused + .list-dropdown {
   visibility: visible;
 }*/
+ion-searchbar {
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 42px;
+}
 ion-searchbar.sc-ion-searchbar-md-h {
   padding-inline-start: 0;
   padding-inline-end: 0;

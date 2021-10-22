@@ -1,4 +1,4 @@
-import { Component, Host, Prop, h } from '@stencil/core';
+import { Component, Host, Prop, State, h } from '@stencil/core';
 import { MatchResults } from '@stencil/router';
 import { fetchTranslations } from '../../../utils/translation'
 import resources from '../../../resources'
@@ -15,19 +15,21 @@ export class PageUser {
   @Prop() user: any;
   @Prop() owner: any;
 
+  @State() commentsAgg: any
+  @State() downloadsAgg: any
+  @State() charts: any = {}
+  @State() periodComments: string = 'p1Y'
+  @State() periodDownloads: string = 'p1Y'
+
   chartRef: HTMLElement;
 
-  async componentWillLoad() {
+  async componentDidLoad() {
     this.i18n = await fetchTranslations(this.i18n)
     const user = JSON.parse(localStorage.user || 'false')
     this.owner = user ? user.sub === this.match.params.name : null
-    // if (this.user) {
-    //   this.info()
-    // } else {
     this.info()
-    // }
 
-    this.setCharts()
+    this.agg()
   }
   info() {
     const url = resources.host + '/users/' + this.match.params.name
@@ -37,7 +39,81 @@ export class PageUser {
       this.user = res
     })
   }
+  agg() {
+    fetch(resources.host + '/comments/agg')
+    .then(res => res.json())
+    .then(res => {
+      this.commentsAgg = res
+      setTimeout(() => {
+        this.setPeriodComments(this.periodComments)
+        this.setPie({
+          el: this.charts.origins,
+          agg: res.origins
+        })
+      }, 250)
+    })
 
+    fetch(resources.host + '/downloads/agg')
+    .then(res => res.json())
+    .then(res => {
+      setTimeout(() => {
+        this.downloadsAgg = res
+        this.setPeriodDownloads(this.periodDownloads)
+        this.setPie({
+          el: this.charts.reasons,
+          agg: res.reasons
+        })
+      }, 250)
+    })
+  }
+
+  setPeriodComments(p) {
+    this.periodComments = p
+
+    const periods = {
+      p1Y: {
+        el: this.charts.comments12M,
+        agg: [
+          Object.values(this.commentsAgg.last12M.comments),
+          Object.values(this.commentsAgg.last12M.identifications)
+        ],
+        labels: Object.keys(this.commentsAgg.last12M.comments)
+      },
+      p1M: {
+        el: this.charts.comments12M,
+        agg: [
+          Object.values(this.commentsAgg.last30d.comments),
+          Object.values(this.commentsAgg.last30d.identifications)
+        ],
+        labels: Object.keys(this.commentsAgg.last30d.comments).map((key, i) => {
+          return i % 2 ? key : ''
+        })
+      }
+    }
+    this.setBar(periods[this.periodComments] || periods.p1Y)
+  }
+
+  setPeriodDownloads(p) {
+    this.periodDownloads = p
+
+    const periods = {
+      p1Y: {
+        el: this.charts.downloads12M,
+        agg: [Object.values(this.downloadsAgg.last12M)],
+        labels: Object.keys(this.downloadsAgg.last12M)
+      },
+      p1M: {
+        el: this.charts.downloads12M,
+        agg: [Object.values(this.downloadsAgg.last30d)],
+        labels: Object.keys(this.downloadsAgg.last30d).map((key, i) => {
+          return i % 2 ? key : ''
+        })
+      }
+    }
+
+    console.log({periods})
+    this.setBar(periods[this.periodDownloads] || periods.p1Y)
+  }
 
   async share() {
     const modalElement: any = document.createElement('ion-modal');
@@ -53,28 +129,65 @@ export class PageUser {
     await modalElement.onWillDismiss();
   }
 
-  async setCharts(el?) {
-    if (el) {
-      const Chartist = await import('chartist')
-      // const Chartist = window['Chartist']
-      new Chartist.Pie(el, {
-        series: [20, 10, 30, 40]
-      }, {
-        // donut: true,
-        // donutWidth: 60,
-        // donutSolid: true,
-        // startAngle: 270,
-        // showLabel: true
-        donut: true,
-        donutWidth: 60,
-        donutSolid: true,
-        startAngle: 270,
-        showLabel: true,
-        // labelOffset: 30,
-        // labelDirection: 'explode',
-        // distributeSeries: true,
-      });
-    }
+  async setPie({el, agg}) {
+    const Chartist = await import('chartist')
+    const ChartistPluginLegend = (await import('chartist-plugin-legend')).default
+    //const chartistPluginTooltip = (await import ('chartist-plugin-tooltip')).default
+
+    new Chartist.Pie(el, {
+      labels: agg.map(_ => ' '),
+      series: agg.map(i => i.count)
+    }, {
+      donut: true,
+      donutWidth: 60,
+      donutSolid: true,
+      startAngle: 270,
+      showLabel: true,
+      plugins: [
+        ChartistPluginLegend({
+          legendNames: agg.map(i => (i._id || 'Other'))
+        })
+      ]
+    });
+  }
+
+  async setBar({el, agg, labels}) {
+    const Chartist = await import('chartist')
+    const ChartistPluginLegend = (await import('chartist-plugin-legend')).default
+    // await import('chartist-plugin-legend')
+
+    new Chartist.Bar(el, {
+      labels,
+      series: agg
+    }, {
+      // high: 14,
+      seriesBarDistance: 10,
+      // distributeSeries: true,
+      axisY: {
+        onlyInteger: true,
+        offset: 20
+      },
+      plugins: [
+        ChartistPluginLegend({
+          legendNames: ['Comments', 'Identifications']
+        })
+      ]
+    }, [
+      ['screen and (max-width: 640px)', {
+        seriesBarDistance: 5,
+        axisX: {
+          labelInterpolationFnc: function (value) {
+            return value[0];
+          }
+        }
+      }]
+    ]).on('draw', (data) => {
+      if (data.type === 'bar') {
+        data.element.attr({
+          style: 'stroke-width: 10px'
+        });
+      }
+    });
   }
 
   render() {
@@ -126,30 +239,58 @@ export class PageUser {
           </ion-list>}
 
         </div>
-        <div class="user-statistics">
+        {this.user && this.commentsAgg && <div class="user-statistics">
           <ion-list>
             <ion-item>
               <ion-title><small>Comments:</small></ion-title>
-              <progress id="comm" value="72" max="100"> 72 </progress>
+              <progress id="comm" value={this.commentsAgg.comments_count} max="100"> {this.commentsAgg.comments_count} </progress>
             </ion-item>
             <ion-item>
               <ion-title><small>Identifications:</small></ion-title>
-              <progress id="ident" value="32" max="100"> 32 </progress>
+              <progress id="ident" value={this.commentsAgg.identifications_count} max="100"> {this.commentsAgg.identifications_count} </progress>
             </ion-item>
           </ion-list>
-        </div>
+        </div>}
 
-        <div class="charts">
+        {this.user && <div class="charts">
 
-          {this.user && <div class="cnt-header-title">
-            <ion-title class="nickname"><b>Stats</b></ion-title>
-          </div>}
+          <div class="cnt-header-chart">
+            <ion-title class="title-chart"><b>Comments & identifications</b></ion-title>
+          </div>
+          <div class="cnt-header-chart">
+            <ul class="period">
+              <li onClick={() => this.setPeriodComments('p1M')} class={'p1M' === this.periodComments ? 'active' : ''}>1M</li>
+              <li onClick={() => this.setPeriodComments('p1Y')} class={'p1Y' === this.periodComments ? 'active' : ''}>1Y</li>
+              <li onClick={() => this.setPeriodComments('pAll')} class={'pAll' === this.periodComments ? 'active' : ''}>ALL</li>
+            </ul>
+          </div>
+          <span ref={(el) => this.charts.comments12M = (el as HTMLElement)} class="ct-chart chart-bar"></span>
 
-          <span ref={(el) => this.setCharts(el as HTMLElement)}class="ct-chart"></span>
-          <span ref={(el) => this.setCharts(el as HTMLElement)}class="ct-chart"></span>
-          <span ref={(el) => this.setCharts(el as HTMLElement)}class="ct-chart"></span>
+          <div class="cnt-header-chart">
+            <ion-title class="title-chart"><b>Comments & identifications by portals</b></ion-title>
+          </div>
+          <span ref={(el) => this.charts.origins = (el as HTMLElement)} class="ct-chart"></span>
+
+          <div class="cnt-header-chart">
+            <ion-title class="title-chart"><b>Downloads</b></ion-title>
+          </div>
+
+          <div class="cnt-header-chart">
+            <ul class="period">
+              <li onClick={() => this.setPeriodDownloads('p1M')} class={'p1M' === this.periodDownloads ? 'active' : ''}>1M</li>
+              <li onClick={() => this.setPeriodDownloads('p1Y')} class={'p1Y' === this.periodDownloads ? 'active' : ''}>1Y</li>
+              <li onClick={() => this.setPeriodDownloads('pAll')} class={'pAll' === this.periodDownloads ? 'active' : ''}>ALL</li>
+            </ul>
+          </div>
+          <span ref={(el) => this.charts.downloads12M = (el as HTMLElement)} class="ct-chart chart-bar"></span>
           
-        </div>
+
+          <div class="cnt-header-chart">
+            <ion-title class="title-chart"><b>Download reasons</b></ion-title>
+          </div>
+          <span ref={(el) => this.charts.reasons = (el as HTMLElement)} class="ct-chart last-chart"></span>
+
+        </div>}
       </Host>
     );
   }

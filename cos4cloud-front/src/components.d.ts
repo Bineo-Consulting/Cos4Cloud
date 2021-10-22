@@ -28,20 +28,27 @@ export namespace Components {
         "match": MatchResults;
     }
     interface AppRoot {
+        "history": RouterHistory;
     }
     interface AppSearch {
-        "originList": string;
         "place": string;
+        "query": any;
         "specie": string;
     }
     interface AppSearchbar {
         "placeholder": string;
         "service": ServiceType;
+        "service2": ServiceType;
         "value": string;
     }
     interface CardItem {
         "image": string;
         "item": any;
+    }
+    interface DownloadHistory {
+        "history": RouterHistory;
+    }
+    interface ModalDownload {
     }
     interface ModalMap {
         "lat": number;
@@ -143,6 +150,18 @@ declare global {
         prototype: HTMLCardItemElement;
         new (): HTMLCardItemElement;
     };
+    interface HTMLDownloadHistoryElement extends Components.DownloadHistory, HTMLStencilElement {
+    }
+    var HTMLDownloadHistoryElement: {
+        prototype: HTMLDownloadHistoryElement;
+        new (): HTMLDownloadHistoryElement;
+    };
+    interface HTMLModalDownloadElement extends Components.ModalDownload, HTMLStencilElement {
+    }
+    var HTMLModalDownloadElement: {
+        prototype: HTMLModalDownloadElement;
+        new (): HTMLModalDownloadElement;
+    };
     interface HTMLModalMapElement extends Components.ModalMap, HTMLStencilElement {
     }
     var HTMLModalMapElement: {
@@ -209,6 +228,8 @@ declare global {
         "app-search": HTMLAppSearchElement;
         "app-searchbar": HTMLAppSearchbarElement;
         "card-item": HTMLCardItemElement;
+        "download-history": HTMLDownloadHistoryElement;
+        "modal-download": HTMLModalDownloadElement;
         "modal-map": HTMLModalMapElement;
         "modal-settings": HTMLModalSettingsElement;
         "modal-share": HTMLModalShareElement;
@@ -244,22 +265,29 @@ declare namespace LocalJSX {
         "match"?: MatchResults;
     }
     interface AppRoot {
+        "history"?: RouterHistory;
     }
     interface AppSearch {
         "onSearch"?: (event: CustomEvent<any>) => void;
-        "originList"?: string;
         "place"?: string;
+        "query"?: any;
         "specie"?: string;
     }
     interface AppSearchbar {
         "onChoose"?: (event: CustomEvent<any>) => void;
         "placeholder"?: string;
         "service"?: ServiceType;
+        "service2"?: ServiceType;
         "value"?: string;
     }
     interface CardItem {
         "image"?: string;
         "item"?: any;
+    }
+    interface DownloadHistory {
+        "history"?: RouterHistory;
+    }
+    interface ModalDownload {
     }
     interface ModalMap {
         "lat"?: number;
@@ -305,6 +333,8 @@ declare namespace LocalJSX {
         "app-search": AppSearch;
         "app-searchbar": AppSearchbar;
         "card-item": CardItem;
+        "download-history": DownloadHistory;
+        "modal-download": ModalDownload;
         "modal-map": ModalMap;
         "modal-settings": ModalSettings;
         "modal-share": ModalShare;
@@ -331,6 +361,8 @@ declare module "@stencil/core" {
             "app-search": LocalJSX.AppSearch & JSXBase.HTMLAttributes<HTMLAppSearchElement>;
             "app-searchbar": LocalJSX.AppSearchbar & JSXBase.HTMLAttributes<HTMLAppSearchbarElement>;
             "card-item": LocalJSX.CardItem & JSXBase.HTMLAttributes<HTMLCardItemElement>;
+            "download-history": LocalJSX.DownloadHistory & JSXBase.HTMLAttributes<HTMLDownloadHistoryElement>;
+            "modal-download": LocalJSX.ModalDownload & JSXBase.HTMLAttributes<HTMLModalDownloadElement>;
             "modal-map": LocalJSX.ModalMap & JSXBase.HTMLAttributes<HTMLModalMapElement>;
             "modal-settings": LocalJSX.ModalSettings & JSXBase.HTMLAttributes<HTMLModalSettingsElement>;
             "modal-share": LocalJSX.ModalShare & JSXBase.HTMLAttributes<HTMLModalShareElement>;

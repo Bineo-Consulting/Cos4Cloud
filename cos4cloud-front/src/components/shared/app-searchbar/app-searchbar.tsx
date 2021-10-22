@@ -10,17 +10,29 @@ export class AppSearchbar {
   @Prop({ mutable: true }) value: string
   @Prop() placeholder: string
   @Prop() service: ServiceType;
+  @Prop() service2: ServiceType;
   
   @Event() choose: EventEmitter<any>;
 
   @State() items = [];
 
   async onInput(ev) {
-    if (ev.detail.value) {
-      const items = await this.service.get({
-        value: ev.target.value
+    const term = ev.detail.value || ''
+    if (term) {
+      const itemsAsync = this.service.get({
+        value: term
       })
-      this.items = this.service.process(items)
+
+      const items2Async = this.service2.get({
+        value: term
+      })
+
+      const [items, items2] = await Promise.all([itemsAsync, items2Async])
+      this.items = [
+        ...this.service.process(items, term.toLowerCase()),
+        ...this.service2.process(items2, term.toLowerCase())
+      ].sort((a, b) => b.score - a.score)
+
     } else {
       this.items = []
       this.value = null

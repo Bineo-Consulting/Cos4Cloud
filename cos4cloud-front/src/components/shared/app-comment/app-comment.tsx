@@ -47,7 +47,7 @@ export class AppComment {
               </div>
             </div>
           </div>
-          {<p class="people-agree">{this.item.body}</p>}
+          <p class="people-agree">{this.item.body || this.item.comment}</p>
         </div>
       </Host>
     );

@@ -1,7 +1,8 @@
 declare global {
+  export type VanillajsDatepicker = any;
   export type ServiceType = {
     get({value: string}): Promise<any>
-    process(T: any[]): ItemType[]
+    process(T: any[], S: string): ItemType[]
   }
   export type ItemType = {
     name: string
@@ -10,6 +11,7 @@ declare global {
     lat?: number
     lon?: number
     icon?: string
+    score?: number
   }
 }
 

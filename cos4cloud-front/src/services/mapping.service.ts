@@ -29,12 +29,20 @@ const parseDwc = (item) => {
   item.$$date = timeAgo(item.created_at)
   item.$$species_name = item.scientificName || item.species_name || (item.taxon || {}).name || 'Something...'
 
-  item.$$comments = (item.comments || []).map(comment => {
-    const c = {...comment}
-    c.$$date = timeAgo(c.created_at)
-    return c
-  }).sort((a:any, b:any) => Date.parse(a.created_at) - Date.parse(b.created_at))
-  item.$$identifications = (item.identifications || []).map(identification => {
+  item.$$comments = []
+  // item.$$comments = (item.comments || []).map(comment => {
+  //   const c = {...comment}
+  //   c.$$date = timeAgo(c.created_at)
+  //   return c
+  // }).sort((a:any, b:any) => Date.parse(a.created_at) - Date.parse(b.created_at))
+  // item.$$identifications = (item.identifications || []).map(identification => {
+  //   const c = {...identification}
+  //   c.$$date = timeAgo(c.created_at)
+  //   return c
+  // }).sort((a:any, b:any) => Date.parse(a.created_at) - Date.parse(b.created_at))
+
+  item.$$identifications = [...(item.identifications || []), ...(item.comments || [])]
+  .map(identification => {
     const c = {...identification}
     c.$$date = timeAgo(c.created_at)
     return c
@@ -201,6 +209,7 @@ export class MappingService {
       taxon: p.taxon || undefined,
       type: undefined,
       token: user.access_token,
+      sub: user.sub,
       body: p.body || 'by Cos4Cloud'
     }
     const q = toQueryString(params)
@@ -208,9 +217,15 @@ export class MappingService {
     return fetch(`${host}/comments${q}`)
   }
 
-  static async export() {
-    const href = `${cloudHost}/export` + location.search
-    const data = await fetch(href).then(res => res.text())
+  static async export(search?, reason?) {
+    const user = JSON.parse(localStorage.user)
+    const href = `${host}/export` + (search || location.search)
+    const data = await fetch(href, {
+      headers: {
+        sub: user.sub,
+        reason: reason || 'other'
+      }
+    }).then(res => res.text())
     downloadFile(data, `c4c_download_${Date.now()}.csv`)
     return null
   }

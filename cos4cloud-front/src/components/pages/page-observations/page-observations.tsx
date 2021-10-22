@@ -125,12 +125,12 @@ export class PageObservations {
     return loading
   }
 
-  async download() {
+  async download(e) {
     const t = false
     if (t) return false
     const l = this.presentLoading()
     try {
-      await MappingService.export()
+      await MappingService.export(null, e.detail)
     } catch(_) {}
     l.dismiss()
   }
@@ -141,9 +141,9 @@ export class PageObservations {
         <app-search
           specie={this.history.location.query.taxon_name}
           place={this.history.location.query.place}
-          origin-list={this.history.location.query.origin}
+          query={this.history.location.query}
           onSearch={(ev) => this.search(ev.detail, true)}></app-search>
-        <app-download onClick={() => this.download()}/>
+        <app-download onDownload={(e) => this.download(e)}/>
         <app-grid
           onLoadmore={() => this.loadMore()}
           show-spinner={this.loading}

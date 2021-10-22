@@ -6,6 +6,7 @@ export default async () => {
    */
 };
 export type ServiceType = {
-  get({value: string}): Promise<any>
+  get({value: string}): Promise<any>,
+  process({value: string}): Promise<any>
 }
 

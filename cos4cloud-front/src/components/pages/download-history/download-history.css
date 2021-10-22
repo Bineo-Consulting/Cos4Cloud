@@ -1,0 +1,31 @@
+:host {
+  display: block;
+  max-width: 768px;
+  width: 100%;
+  display: grid;
+  justify-content: center;
+  margin: auto;
+  margin-bottom: 100px;
+  text-align: center;
+}
+
+ion-icon {
+  font-size: 32px;
+  padding: 0 10px 0 16px;
+}
+ion-item {
+  --padding-start: 0px;
+}
+.text-left {
+  text-align: left;
+  display: inline-block;
+  width: 50%;
+}
+.text-right {
+  text-align: right;
+  display: inline-block;
+  width: 50%;
+}
+ion-button {
+  margin-left: 16px;
+}

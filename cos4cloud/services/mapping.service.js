@@ -124,10 +124,10 @@ module.exports = class MappingService {
         }
         const query = parseQuery(req.query || {}, ogn)
 
+        console.log(`${originConfig.url}${path}${toQueryString(query)}`)
         return fetch(`${originConfig.url}${path}${toQueryString(query)}`, {header: originHeader})
         .then(res => res.json())
         .then(res => {
-          console.log(res)
           const mapp = originConfig.mapping || ((i) => i)
           if (res && res.results) return res.results.map(mapp)
           if (res && res.observations) return res.observations.map(mapp)
