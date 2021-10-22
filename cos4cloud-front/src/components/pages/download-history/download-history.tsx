@@ -4,6 +4,7 @@ import { toQueryString } from '../../../utils/to-query-string'
 import { MappingService } from '../../../services/mapping.service';
 import { timeAgo } from '../../../utils/time-ago'
 import { RouterHistory } from '@stencil/router';
+import { fetchTranslations } from '../../../utils/translation';
 
 @Component({
   tag: 'download-history',
@@ -14,8 +15,11 @@ export class DownloadHistory {
 
   @State() items: any[] = []
   @Prop() history: RouterHistory;
+  i18n: any = {}
 
-  componentWillLoad() {
+
+  async componentWillLoad() {
+    this.i18n = await fetchTranslations(this.i18n, resources.cache_i18n)
     this.load()
   }
 
@@ -74,14 +78,14 @@ export class DownloadHistory {
     return (
       <Host>
         <ion-header>
-          <ion-title slot="center"><h2>Download history</h2></ion-title>
+          <ion-title slot="center"><h2>{this.i18n.download.download_history}</h2></ion-title>
         </ion-header>
         <ion-list >
           {this.items.map(item => (<ion-item class="item item-text-wrap">
             <ion-icon name="time-outline"></ion-icon>
             <ion-label>
               <span class="text-left">{ timeAgo(item.created_at) }</span>
-              <span class="text-right">Format: <b>csv</b></span>
+              <span class="text-right">{this.i18n.download.format}: <b>csv</b></span>
               <div>
                 {item.params.map(([_, val]) => <ion-chip><b>{val}</b></ion-chip>)}
               </div>
@@ -91,7 +95,7 @@ export class DownloadHistory {
 
               </div>
             </ion-label>
-            <ion-button onClick={() => this.download(item.query, item.reason)}>run</ion-button>
+            <ion-button onClick={() => this.download(item.query, item.reason)}>{this.i18n.download.re_run}</ion-button>
           </ion-item>))}
         </ion-list>
       </Host>

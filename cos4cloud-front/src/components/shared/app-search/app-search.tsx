@@ -350,20 +350,20 @@ export class AppSearch {
 
               <ion-chip
                 ref={(e) => this.refs.portals = e}
-                onClick={() => this.openFilters('portals')}>{this.portalTitle || 'Portal'}</ion-chip>
+                onClick={() => this.openFilters('portals')}>{this.portalTitle || this.i18n.filters.portals}</ion-chip>
               <ion-chip
                 ref={(e) => this.refs.types = e}
-                onClick={() => this.openFilters('types')}>{this.typeTitle || 'Type'}</ion-chip>
+                onClick={() => this.openFilters('types')}>{this.typeTitle || this.i18n.filters.types}</ion-chip>
               <ion-chip
                 ref={(e) => this.refs.quality = e}
-                onClick={() => this.openFilters('quality')}>{this.qualityTitle || 'Quality'}</ion-chip>
+                onClick={() => this.openFilters('quality')}>{this.qualityTitle || this.i18n.filters.quality}</ion-chip>
               <ion-chip
                 ref={(e) => this.refs.licenses = e}
-                onClick={() => this.openFilters('licenses')}>{this.licenseTitle || 'License'}</ion-chip>
+                onClick={() => this.openFilters('licenses')}>{this.licenseTitle || this.i18n.filters.licenses}</ion-chip>
 
               <ion-chip
                 ref={(e) => (this.refs.dateInput = e, this.onMouseDown())}
-                onMouseUp={(e) => this.onMouseUp(e)}>Date</ion-chip>
+                onMouseUp={(e) => this.onMouseUp(e)}>{this.i18n.filters.date}</ion-chip>
               <span ref={e => this.refs.dateContainer = e}></span>
               <ion-chip
                 ref={(e) => this.refs.clearDateInput = e}

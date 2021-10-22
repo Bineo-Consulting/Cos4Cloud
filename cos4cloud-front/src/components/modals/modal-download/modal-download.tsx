@@ -1,13 +1,18 @@
 import { Component, Host, h, State } from '@stencil/core';
+import { fetchTranslations } from '../../../utils/translation';
 
 @Component({
   tag: 'modal-download',
   styleUrl: 'modal-download.css',
   shadow: true,
 })
-export class ModalDownload {
-
+export class ModalDownload { 
   @State() dirty: boolean = false
+  i18n: any = {}
+
+  async componentWillLoad() {
+    this.i18n = await fetchTranslations(this.i18n)
+  }  
 
   reasons = [
     'biosecurity management/planning',
@@ -52,7 +57,7 @@ export class ModalDownload {
       <Host>
         <ion-header>
           <ion-toolbar>
-            <h1>{'Download'}</h1>
+            <h3>{this.i18n.download.download_title_modal}</h3>
             <ion-fab-button onClick={this.close} class="close-btn" size="small">
               <ion-icon name="close"></ion-icon>
             </ion-fab-button>
@@ -62,14 +67,14 @@ export class ModalDownload {
           <ion-list>
             {this.reasons.map(item => <ion-item>
               <ion-checkbox onIonChange={(e) => this.onChange(e)} value={item}></ion-checkbox>
-              <ion-label>{item}</ion-label>
+              <ion-label>{this.i18n.downloads_reasons_type[item]}</ion-label>
             </ion-item>)}
           </ion-list>
         </ion-content>
 
         <ion-footer>
           <ion-item>
-            <ion-button disabled={!this.dirty} onClick={() => this.download()}>Download</ion-button>
+            <ion-button disabled={!this.dirty} onClick={() => this.download()}>{this.i18n.download.download_title}</ion-button>
           </ion-item>
         </ion-footer>
       </Host>
