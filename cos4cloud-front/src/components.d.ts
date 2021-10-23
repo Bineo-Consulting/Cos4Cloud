@@ -62,6 +62,8 @@ export namespace Components {
         "item": any;
         "url": string;
     }
+    interface PageDashboard {
+    }
     interface PageHome {
         "history": RouterHistory;
     }
@@ -180,6 +182,12 @@ declare global {
         prototype: HTMLModalShareElement;
         new (): HTMLModalShareElement;
     };
+    interface HTMLPageDashboardElement extends Components.PageDashboard, HTMLStencilElement {
+    }
+    var HTMLPageDashboardElement: {
+        prototype: HTMLPageDashboardElement;
+        new (): HTMLPageDashboardElement;
+    };
     interface HTMLPageHomeElement extends Components.PageHome, HTMLStencilElement {
     }
     var HTMLPageHomeElement: {
@@ -233,6 +241,7 @@ declare global {
         "modal-map": HTMLModalMapElement;
         "modal-settings": HTMLModalSettingsElement;
         "modal-share": HTMLModalShareElement;
+        "page-dashboard": HTMLPageDashboardElement;
         "page-home": HTMLPageHomeElement;
         "page-login": HTMLPageLoginElement;
         "page-observation": HTMLPageObservationElement;
@@ -301,6 +310,8 @@ declare namespace LocalJSX {
         "item"?: any;
         "url"?: string;
     }
+    interface PageDashboard {
+    }
     interface PageHome {
         "history"?: RouterHistory;
     }
@@ -338,6 +349,7 @@ declare namespace LocalJSX {
         "modal-map": ModalMap;
         "modal-settings": ModalSettings;
         "modal-share": ModalShare;
+        "page-dashboard": PageDashboard;
         "page-home": PageHome;
         "page-login": PageLogin;
         "page-observation": PageObservation;
@@ -366,6 +378,7 @@ declare module "@stencil/core" {
             "modal-map": LocalJSX.ModalMap & JSXBase.HTMLAttributes<HTMLModalMapElement>;
             "modal-settings": LocalJSX.ModalSettings & JSXBase.HTMLAttributes<HTMLModalSettingsElement>;
             "modal-share": LocalJSX.ModalShare & JSXBase.HTMLAttributes<HTMLModalShareElement>;
+            "page-dashboard": LocalJSX.PageDashboard & JSXBase.HTMLAttributes<HTMLPageDashboardElement>;
             "page-home": LocalJSX.PageHome & JSXBase.HTMLAttributes<HTMLPageHomeElement>;
             "page-login": LocalJSX.PageLogin & JSXBase.HTMLAttributes<HTMLPageLoginElement>;
             "page-observation": LocalJSX.PageObservation & JSXBase.HTMLAttributes<HTMLPageObservationElement>;

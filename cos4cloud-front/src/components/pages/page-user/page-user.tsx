@@ -31,6 +31,19 @@ export class PageUser {
 
     this.agg()
   }
+  async share() {
+    const modalElement: any = document.createElement('ion-modal');
+    modalElement.component = 'modal-share';
+    modalElement.cssClass = 'modal-share'
+    modalElement.componentProps = {
+      item: this.user
+    }
+
+    // present the modal
+    document.body.appendChild(modalElement);
+    await modalElement.present();
+    await modalElement.onWillDismiss();
+  }
   info() {
     const url = resources.host + '/users/' + this.match.params.name
     fetch(url)
@@ -56,8 +69,8 @@ export class PageUser {
     fetch(resources.host + '/downloads/agg')
     .then(res => res.json())
     .then(res => {
+      this.downloadsAgg = res
       setTimeout(() => {
-        this.downloadsAgg = res
         this.setPeriodDownloads(this.periodDownloads)
         this.setPie({
           el: this.charts.reasons,
@@ -113,20 +126,6 @@ export class PageUser {
 
     console.log({periods})
     this.setBar(periods[this.periodDownloads] || periods.p1Y)
-  }
-
-  async share() {
-    const modalElement: any = document.createElement('ion-modal');
-    modalElement.component = 'modal-share';
-    modalElement.cssClass = 'modal-share'
-    modalElement.componentProps = {
-      item: this.user
-    }
-
-    // present the modal
-    document.body.appendChild(modalElement);
-    await modalElement.present();
-    await modalElement.onWillDismiss();
   }
 
   async setPie({el, agg}) {

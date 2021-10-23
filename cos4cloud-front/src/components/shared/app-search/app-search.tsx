@@ -291,28 +291,28 @@ export class AppSearch {
     const portal = this.portalTitle
     if (portal !== this.title.portal) {
       this.title.portal = portal
-      this.refs.portals.innerHTML = this.title.portal || 'Portal'
+      this.refs.portals.innerHTML = this.title.portal || this.i18n.filters.portals
       if (portal) this.refs.portals && this.refs.portals.classList.add('active')
       else this.refs.portals && this.refs.portals.classList.remove('active')
     }
     const type = this.typeTitle
     if (type !== this.title.type) {
       this.title.type = type
-      this.refs.types.innerHTML = this.title.type || 'Portal'
+      this.refs.types.innerHTML = this.title.type || this.i18n.filters.types
       if (type) this.refs.types && this.refs.types.classList.add('active')
       else this.refs.types && this.refs.types.classList.remove('active')
     }
     const quality = this.qualityTitle
     if (quality !== this.title.quality) {
       this.title.quality = quality
-      this.refs.quality.innerHTML = this.title.quality || 'Portal'
+      this.refs.quality.innerHTML = this.title.quality || this.i18n.filters.quality
       if (quality) this.refs.quality && this.refs.quality.classList.add('active')
       else this.refs.quality && this.refs.quality.classList.remove('active')
     }
     const license = this.licenseTitle
     if (license !== this.title.license) {
       this.title.license = license
-      this.refs.licenses.innerHTML = this.title.license || 'Portal'
+      this.refs.licenses.innerHTML = this.title.license || this.i18n.filters.licenses
       if (license) this.refs.licenses && this.refs.licenses.classList.add('active')
       else this.refs.licenses && this.refs.licenses.classList.remove('active')
     }

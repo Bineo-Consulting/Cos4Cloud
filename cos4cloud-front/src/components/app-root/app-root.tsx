@@ -103,9 +103,15 @@ export class AppRoot {
         }, {
           text: this.i18n.menu.history,
           value: 'download_history'
+        }, {
+          text: 'Dashboard',
+          value: 'dashboard'
         }] : [{
-          text: this.i18n.menu.login,
+          text: this.i18n.login.login,
           value: 'login'
+        }, {
+          text: 'Dashboard',
+          value: 'dashboard'
         }]
       },
       event: ev
@@ -123,6 +129,9 @@ export class AppRoot {
       } else if (res.data && res.data.value === 'download_history') {
         history.pushState('', 'Download history', '/download_history');
         this.history.push(`/download_history`, {});
+      } else if (res.data && res.data.value === 'dashboard') {
+        history.pushState('', 'Dasboard', '/dashboard');
+        this.history.push(`/dashboard`, {});
       }
     })
     return null
@@ -265,6 +274,7 @@ export class AppRoot {
               <stencil-route url="/observations/:id" component="page-observation" exact={true} />
               <stencil-route url="/users/:name" component="page-user" />
               <stencil-route url="/download_history" component="download-history"/>
+              <stencil-route url="/dashboard" component="page-dashboard"/>
             </stencil-route-switch>
           </stencil-router>
         </main>
