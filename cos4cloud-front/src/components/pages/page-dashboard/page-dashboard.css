@@ -118,10 +118,13 @@ g.ct-series.ct-series-j line { stroke: var(--c9) !important; }
 .ct-legend li:nth-child(9)::marker { color: var(--c8) !important; }
 .ct-legend li:nth-child(10)::marker { color: var(--c10) !important; }
 
+.mb-100 {
+  margin-bottom: 100px !important;
+}
 .chart-bar .ct-legend {
   padding: 10px 10px 10px 50px;
   border-radius: 6px;
-  top: 139%;
+  top: calc(300px + 60px);
   border: 1px solid;
   left: calc(50% - 130px);
   list-style: none;

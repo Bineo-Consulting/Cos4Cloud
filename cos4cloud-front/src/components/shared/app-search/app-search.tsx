@@ -73,6 +73,7 @@ export class AppSearch {
     maxEventDate: null
   }
 
+
   async componentWillLoad() {
     this.i18n = await fetchTranslations(this.i18n)
 
@@ -233,6 +234,26 @@ export class AppSearch {
     setTimeout(() => {
       this.setupDatePicker(this.refs.dateInput, this.refs.dateContainer)
     }, 100)
+
+    setTimeout(() => {
+      const calendar = this.refs.calendar.querySelector('.calendar')
+      console.log({calendar})
+      if (!calendar) return null
+      // <ion-icon name="close-circle-outline"></ion-icon>
+      const clear = document.createElement('ion-icon')
+      const span = document.createElement('div')
+      clear.setAttribute('name', 'refresh-circle-outline')
+      clear.classList.add('clear')
+      span.style.position = 'absolute'
+      span.style.top = '0'
+      span.style.right = '0'
+      clear.style.fontSize = '20px'
+
+      span.appendChild(clear)
+      calendar.appendChild(span)
+      span.addEventListener('click', () => this.clearDate())
+      span.onclick = () => this.clearDate()
+    }, 200)
   }
   onMouseUp($event) {
     if (!this.when) return setTimeout(() => this.onMouseUp($event), 200)
@@ -241,8 +262,11 @@ export class AppSearch {
       calendar && calendar.addEventListener('click', _ => {
         const dateInput: any = this.refs.dateInput
         const when = dateInput.value
+        if (!when) {
+          dateInput.innerHTML = this.i18n.filters.date
+          return null
+        }
 
-        console.log({when})
         dateInput.innerHTML = when
         const [mm, dd, yyyy] = (when.split(' – ')[0] || '').split('/')
         const [mm2, dd2, yyyy2] = (when.split(' – ')[1] || '').split('/')
@@ -265,13 +289,19 @@ export class AppSearch {
       calendar.style.left = `${-330}px`
     }, 100)
   }
+
   clearDate() {
-    this.date = {
-      minEventDate: null,
-      maxEventDate: null
-    }
-    this.refs.dateInput.innerHTML = 'Date'
-    this.refs.dateInput.classList.remove('active')
+    const el = this.refs.dateContainer.firstElementChild as HTMLElement
+    el.click()
+    setTimeout(() => {
+      this.date = {
+        minEventDate: null,
+        maxEventDate: null
+      }
+
+      this.refs.dateInput.innerHTML = this.i18n.filters.date
+      this.refs.dateInput.classList.remove('active')
+    }, 150)
   }
 
   get portalTitle() {
@@ -336,13 +366,6 @@ export class AppSearch {
             <ion-col size="3" size-sm="2">
               <ion-button expand="block" onClick={() => this.onSearch()}>{this.i18n.filters.search}</ion-button>
             </ion-col>
-
-            {/*<ion-col size="6" size-md="6">
-              <app-searchbar
-                value={this.place}
-                placeholder={this.i18n.filters.search_places}
-                onChoose={(e) => this.onPlace(e)} service={PlacesService}></app-searchbar>
-            </ion-col>*/}
           </ion-row>
 
           <ion-row class="center">
@@ -363,12 +386,9 @@ export class AppSearch {
 
               <ion-chip
                 ref={(e) => (this.refs.dateInput = e, this.onMouseDown())}
+                onClick={() => this.onMouseDown()}
                 onMouseUp={(e) => this.onMouseUp(e)}>{this.i18n.filters.date}</ion-chip>
               <span ref={e => this.refs.dateContainer = e}></span>
-              <ion-chip
-                ref={(e) => this.refs.clearDateInput = e}
-                onClick={_ => this.clearDate()}
-                class="clean">Clear</ion-chip>
 
             </ion-col>
           </ion-row>

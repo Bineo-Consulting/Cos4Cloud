@@ -13,9 +13,11 @@ export class PageDashboard {
 
   @State() commentsAgg: any
   @State() downloadsAgg: any
+  @State() usersAgg: any
   @State() charts: any = {}
   @State() periodComments: string = 'p1Y'
   @State() periodDownloads: string = 'p1Y'
+  @State() periodUsers: string = 'p1Y'
 
   chartRef: HTMLElement;
 
@@ -48,7 +50,21 @@ export class PageDashboard {
           el: this.charts.reasons,
           agg: res.reasons
         })
-      }, 350)
+      }, 250)
+    })
+
+    fetch(resources.host + '/users/agg')
+    .then(res => res.json())
+    .then(res => {
+      this.usersAgg = res
+      setTimeout(() => {
+        console.log({professions: res.professions})
+        this.setPeriodUsers(this.periodUsers)
+        this.setPie({
+          el: this.charts.professions,
+          agg: res.professions
+        })
+      }, 250)
     })
   }
 
@@ -99,7 +115,29 @@ export class PageDashboard {
     this.setBar(periods[this.periodDownloads] || periods.p1Y)
   }
 
+  setPeriodUsers(p) {
+    this.periodUsers = p
+
+    const periods = {
+      p1Y: {
+        el: this.charts.users12M,
+        agg: [Object.values(this.usersAgg.last12M)],
+        labels: Object.keys(this.usersAgg.last12M)
+      },
+      p1M: {
+        el: this.charts.users12M,
+        agg: [Object.values(this.usersAgg.last30d)],
+        labels: Object.keys(this.usersAgg.last30d).map((key, i) => {
+          return i % 2 ? key : ''
+        })
+      }
+    }
+
+    this.setBar(periods[this.periodUsers] || periods.p1Y)
+  }
+
   async setPie({el, agg}) {
+    console.log('setPie => ', {el, agg})
     const Chartist = await import('chartist')
     const ChartistPluginLegend = (await import('chartist-plugin-legend')).default
     //const chartistPluginTooltip = (await import ('chartist-plugin-tooltip')).default
@@ -177,7 +215,7 @@ export class PageDashboard {
                 <li onClick={() => this.setPeriodComments('pAll')} class={'pAll' === this.periodComments ? 'active' : ''}>ALL</li>
               </ul>
             </div>
-            <span ref={(el) => this.charts.comments12M = (el as HTMLElement)} class="ct-chart chart-bar"></span>
+            <span ref={(el) => this.charts.comments12M = (el as HTMLElement)} class="ct-chart chart-bar mb-100"></span>
 
             <div class="cnt-header-chart">
               <ion-title class="title-chart"><b>{this.i18n.stats.comm_id_by_portal}</b></ion-title>
@@ -197,13 +235,35 @@ export class PageDashboard {
                 <li onClick={() => this.setPeriodDownloads('pAll')} class={'pAll' === this.periodDownloads ? 'active' : ''}>ALL</li>
               </ul>
             </div>
-            <span ref={(el) => this.charts.downloads12M = (el as HTMLElement)} class="ct-chart chart-bar"></span>
+            <span ref={(el) => this.charts.downloads12M = (el as HTMLElement)} class="ct-chart chart-bar mb-100"></span>
             
 
             <div class="cnt-header-chart">
               <ion-title class="title-chart"><b>{this.i18n.stats.downloads_reasons}</b></ion-title>
             </div>
             <span ref={(el) => this.charts.reasons = (el as HTMLElement)} class="ct-chart last-chart"></span>
+
+          </div>}
+
+          {this.usersAgg && <div class="charts">
+            <div class="cnt-header-chart">
+              <ion-title class="title-chart"><b>Users</b></ion-title>
+            </div>
+
+            <div class="cnt-header-chart">
+              <ul class="period">
+                <li onClick={() => this.setPeriodUsers('p1M')} class={'p1M' === this.periodUsers ? 'active' : ''}>1M</li>
+                <li onClick={() => this.setPeriodUsers('p1Y')} class={'p1Y' === this.periodUsers ? 'active' : ''}>1Y</li>
+                <li onClick={() => this.setPeriodUsers('pAll')} class={'pAll' === this.periodUsers ? 'active' : ''}>ALL</li>
+              </ul>
+            </div>
+            <span ref={(el) => this.charts.users12M = (el as HTMLElement)} class="ct-chart chart-bar mb-100"></span>
+            
+
+            <div class="cnt-header-chart">
+              <ion-title class="title-chart"><b>Professions</b></ion-title>
+            </div>
+            <span ref={(el) => this.charts.professions = (el as HTMLElement)} class="ct-chart last-chart"></span>
 
           </div>}
         </div>
