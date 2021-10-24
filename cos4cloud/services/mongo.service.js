@@ -12,7 +12,10 @@ async function connectToDatabase() {
   return db;
 }
 
-exports.get = async (ref, id, opts) => {
+function randomDate(start, end) {
+  return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+}
+const get = async (ref, id, opts) => {
   const db = await connectToDatabase();
 
   if (id) {
@@ -23,8 +26,8 @@ exports.get = async (ref, id, opts) => {
     return data;
   }
 }
-
-exports.update = async (ref, data) => {
+exports.get = get
+exports.update = update = async (ref, data) => {
   const db = await connectToDatabase();
   if (data.id) {
     const aux = await db.collection(ref).findOneAndUpdate({ _id: data.id }, { $set: { ...data } }, { upsert: true })
@@ -34,6 +37,7 @@ exports.update = async (ref, data) => {
     return aux.value  
   }
 }
+exports.update = update
 
 exports.delete = async (ref, id) => {
   const db = await connectToDatabase();
@@ -142,7 +146,14 @@ exports.agg = async (ref, params) => {
       aux.reasons = [ ...reasonsAgg ]
     }
 
+    if (ref === 'users') {
+      const professionAgg = await db.collection(ref).aggregate([
+        {$unwind: { path: '$profession', preserveNullAndEmptyArrays: true } },
+        { $group: { _id: '$profession', count: { $sum: 1 } } }
+      ]).toArray();
 
+      aux.professions = [ ...professionAgg ]
+    }
     items12M.filter(i => i.created_at).map(item => {
       const d = new Date(item.created_at)
       const key = `${pad2(getMonth(d))}/${padYear2(getYear(d))}`

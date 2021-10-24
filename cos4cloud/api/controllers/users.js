@@ -27,6 +27,14 @@ const users = async (req, res) => {
   switch (req.method) {
     case 'GET':
       const id = req.path.replace('/api', '').split('/').filter(Boolean)[1]
+      const { sub } = req.headers
+      if (id === 'search') {
+        const data = await Mongo.get('users', null, sub ? { user_id: sub } : {})
+        return res.send(data)
+      } else if (id === 'agg') {
+        const data = await Mongo.agg('users', { user_id: sub })
+        return res.send(data)
+      }
       const aux = await Mongo.get('users', id)
       return res.send(aux)
     case 'POST':
