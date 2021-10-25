@@ -100,7 +100,8 @@ export class PageDashboard {
           Object.values(this.commentsAgg.last12M.comments),
           Object.values(this.commentsAgg.last12M.identifications)
         ],
-        labels: Object.keys(this.commentsAgg.last12M.comments)
+        labels: Object.keys(this.commentsAgg.last12M.comments),
+        legends: [this.i18n.profile.comments, this.i18n.profile.identifications]
       },
       p1M: {
         el: this.charts.comments12M,
@@ -110,7 +111,8 @@ export class PageDashboard {
         ],
         labels: Object.keys(this.commentsAgg.last30d.comments).map((key, i) => {
           return i % 2 ? key : ''
-        })
+        }),
+        legends: [this.i18n.profile.comments, this.i18n.profile.identifications]
       }
     }
     this.setBar(periods[this.periodComments] || periods.p1Y)
@@ -182,7 +184,7 @@ export class PageDashboard {
     });
   }
 
-  async setBar({el, agg, labels}) {
+  async setBar({el, agg, labels, legends}) {
     const Chartist = await import('chartist')
     const ChartistPluginLegend = (await import('chartist-plugin-legend')).default
 
@@ -195,11 +197,11 @@ export class PageDashboard {
         onlyInteger: true,
         offset: 20
       },
-      plugins: [
+      plugins: legends ? [
         ChartistPluginLegend({
-          legendNames: ['Comments', 'Identifications']
+          legendNames: legends
         })
-      ]
+      ] : null
     }, [
       ['screen and (max-width: 640px)', {
         seriesBarDistance: 5,
