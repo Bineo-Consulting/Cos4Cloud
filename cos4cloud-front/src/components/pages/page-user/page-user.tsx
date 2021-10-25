@@ -53,7 +53,11 @@ export class PageUser {
     })
   }
   agg() {
-    fetch(resources.host + '/comments/agg')
+    fetch(resources.host + '/comments/agg', {
+      headers: {
+        sub: this.match.params.name
+      }
+    })
     .then(res => res.json())
     .then(res => {
       this.commentsAgg = res
@@ -66,7 +70,11 @@ export class PageUser {
       }, 250)
     })
 
-    fetch(resources.host + '/downloads/agg')
+    fetch(resources.host + '/downloads/agg', {
+      headers: {
+        sub: this.match.params.name
+      }
+    })
     .then(res => res.json())
     .then(res => {
       this.downloadsAgg = res

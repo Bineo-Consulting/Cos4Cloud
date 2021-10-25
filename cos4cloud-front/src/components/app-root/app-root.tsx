@@ -200,24 +200,28 @@ export class AppRoot {
   }
 
   setUser() {
+    let redirect = ''
     this.user = localStorage.user ? JSON.parse(localStorage.user) : null
 
     if (!this.user && !(this.user || {}).access_token && location.hash) {
-      const params = {}
+      const params: any = {}
       ;(location.hash || '#').slice(1).split('&').map(i => {
         params[i.split('=')[0]] = i.split('=')[1] || null
       })
       this.user = {
         ...params
       }
+      if (params.state) {
+        redirect = params.state
+      }
       localStorage.setItem('user', JSON.stringify(this.user))
     }
     if (location.hash) {
       history.pushState('', document.title, window.location.pathname + window.location.search);
     }
-    if (this.user && this.user.state) {
+    if (redirect) {
       setTimeout(() => {
-        this.history.push(`${decodeURIComponent(this.user.state)}`, {})
+        this.history.push(`${decodeURIComponent(redirect)}`, {})
       }, 150)
     }
     if (!this.pid) {
