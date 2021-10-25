@@ -17,7 +17,20 @@ export class AppDownload {
     this.i18n = await fetchTranslations(this.i18n)
   }
 
+  async openModalLogin() {
+    const modalElement: any = document.createElement('ion-modal');
+    modalElement.component = 'page-login';
+
+    // present the modal
+    document.body.appendChild(modalElement);
+    await modalElement.present();
+    await modalElement.onWillDismiss();
+  }
+
   async openDownload() {
+    const user = localStorage.user ? JSON.parse(localStorage.user) : null
+
+    if (!user) return this.openModalLogin()
     const modalElement: any = document.createElement('ion-modal');
     modalElement.component = 'modal-download';
 

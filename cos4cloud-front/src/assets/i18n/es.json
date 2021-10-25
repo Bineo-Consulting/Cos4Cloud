@@ -17,7 +17,7 @@
     "user": "Usuario",
     "password": "Contraseña",
     "message": "Va a loguearse a través del Sistema Federeado de Authenix. Para más información puede consultar la página del servicio en"
-  },  
+  },
   "filters":{
     "search_species": "Buscar especie",
     "search_places": "Buscar lugar",
@@ -28,12 +28,10 @@
     "research": "Investigación",
     "casual": "Casual",
     "with_geo": "Con geo",
-    "with_photos": "Sin photos",
+    "with_photos": "Sin fotos",
     "licenses": "Licencias",
     "date": "Fecha",
     "portals": "Observatorios",
-    "research": "Investigación",
-    "casual": "Casual",
     "geo": "localización",
     "photos": "Fotos"
   },
@@ -51,6 +49,7 @@
   "profile":{
     "nickname": "Alias",
     "name": "Nombre",
+    "email": "Email",
     "profession": "Profesión",
     "comments": "Comentarios",
     "identifications": "Identificaciones",
@@ -85,7 +84,6 @@
     "testing": "Test",
     "other": "Otra",
   },
-  "search_species": "Buscar especies",
   "comments": {
     "comments": "Comentarios",
     "identification": "Identificaciones",

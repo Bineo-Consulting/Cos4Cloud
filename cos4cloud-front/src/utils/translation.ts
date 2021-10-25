@@ -23,7 +23,7 @@ function mergeDeep(target, ...sources) {
 }
 
 function getLocale() {
-  return localStorage.lang || (navigator.language || 'en').split('-')[0]
+  return localStorage.lang || (navigator.language || 'en').split('-')[0]
 }
 
 async function fetchTranslations(i18n?, cache = true) {

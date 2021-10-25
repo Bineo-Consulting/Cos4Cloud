@@ -38,9 +38,6 @@ nav ul li.menu {
   z-index: 23;
 }
 
-nav ul li.user {
-  margin-right: 1rem;
-}
 nav ul li.user a {
   cursor: pointer;
 }

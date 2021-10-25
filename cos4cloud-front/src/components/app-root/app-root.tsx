@@ -215,6 +215,11 @@ export class AppRoot {
     if (location.hash) {
       history.pushState('', document.title, window.location.pathname + window.location.search);
     }
+    if (this.user && this.user.state) {
+      setTimeout(() => {
+        this.history.push(`${decodeURIComponent(this.user.state)}`, {})
+      }, 150)
+    }
     if (!this.pid) {
       this.pid = setInterval(() => this.checkUser(), 5 * 60 * 1000)
     }
@@ -254,12 +259,6 @@ export class AppRoot {
                 
               </a>
             </li>
-            <div class="pcssc-dropdown">
-              <a tabindex="0" class="dropdown-toggle focus-toggle pure-button">
-                <img class="icon-notifications" src="/assets/svg/notifications.svg" alt="notifications"/>
-              </a>
-              <label htmlFor="menu-toggle" class="pure-button click-toggle" aria-label="Toggle">Dropdown Buton</label>
-            </div>
             <li class="menu pcssc-dropdown" onClick={(ev) => this.openMenu(ev)}>
               <ion-icon name="ellipsis-horizontal"></ion-icon>
             </li>
