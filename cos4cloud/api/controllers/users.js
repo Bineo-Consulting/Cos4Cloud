@@ -41,6 +41,13 @@ const users = async (req, res) => {
         //   created_at: randomDate(new Date('2021-01-021'), new Date())
         // }))
 
+        const users = await Mongo.get('users')
+        users.filter(u => !u.id).map(u => Mongo.delete('users', u._id))
+        // users.map(u => Mongo.update('users', {
+        //   id: u._id,
+        //   created_at: randomDate(new Date('2021-01-021'), new Date())
+        // }))
+
         const data = await Mongo.get('users', null, sub ? { user_id: sub } : {})
         return res.send(data)
       } else if (id === 'agg') {
