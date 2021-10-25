@@ -335,20 +335,8 @@ export class PageUser {
           </ion-list>}
 
         </div>
-        {this.user && this.commentsAgg && <div class="user-statistics">
-          <ion-list>
-            <ion-item>
-              <ion-title><small>{this.i18n.profile.comments}:</small></ion-title>
-              <progress id="comm" value={this.commentsAgg.comments_count} max={10}> {this.commentsAgg.comments_count} </progress>
-            </ion-item>
-            <ion-item>
-              <ion-title><small>{this.i18n.profile.identifications}:</small></ion-title>
-              <progress id="ident" value={this.commentsAgg.identifications_count} max={10}> {this.commentsAgg.identifications_count} </progress>
-            </ion-item>
-          </ion-list>
-        </div>}
 
-        <div class="ct-chart-counter">
+        <div class="ct-chart-counters">
           <span ref={(el) => this.charts.commentsCountEl = (el as HTMLElement)} class="ct-chart ct-chart-counter"></span>
           <span ref={(el) => this.charts.downloadsCountEl = (el as HTMLElement)} class="ct-chart ct-chart-counter"></span>
         </div>

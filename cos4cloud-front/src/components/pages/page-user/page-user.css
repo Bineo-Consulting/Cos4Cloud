@@ -330,6 +330,10 @@ span.ct-label {
   background: #f1c454;
 }
 
+.ct-chart-counters {
+  width:  100%;
+  text-align: center;
+}
 
 /*make a color different to fill-donut series*/
 .ct-chart-donut .ct-series-a .ct-slice-donut {
@@ -350,8 +354,9 @@ span.ct-label {
 }
 
 .ct-chart-counter {
-  width: 50%;
-  max-width: 50%;
+  margin-top: 3%;
+  width: 30%;
+  max-width: 30%;
   display: inline-flex;
 }
 .ct-fill-donut-label ion-icon {
