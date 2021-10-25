@@ -5,16 +5,18 @@ const handleUpdate = async (req, res) => {
   const { access_token, ...data } = JSON.parse(req.body)
 
   const user = await Auth.info(access_token)
-  console.log({user})
 
-  const aux = await Mongo.update('users', {
-    id: user.sub,
-    ...data,
-    ...user,
-    active: user.active,
-    access_token
-  })
-  return res.send(aux)
+  if (user.sub || user.sub !== 'null') {
+    const aux = await Mongo.update('users', {
+      id: user.sub,
+      ...data,
+      ...user,
+      active: user.active,
+      access_token
+    })
+    return res.send(aux)
+  }
+  return res.send(user)
 }
 
 const handleDelete = async (req, res) => {

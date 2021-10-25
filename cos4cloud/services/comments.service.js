@@ -70,7 +70,7 @@ module.exports = class CommentsService {
 
     // await Mongo.delete('comments', null)
     await Mongo.update('comments', {
-      created_at: randomDate(new Date(2021, 0, 1), new Date()),
+      created_at: new Date(),//randomDate(new Date(2021, 0, 1), new Date()),
       user_id: userInfo.sub || params.sub,
       origin: 'ispot',
       parent_id: id,

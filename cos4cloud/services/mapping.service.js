@@ -85,7 +85,7 @@ module.exports = class MappingService {
     const path = req.path
 
     const promises = []
-    if (req.path.includes('/dwc/')) {
+    if (req.path.includes('/dwc/') || req.path.includes('/export')) {
       promises.push(this.dwcGet(req, res))
       // promises.push(NatusferaService.dwcGet(req, res))
       // promises.push(PlantnetService.dwcGet(req, res))

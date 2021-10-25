@@ -84,20 +84,22 @@ exports.agg = async (ref, params) => {
   const last30d = new Date(new Date().setDate(today.getDate() - 30))
   const last12M = new Date(new Date().setMonth(today.getMonth() - 12))
 
-  const items12M = await db.collection(ref).find({ created_at: {$gte: last12M} }).toArray();
+  const query = params.user_id ? {user_id: params.user_id} : {}
 
+  const items12M = await db.collection(ref).find({ created_at: {$gte: last12M}, ...query }).toArray();
   const items30d = items12M.filter(i => new Date(i.created_at) >= last30d)
 
   if (ref === 'comments') {
     const originsAgg = await db.collection(ref).aggregate([
-      { $group: { _id: '$origin', count: { $sum: 1 } } }
+      { $match: query },
+      { $group: { _id: '$origin', count: { $sum: 1 } } },
     ]).toArray();
 
     aux.origins = [ ...originsAgg ]
 
     const p = [
-      db.collection(ref).countDocuments({ type: 'comment' }),
-      db.collection(ref).countDocuments({ type: 'identification' })
+      db.collection(ref).countDocuments({ type: 'comment', ...query }),
+      db.collection(ref).countDocuments({ type: 'identification', ...query })
     ]
     const [commentsCount, identificationsCount] = await Promise.all(p)
     aux.comments_count = commentsCount
@@ -137,9 +139,12 @@ exports.agg = async (ref, params) => {
     aux.last12M = { ...getLast12M }
     aux.last30d = { ...getLast30d }
 
+    aux[`${ref}_count`] = await db.collection(ref).countDocuments({ ...query })
+
     if (ref === 'downloads') {
       const reasonsAgg = await db.collection(ref).aggregate([
-        {$unwind: { path: '$reason', preserveNullAndEmptyArrays: true } },
+        { $match: query },
+        { $unwind: { path: '$reason', preserveNullAndEmptyArrays: true } },
         { $group: { _id: '$reason', count: { $sum: 1 } } }
       ]).toArray();
 
@@ -148,7 +153,8 @@ exports.agg = async (ref, params) => {
 
     if (ref === 'users') {
       const professionAgg = await db.collection(ref).aggregate([
-        {$unwind: { path: '$profession', preserveNullAndEmptyArrays: true } },
+            { $match: query },
+        { $unwind: { path: '$profession', preserveNullAndEmptyArrays: true } },
         { $group: { _id: '$profession', count: { $sum: 1 } } }
       ]).toArray();
 
