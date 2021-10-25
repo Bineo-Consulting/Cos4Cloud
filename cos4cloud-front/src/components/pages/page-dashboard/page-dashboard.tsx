@@ -1,4 +1,4 @@
-import { Component, Host, Prop, State, h } from '@stencil/core';
+import { Component, Host, State, h } from '@stencil/core';
 import { fetchTranslations } from '../../../utils/translation'
 import resources from '../../../resources'
 

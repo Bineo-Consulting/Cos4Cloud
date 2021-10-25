@@ -1,4 +1,4 @@
-import { Component, Event, EventEmitter, Host, Prop, State, Watch, h } from '@stencil/core';
+import { Component, Event, EventEmitter, Host, Prop, h } from '@stencil/core';
 import { GbifService } from '../../../services/gbif.service';
 import { PlacesService } from '../../../services/places.service';
 import { fetchTranslations } from '../../../utils/translation';
@@ -276,7 +276,7 @@ export class AppSearch {
         this.date.maxEventDate = [yyyy2, mm2, dd2].join('-')
         this.refs.dateInput.classList.add('active')
       })
-      const rest = window['innerHeight'] - $event.clientY
+      // const rest = window['innerHeight'] - $event.clientY
 
       calendar.parentNode.style.position = 'relative'
       calendar.parentNode.classList.add('calendar-div')
@@ -285,7 +285,7 @@ export class AppSearch {
       calendar.classList.remove('.bottom-left-triangle')
       calendar.classList.remove('.bottom-right-triangle')
       const top = this.refs.dateInput.offsetTop
-      const left = this.refs.dateInput.offsetLeft
+      // const left = this.refs.dateInput.offsetLeft
 
       calendar.style.top = `${top + 42}px`
       calendar.style.left = `${-330}px`

@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "description": "Stencil App Starter",
   "scripts": {
-    "build": "npm run public; stencil build --prod; npm run swagger; npm run apidoc;",
+    "build": "stencil build --prod; npm run swagger; npm run apidoc; cp public/* www/",
     "start": "npm run public; stencil build --dev --watch --serve --no-open",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
