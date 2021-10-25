@@ -75,6 +75,10 @@ const parseQuery = (query, origin) => {
     delete query.iconic_taxa
     delete query.ownerInstitutionCodeProperty
   }
+  if (query.quality_grade) {
+    query.identificationVerificationStatus = query.quality_grade
+    delete query.quality_grade
+  }
 
   return { ...query }
 }

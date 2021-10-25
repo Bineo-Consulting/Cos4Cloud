@@ -186,12 +186,12 @@ const requestListener = async (req, res) => {
     .replace('/search', '').split('/').filter(Boolean).join('/')
   path = path.includes('?') ? `${path.split('?')[0]}.json` : `${path}.json`
 
-  console.log({path, url: req.url})
 
   if (req.url.includes('?')) {
     const qp = parseQuery(req.url)
     path += toQueryString(qp)
   }
+  console.log({path, url: req.url})
   if (path.includes('observations')) {
     const aux = await get(path)
     res.end(JSON.stringify(aux));

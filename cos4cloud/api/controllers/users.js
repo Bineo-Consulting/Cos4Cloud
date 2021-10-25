@@ -6,7 +6,7 @@ const handleUpdate = async (req, res) => {
 
   const user = await Auth.info(access_token)
 
-  if (user.sub || user.sub !== 'null') {
+  if (user.sub && user.sub !== 'null') {
     const aux = await Mongo.update('users', {
       id: user.sub,
       ...data,
@@ -31,6 +31,9 @@ const users = async (req, res) => {
       const id = req.path.replace('/api', '').split('/').filter(Boolean)[1]
       const { sub } = req.headers
       if (id === 'search') {
+        const users = await Mongo.get('users', null, { id: null })
+        users.map(u => Mongo.delete('users', u._id))
+
         const data = await Mongo.get('users', null, sub ? { user_id: sub } : {})
         return res.send(data)
       } else if (id === 'agg') {
