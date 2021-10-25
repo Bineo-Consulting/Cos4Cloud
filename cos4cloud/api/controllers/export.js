@@ -99,7 +99,7 @@ const exportReq = async (req, res) => {
     })
   } else if (req.headers.sub) {
     await Mongo.update('downloads', {
-      created_at: new Date(),
+      // created_at: new Date(),
       updated_at: new Date(),
       user_id: req.headers.sub,
       reason: req.headers.reason ? req.headers.reason.split(',') : null,
