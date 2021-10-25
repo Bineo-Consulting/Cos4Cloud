@@ -79,7 +79,7 @@ module.exports = class CommentsService {
       body: params.body
     })
 
-    return {}//add[origin](path, { ...params, id })
+    return add[origin](path, { ...params, id })
   }
 
 }

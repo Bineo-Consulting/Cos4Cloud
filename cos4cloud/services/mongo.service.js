@@ -30,10 +30,10 @@ exports.get = get
 exports.update = update = async (ref, data) => {
   const db = await connectToDatabase();
   if (data.id) {
-    const aux = await db.collection(ref).findOneAndUpdate({ _id: data.id }, { $set: { ...data } }, { upsert: true })
+    const aux = await db.collection(ref).findOneAndUpdate({ _id: data.id }, { $set: { ...data }, $setOnInsert: { created_at: new Date() } }, { upsert: true })
     return aux.value    
   } else {
-    const aux = await db.collection(ref).insert(data)
+    const aux = await db.collection(ref).insert({...data, created_at: new Date()})
     return aux.value  
   }
 }

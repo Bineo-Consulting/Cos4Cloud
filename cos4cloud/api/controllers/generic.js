@@ -1,7 +1,7 @@
 const Mongo = require('../../services/mongo.service')
 
 const generic = async (req, res) => {
-  const path = req.path
+  const path = req.path.replace('/api', '')
   const [resource, id] = path.includes('/dwc/') ?
     (path || '/').split('/').filter(Boolean).filter(i => i !== 'dwc') :
     (path || '/').split('/').filter(Boolean)

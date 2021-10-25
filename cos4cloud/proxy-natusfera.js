@@ -203,7 +203,6 @@ const requestListener = async (req, res) => {
     const qp = parseQuery(req.url)
     path += toQueryString(qp)
   }
-  console.log({path, url: req.url})
   if (path.includes('observations')) {
     const aux = await get(path)
     res.end(JSON.stringify(aux));
