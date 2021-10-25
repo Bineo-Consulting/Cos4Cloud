@@ -5,6 +5,15 @@ const config = {
   url: 'https://natusfera.gbif.es'
 }
 
+function toTitleCase(str) {
+  return str.replace(
+    /\w\S*/g,
+    function(txt) {
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    }
+  );
+}
+
 const parseTaxon = (taxon) => {
   return {
     "id": taxon.id || null,
@@ -111,8 +120,11 @@ const parseQuery = (url) => {
     q.taxon_name = q.scientificName
     delete q.scientificName
   }
+  if (q.iconic_taxa) {
+    q.iconic_taxa = toTitleCase(q.iconic_taxa || '')
+  }
   if (q.kingdom) {
-    q.iconic_taxa = q.kingdom
+    q.iconic_taxa = toTitleCase(q.kingdom || '')
     delete q.kingdom
   }
   if (q.hasCoordinate) {
