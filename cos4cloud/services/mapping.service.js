@@ -79,6 +79,9 @@ const parseQuery = (query, origin) => {
     query.identificationVerificationStatus = query.quality_grade
     delete query.quality_grade
   }
+  if (query.license) {
+    query.license = query.license.toLowerCase()
+  }
 
   return { ...query }
 }
