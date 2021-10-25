@@ -61,11 +61,13 @@ export class AppSearch {
     'CC0': 'false',
     'CC BY': 'false',
     'CC BY-NC': 'false',
+    'CC BY-SA': 'false',
   }
   licenses = [
     {key: 'none', value: 'none', label: 'CC0'},
     {key: 'CC-BY', value: 'CC-BY', label: 'CC-BY'},
     {key: 'CC-BY-NC', value: 'CC-BY-NC', label: 'CC-BY-NC'},
+    {key: 'CC-BY-SA', value: 'CC-BY-SA', label: 'CC-BY-SA'},
   ]
 
   date = {
