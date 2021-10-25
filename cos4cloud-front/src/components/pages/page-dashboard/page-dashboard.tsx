@@ -33,8 +33,10 @@ export class PageDashboard {
 
   chartRef: HTMLElement;
 
-  async componentDidLoad() {
+  async componentWillLoad() {
     this.i18n = await fetchTranslations(this.i18n)
+  }
+  async componentDidLoad() {
     this.agg()
   }
 
@@ -227,7 +229,6 @@ export class PageDashboard {
 
     const { agg, total } = counter(count)
 
-    console.log('counter', {agg, total})
     const chart = new Chartist.Pie(el, {
         series: agg,
         labels: ['', '']
@@ -299,7 +300,7 @@ export class PageDashboard {
           <span ref={(el) => this.charts.usersCountEl = (el as HTMLElement)} class="ct-chart ct-chart-counter"></span>
 
 
-          {this.commentsAgg && <div class="charts">
+          <div class="charts">
 
             <div class="cnt-header-chart">
               <ion-title class="title-chart"><b>{this.i18n.stats.comments_identi}</b></ion-title>
@@ -317,9 +318,9 @@ export class PageDashboard {
               <ion-title class="title-chart"><b>{this.i18n.stats.comm_id_by_portal}</b></ion-title>
             </div>
             <span ref={(el) => this.charts.origins = (el as HTMLElement)} class="ct-chart ct-style-one"></span>
-          </div>}
+          </div>
 
-          {this.downloadsAgg && <div class="charts">
+          <div class="charts">
             <div class="cnt-header-chart">
               <ion-title class="title-chart"><b>{this.i18n.stats.downloads}</b></ion-title>
             </div>
@@ -339,9 +340,9 @@ export class PageDashboard {
             </div>
             <span ref={(el) => this.charts.reasons = (el as HTMLElement)} class="ct-chart ct-style-one"></span>
 
-          </div>}
+          </div>
 
-          {this.usersAgg && <div class="charts">
+          <div class="charts">
             <div class="cnt-header-chart">
               <ion-title class="title-chart"><b>Users</b></ion-title>
             </div>
@@ -361,7 +362,7 @@ export class PageDashboard {
             </div>
             <span ref={(el) => this.charts.professions = (el as HTMLElement)} class="ct-chart ct-style-one last-chart"></span>
 
-          </div>}
+          </div>
         </div>
       </Host>
     );

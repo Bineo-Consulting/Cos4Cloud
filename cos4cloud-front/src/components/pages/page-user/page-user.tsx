@@ -35,8 +35,11 @@ export class PageUser {
 
   chartRef: HTMLElement;
 
-  async componentDidLoad() {
+  async componentWillLoad() {
     this.i18n = await fetchTranslations(this.i18n)
+  }
+
+  async componentDidLoad() {
     const user = JSON.parse(localStorage.user || 'false')
     this.owner = user ? user.sub === this.match.params.name : null
     this.info()
@@ -341,7 +344,7 @@ export class PageUser {
           <span ref={(el) => this.charts.downloadsCountEl = (el as HTMLElement)} class="ct-chart ct-chart-counter"></span>
         </div>
 
-        {this.user && <div class="charts">
+        <div class="charts">
 
           <div class="cnt-header-chart">
             <ion-title class="title-chart"><b>{this.i18n.stats.comments_identi}</b></ion-title>
@@ -379,7 +382,7 @@ export class PageUser {
           </div>
           <span ref={(el) => this.charts.reasons = (el as HTMLElement)} class="ct-chart ct-style-one last-chart"></span>
 
-        </div>}
+        </div>
       </Host>
     );
   }
