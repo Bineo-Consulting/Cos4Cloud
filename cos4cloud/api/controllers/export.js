@@ -87,6 +87,8 @@ const download = (items) => {
 const exportReq = async (req, res) => {
   const MappingService = require('../../services/mapping.service')
 
+  delete req.query.page
+
   if (req.query.did) {
     await Mongo.update('downloads', {
       updated_at: new Date(),
