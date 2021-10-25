@@ -28,20 +28,22 @@ export class AppSearchbar {
   async onInput(ev) {
     const term = ev.detail.value || ''
     if (term) {
-      const itemsAsync = this.service.get({
-        value: term
-      })
+      if (this.service2) {
+        const itemsAsync = this.service.get({
+          value: term
+        })
 
-      const items2Async = this.service2.get({
-        value: term
-      })
-
-      const [items, items2] = await Promise.all([itemsAsync, items2Async])
-      this.items = [
-        ...this.service.process(items, term.toLowerCase()),
-        ...this.service2.process(items2, term.toLowerCase())
-      ].sort((a, b) => b.score - a.score)
-
+        const items2Async = this.service2.get({
+          value: term
+        })
+        const [items, items2] = await Promise.all([itemsAsync, items2Async])
+        this.items = [
+          ...this.service.process(items, term.toLowerCase()),
+          ...this.service2.process(items2, term.toLowerCase())
+        ].sort((a, b) => b.score - a.score)
+      } else {
+        this.items = this.service.process(await this.service.get({ value: term }), term.toLowerCase())
+      }
     } else {
       this.items = []
       this.value = null
