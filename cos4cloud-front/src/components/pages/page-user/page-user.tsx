@@ -348,8 +348,10 @@ export class PageUser {
           </ion-list>
         </div>}
 
-        <span ref={(el) => this.charts.commentsCountEl = (el as HTMLElement)} class="ct-chart ct-chart-counter"></span>
-        <span ref={(el) => this.charts.downloadsCountEl = (el as HTMLElement)} class="ct-chart ct-chart-counter"></span>
+        <div class="ct-chart-counter">
+          <span ref={(el) => this.charts.commentsCountEl = (el as HTMLElement)} class="ct-chart ct-chart-counter"></span>
+          <span ref={(el) => this.charts.downloadsCountEl = (el as HTMLElement)} class="ct-chart ct-chart-counter"></span>
+        </div>
 
         {this.user && <div class="charts">
 
