@@ -22,6 +22,7 @@
   "license": "MIT",
   "dependencies": {
     "chartist": "^0.11.4",
+    "chartist-plugin-fill-donut": "^0.1.4",
     "chartist-plugin-legend": "^0.6.2",
     "chartist-plugin-tooltip": "0.0.11",
     "dirty-json": "^0.9.2",

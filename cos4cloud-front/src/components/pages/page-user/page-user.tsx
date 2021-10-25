@@ -3,6 +3,18 @@ import { MatchResults } from '@stencil/router';
 import { fetchTranslations } from '../../../utils/translation'
 import resources from '../../../resources'
 
+const counter = (val) => {
+  if (val < 10) {
+    return {agg: [val, 10 - val], total: 12}
+  } else if (val < 100) {
+    return {agg: [val, 100 - val], total: 120}
+  } else if (val < 1000) {
+    return {agg: [val, 1000 - val], total: 1200}
+  } else if (val < 10000) {
+    return {agg: [val, 10000 - val], total: 12000}
+  }
+}
+
 @Component({
   tag: 'page-user',
   styleUrl: 'page-user.css',
@@ -62,6 +74,11 @@ export class PageUser {
     .then(res => {
       this.commentsAgg = res
       setTimeout(() => {
+        this.setChartCounter({
+          el: this.charts.commentsCountEl,
+          count: (res.comments_count || 0) + (res.identifications_count || 0),
+          title: `Comments &<br> Identifications`
+        })
         this.setPeriodComments(this.periodComments)
         this.setPie({
           el: this.charts.origins,
@@ -79,6 +96,11 @@ export class PageUser {
     .then(res => {
       this.downloadsAgg = res
       setTimeout(() => {
+        this.setChartCounter({
+          el: this.charts.downloadsCountEl,
+          count: res.downloads_count || 0,
+          title: this.i18n.stats.downloads
+        })
         this.setPeriodDownloads(this.periodDownloads)
         this.setPie({
           el: this.charts.reasons,
@@ -134,6 +156,73 @@ export class PageUser {
 
     console.log({periods})
     this.setBar(periods[this.periodDownloads] || periods.p1Y)
+  }
+
+  async setChartCounter({ el, count, title }) {
+    const Chartist = await import('chartist')
+    const ChartistPluginFillDonut = (await import('chartist-plugin-fill-donut')).default
+
+    const { agg, total } = counter(count)
+
+    console.log('counter', {agg, total})
+    const chart = new Chartist.Pie(el, {
+        series: agg,
+        labels: ['', '']
+      }, {
+        donut: true,
+        donutWidth: 20,
+        startAngle: 210,
+        total: total,
+        showLabel: false,
+        plugins: [
+          ChartistPluginFillDonut({
+            items: [{
+              content: '<ion-icon name="speedometer"></ion-icon>',
+              position: 'bottom',
+              offsetY : 10,
+              offsetX: -8,
+              fontSize: '20px'
+            }, {
+              position: 'center',
+              offsetY : -10,
+              content: `<h3><span class="small">${count} <br>${title}</span></h3>`
+            }]
+          })
+        ]
+      });
+
+    chart.on('draw', function(data) {
+      if (data.type === 'slice' && data.index == 0) {
+        // Get the total path length in order to use for dash array animation
+        const pathLength = data.element._node.getTotalLength();
+
+        // Set a dasharray that matches the path length as prerequisite to animate dashoffset
+        data.element.attr({
+          'stroke-dasharray': pathLength + 'px ' + pathLength + 'px'
+        });
+
+        // Create animation definition while also assigning an ID to the animation for later sync usage
+        const animationDefinition = {
+          'stroke-dashoffset': {
+            id: 'anim' + data.index,
+            dur: 1200,
+            from: -pathLength + 'px',
+            to:  '0px',
+            easing: Chartist.Svg.Easing.easeOutQuint,
+            fill: 'freeze'
+          }
+        };
+
+        // We need to set an initial value before the animation starts as we are not in guided mode which would do that for us
+        data.element.attr({
+          'stroke-dashoffset': -pathLength + 'px'
+        });
+
+        // We can't use guided mode as the animations need to rely on setting begin manually
+        // See http://gionkunz.github.io/chartist-js/api-documentation.html#chartistsvg-function-animate
+        data.element.animate(animationDefinition, true);
+      }
+    });
   }
 
   async setPie({el, agg}) {
@@ -250,14 +339,17 @@ export class PageUser {
           <ion-list>
             <ion-item>
               <ion-title><small>{this.i18n.profile.comments}:</small></ion-title>
-              <progress id="comm" value={this.commentsAgg.comments_count} max="100"> {this.commentsAgg.comments_count} </progress>
+              <progress id="comm" value={this.commentsAgg.comments_count} max={10}> {this.commentsAgg.comments_count} </progress>
             </ion-item>
             <ion-item>
               <ion-title><small>{this.i18n.profile.identifications}:</small></ion-title>
-              <progress id="ident" value={this.commentsAgg.identifications_count} max="100"> {this.commentsAgg.identifications_count} </progress>
+              <progress id="ident" value={this.commentsAgg.identifications_count} max={10}> {this.commentsAgg.identifications_count} </progress>
             </ion-item>
           </ion-list>
         </div>}
+
+        <span ref={(el) => this.charts.commentsCountEl = (el as HTMLElement)} class="ct-chart ct-chart-counter"></span>
+        <span ref={(el) => this.charts.downloadsCountEl = (el as HTMLElement)} class="ct-chart ct-chart-counter"></span>
 
         {this.user && <div class="charts">
 
@@ -271,12 +363,12 @@ export class PageUser {
               <li onClick={() => this.setPeriodComments('pAll')} class={'pAll' === this.periodComments ? 'active' : ''}>ALL</li>
             </ul>
           </div>
-          <span ref={(el) => this.charts.comments12M = (el as HTMLElement)} class="ct-chart chart-bar"></span>
+          <span ref={(el) => this.charts.comments12M = (el as HTMLElement)} class="ct-chart ct-style-one chart-bar"></span>
 
           <div class="cnt-header-chart">
             <ion-title class="title-chart"><b>{this.i18n.stats.comm_id_by_portal}</b></ion-title>
           </div>
-          <span ref={(el) => this.charts.origins = (el as HTMLElement)} class="ct-chart"></span>
+          <span ref={(el) => this.charts.origins = (el as HTMLElement)} class="ct-chart ct-style-one"></span>
 
           <div class="cnt-header-chart">
             <ion-title class="title-chart"><b>{this.i18n.stats.downloads}</b></ion-title>
@@ -289,13 +381,13 @@ export class PageUser {
               <li onClick={() => this.setPeriodDownloads('pAll')} class={'pAll' === this.periodDownloads ? 'active' : ''}>ALL</li>
             </ul>
           </div>
-          <span ref={(el) => this.charts.downloads12M = (el as HTMLElement)} class="ct-chart chart-bar"></span>
+          <span ref={(el) => this.charts.downloads12M = (el as HTMLElement)} class="ct-chart ct-style-one chart-bar"></span>
           
 
           <div class="cnt-header-chart">
             <ion-title class="title-chart"><b>{this.i18n.stats.downloads_reasons}</b></ion-title>
           </div>
-          <span ref={(el) => this.charts.reasons = (el as HTMLElement)} class="ct-chart last-chart"></span>
+          <span ref={(el) => this.charts.reasons = (el as HTMLElement)} class="ct-chart ct-style-one last-chart"></span>
 
         </div>}
       </Host>
