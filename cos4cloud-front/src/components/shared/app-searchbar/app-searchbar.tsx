@@ -1,5 +1,13 @@
 import { Component, Event, EventEmitter, Host, Prop, State, h } from '@stencil/core';
 
+const getUnique = (items, key) => 
+  items = items.filter((thing, index, self) =>
+    index === self.findIndex((t) => (
+      t[key] === thing[key]
+    ))
+  )
+
+
 @Component({
   tag: 'app-searchbar',
   styleUrl: 'app-searchbar.css',
@@ -14,7 +22,8 @@ export class AppSearchbar {
   
   @Event() choose: EventEmitter<any>;
 
-  @State() items = [];
+  @State() items = []
+  @State() itemsCache = JSON.parse(localStorage.search || '[]')
 
   async onInput(ev) {
     const term = ev.detail.value || ''
@@ -40,9 +49,19 @@ export class AppSearchbar {
     }
   }
 
+  setCache(item) {
+    let search = JSON.parse(localStorage.search || '[]')
+    search.unshift(item)
+    search = getUnique(search, 'name')
+    search.splice(10)
+
+    localStorage.setItem('search', JSON.stringify(search))
+    this.itemsCache = search
+  }
   itemClicked(item) {
     this.value = item.name
     this.choose.emit(item)
+    this.setCache(item)
   }
   onInputClear() {
     this.value = null
@@ -66,6 +85,14 @@ export class AppSearchbar {
           spellcheck="false"></ion-searchbar>
         <ion-list class="list-dropdown">
           {this.items.map(item => 
+            <ion-item onClick={() => this.itemClicked(item)}>
+              <ion-label>{item.icon} {item.name}</ion-label>
+            </ion-item>
+          )}
+        </ion-list>
+
+        <ion-list class="cache list-dropdown">
+          {this.itemsCache.map(item => 
             <ion-item onClick={() => this.itemClicked(item)}>
               <ion-label>{item.icon} {item.name}</ion-label>
             </ion-item>

@@ -241,7 +241,7 @@ export class PageDashboard {
             <div class="cnt-header-chart">
               <ion-title class="title-chart"><b>{this.i18n.stats.downloads_reasons}</b></ion-title>
             </div>
-            <span ref={(el) => this.charts.reasons = (el as HTMLElement)} class="ct-chart last-chart"></span>
+            <span ref={(el) => this.charts.reasons = (el as HTMLElement)} class="ct-chart"></span>
 
           </div>}
 

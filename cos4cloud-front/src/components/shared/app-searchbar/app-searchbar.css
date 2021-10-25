@@ -41,6 +41,9 @@ ion-searchbar.sc-ion-searchbar-md-h {
 ion-searchbar.searchbar-has-value.searchbar-has-focus + .list-dropdown {
   visibility: visible;
 }
+ion-searchbar.searchbar-has-focus:not(.searchbar-has-value) + .list-dropdown + .list-dropdown.cache {
+  visibility: visible;
+}
 ion-item {
   cursor: pointer;
 }
