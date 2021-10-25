@@ -1,4 +1,5 @@
 import { Component, Host, h, Prop, State } from '@stencil/core';
+import { fetchTranslations } from '../../../utils/translation';
 
 function fallbackCopyTextToClipboard(text) {
   var textArea = document.createElement('textarea');
@@ -39,9 +40,15 @@ function copyTextToClipboard(text) {
 export class ModalShare {
 
   name = 'ModalShare'
+  i18n: any = {}
+
   @Prop() item: any
   @Prop() url: string = location.pathname
   @State() copied = ''
+
+  async componentWillLoad() {
+    this.i18n = await fetchTranslations(this.i18n)
+  }  
 
   get titleShare() {
     const desc = this.item.description ? `: ${this.item.description}` : ''
@@ -91,7 +98,7 @@ export class ModalShare {
       <Host>
         <ion-header>
           <ion-toolbar>
-            <h1>Share</h1>
+            <h1>{this.i18n.share}</h1>
             <ion-fab-button onClick={this.close} class="close-btn" size="small">
               <ion-icon name="close"></ion-icon>
             </ion-fab-button>
@@ -99,7 +106,7 @@ export class ModalShare {
         </ion-header>
         
         <div class="container">
-          <ion-label>Share <b>@{this.item.name}</b> on social media</ion-label>
+          <ion-label>{this.i18n.share} <b>@{this.item.name}</b> {this.i18n.social}</ion-label>
         </div>
 
         <ion-item class="copy-url" text-center>
