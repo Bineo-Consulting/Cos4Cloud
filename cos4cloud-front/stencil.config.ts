@@ -30,3 +30,8 @@ export const config: Config = {
     })
   ]
 };
+
+import fs from 'fs'
+function copyFile(src, dest) {
+  fs.writeFileSync(dest, fs.readFileSync(src));
+}
