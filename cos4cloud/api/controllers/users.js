@@ -1,6 +1,10 @@
 const Mongo = require('../../services/mongo.service')
 const Auth = require('../../services/auth.service')
 
+function randomDate(start, end) {
+  return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+}
+
 const handleUpdate = async (req, res) => {
   const { access_token, ...data } = JSON.parse(req.body)
 
@@ -31,8 +35,11 @@ const users = async (req, res) => {
       const id = req.path.replace('/api', '').split('/').filter(Boolean)[1]
       const { sub } = req.headers
       if (id === 'search') {
-        const users = await Mongo.get('users', null, { id: null })
-        users.map(u => Mongo.delete('users', u._id))
+        // const users = await Mongo.get('users')
+        // users.map(u => Mongo.update('users', {
+        //   id: u._id,
+        //   created_at: randomDate(new Date('2021-01-021'), new Date())
+        // }))
 
         const data = await Mongo.get('users', null, sub ? { user_id: sub } : {})
         return res.send(data)

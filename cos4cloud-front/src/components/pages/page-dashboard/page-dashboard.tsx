@@ -66,7 +66,8 @@ export class PageDashboard {
         this.setChartCounter({
           el: this.charts.identificationsCountEl,
           count: res.downloads_count,
-          title: 'Downloads'})
+          title: 'Downloads'
+        })
         this.setPeriodDownloads(this.periodDownloads)
         this.setPie({
           el: this.charts.reasons,
