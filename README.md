@@ -1,10 +1,10 @@
-# Cos4Cloud - Expert Portal
+# Cos4Bio - Expert Portal
 
 ## What is Cos4Cloud:
 
 Cos4Cloud is H2020 European Project, and one of their service is a Platform that allow to the experts to Find, Access, Reuse and Interoperate with observations from differentes Citizen Observatories, following the FAIR rules in terms to integrate in the future in the best way in the EOSC environment. 
 
-## What is the Expert Portal:
+## What is Cos4Bio:
 
 ## What are the Biodiversty CO envolved?
 
@@ -48,3 +48,9 @@ and Enjoy!!
 #### https://www.npmjs.com/package/firebase-tools
 #### cd cos4cloud/functions
 ```npm run serve```
+
+<a href="https://www.safecreative.org/work/2110259629728-cos4bio" target="_blank">
+<span>Cos4Bio</span> -
+<span>CC by-nc-sa 4.0</span> -
+<span>Bineo Consulting SL</span>
+</a>
