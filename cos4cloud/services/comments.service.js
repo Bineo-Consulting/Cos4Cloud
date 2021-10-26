@@ -31,8 +31,10 @@ const add = {
     p.user_id = 1 // Default
     p.body = p.body || 'by Cos4Cloud'
     const q = toQueryString(p)
+
     return fetch(`https://natusfera.gbif.es/observations/add_identification?${q}`)
-    .then(r => r.json())
+    .then(r => r.text())
+    .then(r => console.log(r))
   },
   plantnet: (path, params) => {
     const { host, token } = PlantnetService.config
@@ -72,13 +74,14 @@ module.exports = class CommentsService {
     await Mongo.update('comments', {
       // created_at: new Date(),//randomDate(new Date(2021, 0, 1), new Date()),
       user_id: userInfo.sub || params.sub,
-      origin: 'ispot',
+      origin: origin,
       parent_id: id,
       taxon: params.taxon || null,
       type: params.taxon ? 'identification' : 'comment',
       body: params.body
     })
 
+    console.log(path, { ...params, id })
     return add[origin](path, { ...params, id })
   }
 
