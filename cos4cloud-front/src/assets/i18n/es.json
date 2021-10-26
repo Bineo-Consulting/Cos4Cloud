@@ -56,14 +56,14 @@
     "city": "Ciudad",
     "comments": "Comentarios",
     "identifications": "Identificaciones",
-    "email-noti": "Email (para notificaciones)",
+    "email-noti": "Email (para notificaciones)"
   },
   "stats":{
     "comments_identi": "Comentarios e Identificaciones",
     "all": "Todo",
     "comm_id_by_portal": "% Comentarios e Identificaciones por portales",
     "downloads": "Descargas",
-    "downloads_reasons": "% Razones de descarga",
+    "downloads_reasons": "% Razones de descarga"
   },
   "download":{
     "download_title": "Descargar",
@@ -85,7 +85,7 @@
     "systematic research/taxonomy": "Investigación sistemática/Taxonomía",
     "species modelling": "Modelado de especies",
     "testing": "Test",
-    "other": "Otra",
+    "other": "Otra"
   },
   "comments": {
     "comments": "Comentarios",

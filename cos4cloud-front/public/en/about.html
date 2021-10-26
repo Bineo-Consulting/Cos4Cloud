@@ -1,0 +1,131 @@
+<style>
+  @font-face {
+    font-family: "Gilroy";
+    src: url(/assets/gilroy-extrabold-webfont.woff2);
+    font-weight: bold;
+  }
+  @font-face {
+    font-family: "Gilroy";
+    src: url(/assets/gilroy-light-webfont.woff2);
+    font-weight: normal;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    max-width: 960px;
+    margin: 2% auto;
+    padding: 0;
+    width: 100vw;
+  }
+
+  html {
+    font-size: 62.5%;
+  }
+
+  body {
+    font-size: 1.6rem;
+    color: var(--c-1);
+    font-family: var(--main-font);
+  }
+
+  :root {
+    /* fonts */
+    --main-font: "Gilroy", "Roboto", sans-serif;
+    --sub-font: "Roboto", sans-serif;
+    --fz-h1: 4rem;
+    --fz-h2: 4rem;
+    --fz-h3: 3rem;
+    --fz-h4: 2.3rem;
+    --fz-h5: 1.8rem;
+    --fz-h6: 1.6rem;
+    --fz-p: 1.6rem;
+    --fz-a: 1.6rem;
+    --fz-btn: 1.6rem;
+    /* colors */
+    --c-0: #fff;
+    --c-1: #626262;
+    --c-2: #1025df;
+    --c-3: #eaeaea;
+    --c-4: #525252;
+
+    /* IONIC */
+    --ion-font-family: var(--main-font), inherit;
+    --ion-color-primary: #525252;
+    --ion-color-primary-rgb: 98, 98, 98;
+    --ion-color-primary-contrast: #fff;
+    --ion-color-primary-contrast-rgb: 255, 255, 255;
+    --ion-color-primary-shade: #727272;
+    --ion-color-primary-tint: #525252;
+  }
+
+  // TEXT
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    -webkit-font-smoothing: antialiased;
+  }
+  h1 {
+    font-size: var(--fz-h1);
+  }
+  h2 {
+    font-size: var(--fz-h2);
+  }
+  h3 {
+    font-size: var(--fz-h3);
+    margin: 0.5rem 0;
+    white-space: normal;
+  }
+  h4 {
+    font-size: var(--fz-h4);
+  }
+  h5 {
+    font-size: var(--fz-h5);
+    margin: 0;
+  }
+  h6 {
+    font-size: var(--fz-h6);
+    margin: 0;
+  }
+  a {
+    font-size: var(--fz-a);
+    text-decoration: none;
+    color: var(--c-2);
+    font-weight: bold;
+  }
+  img {
+    width:  100%;
+  }
+
+</style>
+<h2 id="¿qué-es-cos4bio">What is Cos4Bio?</h2>
+<p>Cos4Bio It is a co-designed, interoperable and open source service that integrates biodiversity observations from multiple citizen observatories in one place allowing experts to save time in the species identification process and get access to an enormous number of biodiversity observations.</p>
+<p>Cos4Bio has been developed within the European Horizon 2020 Cos4Cloud project whose main objective is to improve citizen observatories technologies to help them increase the quantity and the quality of observations and, finally, to help ensure their long-term viability.</p>
+<p>Cos4Bio is available in the European Open Science Cloud (EOSC) and complies with the FAIR data principles, it is findable, accessible, interoperable and reusable.</p>
+<h2 id="desarrollo-y-funcionalidad">Development & functionality:</h2>
+<p>Cos4Bio is an open-source system that is integrated with other Cos4Cloud services such as the Authenix authentication system, the PlantNet plant identification system or the DUNS notification service.</p>
+<p>Cos4Bio allows citizen science experts to view and identify all observations from a single place, interacting with the community and contributing their knowledge about each species</p>
+<p>When an observation has been identified in Cos4Bio, this information is updated in the citizen observatory where it was published, awaiting final validation according to the algorithm defined in each observatory, in some cases, these validation algorithms require a Some degree of experience, but in others several identifications of the same observation are required to validate it definitively. The file of each observation can be seen by entering the detail of each one of them.</p>
+<p>Cos4Bio has a search system that allows, from a single place and for several citizen observatories at the same time, to consult the observations of a specific species or a specific location, with the possibility of applying criteria to filter the information such as origin, type , quality of observation, license or date. This information can be downloaded in “csv” format following the Darwin Core (DwC) standard, which is a great advantage for experts who, thanks to Cos4Bio, can download the information in a standard used and approved by the community and that without Cos4Bio they would find in different formats depending on the citizen observatory.</p>
+<p>Cos4Bio gives visibility to the contribution made by each expert, allowing them to share their profile with information on the identifications and comments they have made or their searches and downloads.</p>
+<h2 id="principales-ventajas">Main advantages:</h2>
+<ul>
+<li>
+<p>Reduce the time that citizen science experts spend on the identification process and therefore on citizens observatories.</p>
+</li>
+<li>
+<p>Allow users to download observations from one portal without forgetting that the platform will recognize and notify each observation’s authorship.</p>
+</li>
+<li>
+<p>Train much better algorithms than if we have separate databases with only the partial information of a single citizen observatory.</p>
+</li>
+</ul>
+<h2 id="infografía">Infographic</h2>
+
+<img src="cos4bio_infographic.jpg"/>

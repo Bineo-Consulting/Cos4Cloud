@@ -56,14 +56,14 @@
     "city": "City",
     "comments": "Comments",
     "identifications": "Identifications",
-    "email-noti": "Email (for notifications)",
+    "email-noti": "Email (for notifications)"
   },
   "stats":{
     "comments_identi": "Comments and Identifications",
     "all": "All",
     "comm_id_by_portal": "% Comments & Identifications by Portal",
     "downloads": "Download",
-    "downloads_reasons": "% Download reasons",
+    "downloads_reasons": "% Download reasons"
   },
   "download":{
     "download_title": "Download",
@@ -85,7 +85,7 @@
     "systematic research/taxonomy": "Systematic research/taxonomy",
     "species modelling": "Species modeling",
     "testing": "Test",
-    "other": "Other",
+    "other": "Other"
   },
   "comments": {
     "comments": "Comments",
@@ -103,6 +103,6 @@
     "privacy": "Privacy Policy",
     "term": "Terms of Service",
     "contact": "Contact",
-    "follow_us": "Follow us:",
+    "follow_us": "Follow us:"
   }
 }
