@@ -77,6 +77,7 @@ export class AppSearch {
 
 
   async componentWillLoad() {
+    console.log('componentWillLoad')
     this.i18n = await fetchTranslations(this.i18n)
 
     if (this.query) {
@@ -97,6 +98,15 @@ export class AppSearch {
         this.quality[item] = 'true'
       })
       this.quality = {...this.quality}
+
+      const licenses = (this.query.license || '').split(',')
+      licenses.map(item => {
+        this.license[item] = 'true'
+      })
+      this.license = {...this.license}
+
+      this.date.minEventDate = this.query.minEventDate || null
+      this.date.maxEventDate = this.query.maxEventDate || null
     }
   }
 
@@ -223,6 +233,7 @@ export class AppSearch {
 
     const varWhen = 'When'
     const when: any = window[varWhen]
+
     this.when = new when({
       input: ref1,
       // labelTo: this.labelTo,
@@ -234,6 +245,12 @@ export class AppSearch {
       showHeader: true,
       container: ref2
     })
+
+    const [yyyy, dd, mm] = (this.date.minEventDate || '').split('-')
+    const [yyyy2, dd2, mm2] = (this.date.maxEventDate || '').split('-')
+    const whenStr = [[dd, mm, yyyy].join('/'), [dd2, mm2, yyyy2].join('/')].join(' – ')
+    ref1.innerHTML = whenStr ? whenStr : this.i18n.filters.date
+    whenStr ? ref1.classList.add('active') : null
     return null
   }
 
@@ -347,6 +364,7 @@ export class AppSearch {
       else this.refs.quality && this.refs.quality.classList.remove('active')
     }
     const license = this.licenseTitle
+    console.log(license, this.title.license)
     if (license !== this.title.license) {
       this.title.license = license
       this.refs.licenses.innerHTML = this.title.license || this.i18n.filters.licenses
@@ -448,7 +466,7 @@ export class AppSearch {
                 <ion-label>{this.i18n.filters.licenses}</ion-label>
                 {this.licenses.map(item => <ion-item>
                   <ion-checkbox slot="start" value={item.value}
-                    checked={this.licenses[item.key]}
+                    checked={this.license[item.key]}
                     onIonChange={(ev) => this.onChecked(ev, 'license')}></ion-checkbox>
                   <ion-label>{item.label}</ion-label>
                 </ion-item>)}
