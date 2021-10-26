@@ -92,6 +92,11 @@ export class AppSearch {
       })
       this.iconic_taxa = {...this.iconic_taxa}
 
+      const quality_grade = (this.query.quality_grade || '').split(',')
+      quality_grade.map(item => {
+        this.quality[item] = 'true'
+      })
+      this.quality = {...this.quality}
     }
   }
 
