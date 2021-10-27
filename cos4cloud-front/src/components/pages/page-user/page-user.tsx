@@ -167,32 +167,31 @@ export class PageUser {
 
     const { agg, total } = counter(count)
 
-    console.log('counter', {agg, total})
     const chart = new Chartist.Pie(el, {
-        series: agg,
-        labels: ['', '']
-      }, {
-        donut: true,
-        donutWidth: 20,
-        startAngle: 210,
-        total: total,
-        showLabel: false,
-        plugins: [
-          ChartistPluginFillDonut({
-            items: [{
-              content: '<ion-icon name="speedometer"></ion-icon>',
-              position: 'bottom',
-              offsetY : 10,
-              offsetX: -8,
-              fontSize: '20px'
-            }, {
-              position: 'center',
-              offsetY : -10,
-              content: `<h3><span class="small">${count} <br>${title}</span></h3>`
-            }]
-          })
-        ]
-      });
+      series: agg,
+      labels: ['', '']
+    }, {
+      donut: true,
+      donutWidth: 20,
+      startAngle: 210,
+      total: total,
+      showLabel: false,
+      plugins: [
+        ChartistPluginFillDonut({
+          items: [{
+            content: '<ion-icon name="speedometer"></ion-icon>',
+            position: 'bottom',
+            offsetY : 10,
+            offsetX: -8,
+            fontSize: '20px'
+          }, {
+            position: 'center',
+            offsetY : -10,
+            content: `<h3><span class="small">${count} <br>${title}</span></h3>`
+          }]
+        })
+      ]
+    });
 
     chart.on('draw', function(data) {
       if (data.type === 'slice' && data.index == 0) {
