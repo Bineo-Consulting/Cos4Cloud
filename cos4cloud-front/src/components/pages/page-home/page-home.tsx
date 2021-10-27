@@ -12,7 +12,7 @@ import { fetchTranslations } from '../../../utils/translation'
 })
 export class PageHome {
 
-  @State() items: any[] = []
+  @State() items: any[] = MappingService.getLastCache
   @Prop() history: RouterHistory;
   @State() images: any = {}
   i18n: any = {}
@@ -23,32 +23,13 @@ export class PageHome {
     if (!(this.items && this.items.length)) {
       MappingService.get({quality_grade: 'research', limit: 60}, true)
       .then((res) => {
-        console.log('home', {res})
         this.items = res
-        // this.loadImages()
       })
       .catch((error) => {
         alert('Home =>' + error)
       })
     }
   }
-
-  // loadImages() {
-  //   const ii = this.items.filter(i => i.origin === 'iSpot' && !i.$$photos.length)
-  //   const ispot = ii.map(i => i.ID).join(',')
-  //   MappingService.images(ispot)
-  //   .then(res => {
-  //     ii.map(i => {
-  //       if (res[i.ID]) {
-  //         const photo = 'https:' + res[i.ID].src.replace(/\\\//g, '/')
-  //         this.images[i.ID] = photo
-  //       }
-  //     })
-  //     this.images = {...this.images}
-  //     MappingService.updateCacheImages(ii, this.images)
-  //     MappingService.updateCache()
-  //   })
-  // }
 
   search(params) {
     const q = toQueryString(params)

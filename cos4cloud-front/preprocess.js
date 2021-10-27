@@ -4,8 +4,9 @@ const wwwDir = path.resolve(__dirname, 'www')
 const publicDir = path.resolve(__dirname, 'public')
 
 const copyFile = (f) => {
+  if (f.includes('head.html')) return null
   if (f.includes('.html')) {
-    const head = fs.readFileSync(path.resolve(publicDir, 'style.css'))
+    const head = fs.readFileSync(path.resolve(publicDir, 'head.html'))
     const data = fs.readFileSync(f)
     const dest = f.replace('public', 'www')
     const dir = path.dirname(dest);

@@ -71,8 +71,6 @@ export class MappingService {
     const queryParams = params ? toQueryString(params) : ''
 
     if (cache && this.cache && this.cache.last && this.cache.time > Date.now() - 90 * 1000) {
-      // this.cache.last.map(i => this.cache.last[i.id] = i)
-      console.log({last: this.cache.last})
       return this.cache.last.map(parseDwc)
     }
     return fetch(url + queryParams)
@@ -83,10 +81,15 @@ export class MappingService {
         this.cache.last = items
         this.updateCache()
       }
-      console.log('include', url.includes('dwc'))
       const mapp = url.includes('dwc') ? parseDwc : this.parseNatusfera
       return items.map(mapp)
     })
+  }
+
+  static get getLastCache(): any[] {
+    if (MappingService.cache.time > Date.now() - 90 * 1000)
+      return MappingService.cache.last ? MappingService.cache.last.map(parseDwc) : []
+    else return []
   }
 
   static getById(id: any) {

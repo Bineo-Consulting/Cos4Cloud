@@ -48,6 +48,8 @@ export namespace Components {
     interface DownloadHistory {
         "history": RouterHistory;
     }
+    interface ModalContact {
+    }
     interface ModalDownload {
     }
     interface ModalMap {
@@ -158,6 +160,12 @@ declare global {
         prototype: HTMLDownloadHistoryElement;
         new (): HTMLDownloadHistoryElement;
     };
+    interface HTMLModalContactElement extends Components.ModalContact, HTMLStencilElement {
+    }
+    var HTMLModalContactElement: {
+        prototype: HTMLModalContactElement;
+        new (): HTMLModalContactElement;
+    };
     interface HTMLModalDownloadElement extends Components.ModalDownload, HTMLStencilElement {
     }
     var HTMLModalDownloadElement: {
@@ -237,6 +245,7 @@ declare global {
         "app-searchbar": HTMLAppSearchbarElement;
         "card-item": HTMLCardItemElement;
         "download-history": HTMLDownloadHistoryElement;
+        "modal-contact": HTMLModalContactElement;
         "modal-download": HTMLModalDownloadElement;
         "modal-map": HTMLModalMapElement;
         "modal-settings": HTMLModalSettingsElement;
@@ -296,6 +305,8 @@ declare namespace LocalJSX {
     interface DownloadHistory {
         "history"?: RouterHistory;
     }
+    interface ModalContact {
+    }
     interface ModalDownload {
     }
     interface ModalMap {
@@ -345,6 +356,7 @@ declare namespace LocalJSX {
         "app-searchbar": AppSearchbar;
         "card-item": CardItem;
         "download-history": DownloadHistory;
+        "modal-contact": ModalContact;
         "modal-download": ModalDownload;
         "modal-map": ModalMap;
         "modal-settings": ModalSettings;
@@ -374,6 +386,7 @@ declare module "@stencil/core" {
             "app-searchbar": LocalJSX.AppSearchbar & JSXBase.HTMLAttributes<HTMLAppSearchbarElement>;
             "card-item": LocalJSX.CardItem & JSXBase.HTMLAttributes<HTMLCardItemElement>;
             "download-history": LocalJSX.DownloadHistory & JSXBase.HTMLAttributes<HTMLDownloadHistoryElement>;
+            "modal-contact": LocalJSX.ModalContact & JSXBase.HTMLAttributes<HTMLModalContactElement>;
             "modal-download": LocalJSX.ModalDownload & JSXBase.HTMLAttributes<HTMLModalDownloadElement>;
             "modal-map": LocalJSX.ModalMap & JSXBase.HTMLAttributes<HTMLModalMapElement>;
             "modal-settings": LocalJSX.ModalSettings & JSXBase.HTMLAttributes<HTMLModalSettingsElement>;

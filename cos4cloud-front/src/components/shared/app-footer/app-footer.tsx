@@ -25,6 +25,14 @@ export class AppFooter {
     this.lang = localStorage.lang
   }
 
+  async openContact() {
+    const modalElement: any = document.createElement('ion-modal');
+    modalElement.component = 'modal-contact';
+    document.body.appendChild(modalElement);
+    await modalElement.present();
+    await modalElement.onWillDismiss();
+  }
+
   render() {
     return (
       <Host>
@@ -35,7 +43,7 @@ export class AppFooter {
                 <a href={`/${this.lang}/about.html`} target="_blank" innerHTML={this.i18n.footer.about}></a>
                 {/*<a href={`/${this.lang}/privacy.html`} innerHTML={this.i18n.footer.privacy}></a>*/}
                 <a href={`/${this.lang}/terms.html`} target="_blank" innerHTML={this.i18n.footer.term}></a>
-                <a href={`/${this.lang}/contact.html`} target="_blank" innerHTML={this.i18n.footer.contact}></a>
+                <a onClick={() => this.openContact()} target="_blank" innerHTML={this.i18n.footer.contact}></a>
                 <a href={`/${this.lang}/help.html`} target="_blank" innerHTML={this.i18n.footer.help}></a>
                 <a href="/apidoc/index.html" target="_blank">API</a>
               </div>

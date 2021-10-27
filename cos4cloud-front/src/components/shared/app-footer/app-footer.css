@@ -62,3 +62,6 @@ footer .cnt-footer .rrss img {
   height: 3rem;
   margin-left: 1rem;
 }
+a {
+  cursor: pointer;
+}
