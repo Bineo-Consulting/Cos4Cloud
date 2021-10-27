@@ -15,8 +15,11 @@ export class DownloadHistory {
 
   @State() items: any[] = []
   @Prop() history: RouterHistory;
-  i18n: any = {}
-
+  i18n: any = {
+    download: {
+      view: 'View'
+    }
+  }
 
   async componentWillLoad() {
     this.i18n = await fetchTranslations(this.i18n, resources.cache_i18n)
@@ -74,6 +77,10 @@ export class DownloadHistory {
     l.dismiss()
   }
 
+  view(query, reason) {
+    this.history.push(`/observations${toQueryString(query)}`, {})
+  }
+
   render() {
     return (
       <Host>
@@ -92,10 +99,12 @@ export class DownloadHistory {
               <div>
                 {item.reasonI18n && <i>{item.reasonI18n.join(', ')}</i>}
                 {!item.reason && <i>{this.i18n.downloads_reasons_type.other}</i>}
-
               </div>
             </ion-label>
             <ion-button onClick={() => this.download(item.query, item.reason)}>{this.i18n.download.re_run}</ion-button>
+            <ion-button fill="clear" shape="round" size="small" onClick={() => this.view(item.query, item.reason)}>
+              {this.i18n.download.view}
+            </ion-button>
           </ion-item>))}
         </ion-list>
       </Host>
