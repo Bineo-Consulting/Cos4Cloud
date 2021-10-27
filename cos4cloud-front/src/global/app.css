@@ -101,47 +101,12 @@ a {
   color: var(--c-1);
 }
 
-.btn {
-  a {
-    text-decoration: none;
-    line-height: 4rem;
-    height: 100%;
-    display: flex;
-    flex-flow: wrap;
-    align-items: center;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    img {
-      margin-right: 0.8rem;
-    }
-  }
-}
-.btn-1 {
-  a {
-    background: var(--c-1);
-    color: var(--c-0);
-    font-family: var(--sub-font);
-    font-size: var(--fz-btn);
-    font-weight: 500;
-  }
-}
-.btn-2 {
-  a {
-    border: 1px solid var(--c-1);
-    font-family: var(--sub-font);
-    font-size: var(--fz-btn);
-    font-weight: 500;
-  }
-}
-
-// img
 .img-fit {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-// cnt GENERAL
 .bg-top {
   background: var(--c-3);
   padding-top: 1rem;

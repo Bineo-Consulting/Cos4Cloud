@@ -249,8 +249,8 @@ export class AppSearch {
     const [yyyy, dd, mm] = (this.date.minEventDate || '').split('-')
     const [yyyy2, dd2, mm2] = (this.date.maxEventDate || '').split('-')
     const whenStr = [[dd, mm, yyyy].join('/'), [dd2, mm2, yyyy2].join('/')].join(' – ')
-    ref1.innerHTML = whenStr ? whenStr : this.i18n.filters.date
-    whenStr ? ref1.classList.add('active') : null
+    ref1.innerHTML = whenStr.includes('//') ? this.i18n.filters.date : whenStr
+    whenStr.includes('//') ? null : ref1.classList.add('active')
     return null
   }
 

@@ -22,7 +22,6 @@ export class PageLogin {
   }
 
   signin() {
-    console.log(this.login, this.password)
     localStorage.setItem('user', JSON.stringify({
       login: this.login
     }))

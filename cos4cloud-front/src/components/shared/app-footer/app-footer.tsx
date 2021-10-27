@@ -18,7 +18,7 @@ export class AppFooter {
       follow_us: 'Follow Us'
     }
   }
-  lang: string
+  lang: string = localStorage.lang
 
   async componentWillLoad() {
     this.i18n = await fetchTranslations()
@@ -32,11 +32,11 @@ export class AppFooter {
           <div class="cnt-footer">
             <div class="nav-footer">
               <div class="tabs">
-                <a href="/about.html" target="_blank" innerHTML={this.i18n.footer.about}></a>
-                {/*<a href="/privacy.html" innerHTML={this.i18n.footer.privacy}></a>*/}
-                <a href="/terms.html" target="_blank" innerHTML={this.i18n.footer.term}></a>
-                <a href="/contact.html" target="_blank" innerHTML={this.i18n.footer.contact}></a>
-                <a href="/help.html" target="_blank" innerHTML={this.i18n.footer.help}></a>
+                <a href={`/${this.lang}/about.html`} target="_blank" innerHTML={this.i18n.footer.about}></a>
+                {/*<a href={`/${this.lang}/privacy.html`} innerHTML={this.i18n.footer.privacy}></a>*/}
+                <a href={`/${this.lang}/terms.html`} target="_blank" innerHTML={this.i18n.footer.term}></a>
+                <a href={`/${this.lang}/contact.html`} target="_blank" innerHTML={this.i18n.footer.contact}></a>
+                <a href={`/${this.lang}/help.html`} target="_blank" innerHTML={this.i18n.footer.help}></a>
                 <a href="/apidoc/index.html" target="_blank">API</a>
               </div>
             </div>

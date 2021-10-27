@@ -6,6 +6,8 @@ const dev: boolean = process.argv && process.argv.indexOf('--dev') > -1;
 const apiEnv: string = dev ? 'dev' : 'prod';
 const HOST = process.env.HOST || (dev ? 'http://localhost:5001/cos4cloud-2d9d3/us-central1/api' : cloudHost)
 
+const CopyPlugin = require("copy-webpack-plugin");
+
 export const config: Config = {
   globalStyle: 'src/global/app.css',
   globalScript: 'src/global/app.ts',
@@ -15,8 +17,8 @@ export const config: Config = {
       type: 'www',
       // comment the following line to disable service workers in production
       serviceWorker: null,
-      baseUrl: 'https://myapp.local/',
-    },
+      baseUrl: 'https://myapp.local/'
+    }
   ],
   testing: false,
   plugins: [
@@ -31,7 +33,7 @@ export const config: Config = {
   ]
 };
 
-import fs from 'fs'
-function copyFile(src, dest) {
-  fs.writeFileSync(dest, fs.readFileSync(src));
-}
+if (process.argv.includes('--serve')) setTimeout(() => {
+  const preprocess = require('./preprocess')
+  preprocess()
+}, 5000)
