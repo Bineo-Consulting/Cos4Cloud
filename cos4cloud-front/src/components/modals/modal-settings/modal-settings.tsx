@@ -36,12 +36,15 @@ export class ModalSettings {
       })
     })
     .then(res => res.json())
-    .then(_ => this.close())
+    .then(_ => this.close(true))
   }
 
-  close() {
+  close(reload = false) {
     const pop: any = document.querySelector('ion-modal')
     pop.dismiss()
+    if (reload) {
+      location.reload()
+    }
   }
 
   render() {
