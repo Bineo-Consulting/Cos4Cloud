@@ -39,9 +39,16 @@ export class AppSearch {
   iconic_taxa: any = {}
   types = [
     {key: 'plantae', value: 'plantae', label: '🌿 Plantae'},
+    {key: 'arachnida', value: 'arachnida', label: '🕷 Arachnida'},
+    {key: 'mollusca', value: 'mollusca', label: '🦑 Mollusca'},
+    {key: 'insecta', value: 'insecta', label: '🐞 Insecta'},
+    {key: 'amphibia', value: 'amphibia', label: '🐸 Amphibia'},
+    {key: 'aves', value: 'aves', label: '🦆 Aves'},
+    {key: 'mammalia', value: 'mammalia', label: '🦁 Mammalia'},
+    {key: 'reptilia', value: 'reptilia', label: '🐍 Reptilia'},    
+    {key: 'actinopterygii', value: 'actinopterygii', label: '🐠 Actinopterygii'},
     {key: 'animalia', value: 'animalia', label: '🐱 Animalia'},
-    {key: 'fungi' ,value: 'fungi', label: '🍄 Fungi'},
-    {key: 'reptilia', value: 'reptilia', label: '🦎 Reptilia'}
+    {key: 'fungi' ,value: 'fungi', label: '🍄 Fungi'}      
   ]
 
   quality: any = {
