@@ -70,7 +70,8 @@
     "download_title_modal": "Sélectionnez votre (vos) raison(s) de téléchargement:",
     "download_history": "Historique des téléchargements",
     "format": "Format",
-    "re_run": "Télécharger"
+    "re_run": "Télécharger",
+    "view": "Vue"    
   },
   "downloads_reasons_type":{
     "biosecurity management/planning": "Gestion/planification de la biosécurité",

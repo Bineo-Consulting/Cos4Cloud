@@ -34,7 +34,7 @@
     "licenses": "Licences",
     "date": "Date",
     "portals": "Portals",
-    "geo": "Localization",
+    "geo": "With geolocalization",
     "photos": "Photos"
   },
   "user":{
@@ -70,7 +70,8 @@
     "download_title_modal": "Select  your download reason(s):",
     "download_history": "Download history",
     "format": "Format",
-    "re_run": "Download"
+    "re_run": "Re-run",
+    "view": "View"
   },
   "downloads_reasons_type":{
     "biosecurity management/planning": "Biosecurity management/planning",
