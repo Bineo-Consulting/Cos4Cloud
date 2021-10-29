@@ -40,6 +40,10 @@ export class AppRoot {
           value: 'es',
           selected: localStorage.lang === 'es'
         }, {
+          text: 'Català',
+          value: 'ca',
+          selected: localStorage.lang === 'ca'
+        },{
           text: 'Français',
           value: 'fr',
           selected: localStorage.lang === 'fr'

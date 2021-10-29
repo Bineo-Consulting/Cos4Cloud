@@ -1,0 +1,109 @@
+{
+  "home_title": "Totes les observacions<br/>de biodiversitat en un sol lloc",
+  "observations": "observacions",
+  "last_obersations": "Darrera observació",
+  "need_login": "Cal que inicieu la sessió",
+  "share": "Compartir",
+  "social": "a les xarxes socials",
+  "english": "Anglès",
+  "spanish": "Castellà",
+  "french": "Francès",
+  "german": "Alemany",
+  "menu": {
+    "logout": "Tancar la sessió",
+    "settings": "Configuració",
+    "history": "Històric de descàrregues"
+  },
+  "login": {
+    "login": "Iniciar sessió",
+    "user": "Usuari",
+    "password": "Contrasenya",
+    "message": "Iniciareu la sessió mitjançant el sistema federat Authenix, per obtenir més informació visiteu el web"
+  },
+  "filters": {
+    "search_species": "Cerca d'espècies",
+    "search_places": "Cerca de llocs",
+    "filter": "Filtres",
+    "types": "Tipus",
+    "search": "Cercar",
+    "quality": "Qualitat",
+    "research": "Recercar",
+    "casual": "Ocasional",
+    "with_geo": "Amb geo",
+    "with_photos": "Amb fotos",
+    "licenses": "Llicències",
+    "date": "Data",
+    "portals": "Portals",
+    "geo": "Localització",
+    "photos": "Fotos"
+  },
+  "user": {
+    "logout": "Tancar la sessió",
+    "info": "Info",
+    "role": "Rol",
+    "identifications": "identificacions",
+    "species": "espècie",
+    "types": "tipus",
+    "city": "Ciutat",
+    "description": "Descripció",
+    "update": "Actualitzar"
+  },
+  "profile": {
+    "nickname": "Àlies",
+    "name": "Nom",
+    "email": "Correu electrònic",
+    "profession": "Professió",
+    "city": "Ciutat",
+    "comments": "Comentaris",
+    "identifications": "Identificacions",
+    "email-noti": "Correu electrònic (per a notificacions)"
+  },
+  "stats": {
+    "comments_identi": "Comentaris i Identificacions",
+    "all": "Tots",
+    "comm_id_by_portal": "% Cometaris i Identificacions per Portal",
+    "downloads": "Descarregar",
+    "downloads_reasons": "Motius de la descarrega"
+  },
+  "download": {
+    "download_title": "Descarregar",
+    "download_title_modal": "Selecciona la raó o les raons de la descarrega:",
+    "download_history": "Històric de descàrregues",
+    "format": "Format",
+    "re_run": "Descarregar",
+    "view": "Veure"
+  },
+  "downloads_reasons_type": {
+    "biosecurity management/planning": "Gestió/pla de bioseguretat",
+    "citizen science": "Ciència ciutadana",
+    "collection management": "Gestió de col·lecció",
+    "conservation management/planning": "Gestió/pla de conservació",
+    "ecological research": "Recerca ecològica",
+    "education": "Educació",
+    "environmental assessment": "Avaluació ambiental",
+    "restoration/remediation": "Restauració/Reparació",
+    "scientific research": "Investigació científica",
+    "systematic research/taxonomy": "Investigació semàntica/taxonomia",
+    "species modelling": "Modelatge d'espècies",
+    "testing": "Test",
+    "other": "Altres"
+  },
+  "comments": {
+    "comments": "Comentaris",
+    "identification": "Identificacions",
+    "type_comment": "Escriu els teus comentaris...",
+    "add_identification": "Enviar",
+    "has_identified": "Observació identificada",
+    "add_comment_identification": "Afegeix un comentari/identificació",
+    "help": " (Necessita ajuda)",
+    "someone": "Algú"
+  },
+  "footer": {
+    "about": "Sobre",
+    "help": "Ajuda",
+    "privacy": "Política de privacitat",
+    "term": "Condicions del servei",
+    "contact": "Contacte",
+    "follow_us": "Segueix-nos:"
+  }
+}
