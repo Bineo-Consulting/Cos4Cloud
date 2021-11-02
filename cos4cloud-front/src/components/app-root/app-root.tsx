@@ -51,6 +51,10 @@ export class AppRoot {
           text: 'Deutsche',
           value: 'de',
           selected: localStorage.lang === 'de'
+        }, {
+          text: 'Ελληνικά',
+          value: 'el',
+          selected: localStorage.lang === 'el'
         }]
       },
       event: ev

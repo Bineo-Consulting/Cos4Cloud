@@ -1,0 +1,109 @@
+{
+  "home_title": "Όλες οι παρατηρήσεις για τη βιοποικιλότητα<br/>σε ένα μέρος",
+  "observations": "παρατηρήσεις",
+  "last_obersations": "Πρόσφατες παρατηρήσεις",
+  "need_login": "Πρέπει να συνδεθείτε",
+  "share": "Κοινοποίηση",
+  "social": "σε κοινωνικά δίκτυα",
+  "english": "Αγγλικά",
+  "spanish": "Ισπανικά",
+  "french": "Γαλλικά",
+  "german": "Γερμανικά",
+  "menu": {
+    "logout": "Αποσύνδεση",
+    "settings": "Ρυθμίσεις",
+    "history": "Ιστορικό λήψεων"
+  },
+  "login": {
+    "login": "Σύνδεση",
+    "user": "Χρήστης",
+    "password": "Κωδικός",
+    "message": "Θα συνδεθείτε χρησιμοποιώντας ένα σύστημα Authenix Federeate, για περισσότερες πληροφορίες επισκεφθείτε το διαδίκτυο"
+  },
+  "filters": {
+    "search_species": "Αναζήτηση ειδών",
+    "search_places": "Αναζήτηση τοποθεσιών",
+    "filter": "Φίλτρα",
+    "types": "Τύποι",
+    "search": "Αναζήτηση",
+    "quality": "Ποιότητα",
+    "research": "Έρευνα",
+    "casual": "Προσωρινή",
+    "with_geo": "Με γεω (εντοπισμό)",
+    "with_photos": "Με φωτογραφίες",
+    "licenses": "Άδειες Χρήσης",
+    "date": "Ημερομηνία",
+    "portals": "Πύλες",
+    "geo": "Mε γεωεντοπισμό",
+    "photos": "Φωτογραφίες"
+  },
+  "user": {
+    "logout": "Αποσύνδεση",
+    "info": "Πληροφορίες",
+    "role": "Ρόλος",
+    "identifications": "αναγνωρίσεις",
+    "species": "ειδών",
+    "types": "τύποι",
+    "city": "Πόλη",
+    "description": "Περιγραφή",
+    "update": "Ενημέρωση"
+  },
+  "profile": {
+    "nickname": "Ψευδώνυμο",
+    "name": "Όνομα",
+    "email": "Ηλεκτρονικό ταχυδρομείο",
+    "profession": "Επάγγελμα",
+    "city": "Πόλη",
+    "comments": "Σχόλια",
+    "identifications": "Αναγνωρίσεις",
+    "email-noti": "Hλεκτρονικό ταχυδρομείο (για ειδοποιήσεις)"
+  },
+  "stats": {
+    "comments_identi": "Σχόλια & αναγνωρίσεις",
+    "all": "Όλα",
+    "comm_id_by_portal": "% Σχόλια και αναγνωρίσεις μέσω της Πύλης",
+    "downloads": "Λήψη",
+    "downloads_reasons": "% Λόγοι λήψης"
+  },
+  "download": {
+    "download_title": "Λήψη",
+    "download_title_modal": "Επιλέξτε τον/τους λόγο(-ους) της λήψης:",
+    "download_history": "Ιστορικό λήψεων",
+    "format": "Μορφοποίηση",
+    "re_run": "Επανεκτέλεση",
+    "view": "Προβολή"
+  },
+  "downloads_reasons_type": {
+    "biosecurity management/planning": "Διαχείριση/σχεδιασμός βιοασφάλειας",
+    "citizen science": "Επιστήμη των Πολιτών",
+    "collection management": "Διαχείριση συλλογής",
+    "conservation management/planning": "Διατήρηση/σχεδιασμός προστασίας",
+    "ecological research": "Οικολογική έρευνα",
+    "education": "Εκπαίδευση",
+    "environmental assessment": "Περιβαλλοντική αξιολόγηση",
+    "restoration/remediation": "Αποκατάσταση",
+    "scientific research": "Επιστημονική διερεύνηση",
+    "systematic research/taxonomy": "Συστηματική έρευνα/ταξινομία",
+    "species modelling": "Μοντελοποίηση ειδών",
+    "testing": "Δοκιμή",
+    "other": "Άλλoι"
+  },
+  "comments": {
+    "comments": "Σχόλια",
+    "identification": "Αναγνωρίσεις",
+    "type_comment": "Γράψτε τα σχόλιά σας...",
+    "add_identification": "Αποστολή",
+    "has_identified": "Ταυτοποιημένη παρατήρηση",
+    "add_comment_identification": "Προσθήκη σχολίου/αναγνώρισης",
+    "help": " (Χρειάζομαι βοήθεια)",
+    "someone": "Κάποιος"
+  },
+  "footer": {
+    "about": "Σχετικά",
+    "help": "Βοήθεια",
+    "privacy": "Πολιτική Απορρήτου",
+    "term": "Όροι Παροχής Υπηρεσιών",
+    "contact": "Επικοινωνία",
+    "follow_us": "Ακολουθήστε μας:"
+  }
+}
