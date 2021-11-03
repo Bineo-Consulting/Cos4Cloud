@@ -68,15 +68,15 @@ export class PageUser {
     })
   }
   agg() {
-    fetch(resources.host + '/comments/agg', {
+    fetch(resources.host + '/agg', {
       headers: {
         sub: this.match.params.name
       }
     })
     .then(res => res.json())
     .then(res => {
-      this.commentsAgg = res
-      const call = () => {
+      const call1 = (res) => {
+        this.commentsAgg = res
         this.setChartCounter({
           el: this.charts.commentsCountEl,
           count: (res.comments_count || 0) + (res.identifications_count || 0),
@@ -88,21 +88,8 @@ export class PageUser {
           agg: res.origins
         })
       }
-      setTimeout(() => call(), 250)
-      setTimeout(() => call(), 450)
-      setTimeout(() => call(), 650)
-      // setTimeout(() => call(), 1050)
-    })
-
-    fetch(resources.host + '/downloads/agg', {
-      headers: {
-        sub: this.match.params.name
-      }
-    })
-    .then(res => res.json())
-    .then(res => {
-      this.downloadsAgg = res
-      const call = () => {
+      const call2 = (res) => {
+        this.downloadsAgg = res
         this.setChartCounter({
           el: this.charts.downloadsCountEl,
           count: res.downloads_count || 0,
@@ -114,10 +101,10 @@ export class PageUser {
           agg: res.reasons
         })
       }
-      setTimeout(() => call(), 250)
-      setTimeout(() => call(), 450)
-      setTimeout(() => call(), 650)
-      // setTimeout(() => call(), 1050)
+      setTimeout(() => {
+        call1(res.comments)
+        call2(res.downloads)
+      }, 250)
     })
   }
 
@@ -245,7 +232,7 @@ export class PageUser {
       labels: agg.map(_ => _.count),
       series: agg.map(i => i.count)
     }, {
-      donut: true,
+      donut: false,
       donutWidth: 60,
       donutSolid: true,
       startAngle: 270,
