@@ -11,7 +11,8 @@ const routes = {
   'userRefresh': (req, res) => require('./api/controllers/userRefresh').userRefresh(req, res),
   'users': (req, res) => require('./api/controllers/users').users(req, res),
   'users/:id': (req, res) => require('./api/controllers/users').users(req, res),
-  'generic': (req, res) => require('./api/controllers/generic').generic(req, res)
+  'generic': (req, res) => require('./api/controllers/generic').generic(req, res),
+  'agg': (req, res) => require('./api/controllers/agg').agg(req, res)
 }
 
 exports.api = functions.region('us-central1').https.onRequest((req, res) => {
@@ -31,3 +32,7 @@ exports.api = functions.region('us-central1').https.onRequest((req, res) => {
 })
 
 exports.share = require('./share/share').share
+
+exports.runner = functions.runWith( { memory: '128MB' }).pubsub
+.schedule('*/6 * * * *')
+.onRun(async (context) => require('https').get('https://us-central1-cos4cloud-2d9d3.cloudfunctions.net/api?wakeup'))
