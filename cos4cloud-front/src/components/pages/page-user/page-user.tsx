@@ -105,6 +105,10 @@ export class PageUser {
         call1(res.comments)
         call2(res.downloads)
       }, 250)
+      setTimeout(() => {
+        call1(res.comments)
+        call2(res.downloads)
+      }, 450)
     })
   }
 
