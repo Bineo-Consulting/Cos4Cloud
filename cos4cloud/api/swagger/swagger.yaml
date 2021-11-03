@@ -49,14 +49,24 @@ paths:
           items:
             type: string
             enum: [Plantae, Animalia, Reptilia, Fungi]
-        - name: decimalLatitude
+        - name: minDecimalLatitude
           in: query
           description: The latitude of bbox (ex. '40.1, 44.2')
           required: false
           type: string
-        - name: decimalLongitude
+        - name: maxDecimalLongitude
           in: query
           description: The longitude of bbox (ex. '2.1, 6.2')
+          required: false
+          type: string
+        - name: minEventDate
+          in: query
+          description: Observations Created after this date (ex. '2021-11-04')
+          required: false
+          type: string
+        - name: maxEventDate
+          in: query
+          description: Observations Created before this date (ex. '2021-11-04')
           required: false
           type: string
         - name: has
@@ -172,9 +182,9 @@ paths:
             $ref: "#/definitions/ErrorResponse"
   /comments:
     x-swagger-router-controller: comments
-    get:
+    post:
       tags:
-        - Observations
+        - Comments
       description: Send Comment/Identification
       operationId: addComment
       parameters:
@@ -219,6 +229,204 @@ paths:
           description: Error
           schema:
             $ref: "#/definitions/ErrorResponse"
+  /comments/agg:
+    x-swagger-router-controller: comments
+    get:
+      tags:
+        - Comments
+      description: Show aggagations of comments/identifications by dates & origin
+      operationId: agg
+      parameters:
+        - name: sub
+          in: header
+          description: The user_id from Authenix
+          required: false
+          type: string
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/SuccessResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /comments/search:
+    x-swagger-router-controller: comments
+    get:
+      tags:
+        - Comments
+      description: Show list of Comments/Identifications
+      operationId: CommentsSearch
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/SuccessResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /users/agg:
+    x-swagger-router-controller: users
+    get:
+      tags:
+        - Users
+      description: Show aggregations of users by dates
+      operationId: UsersAgg
+      parameters:
+        - name: sub
+          in: header
+          description: The user_id from Authenix
+          required: false
+          type: string
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/SuccessResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /users/search:
+    x-swagger-router-controller: users
+    get:
+      tags:
+        - Users
+      description: Show list of users
+      operationId: search
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/User"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /downloads/agg:
+    x-swagger-router-controller: Downloads
+    get:
+      tags:
+        - Downloads
+      description: Show aggregations of users by dates
+      operationId: DownloadsAgg
+      parameters:
+        - name: sub
+          in: header
+          description: The user_id from Authenix
+          required: false
+          type: string
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/SuccessResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /export:
+    x-swagger-router-controller: export
+    get:
+      tags:
+        - Observations
+      description: Returns 'Observations' from different portals
+      operationId: export
+      parameters:
+        - name: page
+          in: query
+          description: The page number
+          required: false
+          type: number
+        - name: per_page
+          in: query
+          description: The page number (Don't use this)
+          required: false
+          type: number
+        - name: scientificName
+          in: query
+          description: The name of the specie to filter
+          required: false
+          type: string
+        - name: kingdom
+          in: query
+          description: The name of the root specie to filter
+          required: false
+          collectionFormat: csv
+          type: array
+          items:
+            type: string
+            enum: [Plantae, Animalia, Reptilia, Fungi]
+        - name: minDecimalLatitude
+          in: query
+          description: The latitude of bbox (ex. '40.1, 44.2')
+          required: false
+          type: string
+        - name: maxDecimalLongitude
+          in: query
+          description: The longitude of bbox (ex. '2.1, 6.2')
+          required: false
+          type: string
+        - name: minEventDate
+          in: query
+          description: Observations Created after this date (ex. '2021-11-04')
+          required: false
+          type: string
+        - name: maxEventDate
+          in: query
+          description: Observations Created before this date (ex. '2021-11-04')
+          required: false
+          type: string
+        - name: has
+          in: query
+          required: false
+          type: array
+          collectionFormat: csv
+          items:
+            type: string
+            enum: [id_please, geo, photos]
+        - name: identificationVerificationStatus
+          in: query
+          required: false
+          type: array
+          maxLength: 2
+          collectionFormat: csv
+          items:
+            type: string
+            enum: [research, casual]
+        - name: ownerInstitutionCodeProperty
+          in: query
+          description: portal code
+          required: false
+          collectionFormat: csv
+          type: array
+          items:
+            type: string
+            enum: [natusfera, ispot, plantnet, artportalen]
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Comment"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+
 # complex objects have schema definitions
 definitions:
   SuccessResponse:
@@ -349,10 +557,16 @@ definitions:
       large_url:
         type: string
   User:
-    required:
-      - login
     properties:
       login:
+        type: string
+      sub: 
+        type: string
+      displayName: 
+        type: string
+      profession: 
+        type: string
+      email:
         type: string
   Taxon:
     required:

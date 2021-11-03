@@ -72,8 +72,8 @@ const parseQuery = (query, origin) => {
     delete query.decimalLatitude
     delete query.origin
     delete query.place
-    delete query.iconic_taxa
     delete query.ownerInstitutionCodeProperty
+    delete query.iconic_taxa
   }
   if (query.quality_grade) {
     query.identificationVerificationStatus = query.quality_grade
@@ -119,6 +119,9 @@ module.exports = class MappingService {
 
     const promises = origins.map(ogn => {
       if (originsConfig[ogn]) {
+        if (ogn === 'plantnet' && req.query.iconic_taxa && !req.query.iconic_taxa.includes('plantae')) {
+          return []
+        }
         const originConfig = originsConfig[ogn]
         const originHeader = originsConfig[ogn].header || {}
         let path = req.path.replace('/dwc', '').replace('/api', '')
@@ -131,7 +134,7 @@ module.exports = class MappingService {
         }
         const query = parseQuery(req.query || {}, ogn)
 
-        console.log(`${originConfig.url}${path}${toQueryString(query)}`)
+
         return fetch(`${originConfig.url}${path}${toQueryString(query)}`, {header: originHeader})
         .then(res => res.json())
         .then(res => {
@@ -213,7 +216,6 @@ module.exports = class MappingService {
       if (resource && !id && originConfig.observations) {
         path = originConfig.observations()
       }
-      console.log(`${originConfig.url}${path}${toQueryString(req.query)}`)
       return fetch(`${originConfig.url}${path}?api-key=2b10bmIKkNNcBL6D4jwq3il4rO`, originHeader)
       .then(res => res.json())
       .then(res => {
@@ -234,7 +236,6 @@ module.exports = class MappingService {
       casual: 'unidentified'
     }
     const iconic_taxa = (params.iconic_taxa || '').toLowerCase()
-    console.log({iconic_taxa})
     if (iconic_taxa && !iconic_taxa.includes('plantae')) {
       return []
     }
