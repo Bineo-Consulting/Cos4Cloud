@@ -42,7 +42,6 @@ export class AppFooter {
             <div class="nav-footer">
               <div class="tabs">
                 <a href={`/${this.lang}/about.html`} target="_blank" innerHTML={this.i18n.footer.about}></a>
-                {/*<a href={`/${this.lang}/privacy.html`} innerHTML={this.i18n.footer.privacy}></a>*/}
                 <a href={`/${this.lang}/terms.html`} target="_blank" innerHTML={this.i18n.footer.term}></a>
                 <a onClick={() => this.openContact()} target="_blank" innerHTML={this.i18n.footer.contact}></a>
                 <a href={`/${this.lang}/help.html`} target="_blank" innerHTML={this.i18n.footer.help}></a>
@@ -58,6 +57,10 @@ export class AppFooter {
                 <a href="https://www.instagram.com/cos4cloud/" target="_blank"><img loading="lazy" src="./assets/svg/ig-logo.svg" alt="Instagram logo"/></a>
                 <a href="https://www.youtube.com/channel/UC38cKrW3viJrb0GM1JrWAQw" target="_blank"><img loading="lazy" src="./assets/svg/yt-logo.svg" alt="Youtube logo"/></a>
               </div>
+            </div>
+            <div class="eu">
+              This project has received funding from the European Union’s Horizon 2020 Research and Innovation Programme under Grant Agreement No 789315
+              <img src="/assets/img/eu.jpg" width="100"/>
             </div>
           </div>
         </footer>
