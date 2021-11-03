@@ -59,7 +59,7 @@ export class AppFooter {
               </div>
             </div>
             <div class="eu">
-              This project has received funding from the European Union’s Horizon 2020 Research and Innovation Programme under Grant Agreement No 789315
+              This project has received funding from the European Union’s Horizon 2020 Research and Innovation Programme under Grant Agreement No 863463
               <img src="/assets/img/eu.jpg" width="100"/>
             </div>
           </div>
