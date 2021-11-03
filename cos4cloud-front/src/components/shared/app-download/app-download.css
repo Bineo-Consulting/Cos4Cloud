@@ -16,3 +16,6 @@ ion-button {
   position: absolute;
   margin-top: -35px;
 }
+ion-button ion-icon {
+  margin-top: -5px;
+}

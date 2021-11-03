@@ -269,7 +269,7 @@ export class AppRoot {
         <nav class={this.location.pathname} ref={e => this.nav = e} role="navigation">
           <div class="logo">
             <stencil-route-link url="/">
-              <img src="/assets/svg/logo-c4c.svg?v=1" alt="Bineo logo"/>
+              <img src="/assets/icon/logo.svg" alt="Bineo logo"/>
             </stencil-route-link>
           </div>
 
