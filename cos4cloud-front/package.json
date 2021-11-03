@@ -1,29 +1,26 @@
 {
-  "name": "cos4cloud",
+  "name": "cos4bio",
   "private": true,
   "version": "0.0.1",
-  "description": "Stencil App Starter",
+  "description": "Cos4Bio",
   "scripts": {
-    "build": "stencil build --prod; npm run swagger; npm run apidoc; node preprocess",
-    "start": "stencil build --dev --watch --serve --no-open",
+    "build": "npm run swagger; stencil build --prod",
+    "start": "npm run swagger; stencil build --dev --watch --serve --no-open",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",
-    "swagger": "yaml2json ../cos4cloud/api/swagger/swagger.yaml > ./www/swagger.json",
-    "apidoc": "cp -r apidoc www/",
-    "deploy": "rm -rf www; npm run build; firebase deploy --only hosting:cos4cloud-2d9d3",
-    "public": "(sleep 3 && cp public/* www/)&"
+    "swagger": "yaml2json ../cos4cloud/api/swagger/swagger.yaml > ./public/swagger.json",
+    "deploy": "rm -rf www; npm run build; firebase deploy --only hosting:cos4cloud-2d9d3"
   },
   "devDependencies": {
     "@rollup/plugin-replace": "^2.3.4",
     "@stencil/core": "2.0.3",
     "@stencil/router": "^1.0.1",
     "@types/node": "^14.14.7",
-    "copy-webpack-plugin": "^9.0.1",
     "fs-extra": "^10.0.0",
     "hound": "^1.0.5",
-    "workbox-build": "^4.3.1",
-    "wrench": "^1.5.9"
+    "rollup-plugin-copy": "^3.4.0",
+    "workbox-build": "^4.3.1"
   },
   "license": "MIT",
   "dependencies": {

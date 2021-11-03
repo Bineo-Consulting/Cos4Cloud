@@ -1,7 +1,9 @@
 const path = require('path')
-const fs = require('fs')
+const fs = require('fs-extra')
 const wwwDir = path.resolve(__dirname, 'www')
+const enDir = path.resolve(__dirname, 'www/en')
 const publicDir = path.resolve(__dirname, 'public')
+const apiDir = path.resolve(__dirname, 'apidoc')
 
 const copyFile = (f) => {
   if (f.includes('head.html')) return null
@@ -14,13 +16,6 @@ const copyFile = (f) => {
       fs.mkdirSync(dir, { recursive: true })
     }
     fs.writeFileSync(dest, `${head}\n${data}`)
-  } else if (f.includes('.jpg')) {
-    const dest = f.replace('public', 'www')
-    const dir = path.dirname(dest);
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir, { recursive: true })
-    }
-    fs.copyFileSync(f, dest)
   }
 }
 
@@ -56,8 +51,17 @@ if (!process.argv.join(',').includes('preprocess')) {
   })
   watcher.on('delete', function(file) {
     console.log(file + ' was deleted')
-    copyFile(file)
   })
+  let pid = setInterval(() => {
+    try {
+      const watcherEn = hound.watch(enDir)
+      watcher.on('delete', function(file) {
+        console.log(file + ' was deleted')
+        preprocess()
+      })
+      clearInterval(pid)
+    } catch(_) {}
+  }, 2000)
 } else {
   preprocess()
 }

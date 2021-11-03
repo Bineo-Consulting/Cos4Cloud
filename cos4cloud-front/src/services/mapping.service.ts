@@ -217,7 +217,9 @@ export class MappingService {
     }
     const q = toQueryString(params)
     // return fetch(`https://natusfera.gbif.es/observations/add_identification?${q}`)
-    return fetch(`${host}/comments${q}`)
+    return fetch(`${host}/comments${q}`, {
+      method: 'POST'
+    })
   }
 
   static async export(search?, reason?) {

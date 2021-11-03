@@ -1,5 +1,5 @@
 import { Component, Host, h } from '@stencil/core';
-import { fetchTranslations } from '../../../utils/translation'
+import { fetchTranslations, getLocale } from '../../../utils/translation'
 
 @Component({
   tag: 'app-footer',
@@ -18,11 +18,12 @@ export class AppFooter {
       follow_us: 'Follow Us'
     }
   }
-  lang: string = localStorage.lang
+  langs = ['es', 'en']
+  lang: string
 
   async componentWillLoad() {
     this.i18n = await fetchTranslations()
-    this.lang = localStorage.lang
+    this.lang = this.langs.includes(getLocale()) ? getLocale() : 'en'
   }
 
   async openContact() {

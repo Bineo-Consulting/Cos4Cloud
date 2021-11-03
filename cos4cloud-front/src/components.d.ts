@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { MatchResults, RouterHistory } from "@stencil/router";
+import { LocationSegments, MatchResults, RouterHistory } from "@stencil/router";
 export namespace Components {
     interface AppComment {
         "item": any;
@@ -17,10 +17,12 @@ export namespace Components {
     interface AppFooter {
     }
     interface AppGrid {
+        "empty": string;
         "history": RouterHistory;
         "images": any;
         "items": any[];
         "showSpinner": boolean;
+        "title": string;
     }
     interface AppMultiselect {
     }
@@ -29,6 +31,7 @@ export namespace Components {
     }
     interface AppRoot {
         "history": RouterHistory;
+        "location": LocationSegments;
     }
     interface AppSearch {
         "place": string;
@@ -271,11 +274,13 @@ declare namespace LocalJSX {
     interface AppFooter {
     }
     interface AppGrid {
+        "empty"?: string;
         "history"?: RouterHistory;
         "images"?: any;
         "items"?: any[];
         "onLoadmore"?: (event: CustomEvent<any>) => void;
         "showSpinner"?: boolean;
+        "title"?: string;
     }
     interface AppMultiselect {
     }
@@ -284,6 +289,7 @@ declare namespace LocalJSX {
     }
     interface AppRoot {
         "history"?: RouterHistory;
+        "location"?: LocationSegments;
     }
     interface AppSearch {
         "onSearch"?: (event: CustomEvent<any>) => void;

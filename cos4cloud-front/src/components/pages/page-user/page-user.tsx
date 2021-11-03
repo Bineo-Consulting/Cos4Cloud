@@ -76,7 +76,7 @@ export class PageUser {
     .then(res => res.json())
     .then(res => {
       this.commentsAgg = res
-      setTimeout(() => {
+      const call = () => {
         this.setChartCounter({
           el: this.charts.commentsCountEl,
           count: (res.comments_count || 0) + (res.identifications_count || 0),
@@ -87,7 +87,11 @@ export class PageUser {
           el: this.charts.origins,
           agg: res.origins
         })
-      }, 250)
+      }
+      setTimeout(() => call(), 250)
+      setTimeout(() => call(), 450)
+      setTimeout(() => call(), 650)
+      // setTimeout(() => call(), 1050)
     })
 
     fetch(resources.host + '/downloads/agg', {
@@ -98,7 +102,7 @@ export class PageUser {
     .then(res => res.json())
     .then(res => {
       this.downloadsAgg = res
-      setTimeout(() => {
+      const call = () => {
         this.setChartCounter({
           el: this.charts.downloadsCountEl,
           count: res.downloads_count || 0,
@@ -109,7 +113,11 @@ export class PageUser {
           el: this.charts.reasons,
           agg: res.reasons
         })
-      }, 250)
+      }
+      setTimeout(() => call(), 250)
+      setTimeout(() => call(), 450)
+      setTimeout(() => call(), 650)
+      // setTimeout(() => call(), 1050)
     })
   }
 
@@ -231,9 +239,10 @@ export class PageUser {
     const Chartist = await import('chartist')
     const ChartistPluginLegend = (await import('chartist-plugin-legend')).default
     //const chartistPluginTooltip = (await import ('chartist-plugin-tooltip')).default
+    const total = agg.map(i => i.count).reduce((a, b) => b + a, 0)
 
     new Chartist.Pie(el, {
-      labels: agg.map(_ => ' '),
+      labels: agg.map(_ => _.count),
       series: agg.map(i => i.count)
     }, {
       donut: true,
@@ -244,8 +253,11 @@ export class PageUser {
       plugins: [
         ChartistPluginLegend({
           legendNames: agg.map(i => (i._id || 'Other'))
-        })
-      ]
+        }),
+      ],
+      labelInterpolationFnc: function(value) {
+        return Math.round(value / total * 100) + '%';
+      }
     });
   }
 

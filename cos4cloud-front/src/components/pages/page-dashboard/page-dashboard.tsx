@@ -45,8 +45,8 @@ export class PageDashboard {
     fetch(resources.host + '/comments/agg')
     .then(res => res.json())
     .then(res => {
-      this.commentsAgg = res
-      setTimeout(() => {
+      const call = () => {
+        this.commentsAgg = res
         this.setPeriodComments(this.periodComments)
         this.setPie({
           el: this.charts.origins,
@@ -57,14 +57,15 @@ export class PageDashboard {
           count: (res.comments_count || 0) + (res.identifications_count || 0),
           title: `Comments &<br> Identifications`
         })
-      }, 250)
+      }
+      setTimeout(() => call(), 250)
     })
 
     fetch(resources.host + '/downloads/agg')
     .then(res => res.json())
     .then(res => {
       this.downloadsAgg = res
-      setTimeout(() => {
+      const call = () => {
         this.setChartCounter({
           el: this.charts.identificationsCountEl,
           count: res.downloads_count,
@@ -75,21 +76,23 @@ export class PageDashboard {
           el: this.charts.reasons,
           agg: res.reasons
         })
-      }, 250)
+      }
+      setTimeout(() => call(), 250)
     })
 
     fetch(resources.host + '/users/agg')
     .then(res => res.json())
     .then(res => {
       this.usersAgg = res
-      setTimeout(() => {
+      const call = () => {
         this.setPeriodUsers(this.periodUsers)
         this.setPie({
           el: this.charts.professions,
           agg: res.professions
         })
         this.setChartCounter({el: this.charts.usersCountEl, count: res.users_count || 0, title: 'Users'})
-      }, 250)
+      }
+      setTimeout(() => call(), 250)
     })
   }
 

@@ -4,13 +4,19 @@
   left: unset;
 }
 nav {
-  background-color: var(--c-3);
   display: flex;
   flex-flow: wrap;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 0rem 1rem 2rem;
 }
+nav.\/.scrolled {
+  background-color: white;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);;
+}
+/*nav:not(.\/) {
+  background-color: var(--c-3);
+}*/
 nav .logo img {
   width: 8rem;
   height: auto;
@@ -34,7 +40,7 @@ nav ul li.language {
 nav ul li.menu {
   position: relative;
   margin-left: 1rem;
-  margin-right: 1rem;
+  margin-right: 1.2rem;
   z-index: 23;
 }
 
@@ -60,7 +66,7 @@ nav ul li a img.icon-arrow {
 nav ul li a img.icon-user {
   width: 4rem;
   height: 4rem;
-  margin-left: 0.8rem;
+  margin: 0 4px;
 }
 nav ul li a img.icon-notifications {
   width: 2.5rem;
@@ -78,14 +84,22 @@ main {
 ion-icon {
   font-size: 24px;
   padding: 0 5px;
+  color: #333;
+}
+nav .menu ion-icon {
+  color: white;
+  border-radius: 50%;
+  height: 34px;
+  width: 24px;
+  background: #333;
 }
 
 .shadow-scroll {
-  background: linear-gradient(#eaeaea 20%, rgba(230,230,230, 0)), linear-gradient(rgba(230,230,230, 0), #eaeaea 50%) 0 100%, radial-gradient(farthest-side at 50% 0, rgb(34 34 34 / 34%), rgba(0,0,0,0)), radial-gradient(farthest-side at 50% 100%, rgb(34 34 34 / 31%), rgba(0,0,0,0)) 0 100%;
+  /*background: linear-gradient(#eaeaea 20%, rgba(230,230,230, 0)), linear-gradient(rgba(230,230,230, 0), #eaeaea 50%) 0 100%, radial-gradient(farthest-side at 50% 0, rgb(34 34 34 / 34%), rgba(0,0,0,0)), radial-gradient(farthest-side at 50% 100%, rgb(34 34 34 / 31%), rgba(0,0,0,0)) 0 100%;
   background-color: #eaeaea;
   background-repeat: no-repeat;
   background-attachment: local, local, scroll, scroll;
-  background-size: 100% 27px, 100% 27px, 100% 9px, 100% 9px;
+  background-size: 100% 27px, 100% 27px, 100% 9px, 100% 9px;*/
 }
 
 .avatar.avatar-lg {
@@ -118,4 +132,17 @@ ion-icon {
   top: 50%;
   transform: translate(-50%,-50%);
   z-index: 1;
+}
+video {
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.bg-video.\/ {
+  background-image:  url(/assets/valley-day/Valley-day.svg);
+  background-size: auto 115%;
+  background-position: center;
 }

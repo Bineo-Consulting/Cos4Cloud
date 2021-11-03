@@ -2,7 +2,7 @@ import { Component, State, h, Prop } from '@stencil/core';
 import { fetchTranslations } from '../../utils/translation';
 import resources from '../../resources'
 import { toQueryString } from '../../utils/to-query-string';
-import { RouterHistory, injectHistory } from '@stencil/router';
+import { RouterHistory, LocationSegments, injectHistory } from '@stencil/router';
 
 @Component({
   tag: 'app-root',
@@ -14,6 +14,7 @@ export class AppRoot {
   @State() user: any = null;
   @State() pid: any = null;
   @Prop() history: RouterHistory;
+  @Prop() location: LocationSegments;
 
   i18n: any = {
     filters: {
@@ -21,6 +22,9 @@ export class AppRoot {
       search_places: 'Search places'
     }
   }
+
+  main: HTMLElement
+  nav: HTMLElement
 
   async componentWillLoad() {
     this.i18n = await fetchTranslations(this.i18n, resources.cache_i18n)
@@ -84,7 +88,7 @@ export class AppRoot {
     location.href = url
   }
 
-  async settings(title?) {
+  async settings(title = null) {
     const modalElement: any = document.createElement('ion-modal');
     modalElement.component = 'modal-settings';
     modalElement.componentProps = {
@@ -243,13 +247,29 @@ export class AppRoot {
     this.history.push(`/users/${this.user.sub || this.user.name || this.user.login}`, {})
   }
 
+  pidScroll: any
+  onScroll(_) {
+    clearTimeout(this.pid)
+    this.pidScroll = setTimeout(() => {
+      if (this.main.scrollTop > 100) {
+        this.nav.classList.add('scrolled')
+      } else {
+        this.nav.classList.remove('scrolled')
+      }
+    }, 50)
+  }
+
   render() {
     return (
-      <div>
-        <nav role="navigation">
+      <div class={"bg-video " + this.location.pathname} onScroll={e => this.onScroll(e)}>
+        {/*<video playsinline autoplay muted loop poster="/assets/valley-day/Valley-day.png" id="bgvid">
+          <source src="/assets/valley-day/Valley-day.mp4" type="video/mp4"/>
+        </video>*/}
+
+        <nav class={this.location.pathname} ref={e => this.nav = e} role="navigation">
           <div class="logo">
             <stencil-route-link url="/">
-              <img src="/assets/svg/logo-c4c.svg" alt="Bineo logo"/>
+              <img src="/assets/svg/logo-c4c.svg?v=1" alt="Bineo logo"/>
             </stencil-route-link>
           </div>
 
@@ -266,7 +286,7 @@ export class AppRoot {
                                   onClick={() => this.openProfile()}>
                                 </figure>) : (<img class="icon-user"
                                                   onClick={() => this.openModalLogin()}
-                                                  src="/assets/svg/user.svg"
+                                                  src="/assets/svg/user.svg?v=1"
                                                   alt="user"/>)}
                 
               </a>
@@ -277,7 +297,7 @@ export class AppRoot {
           </ul>
         </nav>
 
-        <main class="shadow-scroll">
+        <main ref={e => this.main = e} class="shadow-scroll" onScroll={e => this.onScroll(e)}>
           <stencil-router>
             <stencil-route-switch scrollTopOffset={0}>
               <stencil-route url="/" component="page-home" exact={true} />

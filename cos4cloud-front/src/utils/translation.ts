@@ -30,7 +30,7 @@ async function fetchTranslations(i18n?, cache = true) {
   const locale = getLocale();
   const existingTranslations = JSON.parse(localStorage.getItem(`i18n.${locale}`));
   if (cache && existingTranslations && existingTranslations.version === resources.version) {
-    return mergeDeep(i18n || {}, existingTranslations);
+    return mergeDeep(i18n || {}, existingTranslations);
   } else {
     try {
       const result = await fetch(`/assets/i18n/${locale}.json`)
@@ -40,7 +40,7 @@ async function fetchTranslations(i18n?, cache = true) {
           ...data,
           version: resources.version
         }));
-        return mergeDeep(i18n || {}, data)
+        return mergeDeep(i18n || {}, data)
       }
     } catch (exception) {
       console.error(`Error loading locale: ${locale}`, exception);

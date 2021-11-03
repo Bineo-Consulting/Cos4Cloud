@@ -58,7 +58,7 @@ ion-chip {
   box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 20%), 0 1px 5px 0 rgb(0 0 0 / 12%);
 }
 ion-chip.active {
-  --background:  rgba(255, 150, 0 , .4);
+  --background:  rgba(255, 155, 0 , .54);
 }
 ion-list.lite ion-checkbox {
   margin: 8px;

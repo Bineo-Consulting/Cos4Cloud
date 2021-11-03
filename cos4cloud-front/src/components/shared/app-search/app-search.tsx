@@ -29,9 +29,9 @@ export class AppSearch {
 
   origin: any = {
     natusfera: 'false',
-    ispot: 'false',
+    // ispot: 'false',
     plantnet: 'false',
-    artportalen: 'false',
+    // artportalen: 'false',
     gbif: 'false'
   }
   origins = Object.keys(this.origin) // hamelin

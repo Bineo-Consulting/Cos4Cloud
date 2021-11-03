@@ -28,3 +28,17 @@
 .spinner.show {
   visibility:  visible;
 }
+h3 {
+  padding-top: 2rem;
+  font-size: var(--fz-h3);
+  margin: 0.5rem 0;
+  text-indent: 3rem;
+  text-align: center;
+}
+h4 {
+  padding-top: 2rem;
+  font-size: var(--fz-h4);
+  margin: 0.5rem 0;
+  text-indent: 3rem;
+  text-align: center;
+}

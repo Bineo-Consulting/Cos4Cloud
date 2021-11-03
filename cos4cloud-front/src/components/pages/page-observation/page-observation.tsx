@@ -189,10 +189,11 @@ export class PageObservation {
             placeholder={this.i18n.filters.search_species}
             onChoose={(e) => this.onSpecie(e)}
             service={GbifService}></app-searchbar>
-          <ion-item>
+          <ion-item class="comments-wrapper">
             {/*fixed" | "floating" | "stacked*/}
             <ion-label position="floating">{this.i18n.comments.comments}</ion-label>
             <ion-textarea
+              position="floating"
               onIonChange={(ev) => this.body = ev.detail.value}
               rows="6"
               cols="20"

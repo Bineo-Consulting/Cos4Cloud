@@ -45,15 +45,15 @@ body {
   --fz-btn: 1.6rem;
   /* colors */
   --c-0: #fff;
-  --c-1: #626262;
+  --c-1: #222;
   --c-2: #3f51b5;
-  --c-3: #eaeaea;
+  --c-3: #028559;
   --c-4: #525252;
 
   /* IONIC */
   --ion-font-family: var(--main-font), inherit;
-  --ion-color-primary: #525252;
-  --ion-color-primary-rgb: 98, 98, 98;
+  --ion-color-primary: #222;
+  --ion-color-primary-rgb: 22, 22, 22;
   --ion-color-primary-contrast: #fff;
   --ion-color-primary-contrast-rgb: 255, 255, 255;
   --ion-color-primary-shade: #727272;

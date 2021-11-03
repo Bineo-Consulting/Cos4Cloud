@@ -47,8 +47,7 @@ export class PageHome {
             <app-search onSearch={(ev) => this.search(ev.detail)}></app-search>
           </div>
         </header>
-        <h3 innerHTML={this.i18n.last_obersations}></h3>
-        <app-grid items={this.items} images={this.images}></app-grid>
+        <app-grid title={this.i18n.last_obersations} items={this.items} images={this.images}></app-grid>
         <app-footer></app-footer>
       </Host>
     );

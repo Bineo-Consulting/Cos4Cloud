@@ -78,3 +78,7 @@ ion-slide {
   height: 4rem;
   margin-inline: 0;
 }
+.comments-wrapper {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}

@@ -2,6 +2,7 @@ import { Component, Host, Prop, State, h } from '@stencil/core';
 import { MappingService } from '../../../services/mapping.service';
 import { RouterHistory } from '@stencil/router';
 import { toQueryString } from '../../../utils/to-query-string';
+import { fetchTranslations } from '../../../utils/translation';
 
 @Component({
   tag: 'page-observations',
@@ -16,9 +17,16 @@ export class PageObservations {
   @State() images: any = {}
   perPage: number = 30;
   @State() loading: boolean = true;
+  @State() state = {
+    empty: false
+  }
 
-  componentWillLoad() {
-    // this.calcPerPage()
+  i18n: any = {
+    no_results: 'No results'
+  }
+
+  async componentWillLoad() {
+    this.i18n = await fetchTranslations(this.i18n)
     const queryParams = this.history.location.query
     queryParams.page = null
     this.page = 0
@@ -29,6 +37,7 @@ export class PageObservations {
       this.loadImages()
       this.loadingDismiss()
       this.loading = false
+      this.state = {empty:  !this.items.length}
     })
     .catch((_) => {
       // alert(error)
@@ -72,6 +81,7 @@ export class PageObservations {
       } else {
         this.items = res
       }
+      this.state = {empty:  !this.items.length}
       this.loading = false
     })
     .catch((_) => {
@@ -145,6 +155,7 @@ export class PageObservations {
           onSearch={(ev) => this.search(ev.detail, true)}></app-search>
         <app-download onDownload={(e) => this.download(e)}/>
         <app-grid
+          empty={this.state.empty ? this.i18n.no_results : ''}
           onLoadmore={() => this.loadMore()}
           show-spinner={this.loading}
           items={this.items}

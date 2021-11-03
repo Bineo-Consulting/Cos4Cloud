@@ -77,7 +77,7 @@ export class DownloadHistory {
     l.dismiss()
   }
 
-  view(query, reason) {
+  view(query) {
     this.history.push(`/observations${toQueryString(query)}`, {})
   }
 
@@ -102,7 +102,7 @@ export class DownloadHistory {
               </div>
             </ion-label>
             <ion-button onClick={() => this.download(item.query, item.reason)}>{this.i18n.download.re_run}</ion-button>
-            <ion-button fill="clear" shape="round" size="small" onClick={() => this.view(item.query, item.reason)}>
+            <ion-button fill="clear" shape="round" size="small" onClick={() => this.view(item.query)}>
               {this.i18n.download.view}
             </ion-button>
           </ion-item>))}
