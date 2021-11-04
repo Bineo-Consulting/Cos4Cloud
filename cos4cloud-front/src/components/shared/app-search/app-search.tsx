@@ -298,11 +298,16 @@ export class AppSearch {
           return null
         }
 
-        dateInput.innerHTML = when
-        const [mm, dd, yyyy] = (when.split(' – ')[0] || '').split('/')
-        const [mm2, dd2, yyyy2] = (when.split(' – ')[1] || '').split('/')
-        this.date.minEventDate = [yyyy, mm, dd].join('-')
-        this.date.maxEventDate = [yyyy2, mm2, dd2].join('-')
+        const leftDate = when.split(' – ')[0] || ''
+        const rightDate = when.split(' – ')[1] || ''
+        const [mm, dd, yyyy] = leftDate.split('/')
+        const [mm2, dd2, yyyy2] = rightDate.split('/')
+        this.date.minEventDate = leftDate.length > 4 ? [yyyy, mm, dd].join('-') : null
+        this.date.maxEventDate = rightDate.length > 4 ? [yyyy2, mm2, dd2].join('-') : null
+        dateInput.innerHTML = [
+          leftDate.length > 4 ? [yyyy, mm, dd].join('/') : '',
+          rightDate.length > 4 ? [yyyy2, mm2, dd2].join('/') : ''
+        ].filter(Boolean).join(' – ')
         this.refs.dateInput.classList.add('active')
       })
       // const rest = window['innerHeight'] - $event.clientY

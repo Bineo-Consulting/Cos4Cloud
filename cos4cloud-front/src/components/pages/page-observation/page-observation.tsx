@@ -26,8 +26,8 @@ export class PageObservation {
     speed: 400
   };
   id: string;
-  body: string | void;
-  specie: string;
+  @State() body: string | void;
+  @State() specie: string;
   i18n: any = {
     need_login: 'You need to be logged',
     search_species: 'Search species',
@@ -59,6 +59,8 @@ export class PageObservation {
   async componentWillLoad() {
     this.i18n = await fetchTranslations(this.i18n)
     this.id = this.match.params.id
+    this.specie = ''
+    this.body = ''
     this.item = MappingService.getCache(this.id)
     this.loading = this.presentLoading()
     MappingService.getById(this.id)
@@ -187,13 +189,14 @@ export class PageObservation {
           <app-searchbar
             value={this.specie}
             placeholder={this.i18n.filters.search_species}
-            onChoose={(e) => this.onSpecie(e)}
+            onChoose={e => this.onSpecie(e)}
             service={GbifService}></app-searchbar>
           <ion-item class="comments-wrapper">
             {/*fixed" | "floating" | "stacked*/}
             <ion-label position="floating">{this.i18n.comments.comments}</ion-label>
             <ion-textarea
               position="floating"
+              value={this.body}
               onIonChange={(ev) => this.body = ev.detail.value}
               rows="6"
               cols="20"
