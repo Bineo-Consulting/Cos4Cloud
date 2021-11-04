@@ -141,7 +141,7 @@ module.exports = class MappingService {
           const mapp = originConfig.mapping || ((i) => i)
           if (res && res.results) return res.results.map(mapp)
           if (res && res.observations) return res.observations.map(mapp)
-          else return res.map(mapp)
+          else return res && res.map ? res.map(mapp) : []
         })
       }
       return []
