@@ -1,45 +1,46 @@
 {
-  "home_title": "Toda la biodiversidad<br/>en un solo lugar",
+  "home_title": "Todas la biodiversidad<br/>en un único lugar",
   "observations": "observaciones",
-  "last_obersations": "Observaciones recientes",
-  "need_login": "Necesitas estar logueado",
+  "last_obersations": "Últimas observaciones",
+  "need_login": "Debes estar logueado",
   "share": "Compartir",
   "social": "en redes sociales",
   "english": "Inglés",
   "spanish": "Español",
   "french": "Francés",
-  "german": "Aleman", 
-  "menu":{
+  "german": "Alemán",
+  "no_results": "Sin resultados",
+  "menu": {
     "logout": "Cerrar sesión",
     "settings": "Configuración",
     "history": "Historial de descargas"
   },
-  "login":{    
-    "login": "Acceso",
+  "login": {
+    "login": "Iniciar sesión",
     "user": "Usuario",
     "password": "Contraseña",
-    "message": "Va a loguearse a través del Sistema Federeado de Authenix. Para más información puede consultar la página del servicio en"
+    "message": "Vas a iniciar sesión haciendo uso del sistema Federado de Authenix, para más información visita la web"
   },
-  "filters":{
-    "search_species": "Buscar especie",
-    "search_places": "Buscar lugar",
+  "filters": {
+    "search_species": "Buscar especies",
+    "search_places": "Buscar lugares",
     "filter": "Filtros",
-    "types": "Tipos",    
-    "search": "Buscar",    
+    "types": "Tipos",
+    "search": "Buscar",
     "quality": "Calidad",
     "research": "Investigación",
     "casual": "Casual",
     "with_geo": "Con geo",
-    "with_photos": "Sin fotos",
+    "with_photos": "Fotografías",
     "licenses": "Licencias",
     "date": "Fecha",
-    "portals": "Observatorios",
-    "geo": "localización",
+    "portals": "Portales",
+    "geo": "Con geolocalización",
     "photos": "Fotos"
   },
-  "user":{
+  "user": {
     "logout": "Cerrar sesión",
-    "info": "Info.",
+    "info": "Información",
     "role": "Rol",
     "identifications": "identificaciones",
     "species": "especies",
@@ -48,7 +49,7 @@
     "description": "Descripción",
     "update": "Actualizar"
   },
-  "profile":{
+  "profile": {
     "nickname": "Alias",
     "name": "Nombre",
     "email": "Email",
@@ -56,54 +57,55 @@
     "city": "Ciudad",
     "comments": "Comentarios",
     "identifications": "Identificaciones",
-    "email-noti": "Email (para notificaciones)"
+    "email-noti": "Email para notificaciones por correo electrónico"
   },
-  "stats":{
+  "stats": {
     "comments_identi": "Comentarios e Identificaciones",
     "all": "Todo",
-    "comm_id_by_portal": "% Comentarios e Identificaciones por portales",
-    "downloads": "Descargas",
-    "downloads_reasons": "% Razones de descarga"
+    "comm_id_by_portal": "% Comentarios e identificaciones por Portal",
+    "downloads": "Descargar",
+    "downloads_reasons": "Razón de la descarga"
   },
-  "download":{
+  "download": {
     "download_title": "Descargar",
-    "download_title_modal": "Selecciona la(s) razones de descarga:",
-    "download_history": "Historial decargas",
+    "download_title_modal": "Seleccione su razón(es) de descarga:",
+    "download_history": "Historial de descargas",
     "format": "Formato",
-    "re_run": "Descargar",
+    "re_run": "Ver",
     "view": "Ver"
   },
-  "downloads_reasons_type":{
-    "biosecurity management/planning": "Gestión/Planificación de la bioseguridad",
+  "downloads_reasons_type": {
+    "biosecurity management/planning": "Conservación manejo/plan",
     "citizen science": "Ciencia Ciudadana",
     "collection management": "Gestión de colecciones",
-    "conservation management/planning": "Gestión/Planificación de la conservación",
+    "conservation management/planning": "Conservación manejo/plan",
     "ecological research": "Investigación ecológica",
     "education": "Educación",
-    "environmental assessment": "Evaluación ambiental",
+    "environmental assessment": "Gestión medioambiental",
     "restoration/remediation": "Restauración/Remediación",
     "scientific research": "Investigación científica",
-    "systematic research/taxonomy": "Investigación sistemática/Taxonomía",
+    "systematic research/taxonomy": "Investigación sistemática/taxonomía",
     "species modelling": "Modelado de especies",
-    "testing": "Test",
-    "other": "Otra"
+    "testing": "Prueba",
+    "other": "Otro"
   },
   "comments": {
     "comments": "Comentarios",
     "identification": "Identificaciones",
-    "type_comment": "Escribe tus comentarios...",
+    "type_comment": "Escriba su comentario...",
     "add_identification": "Enviar",
-    "has_identified": "observación identificada",
+    "has_identified": "Observación identificada",
     "add_comment_identification": "Añadir comentario/identificación",
-    "help": " (Necesito ayuda)",
+    "help": " (Necesita ayuda)",
     "someone": "Alguien"
   },
   "footer": {
-    "about": "Sobre nosotros",
+    "about": "Acerca de",
     "help": "Ayuda",
     "privacy": "Política de privacidad",
-    "term": "Términos y condiciones",
+    "term": "Términos de Servicio",
     "contact": "Contacto",
-    "follow_us": "Síguenos:"
+    "follow_us": "Síganos:",
+    "h2020": "Este proyecto ha recibido fondos de Programa Horizon H2020 de Investigación e Innovación de la Unión Europea bajo el Acuerdo No 863463"
   }
 }
