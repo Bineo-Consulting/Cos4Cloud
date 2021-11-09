@@ -1,0 +1,111 @@
+{
+  "home_title": "Alle Beobachtungen über die biologischen Vielfalt<br/> an einem Ort",
+  "observations": "Beobachtungen",
+  "last_obersations": "Neueste Beobachtungen",
+  "need_login": "Sie müssen angemeldet sein",
+  "share": "Teilen",
+  "social": "auf sozialen Netzwerken",
+  "english": "Englisch",
+  "spanish": "Spanisch",
+  "french": "Französisch",
+  "german": "Deutsch",
+  "no_results": "Keine Treffer",
+  "menu": {
+    "logout": "Abmelden",
+    "settings": "Einstellungen",
+    "history": "Download Historie"
+  },
+  "login": {
+    "login": "Anmelden",
+    "user": "Nutzer",
+    "password": "Passwort",
+    "message": "Sie werden nun über das Authenix Verbundsystem angemeldet. Mehr Informationen finden sie im Web"
+  },
+  "filters": {
+    "search_species": "Arten suchen",
+    "search_places": "Orte suchen",
+    "filter": "Filtern",
+    "types": "Typen",
+    "search": "Suche",
+    "quality": "Qualität",
+    "research": "Forschen",
+    "casual": "Nicht bestätigt",
+    "with_geo": "Mit Geometrie",
+    "with_photos": "Mit Bildern",
+    "licenses": "Lizenzen",
+    "date": "Datum",
+    "portals": "Portale",
+    "geo": "Mit Standort",
+    "photos": "Bilder"
+  },
+  "user": {
+    "logout": "Abmelden",
+    "info": "Info",
+    "role": "Rolle",
+    "identifications": "Bestimmungen",
+    "species": "Arten",
+    "types": "Typen",
+    "city": "Stadt",
+    "description": "Beschreibung",
+    "update": "Aktualisierung"
+  },
+  "profile": {
+    "nickname": "Alias",
+    "name": "Name",
+    "email": "E-Mail",
+    "profession": "Beruf",
+    "city": "Stadt",
+    "comments": "Kommentare",
+    "identifications": "Bestimmungen",
+    "email-noti": "E-Mail (für Benachrichtigungen)"
+  },
+  "stats": {
+    "comments_identi": "Kommentare und Bestimmungen",
+    "all": "Alles",
+    "comm_id_by_portal": "% Kommentare & Identifikationen nach Portal",
+    "downloads": "Herunterladen",
+    "downloads_reasons": "Grund des Downloads"
+  },
+  "download": {
+    "download_title": "Herunterladen",
+    "download_title_modal": "Wählen Sie einen Grund für das Herunterladen:",
+    "download_history": "Download Historie",
+    "format": "Format",
+    "re_run": "Erneut ausführen",
+    "view": "Ansicht"
+  },
+  "downloads_reasons_type": {
+    "biosecurity management/planning": "Biosecurity management/planning",
+    "citizen science": "Citizen Science",
+    "collection management": "Sammlungsmanagement",
+    "conservation management/planning": "Naturschutzmanagement/-planung",
+    "ecological research": "Ökologische Untersuchung",
+    "education": "Bildung",
+    "environmental assessment": "Umweltbewertung",
+    "restoration/remediation": "Renaturierung/Wiederherstellung",
+    "scientific research": "Wissenschaftliche Untersuchungen",
+    "systematic research/taxonomy": "Systematische Forschung, Taxonomie",
+    "species modelling": "Artenmodellierung",
+    "testing": "Test",
+    "other": "Sonstiges"
+  },
+  "comments": {
+    "comments": "Kommentare",
+    "identification": "Bestimmungen",
+    "type_comment": "Schreiben Sie Ihren Kommentar...",
+    "add_identification": "Senden",
+    "has_identified": "Beobachtung bestimmen",
+    "add_comment_identification": "Kommentare/Bestimmungen hinzufügen",
+    "help": " (Sie benötigen Hilfe)",
+    "someone": "Jemand"
+  },
+  "footer": {
+    "about": "Über",
+    "help": "Hilfe",
+    "privacy": "Datenschutzbestimmungen",
+    "term": "Nutzungsbedingungen",
+    "contact": "Kontakt",
+    "follow_us": "Folgen Sie uns:",
+    "h2020": "Dieses Projekt wurde durch das Forschungs- und Innovationsprogramm der Europäischen Union im Rahmen des Grant Agreement No. 863463 finanziert"
+  }
+}
