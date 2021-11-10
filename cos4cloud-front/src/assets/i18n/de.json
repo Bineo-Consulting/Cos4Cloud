@@ -1,109 +1,111 @@
 {
-  "home_title": "Alle Beobachtungen der Biodiversität<br/>an einem Ort",
+  "home_title": "Alle Beobachtungen über die biologischen Vielfalt<br/> an einem Ort",
   "observations": "Beobachtungen",
-  "last_obersations": "Letzte Beobachtungen",
-  "need_login": "Du musst angemeldet sein",
+  "last_obersations": "Neueste Beobachtungen",
+  "need_login": "Sie müssen angemeldet sein",
   "share": "Teilen",
-  "social": "in sozialen Netzwerken",  
-  "english": "English",
-  "spanish": "Spanish",
-  "french": "French",
-  "german": "German",
-  "menu":{
-    "logout": "Ausloggen",
-    "settings": "Einstellung",
-    "history": "Verlauf herunterladen"
+  "social": "auf sozialen Netzwerken",
+  "english": "Englisch",
+  "spanish": "Spanisch",
+  "french": "Französisch",
+  "german": "Deutsch",
+  "no_results": "Keine Treffer",
+  "menu": {
+    "logout": "Abmelden",
+    "settings": "Einstellungen",
+    "history": "Download Historie"
   },
-  "login":{
-    "login": "Login",
-    "user": "Benutzer",
-    "password": "Password",
-    "message": "Sie werden sich mit einem Authenix Federeate-System anmelden. Weitere Informationen finden Sie im Internet"    
+  "login": {
+    "login": "Anmelden",
+    "user": "Nutzer",
+    "password": "Passwort",
+    "message": "Sie werden nun über das Authenix Verbundsystem angemeldet. Mehr Informationen finden sie im Web"
   },
-  "filters":{
+  "filters": {
     "search_species": "Arten suchen",
     "search_places": "Orte suchen",
-    "filter": "Filter",
-    "types": "Typen",    
-    "search": "Suche",    
+    "filter": "Filtern",
+    "types": "Typen",
+    "search": "Suche",
     "quality": "Qualität",
-    "research": "die Forschung",
-    "casual": "Beiläufig",
-    "with_geo": "Mit Geo",
-    "with_photos": "Mit Fotos",
-    "licenses": "Licences",
+    "research": "Forschen",
+    "casual": "Nicht bestätigt",
+    "with_geo": "Mit Geometrie",
+    "with_photos": "Mit Bildern",
+    "licenses": "Lizenzen",
     "date": "Datum",
     "portals": "Portale",
-    "geo": "die Lokalisierung",
-    "photos": "Fotos"
+    "geo": "Mit Standort",
+    "photos": "Bilder"
   },
-  "user":{
-    "logout": "Ausloggen",
+  "user": {
+    "logout": "Abmelden",
     "info": "Info",
     "role": "Rolle",
-    "identifications": "Identifikationen",
-    "species": "spezies",
+    "identifications": "Bestimmungen",
+    "species": "Arten",
     "types": "Typen",
     "city": "Stadt",
     "description": "Beschreibung",
-    "update": "Aktualisieren"
+    "update": "Aktualisierung"
   },
-  "profile":{
+  "profile": {
     "nickname": "Alias",
     "name": "Name",
-    "email": "Email",
+    "email": "E-Mail",
     "profession": "Beruf",
     "city": "Stadt",
     "comments": "Kommentare",
-    "identifications": "Identifikationen",
-    "email-noti": "Email (für Benachrichtigungen)"
+    "identifications": "Bestimmungen",
+    "email-noti": "E-Mail (für Benachrichtigungen)"
   },
-  "stats":{
-    "comments_identi": "Kommentare und Identifizierungen",
-    "all": "Alle",
-    "comm_id_by_portal": "% Kommentare und Identifizierungen nach Portal",
+  "stats": {
+    "comments_identi": "Kommentare und Bestimmungen",
+    "all": "Alles",
+    "comm_id_by_portal": "% Kommentare & Identifikationen nach Portal",
     "downloads": "Herunterladen",
-    "downloads_reasons": "% Gründe herunterladen"
+    "downloads_reasons": "Grund des Downloads"
   },
-  "download":{
+  "download": {
     "download_title": "Herunterladen",
-    "download_title_modal": "Wählen Sie Ihre(n) Download-Grund(e):",
-    "download_history": "Verlauf herunterladen",
+    "download_title_modal": "Wählen Sie einen Grund für das Herunterladen:",
+    "download_history": "Download Historie",
     "format": "Format",
-    "re_run": "Herunterladen",    
-    "view": "View"    
+    "re_run": "Erneut ausführen",
+    "view": "Ansicht"
   },
-  "downloads_reasons_type":{
-    "biosecurity management/planning": "Biosicherheitsmanagement/-planung",
-    "citizen science": "Bürgerwissenschaft",
-    "collection management": "Sammlungsverwaltung",
-    "conservation management/planning": "Naturschutzmanagement/-planungg",
-    "ecological research": "Ökologische Forschung",
-    "education": "Ausbildung",
-    "environmental assessment": "Umweltprüfung",
-    "restoration/remediation": "Wiederherstellung/Sanierung",
-    "scientific research": "Wissenschaftliche Untersuchung",
-    "systematic research/taxonomy": "Systematische Forschung/Taxonomie",
+  "downloads_reasons_type": {
+    "biosecurity management/planning": "Biosecurity management/planning",
+    "citizen science": "Citizen Science",
+    "collection management": "Sammlungsmanagement",
+    "conservation management/planning": "Naturschutzmanagement/-planung",
+    "ecological research": "Ökologische Untersuchung",
+    "education": "Bildung",
+    "environmental assessment": "Umweltbewertung",
+    "restoration/remediation": "Renaturierung/Wiederherstellung",
+    "scientific research": "Wissenschaftliche Untersuchungen",
+    "systematic research/taxonomy": "Systematische Forschung, Taxonomie",
     "species modelling": "Artenmodellierung",
-    "testing": "Prüfen",
-    "other": "Andere"
+    "testing": "Test",
+    "other": "Sonstiges"
   },
   "comments": {
     "comments": "Kommentare",
-    "identification": "Identifikationen",
-    "type_comment": "Schreiben Sie Ihre Kommentare...",
+    "identification": "Bestimmungen",
+    "type_comment": "Schreiben Sie Ihren Kommentar...",
     "add_identification": "Senden",
-    "has_identified": "Identifizierte Beobachtung",
-    "add_comment_identification": "Kommentar/Kennung hinzufügen",
-    "help": " (Brauchen Sie Hilfe)",
+    "has_identified": "Beobachtung bestimmen",
+    "add_comment_identification": "Kommentare/Bestimmungen hinzufügen",
+    "help": " (Sie benötigen Hilfe)",
     "someone": "Jemand"
   },
   "footer": {
     "about": "Über",
     "help": "Hilfe",
-    "privacy": "Datenschutz-Bestimmungen",
+    "privacy": "Datenschutzbestimmungen",
     "term": "Nutzungsbedingungen",
     "contact": "Kontakt",
-    "follow_us": "Folge uns:"
+    "follow_us": "Folgen Sie uns:",
+    "h2020": "Dieses Projekt wurde durch das Forschungs- und Innovationsprogramm der Europäischen Union im Rahmen des Grant Agreement No. 863463 finanziert"
   }
 }

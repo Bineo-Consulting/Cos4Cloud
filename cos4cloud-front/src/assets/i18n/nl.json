@@ -1,0 +1,111 @@
+{
+  "home_title": "Alle biodiversiteit<br/>waarnemingen op één plek",
+  "observations": "waarnemingen",
+  "last_obersations": "Laatste waarnemingen",
+  "need_login": "Je moet inloggen",
+  "share": "Deel",
+  "social": "op sociale netwerken",
+  "english": "Engels",
+  "spanish": "Spaans",
+  "french": "Frans",
+  "german": "Duits",
+  "no_results": "No results",
+  "menu": {
+    "logout": "Uitloggen",
+    "settings": "Instellingen",
+    "history": "Download geschiedenis"
+  },
+  "login": {
+    "login": "Aanmelden",
+    "user": "Gebruiker",
+    "password": "Wachtwoord",
+    "message": "U gaat inloggen met behulp van een Authenix Federeate systeem, voor meer informatie bezoek het web"
+  },
+  "filters": {
+    "search_species": "Soorten zoeken",
+    "search_places": "Zoek plaatsen",
+    "filter": "Filters",
+    "types": "Typen",
+    "search": "Zoeken",
+    "quality": "Kwaliteit",
+    "research": "Onderzoek",
+    "casual": "Casual",
+    "with_geo": "Met geo",
+    "with_photos": "Met foto's",
+    "licenses": "Licenties",
+    "date": "Datum",
+    "portals": "Portals",
+    "geo": "Met geolokalisatie",
+    "photos": "Foto's"
+  },
+  "user": {
+    "logout": "Uitloggen",
+    "info": "Informatie",
+    "role": "Rol",
+    "identifications": "identificaties",
+    "species": "soorten",
+    "types": "types",
+    "city": "Stad",
+    "description": "Beschrijving",
+    "update": "Werk bij"
+  },
+  "profile": {
+    "nickname": "Alias",
+    "name": "Naam",
+    "email": "Email",
+    "profession": "Beroep",
+    "city": "Stad",
+    "comments": "Opmerkingen",
+    "identifications": "Identificaties",
+    "email-noti": "E-mail (voor meldingen)"
+  },
+  "stats": {
+    "comments_identi": "Opmerkingen en identificaties",
+    "all": "All",
+    "comm_id_by_portal": "% Comments & Identifications by Portal",
+    "downloads": "Download",
+    "downloads_reasons": "% Download reasons"
+  },
+  "download": {
+    "download_title": "Download",
+    "download_title_modal": "Select  your download reason(s):",
+    "download_history": "Download history",
+    "format": "Format",
+    "re_run": "Re-run",
+    "view": "View"
+  },
+  "downloads_reasons_type": {
+    "biosecurity management/planning": "Biosecurity management/planning",
+    "citizen science": "Citizen Science",
+    "collection management": "Collection management",
+    "conservation management/planning": "Conservation management/planning",
+    "ecological research": "Ecological research",
+    "education": "Education",
+    "environmental assessment": "Environmental assessment",
+    "restoration/remediation": "Retoration/Remediation",
+    "scientific research": "Scientific investigation",
+    "systematic research/taxonomy": "Systematic research/taxonomy",
+    "species modelling": "Species modeling",
+    "testing": "Test",
+    "other": "Other"
+  },
+  "comments": {
+    "comments": "Comments",
+    "identification": "Identifications",
+    "type_comment": "Write your comments...",
+    "add_identification": "Send",
+    "has_identified": "Identified observation",
+    "add_comment_identification": "Add comment/identification",
+    "help": " (Need help)",
+    "someone": "Someone"
+  },
+  "footer": {
+    "about": "About",
+    "help": "Help",
+    "privacy": "Privacy Policy",
+    "term": "Terms of Service",
+    "contact": "Contact",
+    "follow_us": "Follow us:",
+    "h2020": "This project has received funding from the European Union’s Horizon 2020 Research and Innovation Programme under Grant Agreement No 863463"
+  }
+}

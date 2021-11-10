@@ -1,0 +1,111 @@
+{
+  "home_title": "All observationer av<br/>biologisk mångfald på ett ställe",
+  "observations": "fynd",
+  "last_obersations": "Senaste fynd",
+  "need_login": "Du måste vara inloggad",
+  "share": "Dela",
+  "social": "på sociala nätverk",
+  "english": "Engelska",
+  "spanish": "Spanska",
+  "french": "Franska",
+  "german": "Tyska",
+  "no_results": "No results",
+  "menu": {
+    "logout": "Logga ut",
+    "settings": "Inställningar",
+    "history": "Nedladdningshistorik"
+  },
+  "login": {
+    "login": "Logga in",
+    "user": "Användare",
+    "password": "Lösenord",
+    "message": "Du kommer att logga in med hjälp av ett Authenix Federeate-system, för mer information besök webben"
+  },
+  "filters": {
+    "search_species": "Sök arter",
+    "search_places": "Sök platser",
+    "filter": "Filter",
+    "types": "Typer",
+    "search": "Sök",
+    "quality": "Kvalitet",
+    "research": "Forskning",
+    "casual": "Enkel",
+    "with_geo": "Med geo",
+    "with_photos": "Med bilder",
+    "licenses": "Licenser",
+    "date": "Datum",
+    "portals": "Portaler",
+    "geo": "Med geolokalisering",
+    "photos": "Bilder"
+  },
+  "user": {
+    "logout": "Logga ut",
+    "info": "Info",
+    "role": "Roll",
+    "identifications": "bestämningar",
+    "species": "arter",
+    "types": "typer",
+    "city": "Stad",
+    "description": "Beskrivning",
+    "update": "Uppdatera"
+  },
+  "profile": {
+    "nickname": "Alias",
+    "name": "Namn",
+    "email": "E-post",
+    "profession": "Yrke",
+    "city": "Stad",
+    "comments": "Kommentarer",
+    "identifications": "Bestämningar",
+    "email-noti": "E-post (för aviseringar)"
+  },
+  "stats": {
+    "comments_identi": "Kommentarer och bestämningar",
+    "all": "Alla",
+    "comm_id_by_portal": "% Kommentarer och bestämningar efter Portal",
+    "downloads": "Ladda ned",
+    "downloads_reasons": "% Nedladdningsskäl"
+  },
+  "download": {
+    "download_title": "Ladda ned",
+    "download_title_modal": "Välj dina nedladdningsskäl:",
+    "download_history": "Nedladdningshistorik",
+    "format": "Format",
+    "re_run": "Kör om",
+    "view": "Visa"
+  },
+  "downloads_reasons_type": {
+    "biosecurity management/planning": "Biosäkerhetshantering/planering",
+    "citizen science": "Medborgarforskning",
+    "collection management": "Samlingshantering",
+    "conservation management/planning": "Naturvårdsförvaltning/-planering",
+    "ecological research": "Ekologisk forskning",
+    "education": "Utbildning",
+    "environmental assessment": "Miljöbedömning",
+    "restoration/remediation": "Restaurering/Sanering",
+    "scientific research": "Vetenskaplig undersökning",
+    "systematic research/taxonomy": "Systematikforskning/taxonomi",
+    "species modelling": "Artmodellering",
+    "testing": "Test",
+    "other": "Annat"
+  },
+  "comments": {
+    "comments": "Kommentarer",
+    "identification": "Bestämningar",
+    "type_comment": "Skriv en kommentar...",
+    "add_identification": "Skicka",
+    "has_identified": "Bestämt fynd",
+    "add_comment_identification": "Lägg till kommentar/bestämning",
+    "help": " (Behöver hjälp)",
+    "someone": "Någon"
+  },
+  "footer": {
+    "about": "Om",
+    "help": "Hjälp",
+    "privacy": "Integritetspolicy",
+    "term": "Användarvillkor",
+    "contact": "Kontakt",
+    "follow_us": "Följ oss:",
+    "h2020": "This project has received funding from the European Union’s Horizon 2020 Research and Innovation Programme under Grant Agreement No 863463"
+  }
+}
