@@ -61,7 +61,6 @@ export class AppFooter {
             <div class="eu">
               {this.i18n.footer.h2020}
               <img src="/assets/img/eu.jpg" width="100"/>
-              }
             </div>
           </div>
         </footer>

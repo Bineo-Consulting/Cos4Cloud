@@ -213,7 +213,7 @@ export class MappingService {
       type: undefined,
       token: user.access_token,
       sub: user.sub,
-      body: p.body || 'by Cos4Cloud'
+      body: p.comment || p.body || 'by Cos4Cloud'
     }
     const q = toQueryString(params)
     // return fetch(`https://natusfera.gbif.es/observations/add_identification?${q}`)

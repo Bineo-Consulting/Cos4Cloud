@@ -126,7 +126,8 @@ export class PageObservation {
     if (localStorage.user) {
       await MappingService.addIdentification({
         parent_id: this.id,
-        body: this.body,
+        // body: this.body,
+        comment: this.body,
         taxon: this.specie
       })
       this.componentWillLoad()
