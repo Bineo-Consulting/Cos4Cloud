@@ -75,7 +75,8 @@ const dwcParseNatusfera = (item) => {
   aux.decimalLongitude = item.longitude || item.longitud
 
   // comments
-  aux.comments = (item.comments || []).map(item => {
+  aux.comments = (item.comments || [])
+  .map(item => {
     return {
       "createdAt": new Date(item.created_at),
       "updatedAt": new Date(item.updated_at),
@@ -87,7 +88,8 @@ const dwcParseNatusfera = (item) => {
       "user": { login: (item.user || {}).login }
     }
   })
-  aux.identifications = (item.identifications || []).map(item => {
+  aux.identifications = (item.identifications || [])
+  .map(item => {
     return {
       "createdAt": new Date(item.created_at),
       "updatedAt": new Date(item.updated_at),

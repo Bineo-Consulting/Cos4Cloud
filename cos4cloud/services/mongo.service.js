@@ -18,7 +18,7 @@ function randomDate(start, end) {
 const get = async (ref, id, opts) => {
   const db = await connectToDatabase();
 
-  if (id) {
+  if (id && typeof id === 'string') {
     const data = await db.collection(ref).findOne({ _id: id })
     return data;
   } else {

@@ -24,21 +24,22 @@ const add = {
       taxon,
       type,
       token,
-      body
+      body,
+      comment
     } = params
 
     p.observation_id = params.id
     p.user_id = 1 // Default
-    p.body = p.body || 'by Cos4Cloud'
+    p.body = p.comment || p.body || 'by Cos4Cloud'
     const q = toQueryString(p)
 
-    return fetch(`https://natusfera.gbif.es/observations/add_identification?${q}`)
+    return fetch(`https://natusfera.gbif.es/observations/add_identification${q}`)
     .then(r => r.text())
     .then(r => console.log(r))
   },
   plantnet: (path, params) => {
     const { host, token } = PlantnetService.config
-    const { id, taxon, body } = params
+    const { id, taxon, body, comment } = params
 
     return fetch(`${host}/observations/${id}/votes/determination?api-key=${token}`, {
       method: 'POST',
@@ -67,7 +68,6 @@ module.exports = class CommentsService {
     const { observation_id } = params
     const [origin, id] = observation_id.split('-')
 
-    const tokenInfo = await Auth.userinfo(params.token)
     const userInfo = await Auth.info(params.token)
 
     // await Mongo.delete('comments', null)
@@ -78,10 +78,9 @@ module.exports = class CommentsService {
       parent_id: id,
       taxon: params.taxon || null,
       type: params.taxon ? 'identification' : 'comment',
-      body: params.body
+      body: params.comment || params.body
     })
 
-    console.log(path, { ...params, id })
     return add[origin](path, { ...params, id })
   }
 

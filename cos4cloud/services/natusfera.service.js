@@ -57,8 +57,10 @@ const dwcParseNatusfera = (item) => {
   aux.decimalLatitude = item.latitude
   aux.decimalLongitude = item.longitude
 
+  aux.identifications_count = (item.identifications || []).length
+  aux.comments_count = (item.comments || []).length
   // comments
-  aux.comments = (item.comments || []).map(item => {
+  aux.comments = [...(item.comments || []), ...(item.identifications || [])].map(item => {
     return {
       "createdAt": new Date(item.created_at),
       "updatedAt": new Date(item.updated_at),
@@ -70,20 +72,21 @@ const dwcParseNatusfera = (item) => {
       "user": { login: (item.user || {}).login }
     }
   })
-  aux.identifications = (item.identifications || []).map(item => {
-    return {
-      "createdAt": new Date(item.created_at),
-      "updatedAt": new Date(item.updated_at),
-      "id": item.id,
-      "observation_id": item.observation_id,
-      "origin": aux.origin,
-      "taxon_id": item.taxon_id || null,
-      "user_id": item.user_id || null,
-      comment: item.body || null,
-      user: { login: (item.user || {}).login },
-      taxon: parseTaxon(item.taxon || {})
-    }
-  })
+  aux.identifications = [] // compatibility
+  // (item.identifications || []).map(item => {
+  //   return {
+  //     "createdAt": new Date(item.created_at),
+  //     "updatedAt": new Date(item.updated_at),
+  //     "id": item.id,
+  //     "observation_id": item.observation_id,
+  //     "origin": aux.origin,
+  //     "taxon_id": item.taxon_id || null,
+  //     "user_id": item.user_id || null,
+  //     comment: item.body || null,
+  //     user: { login: (item.user || {}).login },
+  //     taxon: parseTaxon(item.taxon || {})
+  //   }
+  // })
 
   return aux
 }

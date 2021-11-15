@@ -6,7 +6,7 @@ info:
 # during dev, should point to your local machine
 host: europe-west2-cos4cloud-2d9d3.cloudfunctions.net
 # basePath prefixes all resource paths 
-basePath: /api/dwc
+basePath: /api
 schemes:
   # tip: remove http to make production-grade
   - https
@@ -17,7 +17,7 @@ consumes:
 produces:
   - application/json
 paths:
-  /observations:
+  /dwc/observations:
     x-swagger-router-controller: observations
     get:
       tags:
@@ -106,7 +106,7 @@ paths:
           description: Error
           schema:
             $ref: "#/definitions/ErrorResponse"
-  /observation/{id}:
+  /dwc/observation/{id}:
     x-swagger-router-controller: observation
     get:
       tags:
@@ -230,12 +230,12 @@ paths:
           schema:
             $ref: "#/definitions/ErrorResponse"
   /comments/agg:
-    x-swagger-router-controller: comments
+    x-swagger-router-controller: generic
     get:
       tags:
         - Comments
       description: Show aggagations of comments/identifications by dates & origin
-      operationId: agg
+      operationId: generic
       parameters:
         - name: sub
           in: header
@@ -254,12 +254,12 @@ paths:
           schema:
             $ref: "#/definitions/ErrorResponse"
   /comments/search:
-    x-swagger-router-controller: comments
+    x-swagger-router-controller: generic
     get:
       tags:
         - Comments
       description: Show list of Comments/Identifications
-      operationId: CommentsSearch
+      operationId: generic
       responses:
         "200":
           description: Success
@@ -426,7 +426,6 @@ paths:
           description: Error
           schema:
             $ref: "#/definitions/ErrorResponse"
-
 # complex objects have schema definitions
 definitions:
   SuccessResponse:

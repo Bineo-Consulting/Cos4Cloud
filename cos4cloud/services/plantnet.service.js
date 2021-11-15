@@ -26,6 +26,38 @@ class PlantnetService {
     })
   }
 
+  /*
+  "votes": [
+    {
+      "determination":null,
+      "count":1,
+      "score":50.63,
+    },
+    {
+      "determination":"Nelumbo nucifera Gaertn.",
+      "count":2,
+      "score":18.89,
+      "selected":true,
+    },
+    {
+      "determination":"Nymphaea rubra Roxb. ex Salisb.",
+      "count":1,
+      "score":11.57,
+    }
+  ]
+
+  "createdAt":"2021-10-13T14:49:33.000Z",
+  "updatedAt":"2021-10-13T14:49:33.000Z",
+  "id":19625,
+  "origin":"Natusfera",
+  "user_id":1,
+  "comment":"comment v1",
+  "user":{
+    "login":"c4c",
+  }
+
+  */
+
   static mapping(item) {
     item.id = `${item.id}`.includes('-') ? item.id : `plantnet-${item.id}`
     item.eventDate = new Date(item.eventDate)
@@ -34,6 +66,23 @@ class PlantnetService {
 
     item.ownerInstitutionCodeProperty = 'plantnet'
     item.origin = 'plantnet'
+    if (item.votes) {
+      item.identifications = Object.values(item.votes).filter(i => i.determination).map(i => {
+        return {
+          id: i.score,
+          origin: 'plantnet',
+          user_id: 1,
+          taxon: { name: `${i.determination} (${i.score}%)` },
+          user: {
+            login: 'c4c',
+            name: 'c4c'
+          }
+        }
+      }).sort((a, b) => b.score - a.score).filter(Boolean)
+      item.identifications_count = item.identifications.length
+    }
+    item.comments = []
+    item.comments_count = 0
     return item
   }
 }
