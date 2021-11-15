@@ -43,8 +43,6 @@ export class PageUser {
     const user = JSON.parse(localStorage.user || 'false')
     this.owner = user ? user.sub === this.match.params.name : null
     this.info()
-
-    this.agg()
   }
   async share() {
     const modalElement: any = document.createElement('ion-modal');
@@ -61,55 +59,48 @@ export class PageUser {
   }
   info() {
     const url = resources.host + '/users/' + this.match.params.name
-    fetch(url)
-    .then(res => res.json())
-    .then(res => {
-      this.user = res
-    })
-  }
-  agg() {
-    fetch(resources.host + '/agg', {
+    fetch(url, {
       headers: {
         sub: this.match.params.name
       }
     })
     .then(res => res.json())
     .then(res => {
-      const call1 = (res) => {
-        this.commentsAgg = res
-        this.setChartCounter({
-          el: this.charts.commentsCountEl,
-          count: (res.comments_count || 0) + (res.identifications_count || 0),
-          title: `Comments &<br> Identifications`
-        })
-        this.setPeriodComments(this.periodComments)
-        this.setPie({
-          el: this.charts.origins,
-          agg: res.origins
-        })
-      }
-      const call2 = (res) => {
-        this.downloadsAgg = res
-        this.setChartCounter({
-          el: this.charts.downloadsCountEl,
-          count: res.downloads_count || 0,
-          title: this.i18n.stats.downloads
-        })
-        this.setPeriodDownloads(this.periodDownloads)
-        this.setPie({
-          el: this.charts.reasons,
-          agg: res.reasons
-        })
-      }
-      setTimeout(() => {
-        call1(res.comments)
-        call2(res.downloads)
-      }, 250)
-      setTimeout(() => {
-        call1(res.comments)
-        call2(res.downloads)
-      }, 450)
+      this.user = res
+      this.agg(res.agg)
     })
+  }
+  agg(res) {
+    const call1 = (res) => {
+      this.commentsAgg = res
+      this.setChartCounter({
+        el: this.charts.commentsCountEl,
+        count: (res.comments_count || 0) + (res.identifications_count || 0),
+        title: `Comments &<br> Identifications`
+      })
+      this.setPeriodComments(this.periodComments)
+      this.setPie({
+        el: this.charts.origins,
+        agg: res.origins
+      })
+    }
+    const call2 = (res) => {
+      this.downloadsAgg = res
+      this.setChartCounter({
+        el: this.charts.downloadsCountEl,
+        count: res.downloads_count || 0,
+        title: this.i18n.stats.downloads
+      })
+      this.setPeriodDownloads(this.periodDownloads)
+      this.setPie({
+        el: this.charts.reasons,
+        agg: res.reasons
+      })
+    }
+    setTimeout(() => {
+      call1(res.comments)
+      call2(res.downloads)
+    }, 250)
   }
 
   setPeriodComments(p) {
