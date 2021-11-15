@@ -20,6 +20,8 @@ export class PageObservation {
     $$identifications: []
   };
 
+  @State() comments: any[] = []
+
   slideOpts = {
     initialSlide: 1,
     slidesPerView: 1,
@@ -56,7 +58,10 @@ export class PageObservation {
   }
 
   loading: any;
+  checked = false
   async componentWillLoad() {
+    this.checked = false
+
     this.i18n = await fetchTranslations(this.i18n)
     this.id = this.match.params.id
     this.specie = ''
@@ -66,11 +71,22 @@ export class PageObservation {
     MappingService.getById(this.id)
     .then((res) => {
       this.item = res
+      const comments = [...res.$$comments, ...this.comments]
+      this.comments = comments.sort((a:any, b:any) => Date.parse(a.created_at) - Date.parse(b.created_at))
       this.loadingDismiss()
     })
     .catch((_) => {
       this.loadingDismiss()
     })
+
+    const [origin, id] = this.id.includes('-') ? this.id.split('-') : [this.id]
+
+    MappingService.getComments(id, origin)
+    .then((res) => {
+      const comments = [...this.item.$$comments, ...(res || [])]
+      this.comments = comments.sort((a:any, b:any) => Date.parse(a.created_at) - Date.parse(b.created_at))
+    })
+    .catch((_) => {})
   }
 
   componentDidLoad() {
@@ -136,6 +152,13 @@ export class PageObservation {
     }
   }
 
+  checkUser() {
+    if (!this.checked && !localStorage.user) {
+      this.checked = true
+      this.openModalLogin()
+    }
+  }
+
   render() {
     return (
       <Host>
@@ -171,18 +194,16 @@ export class PageObservation {
               <span class="origin-name">{this.item.origin} {this.item.id_please ? this.i18n.comments.help : ''}</span>
             </div>
 
-            <div class="origin">
+            {this.item.decimalLatitude && <div class="origin">
               <ion-icon size="small" name="location-outline"></ion-icon>
               <span class="origin-name" onClick={() => this.openMap()}>Lat {this.item.decimalLatitude}, Lon {this.item.decimalLongitude || this.item.decimalLongitud}</span>
-            </div>
+            </div>}
           </div>
         </div>
 
         <div class="contain">
-          {this.item.$$comments.map(comment =>
-            <app-comment item={comment}></app-comment>
-          )}
-          {this.item.$$identifications.map(identification =>
+          
+          {this.comments.map(identification =>
             <app-comment item={identification}></app-comment>
           )}
 
@@ -198,6 +219,7 @@ export class PageObservation {
             <ion-textarea
               position="floating"
               value={this.body}
+              onIonFocus={() => this.checkUser()}
               onIonChange={(ev) => this.body = ev.detail.value}
               rows="6"
               cols="20"

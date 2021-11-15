@@ -7,6 +7,7 @@ const publicDir = path.resolve(__dirname, 'public')
 const head = require('fs').readFileSync(path.resolve(publicDir, 'head.html'))
 
 const cloudHost = 'https://cos4bio.eu/api'
+
 const dev: boolean = process.argv && process.argv.indexOf('--dev') > -1;
 const apiEnv: string = dev ? 'dev' : 'prod';
 const HOST = process.env.HOST || (dev ? 'http://localhost:5001/cos4cloud-2d9d3/us-central1/api' : cloudHost)

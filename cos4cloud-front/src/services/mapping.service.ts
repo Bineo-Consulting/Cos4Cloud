@@ -13,6 +13,17 @@ const host = resources.host || cloudHost
 const url = `${host}/dwc/observations`
 const urliSpot = `${host}/images`
 
+const parseCommentsDwc = (items) => {
+  return items.map(identification => {
+    const c = {...identification}
+    c.$$date = timeAgo(c.created_at)
+    c.taxon = { name: c.taxon }
+    c.user = c.user
+    c.comment = c.body
+    return c
+  }).sort((a:any, b:any) => Date.parse(a.created_at) - Date.parse(b.created_at))
+}
+
 const parseDwc = (item) => {
   item.origin = item.origin || 'Natusfera'
   item.id = `${item.id}`.includes('-') ? item.id : `${item.origin.toLowerCase()}-${item.id}`
@@ -30,23 +41,15 @@ const parseDwc = (item) => {
   item.$$species_name = item.scientificName || item.species_name || (item.taxon || {}).name || 'Something...'
 
   item.$$comments = []
-  // item.$$comments = (item.comments || []).map(comment => {
-  //   const c = {...comment}
-  //   c.$$date = timeAgo(c.created_at)
-  //   return c
-  // }).sort((a:any, b:any) => Date.parse(a.created_at) - Date.parse(b.created_at))
-  // item.$$identifications = (item.identifications || []).map(identification => {
-  //   const c = {...identification}
-  //   c.$$date = timeAgo(c.created_at)
-  //   return c
-  // }).sort((a:any, b:any) => Date.parse(a.created_at) - Date.parse(b.created_at))
 
   item.$$identifications = [...(item.identifications || []), ...(item.comments || [])]
+  .filter(i => i.user_id !== 1)
   .map(identification => {
     const c = {...identification}
     c.$$date = timeAgo(c.created_at)
     return c
-  }).sort((a:any, b:any) => Date.parse(a.created_at) - Date.parse(b.created_at))
+  })
+  .sort((a:any, b:any) => Date.parse(a.created_at) - Date.parse(b.created_at))
 
   item.latitude = item.decimalLatitude
   item.latitud = item.decimalLatitude
@@ -73,6 +76,7 @@ export class MappingService {
     if (cache && this.cache && this.cache.last && this.cache.time > Date.now() - 90 * 1000) {
       return this.cache.last.map(parseDwc)
     }
+    console.log(url + queryParams)
     return fetch(url + queryParams)
     .then(res => res.json())
     .then(items => {
@@ -157,12 +161,15 @@ export class MappingService {
     item.$$date = timeAgo(item.created_at)
     item.$$species_name = item.species_name || (item.taxon || {}).name || 'Something...'
     item.origin = item.origin || 'Natusfera'
-    item.$$comments = (item.comments || []).map(comment => {
-      const c = {...comment}
-      c.$$date = timeAgo(c.created_at)
-      return c
-    }).sort((a:any, b:any) => Date.parse(a.created_at) - Date.parse(b.created_at))
-    item.$$identifications = (item.identifications || []).map(identification => {
+    // item.$$comments = []
+    // (item.comments || []).map(comment => {
+    //   const c = {...comment}
+    //   c.$$date = timeAgo(c.created_at)
+    //   return c
+    // }).sort((a:any, b:any) => Date.parse(a.created_at) - Date.parse(b.created_at))
+    item.$$comments = [...(item.identifications || []), ...(item.comments || [])]
+    .filter(i => i.user_id !== 1)
+    .map(identification => {
       const c = {...identification}
       c.$$date = timeAgo(c.created_at)
       return c
@@ -219,6 +226,19 @@ export class MappingService {
     // return fetch(`https://natusfera.gbif.es/observations/add_identification?${q}`)
     return fetch(`${host}/comments${q}`, {
       method: 'POST'
+    })
+  }
+
+  static getComments(id: any, origin) {
+    return fetch(`${host}/comments/search`, {
+      headers: {
+        parent_id: id,
+        parent_origin: origin
+      }
+    })
+    .then(res => res.json())
+    .then(res => {
+      return parseCommentsDwc(res)
     })
   }
 
