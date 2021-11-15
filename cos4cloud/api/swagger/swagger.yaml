@@ -277,7 +277,7 @@ paths:
       tags:
         - Users
       description: Show aggregations of users by dates
-      operationId: UsersAgg
+      operationId: users
       parameters:
         - name: sub
           in: header
@@ -301,7 +301,7 @@ paths:
       tags:
         - Users
       description: Show list of users
-      operationId: search
+      operationId: users
       responses:
         "200":
           description: Success
@@ -314,18 +314,36 @@ paths:
           schema:
             $ref: "#/definitions/ErrorResponse"
   /downloads/agg:
-    x-swagger-router-controller: Downloads
+    x-swagger-router-controller: generic
     get:
       tags:
         - Downloads
       description: Show aggregations of users by dates
-      operationId: DownloadsAgg
+      operationId: generic
       parameters:
         - name: sub
           in: header
           description: The user_id from Authenix
           required: false
           type: string
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/SuccessResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /downloads/search:
+    x-swagger-router-controller: generic
+    get:
+      tags:
+        - Downloads
+      description: Show list of Donwloads
+      operationId: generic
       responses:
         "200":
           description: Success
