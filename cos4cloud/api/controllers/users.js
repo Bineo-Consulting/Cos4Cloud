@@ -54,8 +54,14 @@ const users = async (req, res) => {
         const data = await Mongo.agg('users', { user_id: sub })
         return res.send(data)
       }
-      const aux = await Mongo.get('users', id)
-      return res.send(aux)
+
+      const [aux, comments, downloads, users] = await Promise.all([
+        Mongo.get('users', id),
+        Mongo.agg('comments', { user_id: sub }).then(JSON.parse),
+        Mongo.agg('downloads', { user_id: sub }).then(JSON.parse),
+        Mongo.agg('users', { user_id: sub }).then(JSON.parse)
+      ])
+      return res.send({...aux, agg: {comments, downloads, users}})
     case 'POST':
     case 'PUT':
       return handleUpdate(req, res)

@@ -154,6 +154,14 @@ exports.agg = async (ref, params) => {
     }
 
     if (ref === 'users') {
+      const reasonsAgg = await db.collection('downloads').aggregate([
+        { $match: query },
+        { $unwind: { path: '$reason', preserveNullAndEmptyArrays: true } },
+        { $group: { _id: '$reason', count: { $sum: 1 } } }
+      ]).toArray();
+
+      aux.reasons = [ ...reasonsAgg ]
+
       const professionAgg = await db.collection(ref).aggregate([
             { $match: query },
         { $unwind: { path: '$profession', preserveNullAndEmptyArrays: true } },

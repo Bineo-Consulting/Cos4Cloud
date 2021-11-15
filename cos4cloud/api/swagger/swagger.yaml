@@ -313,6 +313,62 @@ paths:
           description: Error
           schema:
             $ref: "#/definitions/ErrorResponse"
+  /users/{id}:
+    x-swagger-router-controller: users
+    get:
+      tags:
+        - Users
+      description: Show info + aggregations of user
+      operationId: users
+      parameters:
+        - name: id
+          in: path
+          description: The id of the user
+          required: true
+          type: string
+        - name: sub
+          in: header
+          description: The user_id from Authenix
+          required: false
+          type: string
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/SuccessResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    post:
+      tags:
+        - Users
+      description: Show info + aggregations of user
+      operationId: users
+      parameters:
+        - name: id
+          in: path
+          description: The id of the user
+          required: true
+          type: string
+        - name: sub
+          in: header
+          description: The user_id from Authenix
+          required: false
+          type: string
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/SuccessResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
   /downloads/agg:
     x-swagger-router-controller: generic
     get:
@@ -440,6 +496,30 @@ paths:
             type: array
             items:
               $ref: "#/definitions/Comment"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /agg:
+    x-swagger-router-controller: agg
+    get:
+      tags:
+        - Agg
+      description: Show aggagations of comments/download by dates & origin...
+      operationId: agg
+      parameters:
+        - name: sub
+          in: header
+          description: The user_id from Authenix
+          required: false
+          type: string
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/SuccessResponse"
         default:
           description: Error
           schema:
