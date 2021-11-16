@@ -88,7 +88,7 @@ export namespace Components {
         "user": any;
     }
     interface PopupList {
-        "items": {text: string, icon?: string}[];
+        "items": {text: string, icon?: string, href?: string}[];
     }
 }
 declare global {
@@ -349,7 +349,7 @@ declare namespace LocalJSX {
         "user"?: any;
     }
     interface PopupList {
-        "items"?: {text: string, icon?: string}[];
+        "items"?: {text: string, icon?: string, href?: string}[];
     }
     interface IntrinsicElements {
         "app-comment": AppComment;

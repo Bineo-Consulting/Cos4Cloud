@@ -7,7 +7,7 @@ import { Component, Prop, h } from '@stencil/core';
 })
 export class PopupList {
 
-  @Prop() items: {text: string, icon?: string}[];
+  @Prop() items: {text: string, icon?: string, href?: string}[];
 
   dismiss(item) {
     const pop: any = document.querySelector('ion-popover')
@@ -18,7 +18,9 @@ export class PopupList {
     return (
       <div class="popup">
         {this.items.map(item =>
-          <a tabindex="-1" onClick={() => this.dismiss(item)}>{item.text}</a>
+          item.href ? 
+            <a href={item.href || '#'} target="_blank" tabindex="-1" onClick={() => this.dismiss(item)}>{item.text}</a>
+            : <a tabindex="-1" onClick={() => this.dismiss(item)}>{item.text}</a>
         )}
       </div>
     );

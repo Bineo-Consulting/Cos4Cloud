@@ -22,3 +22,7 @@
 .popup a:focus {
   background: var(--c-3);
 }
+a {
+  text-decoration: none;
+  color: unset;
+}

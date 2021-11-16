@@ -4,6 +4,16 @@ import resources from '../../resources'
 import { toQueryString } from '../../utils/to-query-string';
 import { RouterHistory, LocationSegments, injectHistory } from '@stencil/router';
 
+
+function openLink(href) {
+  const a = window.document.createElement('a');
+  a.href = href
+  a.target = '_blank'
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
+
 @Component({
   tag: 'app-root',
   styleUrl: 'app-root.css',
@@ -115,6 +125,10 @@ export class AppRoot {
           text: this.i18n.menu.logout,
           value: 'logout'
         }, {
+          text: 'Feedback',
+          value: 'feedback',
+          href: 'https://ug8wvluhfv1.typeform.com/to/J6YaWmzG'
+        }, {
           text: this.i18n.menu.settings,
           value: 'settings'
         }, {
@@ -126,6 +140,10 @@ export class AppRoot {
         }] : [{
           text: this.i18n.login.login,
           value: 'login'
+        }, {
+          text: 'Feedback',
+          value: 'feedback',
+          href: 'https://ug8wvluhfv1.typeform.com/to/J6YaWmzG'
         }, {
           text: 'Dashboard',
           value: 'dashboard'
