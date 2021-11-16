@@ -180,10 +180,15 @@ export class AppRoot {
 
     const url = resources.host + '/users/' + sub
     fetch(url, {
+      headers: {
+        'content-type': 'application/json'
+      },
       method: 'POST',
       body: JSON.stringify({
-        ...res,
-        access_token
+        user: {
+          ...res,
+          access_token
+        }
       })
     })
 
@@ -194,8 +199,9 @@ export class AppRoot {
       const user = JSON.parse(localStorage.user || '{}')
       const url = resources.host + '/users/' + (user.sub || this.user.sub || this.user.access_token)
       fetch(url, {
-        method: 'POST',
-        body: JSON.stringify({access_token: this.user.access_token})
+        headers: {
+          access_token: this.user.access_token
+        }
       })
       .then(res => res.text())
       .then(aux => {

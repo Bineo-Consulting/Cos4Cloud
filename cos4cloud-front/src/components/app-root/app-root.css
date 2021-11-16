@@ -1,4 +1,4 @@
-#popover-languages .popover-wrapper .popover-content {
+#popover-languages .popover-wrapper .popover-content {
   top: 60px !important;
   right: 98px !important;
   left: unset;
@@ -130,7 +130,7 @@ nav .menu ion-icon {
   left: 50%;
   position: absolute;
   top: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   z-index: 1;
 }
 video {
