@@ -8,7 +8,6 @@ function randomDate(start, end) {
   return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
 }
 
-
 /* ADD
   user_id: 1,
   observation_id: p.parent_id,

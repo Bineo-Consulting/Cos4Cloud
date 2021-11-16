@@ -36,6 +36,7 @@ const parseTaxon = (taxon) => {
 
 const dwcParseNatusfera = (item) => {
   const aux = {}
+  aux.projects = item.project_observations ? (item.project_observations || []).map(i => i.project_id) : null // only natusfera
   aux.id = `${item.id}`.includes('-') ? item.id : `natusfera-${item.id}`
   aux.eventDate = new Date(item.created_at)
   aux.created_at = new Date(item.created_at) // for sorting

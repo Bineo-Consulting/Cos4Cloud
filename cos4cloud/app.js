@@ -1,7 +1,11 @@
 'use strict';
 
 const SwaggerExpress = require('swagger-express-mw');
+const bodyParser = require('body-parser')
 const app = require('express')();
+
+app.use(bodyParser.json({ type: 'application/json' }))
+
 // const cors = require('cors');
 
 module.exports = app; // for testing

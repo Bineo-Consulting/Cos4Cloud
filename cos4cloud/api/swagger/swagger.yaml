@@ -404,6 +404,10 @@ paths:
                 type: string
               created_at:
                 type: string
+              accepted_terms:
+                type: boolean
+              allow_notifications:
+                type: boolean
       responses:
         "200":
           description: Success

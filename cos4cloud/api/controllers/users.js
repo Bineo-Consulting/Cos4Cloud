@@ -6,7 +6,7 @@ function randomDate(start, end) {
 }
 
 const handleUpdate = async (req, res) => {
-  const { ...data } = JSON.parse(req.body || '{}').user || {}
+  const { ...data } = typeof req.body === 'string' ? (JSON.parse(req.body || '{}').user || {}) : (req.body.user || {})
   const { access_token } = req.headers
 
   const user = await Auth.info(access_token)
