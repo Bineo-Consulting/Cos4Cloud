@@ -106,7 +106,7 @@ paths:
           description: Error
           schema:
             $ref: "#/definitions/ErrorResponse"
-  /dwc/observation/{id}:
+  /dwc/observations/{id}:
     x-swagger-router-controller: observation
     get:
       tags:
@@ -131,12 +131,12 @@ paths:
             $ref: "#/definitions/ErrorResponse"
   /images:
     # binds a127 app logic to a route
-    x-swagger-router-controller: observations
+    x-swagger-router-controller: images
     get:
       tags:
         - iSpot
       description: Returns 'Images' from iSpot (🚨it's only required for iSpot)
-      operationId: getImages
+      operationId: images
       parameters:
         - name: ids
           in: query
@@ -198,10 +198,15 @@ paths:
           description: The id of the observation (with the origin)
           required: true
           type: string
+        - name: sub
+          in: query
+          description: The sub of the observation
+          required: true
+          type: string
         - name: taxon
           in: query
           description: The taxon guess of the specie
-          required: true
+          required: false
           type: string
         - name: token
           in: query
@@ -331,6 +336,11 @@ paths:
           description: The user_id from Authenix
           required: false
           type: string
+        - name: access_token
+          in: header
+          description: The access_token from Authenix
+          required: false
+          type: string
       responses:
         "200":
           description: Success
@@ -346,7 +356,7 @@ paths:
       tags:
         - Users
       description: Show info + aggregations of user
-      operationId: users
+      operationId: updateUser
       parameters:
         - name: id
           in: path
@@ -358,6 +368,42 @@ paths:
           description: The user_id from Authenix
           required: false
           type: string
+        - name: access_token
+          in: header
+          description: The access_token from Authenix
+          required: false
+          type: string
+        - name: user
+          in: body
+          description: The body of the user
+          required: false
+          schema:
+            type: object
+            properties:
+              _id:
+                type: string
+              id:
+                type: string
+              active:
+                type: string
+              client_id:
+                type: string
+              exp:
+                type: string
+              sub:
+                type: string
+              displayName:
+                type: string
+              email:
+                type: string
+              profession:
+                type: string
+              city:
+                type: string
+              description:
+                type: string
+              created_at:
+                type: string
       responses:
         "200":
           description: Success

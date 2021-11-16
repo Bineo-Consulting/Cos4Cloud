@@ -6,7 +6,8 @@ function randomDate(start, end) {
 }
 
 const handleUpdate = async (req, res) => {
-  const { access_token, ...data } = JSON.parse(req.body)
+  const { ...data } = JSON.parse(req.body || '{}').user || {}
+  const { access_token } = req.headers
 
   const user = await Auth.info(access_token)
 
@@ -30,10 +31,16 @@ const handleDelete = async (req, res) => {
 }
 
 const users = async (req, res) => {
+  console.log('users', req.method)
   switch (req.method) {
     case 'GET':
       const id = req.path.replace('/api', '').split('/').filter(Boolean)[1]
-      const { sub } = req.headers
+      const { sub, access_token } = req.headers
+
+      if (access_token) {
+        return handleUpdate(req, res)
+      }
+
       if (id === 'search') {
         // const users = await Mongo.get('users')
         // users.map(u => Mongo.update('users', {
@@ -74,4 +81,4 @@ const users = async (req, res) => {
   }
 }
 
-module.exports = { users }
+module.exports = { users, updateUser: users }
