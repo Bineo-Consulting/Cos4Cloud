@@ -28,7 +28,6 @@ export class ModalSettings {
 
   update() {
     const { agg, exp, active, ...data } = this.data
-    alert(JSON.stringify(data, null, 2))
     const user = JSON.parse(localStorage.user)
     const url = resources.host + '/users/' + user.sub
     fetch(url, {
