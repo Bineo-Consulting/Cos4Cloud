@@ -4,16 +4,6 @@ import resources from '../../resources'
 import { toQueryString } from '../../utils/to-query-string';
 import { RouterHistory, LocationSegments, injectHistory } from '@stencil/router';
 
-
-function openLink(href) {
-  const a = window.document.createElement('a');
-  a.href = href
-  a.target = '_blank'
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-}
-
 @Component({
   tag: 'app-root',
   styleUrl: 'app-root.css',

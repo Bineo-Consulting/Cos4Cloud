@@ -233,7 +233,6 @@ export class MappingService {
     if (p.item && p.item.projects && p.item.projects.length) {
       error = !p.item.projects.includes(1252)
     }
-    const t = true
     if (error) return this.showAlert('Esta observación no pertenece al proyecto Cos4Cloud de natusfera')
 
     const user = JSON.parse(localStorage.user)
