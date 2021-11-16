@@ -218,13 +218,14 @@ export class AppSearch {
   onChecked(ev, key = null) {
     if (key) {
       setTimeout(() => {
-        const el = ev.path[0]
+        const el = ev.detail
         this[key][el.value] = el.checked ? 'true' : 'false'
+        console.log({el, key})
         this.setTitle()
       }, 200)
     } else {
       setTimeout(() => {
-        const el = ev.path[0]
+        const el = ev.detail
         this[el.value] = el.checked ? 'true' : 'false'
         this.setTitle()
       }, 200)

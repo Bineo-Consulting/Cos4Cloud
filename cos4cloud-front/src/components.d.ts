@@ -61,6 +61,7 @@ export namespace Components {
     }
     interface ModalSettings {
         "data": any;
+        "firstTime": boolean;
         "header": any;
     }
     interface ModalShare {
@@ -321,6 +322,7 @@ declare namespace LocalJSX {
     }
     interface ModalSettings {
         "data"?: any;
+        "firstTime"?: boolean;
         "header"?: any;
     }
     interface ModalShare {

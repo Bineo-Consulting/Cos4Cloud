@@ -96,7 +96,8 @@ export class AppRoot {
     const modalElement: any = document.createElement('ion-modal');
     modalElement.component = 'modal-settings';
     modalElement.componentProps = {
-      header: title
+      header: title,
+      firstTime: !!title
     }
 
     // present the modal
@@ -213,7 +214,7 @@ export class AppRoot {
           localStorage.setItem('user', JSON.stringify({...user, ...res, access_token: this.user.access_token}))
           this.user = {...user, ...res, access_token: this.user.access_token}
           this.updateUser(res)
-          if (this.user && !this.user.email) {
+          if (this.user && (!this.user.email || !this.user.accepted_terms)) {
             this.settings('Complete your profile')
           }
         }

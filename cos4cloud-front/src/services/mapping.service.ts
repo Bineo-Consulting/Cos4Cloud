@@ -211,7 +211,31 @@ export class MappingService {
     return item
   }
 
-  static addIdentification(p) {
+  static async showAlert(msg) {
+    const alert: any = document.createElement('ion-alert');
+    alert.cssClass = 'my-alert';
+    alert.header = 'Alert';
+    alert.message = `<b>${msg}</b>`;
+    // alert.message = 'This is an alert message.';
+    alert.buttons = ['OK'];
+
+    document.body.appendChild(alert);
+    await alert.present();
+
+    const { role } = await alert.onDidDismiss();
+    console.log('onDidDismiss resolved with role', role);
+
+  }
+
+  static addComment(p) {
+
+    let error = false
+    if (p.item && p.item.projects && p.item.projects.length) {
+      error = !p.item.projects.includes(1252)
+    }
+    const t = true
+    if (error) return this.showAlert('Esta observación no pertenece al proyecto Cos4Cloud de natusfera')
+
     const user = JSON.parse(localStorage.user)
     const params = {
       user_id: 1,

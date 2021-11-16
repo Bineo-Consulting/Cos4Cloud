@@ -10,6 +10,7 @@ import { fetchTranslations } from '../../../utils/translation';
 export class ModalSettings {
   @Prop() data: any = {};
   @Prop() header: any;
+  @Prop() firstTime: boolean = false;
 
   i18n: any = {}
 
@@ -26,13 +27,18 @@ export class ModalSettings {
   }
 
   update() {
+    const { agg, exp, active, ...data } = this.data
+    alert(JSON.stringify(data, null, 2))
     const user = JSON.parse(localStorage.user)
     const url = resources.host + '/users/' + user.sub
     fetch(url, {
       method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        access_token: user.access_token
+      },
       body: JSON.stringify({
-        access_token: user.access_token,
-        ...this.data
+        user: data
       })
     })
     .then(res => res.json())
@@ -43,8 +49,18 @@ export class ModalSettings {
     const pop: any = document.querySelector('ion-modal')
     pop.dismiss()
     if (reload) {
-      location.reload()
+      // location.reload()
     }
+  }
+
+  acceptTerms(ev) {
+    this.data.accepted_terms = ev.detail.checked
+    this.data = { ...this.data }
+  }
+
+  allowNotifications(ev) {
+    this.data.allow_notifications = ev.detail.checked
+    this.data = { ...this.data }
   }
 
   render() {
@@ -90,9 +106,20 @@ export class ModalSettings {
               <ion-textarea value={this.data.description} onIonChange={(ev) => this.data.description = ev.detail.value} type="text"></ion-textarea>
             </ion-item>
 
+            <ion-item>
+              <ion-label>{'Estoy de acuerdo en recibir notificaciones.'}</ion-label>
+              <ion-checkbox checked={this.data.allow_notifications} onIonChange={(ev) => this.allowNotifications(ev)}></ion-checkbox>
+            </ion-item>
+
+            {this.firstTime && <ion-item>
+              <ion-label>{'Estoy de acuerdo con los términos y condiciones.'}</ion-label>
+              <ion-checkbox checked={this.data.accepted_terms} onIonChange={(ev) => this.acceptTerms(ev)}></ion-checkbox>
+            </ion-item>}
+            
+
           </ion-list>
         </ion-content>
-        <ion-button onClick={() => this.update()}>{this.i18n.user.update}</ion-button>
+        <ion-button disabled={this.firstTime ? !this.data.accepted_terms : false} onClick={() => this.update()}>{this.i18n.user.update}</ion-button>
       </Host>
     );
   }

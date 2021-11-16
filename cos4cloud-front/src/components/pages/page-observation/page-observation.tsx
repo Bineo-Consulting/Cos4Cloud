@@ -138,13 +138,14 @@ export class PageObservation {
     this.user = localStorage.user ? JSON.parse(localStorage.user) : null
   }
 
-  async addIdentification() {
+  async addComment() {
     if (localStorage.user) {
-      await MappingService.addIdentification({
+      await MappingService.addComment({
         parent_id: this.id,
         // body: this.body,
         comment: this.body,
-        taxon: this.specie
+        taxon: this.specie,
+        item: this.item
       })
       this.componentWillLoad()
     } else {
@@ -226,7 +227,7 @@ export class PageObservation {
               placeholder={this.i18n.comments.type_comment}></ion-textarea>
           </ion-item>
           {<ion-button class="add-identification"
-            onClick={() => this.addIdentification()}>{this.i18n.comments.add_identification}</ion-button>
+            onClick={() => this.addComment()}>{this.i18n.comments.add_identification}</ion-button>
           }
 
           <br/><br/>
