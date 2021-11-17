@@ -58,7 +58,7 @@ ion-chip {
   box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 20%), 0 1px 5px 0 rgb(0 0 0 / 12%);
 }
 ion-chip.active {
-  --background:  rgba(255, 155, 0 , .54);
+  --background: rgba(255, 155, 0 , .54);
 }
 ion-list.lite ion-checkbox {
   margin: 8px;
@@ -1036,6 +1036,24 @@ input {
 
 .calendar-no-header .calendar {
   box-shadow: none!important;
+}
+
+.float-chips-wrappers {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  max-width: 240px;
+  z-index: 9;
+}
+.float-chips-wrappers ion-chip {
+  --background: rgba(255, 229, 187, 1);
+  max-width: 110px;
+}
+.float-chips-wrappers ion-label {
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 80px;
 }
 
 @media (min-width:350px) and (max-width:380px) {

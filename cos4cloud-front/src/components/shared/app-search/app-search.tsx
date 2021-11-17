@@ -10,8 +10,8 @@ import { fetchTranslations } from '../../../utils/translation';
 })
 export class AppSearch {
 
-  @Prop() specie: string;
-  @Prop() place: string;
+  @Prop({mutable: true}) specie: string;
+  @Prop({mutable: true}) place: string;
   @Prop() query: any;
   @Event() search: EventEmitter<any>;
 
@@ -114,6 +114,8 @@ export class AppSearch {
 
       this.date.minEventDate = this.query.minEventDate || null
       this.date.maxEventDate = this.query.maxEventDate || null
+
+      this.specie = this.query.scientificName || null
     }
   }
 
@@ -125,9 +127,9 @@ export class AppSearch {
     const item = (ev || {}).detail
     if (item) {
       const name = (item.name || '').split(' ').slice(0, 2).join(' ')
-      this.params.taxon_name = name || null
+      this.params.scientificName = name || null
     } else {
-      this.params.taxon_name = null
+      this.params.scientificName = null
     }
   }
 
@@ -139,7 +141,7 @@ export class AppSearch {
       this.params.place = item.name || null
     } else if (item) {
       const name = (item.name || '').split(' ').slice(0, 2).join(' ')
-      this.params.taxon_name = name || null
+      this.params.scientificName = name || null
     } else {
       this.params.decimalLongitude = null
       this.params.decimalLatitude = null
@@ -148,8 +150,23 @@ export class AppSearch {
       this.params.nelat = null
       this.params.nelng = null
       this.params.place = null
-      this.params.taxon_name = null
+      this.params.scientificName = null
     }
+  }
+
+  cleanSpecie() {
+    this.params.scientificName = null
+    this.specie = null
+  }
+  cleanPlace() {
+    this.params.decimalLongitude = null
+    this.params.decimalLatitude = null
+    this.params.swlat = null
+    this.params.swlng = null
+    this.params.nelat = null
+    this.params.nelng = null
+    this.params.place = null
+    this.place = null
   }
 
   onSearchSelect(ev) {
@@ -158,9 +175,11 @@ export class AppSearch {
       this.params.decimalLatitude = [Number(item.bbox[0]), Number(item.bbox[1])]
       this.params.decimalLongitude = [Number(item.bbox[2]), Number(item.bbox[3])]
       this.params.place = item.name || null
+      this.place = this.params.place
     } else if (item) {
       const name = (item.name || '').split(' ').slice(0, 2).join(' ')
-      this.params.taxon_name = name || null
+      this.params.scientificName = name || null
+      this.specie = this.params.scientificName
     } else {
       this.params.decimalLongitude = null
       this.params.decimalLatitude = null
@@ -169,7 +188,9 @@ export class AppSearch {
       this.params.nelat = null
       this.params.nelng = null
       this.params.place = null
-      this.params.taxon_name = null
+      this.params.scientificName = null
+      this.place = null
+      this.specie = null
     }
   }
 
@@ -399,6 +420,17 @@ export class AppSearch {
                 onChoose={(e) => this.onSearchSelect(e)}
                 service={GbifService}
                 service2={PlacesService}></app-searchbar>
+
+              <div class="float-chips-wrappers">
+                {this.specie && <ion-chip>
+                  <ion-label>{this.specie}</ion-label>
+                  <ion-icon onClick={_ => this.cleanSpecie()} name="close-circle"></ion-icon>
+                </ion-chip>}
+                {this.place && <ion-chip>
+                  <ion-label>{this.place}</ion-label>
+                  <ion-icon onClick={_ => this.cleanPlace()} name="close-circle"></ion-icon>
+                </ion-chip>}
+              </div>
             </ion-col>
 
             <ion-col size="3" size-sm="2">
