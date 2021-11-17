@@ -41,23 +41,23 @@ and Enjoy!!
 
 ## Init with Firebase Framework
 ### front-end
-#### cd cos4cloud-frontend
+```cd cos4cloud-frontend```
 ```npm start```
 
 ### backend
 #### https://www.npmjs.com/package/firebase-tools
-#### cd cos4cloud
+```cd cos4cloud```
 ```npm run f:start```
 
 ## Init with Raw Node
 ### front-end
-#### cd cos4cloud-frontend
+```cd cos4cloud-frontend```
 ```HOST=http://localhost:10010/api npm start```
 
 ### backend
-#### https://www.npmjs.com/package/firebase-tools
-#### cd cos4cloud
-```node app.js```
+#### https://nodejs.org
+```cd cos4cloud```
+```node app```
 
 
 
