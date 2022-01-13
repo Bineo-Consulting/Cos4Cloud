@@ -106,7 +106,7 @@ export class ModalSettings {
             </ion-item>
 
             <ion-item>
-              <ion-label>{'Estoy de acuerdo en recibir notificaciones.'}</ion-label>
+              <ion-label>{this.data.allow_notifications}</ion-label>
               <ion-checkbox checked={this.data.allow_notifications} onIonChange={(ev) => this.allowNotifications(ev)}></ion-checkbox>
             </ion-item>
 
