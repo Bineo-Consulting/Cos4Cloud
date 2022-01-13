@@ -1,5 +1,5 @@
 {
-  "home_title": "Todas la biodiversidad<br/>en un único lugar",
+  "home_title": "Toda la biodiversidad<br/>en un único lugar",
   "observations": "observaciones",
   "last_obersations": "Últimas observaciones",
   "need_login": "Debes estar logueado",
@@ -47,7 +47,8 @@
     "types": "tipos",
     "city": "Ciudad",
     "description": "Descripción",
-    "update": "Actualizar"
+    "update": "Actualizar",
+    "agree": "Estoy de acuerdo con los términos y condiciones."
   },
   "profile": {
     "nickname": "Alias",

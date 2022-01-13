@@ -47,7 +47,8 @@
     "types": "types",
     "city": "Stad",
     "description": "Beschrijving",
-    "update": "Werk bij"
+    "update": "Werk bij",
+    "agree": "Ik ga akkoord met de algemene voorwaarden."
   },
   "profile": {
     "nickname": "Alias",

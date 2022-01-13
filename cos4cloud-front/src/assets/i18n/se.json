@@ -47,7 +47,8 @@
     "types": "typer",
     "city": "Stad",
     "description": "Beskrivning",
-    "update": "Uppdatera"
+    "update": "Uppdatera",
+    "agree": "Jag godkänner villkoren."
   },
   "profile": {
     "nickname": "Alias",

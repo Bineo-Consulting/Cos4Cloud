@@ -46,7 +46,8 @@
     "types": "tipus",
     "city": "Ciutat",
     "description": "Descripció",
-    "update": "Actualitzar"
+    "update": "Actualitzar",    
+    "agree": "Estic d'acord amb els termes i condicions."
   },
   "profile": {
     "nickname": "Àlies",

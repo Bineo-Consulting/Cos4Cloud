@@ -47,7 +47,8 @@
     "types": "Typen",
     "city": "Stadt",
     "description": "Beschreibung",
-    "update": "Aktualisierung"
+    "update": "Aktualisierung",
+    "agree": "Ich stimme den Nutzungsbedingungen zu."
   },
   "profile": {
     "nickname": "Alias",

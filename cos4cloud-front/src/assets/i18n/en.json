@@ -47,7 +47,8 @@
     "types": "types",
     "city": "City",
     "description": "Description",
-    "update": "Update"
+    "update": "Update",
+    "agree": "I agree with the terms and conditions."
   },
   "profile":{
     "nickname": "Alias",

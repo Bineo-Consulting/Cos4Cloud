@@ -111,7 +111,7 @@ export class ModalSettings {
             </ion-item>
 
             {this.firstTime && <ion-item>
-              <ion-label>{'Estoy de acuerdo con los términos y condiciones.'}</ion-label>
+              <ion-label>{this.i18n.user.agree}</ion-label>
               <ion-checkbox checked={this.data.accepted_terms} onIonChange={(ev) => this.acceptTerms(ev)}></ion-checkbox>
             </ion-item>}
             

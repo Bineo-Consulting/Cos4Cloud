@@ -47,7 +47,8 @@
     "types": "types",
     "city": "Ville",
     "description": "Libellé",
-    "update": "Actualiser"
+    "update": "Actualiser",
+    "agree": "Je suis d'accord avec les termes et conditions."
   },
   "profile": {
     "nickname": "Pseudonyme",
