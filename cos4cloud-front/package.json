@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "description": "Cos4Bio",
   "scripts": {
+    "b": "stencil build --prod",
     "build": "npm run swagger; stencil build --prod",
     "start": "npm run swagger; stencil build --dev --watch --serve --no-open",
     "test": "stencil test --spec --e2e",

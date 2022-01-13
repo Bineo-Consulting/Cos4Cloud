@@ -120,7 +120,7 @@ const parseQuery = (url) => {
     delete q.identificationVerificationStatus
   }
   if (q.scientificName) {
-    q.taxon_name = q.scientificName
+    q.taxon_name = q.scientificName.replace(' L.', '')
     delete q.scientificName
   }
   if (q.iconic_taxa) {

@@ -11,7 +11,7 @@ const generic = async (req, res) => {
 
   if (id === 'search') {
     const where = {}
-    if (sub) where.sub = sub
+    if (sub) where.user_id = sub
     if (parent_origin) where.origin = parent_origin
     if (parent_id) where.parent_id = parent_id
     const anyWhere = sub || parent_origin || parent_id

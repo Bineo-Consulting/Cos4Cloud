@@ -17,8 +17,10 @@ export class PageLogin {
   }
 
   close() {
-    const pop: any = document.querySelector('ion-modal')
-    pop.dismiss()
+    const pops: any = document.querySelectorAll('ion-modal')
+    pops.forEach(pop => {
+      pop.dismiss()
+    })
   }
 
   signin() {
@@ -39,7 +41,7 @@ export class PageLogin {
   render() {
     return (
       <Host>
-        <ion-fab-button onClick={this.close} class="close-btn" size="small">
+        <ion-fab-button onClick={() => this.close()} class="close-btn" size="small">
           <ion-icon name="close"></ion-icon>
         </ion-fab-button>
 

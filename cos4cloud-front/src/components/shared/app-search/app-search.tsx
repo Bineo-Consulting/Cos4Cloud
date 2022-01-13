@@ -84,7 +84,6 @@ export class AppSearch {
 
 
   async componentWillLoad() {
-    console.log('componentWillLoad')
     this.i18n = await fetchTranslations(this.i18n)
 
     if (this.query) {
@@ -116,6 +115,7 @@ export class AppSearch {
       this.date.maxEventDate = this.query.maxEventDate || null
 
       this.specie = this.query.scientificName || null
+      this.place = this.query.place || null
     }
   }
 
@@ -159,17 +159,18 @@ export class AppSearch {
     this.specie = null
   }
   cleanPlace() {
+    this.place = null
+    this.params.place = null
     this.params.decimalLongitude = null
     this.params.decimalLatitude = null
     this.params.swlat = null
     this.params.swlng = null
     this.params.nelat = null
     this.params.nelng = null
-    this.params.place = null
-    this.place = null
   }
 
   onSearchSelect(ev) {
+    console.log('onSearchSelect')
     const item = (ev || {}).detail
     if (item && item.bbox) {
       this.params.decimalLatitude = [Number(item.bbox[0]), Number(item.bbox[1])]
@@ -241,7 +242,6 @@ export class AppSearch {
       setTimeout(() => {
         const el = ev.detail
         this[key][el.value] = el.checked ? 'true' : 'false'
-        console.log({el, key})
         this.setTitle()
       }, 200)
     } else {
@@ -290,7 +290,6 @@ export class AppSearch {
 
     setTimeout(() => {
       const calendar = this.refs.calendar.querySelector('.calendar')
-      console.log({calendar})
       if (!calendar) return null
       // <ion-icon name="close-circle-outline"></ion-icon>
       const clear = document.createElement('ion-icon')
@@ -398,7 +397,6 @@ export class AppSearch {
       else this.refs.quality && this.refs.quality.classList.remove('active')
     }
     const license = this.licenseTitle
-    console.log(license, this.title.license)
     if (license !== this.title.license) {
       this.title.license = license
       this.refs.licenses.innerHTML = this.title.license || this.i18n.filters.licenses
@@ -415,7 +413,7 @@ export class AppSearch {
           <ion-row>
             <ion-col size="9" size-sm="10">
               <app-searchbar
-                value={this.specie}
+                value={this.place || this.specie}
                 placeholder={this.i18n.filters.search}
                 onChoose={(e) => this.onSearchSelect(e)}
                 service={GbifService}

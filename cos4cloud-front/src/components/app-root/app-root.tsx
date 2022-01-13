@@ -145,6 +145,7 @@ export class AppRoot {
     document.body.appendChild(popover);
     popover.present();
     popover.onDidDismiss().then((res) => {
+      console.log({data: res.data})
       if (res.data && res.data.value === 'logout') {
         this.logout()
       } else if (res.data && res.data.value === 'settings') {
@@ -176,6 +177,10 @@ export class AppRoot {
   async openModalLogin() {
     const modalElement: any = document.createElement('ion-modal');
     modalElement.component = 'page-login';
+    modalElement.id = 'modal-login'
+    modalElement.componentProps = {
+      id: 'modal-login'
+    }
 
     // present the modal
     document.body.appendChild(modalElement);

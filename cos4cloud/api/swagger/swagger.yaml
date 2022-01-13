@@ -17,7 +17,7 @@ consumes:
 produces:
   - application/json
 paths:
-  /dwc/observations:
+  '/dwc/observations':
     x-swagger-router-controller: observations
     get:
       tags:
@@ -101,12 +101,12 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/Observation'
+              '$ref': '#/definitions/Observation'
         default:
           description: Error
           schema:
-            $ref: "#/definitions/ErrorResponse"
-  /dwc/observations/{id}:
+            '$ref': "#/definitions/ErrorResponse"
+  '/dwc/observations/{id}':
     x-swagger-router-controller: observation
     get:
       tags:
@@ -124,12 +124,12 @@ paths:
           description: Success
           schema:
             # a pointer to a definition
-            $ref: "#/definitions/Observation"
+            '$ref': "#/definitions/Observation"
         default:
           description: Error
           schema:
-            $ref: "#/definitions/ErrorResponse"
-  /images:
+            '$ref': "#/definitions/ErrorResponse"
+  '/images':
     # binds a127 app logic to a route
     x-swagger-router-controller: images
     get:
@@ -150,13 +150,13 @@ paths:
           description: Success
           schema:
             # a pointer to a definition
-            $ref: "#/definitions/SuccessResponse"
+            '$ref': "#/definitions/SuccessResponse"
         # responses may fall through to errors
         default:
           description: Error
           schema:
-            $ref: "#/definitions/ErrorResponse"
-  /userInfo:
+            '$ref': "#/definitions/ErrorResponse"
+  '/userInfo':
     # binds a127 app logic to a route
     x-swagger-router-controller: userInfo
     get:
@@ -174,13 +174,13 @@ paths:
           description: Success
           schema:
             # a pointer to a definition
-            $ref: "#/definitions/UserInfoResponse"
+            '$ref': "#/definitions/UserInfoResponse"
         # responses may fall through to errors
         default:
           description: Error
           schema:
-            $ref: "#/definitions/ErrorResponse"
-  /comments:
+            '$ref': "#/definitions/ErrorResponse"
+  '/comments':
     x-swagger-router-controller: comments
     post:
       tags:
@@ -229,12 +229,12 @@ paths:
           schema:
             type: array
             items:
-              $ref: "#/definitions/Comment"
+              '$ref': "#/definitions/Comment"
         default:
           description: Error
           schema:
-            $ref: "#/definitions/ErrorResponse"
-  /comments/agg:
+            '$ref': "#/definitions/ErrorResponse"
+  '/comments/agg':
     x-swagger-router-controller: generic
     get:
       tags:
@@ -253,12 +253,12 @@ paths:
           schema:
             type: array
             items:
-              $ref: "#/definitions/SuccessResponse"
+              '$ref': "#/definitions/SuccessResponse"
         default:
           description: Error
           schema:
-            $ref: "#/definitions/ErrorResponse"
-  /comments/search:
+            '$ref': "#/definitions/ErrorResponse"
+  '/comments/search':
     x-swagger-router-controller: generic
     get:
       tags:
@@ -271,12 +271,12 @@ paths:
           schema:
             type: array
             items:
-              $ref: "#/definitions/SuccessResponse"
+              '$ref': "#/definitions/SuccessResponse"
         default:
           description: Error
           schema:
-            $ref: "#/definitions/ErrorResponse"
-  /users/agg:
+            '$ref': "#/definitions/ErrorResponse"
+  '/users/agg':
     x-swagger-router-controller: users
     get:
       tags:
@@ -295,12 +295,12 @@ paths:
           schema:
             type: array
             items:
-              $ref: "#/definitions/SuccessResponse"
+              '$ref': "#/definitions/SuccessResponse"
         default:
           description: Error
           schema:
-            $ref: "#/definitions/ErrorResponse"
-  /users/search:
+            '$ref': "#/definitions/ErrorResponse"
+  '/users/search':
     x-swagger-router-controller: users
     get:
       tags:
@@ -313,12 +313,12 @@ paths:
           schema:
             type: array
             items:
-              $ref: "#/definitions/User"
+              '$ref': "#/definitions/User"
         default:
           description: Error
           schema:
-            $ref: "#/definitions/ErrorResponse"
-  /users/{id}:
+            '$ref': "#/definitions/ErrorResponse"
+  '/users/{id}':
     x-swagger-router-controller: users
     get:
       tags:
@@ -347,11 +347,11 @@ paths:
           schema:
             type: array
             items:
-              $ref: "#/definitions/SuccessResponse"
+              '$ref': "#/definitions/SuccessResponse"
         default:
           description: Error
           schema:
-            $ref: "#/definitions/ErrorResponse"
+            '$ref': "#/definitions/ErrorResponse"
     post:
       tags:
         - Users
@@ -414,12 +414,12 @@ paths:
           schema:
             type: array
             items:
-              $ref: "#/definitions/SuccessResponse"
+              '$ref': "#/definitions/SuccessResponse"
         default:
           description: Error
           schema:
-            $ref: "#/definitions/ErrorResponse"
-  /downloads/agg:
+            '$ref': "#/definitions/ErrorResponse"
+  '/downloads/agg':
     x-swagger-router-controller: generic
     get:
       tags:
@@ -438,12 +438,12 @@ paths:
           schema:
             type: array
             items:
-              $ref: "#/definitions/SuccessResponse"
+              '$ref': "#/definitions/SuccessResponse"
         default:
           description: Error
           schema:
-            $ref: "#/definitions/ErrorResponse"
-  /downloads/search:
+            '$ref': "#/definitions/ErrorResponse"
+  '/downloads/search':
     x-swagger-router-controller: generic
     get:
       tags:
@@ -456,12 +456,12 @@ paths:
           schema:
             type: array
             items:
-              $ref: "#/definitions/SuccessResponse"
+              '$ref': "#/definitions/SuccessResponse"
         default:
           description: Error
           schema:
-            $ref: "#/definitions/ErrorResponse"
-  /export:
+            '$ref': "#/definitions/ErrorResponse"
+  '/export':
     x-swagger-router-controller: export
     get:
       tags:
@@ -545,12 +545,12 @@ paths:
           schema:
             type: array
             items:
-              $ref: "#/definitions/Comment"
+              '$ref': "#/definitions/Comment"
         default:
           description: Error
           schema:
-            $ref: "#/definitions/ErrorResponse"
-  /agg:
+            '$ref': "#/definitions/ErrorResponse"
+  '/agg':
     x-swagger-router-controller: agg
     get:
       tags:
@@ -569,11 +569,11 @@ paths:
           schema:
             type: array
             items:
-              $ref: "#/definitions/SuccessResponse"
+              '$ref': "#/definitions/SuccessResponse"
         default:
           description: Error
           schema:
-            $ref: "#/definitions/ErrorResponse"
+            '$ref': "#/definitions/ErrorResponse"
 # complex objects have schema definitions
 definitions:
   SuccessResponse:
@@ -624,19 +624,19 @@ definitions:
       occurrenceStatus:
         type: string
       taxon:
-        $ref: '#/definitions/Taxon'
+        '$ref': '#/definitions/Taxon'
       comments:
         type: array
         items:
-          $ref: '#/definitions/Comment'
+          '$ref': '#/definitions/Comment'
       identifications:
         type: array
         items:
-          $ref: '#/definitions/Identification'
+          '$ref': '#/definitions/Identification'
       media:
         type: array
         items:
-          $ref: '#/definitions/Media'
+          '$ref': '#/definitions/Media'
       decimalLatitude:
         type: number
       decimalLongitud:
@@ -661,7 +661,7 @@ definitions:
       comment:
         type: string
       user:
-        $ref: '#/definitions/User'
+        '$ref': '#/definitions/User'
   Identification:
     required:
       - id
@@ -684,9 +684,9 @@ definitions:
       comment:
         type: string
       user:
-        $ref: '#/definitions/User'
+        '$ref': '#/definitions/User'
       taxon:
-        $ref: '#/definitions/Taxon'
+        '$ref': '#/definitions/Taxon'
   Media:
     properties:
       type:
