@@ -48,7 +48,8 @@
     "city": "Città",
     "description": "Descrizione",
     "update": "Aggiornamento",
-    "agree": "Sono d'accordo con i termini e le condizioni."
+    "agreeNotifications": "Accetto di ricevere notifiche via e-mail",
+    "agreeTerms": "Sono d'accordo con i termini e le condizioni."
   },
   "profile": {
     "nickname": "Pseudonimo",

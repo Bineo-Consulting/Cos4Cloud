@@ -48,7 +48,8 @@
     "city": "Stad",
     "description": "Beskrivning",
     "update": "Uppdatera",
-    "agree": "Jag godkänner villkoren."
+    "agreeNotifications": "Jag samtycker till att få meddelanden via e-post",
+    "agreeTerms": "Jag godkänner villkoren."
   },
   "profile": {
     "nickname": "Alias",

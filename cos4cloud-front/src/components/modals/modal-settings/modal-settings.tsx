@@ -106,12 +106,12 @@ export class ModalSettings {
             </ion-item>
 
             <ion-item>
-              <ion-label>{this.data.allow_notifications}</ion-label>
+              <ion-label>{this.i18n.user.agreeNotifications}</ion-label>
               <ion-checkbox checked={this.data.allow_notifications} onIonChange={(ev) => this.allowNotifications(ev)}></ion-checkbox>
             </ion-item>
 
             {this.firstTime && <ion-item>
-              <ion-label>{this.i18n.user.agree}</ion-label>
+              <ion-label>{this.i18n.user.agreeTerms}</ion-label>
               <ion-checkbox checked={this.data.accepted_terms} onIonChange={(ev) => this.acceptTerms(ev)}></ion-checkbox>
             </ion-item>}
             

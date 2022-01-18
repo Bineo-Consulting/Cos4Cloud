@@ -48,7 +48,8 @@
     "city": "City",
     "description": "Description",
     "update": "Update",
-    "agree": "I agree with the terms and conditions."
+    "agreeNotifications": "I agree to receive notifications by email",
+    "agreeTerms": "I agree with the terms and conditions."
   },
   "profile":{
     "nickname": "Alias",

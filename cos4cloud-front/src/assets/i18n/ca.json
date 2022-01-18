@@ -47,7 +47,8 @@
     "city": "Ciutat",
     "description": "Descripció",
     "update": "Actualitzar",    
-    "agree": "Estic d'acord amb els termes i condicions."
+    "agreeNotifications": "Accepto rebre notificacions per correu electrònic",
+    "agreeTerms": "Estic d'acord amb els termes i condicions."
   },
   "profile": {
     "nickname": "Àlies",

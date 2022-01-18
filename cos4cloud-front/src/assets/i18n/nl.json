@@ -48,7 +48,8 @@
     "city": "Stad",
     "description": "Beschrijving",
     "update": "Werk bij",
-    "agree": "Ik ga akkoord met de algemene voorwaarden."
+    "agreeNotifications": "Ik ga akkoord met het ontvangen van meldingen per e-mail",
+    "agreeTerms": "Ik ga akkoord met de algemene voorwaarden."
   },
   "profile": {
     "nickname": "Alias",
