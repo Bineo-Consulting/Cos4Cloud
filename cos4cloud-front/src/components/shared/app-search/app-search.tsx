@@ -416,9 +416,9 @@ export class AppSearch {
   async presentAlert() {
     const alert: any = document.createElement('ion-alert');
     alert.cssClass = 'my-custom-class';
-    alert.header = 'Alert';
-    alert.subHeader = 'Error searching';
-    alert.message = 'You must select "place" or "specie"';
+    alert.header = this.i18n.alert;
+    alert.subHeader = this.i18n.errorSearch;
+    alert.message = this.i18n.selectSpeciePlace;
     alert.buttons = ['OK'];
 
     document.body.appendChild(alert);
