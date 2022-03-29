@@ -41,7 +41,7 @@ export class AppComment {
           <div class="observation">
             <div class="observation-info">
               {this.item.taxon?.url && <div class="img-observation">
-                <img class="img-fit" loading="lazy" src={(this.item.taxon || {}).url} alt="@@title"/>
+                <img class="img-fit" loading="lazy" src={(this.item.taxon || {}).url}/>
               </div>}
               {this.item.taxon?.name && <div class="cnt-text">
                 <h5>{(this.item.taxon || {}).name}</h5>

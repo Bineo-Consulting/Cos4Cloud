@@ -21,6 +21,7 @@ export class AppSearchbar {
   @Prop() service2: ServiceType;
   
   @Event() choose: EventEmitter<any>;
+  @Event() searchValue: EventEmitter<any>;
 
   @State() items = []
   @State() itemsCache = JSON.parse(localStorage.search || '[]')
@@ -50,6 +51,8 @@ export class AppSearchbar {
       this.value = null
       this.choose.emit(null)
     }
+
+    this.searchValue.emit(term)
   }
 
   setCache(item) {

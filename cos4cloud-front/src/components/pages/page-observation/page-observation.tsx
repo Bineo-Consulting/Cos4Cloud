@@ -71,7 +71,7 @@ export class PageObservation {
     MappingService.getById(this.id)
     .then((res) => {
       this.item = res
-      const comments = [...res.$$comments, ...this.comments]
+      const comments = [...res.$$identifications, ...this.comments]
       this.comments = comments.sort((a:any, b:any) => Date.parse(a.created_at) - Date.parse(b.created_at))
       this.loadingDismiss()
     })
@@ -83,7 +83,7 @@ export class PageObservation {
 
     MappingService.getComments(id, origin)
     .then((res) => {
-      const comments = [...this.item.$$comments, ...(res || [])]
+      const comments = [...this.item.$$identifications, ...(res || [])]
       this.comments = comments.sort((a:any, b:any) => Date.parse(a.created_at) - Date.parse(b.created_at))
     })
     .catch((_) => {})
@@ -160,12 +160,26 @@ export class PageObservation {
     }
   }
 
+  get originUrl() {
+    if (this.item && this.item.id) {
+      const id = this.item.id.includes('-') ? this.item.id.split('-')[1] : this.item.id
+      if (this.item.id.includes('plantnet')) {
+        return `https://identify.plantnet.org/the-plant-list/observations/${id}`
+      }
+      if (this.item.id.includes('gbif')) {
+        return `https://www.gbif.org/occurrence/${id}`
+      }
+      return `https://natusfera.org/observations/${id}`
+    }
+    return '#'
+  }
+
   render() {
     return (
       <Host>
         <ion-slides pager={true} options={this.slideOpts}>
           {this.item.$$photos.map(photo => <ion-slide>
-            <img src={photo.large_url}/>
+            <img referrer-policy="no-referrer-when-downgrade" src={photo.large_url}/>
           </ion-slide>)}
         </ion-slides>
 
@@ -192,7 +206,9 @@ export class PageObservation {
             </div>
             <div class="origin">
               <ion-icon size="small" name="earth-outline"></ion-icon>
-              <span class="origin-name">{this.item.origin} {this.item.id_please ? this.i18n.comments.help : ''}</span>
+              <a class="link-none" href={this.originUrl} target="_blank">
+                <span class="origin-name">{this.item.origin} {this.item.id_please ? this.i18n.comments.help : ''}</span>
+              </a>
             </div>
 
             {this.item.decimalLatitude && <div class="origin">
@@ -204,8 +220,8 @@ export class PageObservation {
 
         <div class="contain">
           
-          {this.comments.map(identification =>
-            <app-comment item={identification}></app-comment>
+          {this.comments.map(comment =>
+            <app-comment item={comment}></app-comment>
           )}
 
           <h3>{this.i18n.comments.add_comment_identification}</h3>

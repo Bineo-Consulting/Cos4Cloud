@@ -300,6 +300,7 @@ declare namespace LocalJSX {
     }
     interface AppSearchbar {
         "onChoose"?: (event: CustomEvent<any>) => void;
+        "onSearchValue"?: (event: CustomEvent<any>) => void;
         "placeholder"?: string;
         "service"?: ServiceType;
         "service2"?: ServiceType;

@@ -24,6 +24,7 @@ const parseCommentsDwc = (items) => {
   }).sort((a:any, b:any) => Date.parse(a.created_at) - Date.parse(b.created_at))
 }
 
+const nov2021 = new Date('2021-11-22').getTime()
 const parseDwc = (item) => {
   item.origin = item.origin || 'Natusfera'
   item.id = `${item.id}`.includes('-') ? item.id : `${item.origin.toLowerCase()}-${item.id}`
@@ -43,7 +44,7 @@ const parseDwc = (item) => {
   item.$$comments = []
 
   item.$$identifications = [...(item.identifications || []), ...(item.comments || [])]
-  .filter(i => i.user_id !== 1)
+  .filter(i => Date.parse(i.createdAt) < nov2021 || i.user_id !== 1)
   .map(identification => {
     const c = {...identification}
     c.$$date = timeAgo(c.created_at)
@@ -60,8 +61,8 @@ const parseDwc = (item) => {
 
   item.taxon = item.taxon || {}
 
-  item.comments_count = (item.comments || []).length
-  item.identifications_count = (item.identifications || []).length
+  item.comments_count = item.comments_count ? item.comments_count : (item.comments || []).length
+  item.identifications_count = item.identifications_count ? item.identifications_count : (item.identifications || []).length
   item.observation_photos_count = (item.media || []).length
   return item
 }
@@ -70,7 +71,7 @@ export class MappingService {
 
   static cache = JSON.parse(localStorage.cache || '{"time": 0}')
 
-  static async get(params?, cache = false) {
+  static async get(params = null, cache = false) {
     const queryParams = params ? toQueryString(params) : ''
 
     if (cache && this.cache && this.cache.last && this.cache.time > Date.now() - 90 * 1000) {

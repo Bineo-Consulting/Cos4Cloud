@@ -82,3 +82,7 @@ ion-slide {
   margin-top: 4px;
   margin-bottom: 4px;
 }
+.link-none {
+  color: inherit !important;
+  text-decoration: none;
+}

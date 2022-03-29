@@ -170,7 +170,6 @@ export class AppSearch {
   }
 
   onSearchSelect(ev) {
-    console.log('onSearchSelect')
     const item = (ev || {}).detail
     if (item && item.bbox) {
       this.params.decimalLatitude = [Number(item.bbox[0]), Number(item.bbox[1])]
@@ -196,6 +195,9 @@ export class AppSearch {
   }
 
   onSearch() {
+    if (this.term && (!this.place || !this.specie)) {
+      return this.presentAlert()
+    }
     const iconic_taxa = Object.keys(this.iconic_taxa).map(key => {
       return this.iconic_taxa[key] === 'true' ? key : null
     }).filter(Boolean)
@@ -405,6 +407,27 @@ export class AppSearch {
     }
   }
 
+  term: string = null
+  onSearchValue(term) {
+    console.log('onSearchValue', {term})
+    this.term = term
+  } 
+
+  async presentAlert() {
+    const alert: any = document.createElement('ion-alert');
+    alert.cssClass = 'my-custom-class';
+    alert.header = 'Alert';
+    alert.subHeader = 'Error searching';
+    alert.message = 'You must select "place" or "specie"';
+    alert.buttons = ['OK'];
+
+    document.body.appendChild(alert);
+    await alert.present();
+
+    const { role } = await alert.onDidDismiss();
+    console.log('onDidDismiss resolved with role', role);
+  }
+
   render() {
     return (
       <Host>
@@ -416,6 +439,7 @@ export class AppSearch {
                 value={this.place || this.specie}
                 placeholder={this.i18n.filters.search}
                 onChoose={(e) => this.onSearchSelect(e)}
+                onSearchValue={(e) => this.onSearchValue(e)}
                 service={GbifService}
                 service2={PlacesService}></app-searchbar>
 
