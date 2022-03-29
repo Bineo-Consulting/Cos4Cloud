@@ -9,7 +9,10 @@
   "spanish": "Espagnol",
   "french": "Français",
   "german": "Allemand",
-  "no_results": "Aucun résulat",
+  "no_results": "Aucun résultat.",
+  "alert": "Alerte.",
+  "errorSearch": "Erreur de recherche.",
+  "selectSpeciePlace": "Vous devez sélectionner \"lieu\" ou \"espèce\" de la liste.",  
   "menu": {
     "logout": "Déconnexion",
     "settings": "Réglages",

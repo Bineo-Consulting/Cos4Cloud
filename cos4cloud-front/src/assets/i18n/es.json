@@ -10,6 +10,9 @@
   "french": "Francés",
   "german": "Alemán",
   "no_results": "Sin resultados",
+  "alert": "Alerta",
+  "errorSearch": "Error en la búsqueda",
+  "selectSpeciePlace": "Debes seleccionar una especie o un lugar del listado.",  
   "menu": {
     "logout": "Cerrar sesión",
     "settings": "Configuración",

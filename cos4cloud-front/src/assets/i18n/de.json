@@ -9,7 +9,10 @@
   "spanish": "Spanisch",
   "french": "Französisch",
   "german": "Deutsch",
-  "no_results": "Keine Treffer",
+  "no_results": "Keine Ergebnisse",
+  "alert": "Alarm",
+  "errorSearch": "Suchfehler",
+  "selectSpeciePlace": "Sie müssen \"Ort\" oder \"Art\" aus der Liste auswählen",    
   "menu": {
     "logout": "Abmelden",
     "settings": "Einstellungen",

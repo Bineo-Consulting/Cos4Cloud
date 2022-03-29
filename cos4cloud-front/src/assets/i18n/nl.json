@@ -9,7 +9,10 @@
   "spanish": "Spaans",
   "french": "Frans",
   "german": "Duits",
-  "no_results": "No results",
+  "no_results": "Geen resultaten",
+  "alert": "Alarm",
+  "errorSearch": "Fout bij zoeken",
+  "selectSpeciePlace": "U moet \"plaats\" of \"soort\" van de lijst selecteren.",   
   "menu": {
     "logout": "Uitloggen",
     "settings": "Instellingen",

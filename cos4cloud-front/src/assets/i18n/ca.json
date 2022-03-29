@@ -9,6 +9,9 @@
   "spanish": "Castellà",
   "french": "Francès",
   "german": "Alemany",
+  "alert": "Alerta",
+  "errorSearch": "Error en la cerca",
+  "selectSpeciePlace": "Has de seleccionar una espècie o un lloc del llistat.",   
   "menu": {
     "logout": "Tancar la sessió",
     "settings": "Configuració",

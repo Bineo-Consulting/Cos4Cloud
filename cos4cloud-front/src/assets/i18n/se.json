@@ -9,7 +9,10 @@
   "spanish": "Spanska",
   "french": "Franska",
   "german": "Tyska",
-  "no_results": "No results",
+  "no_results": "utan resultat",
+  "alert": "Varna",
+  "errorSearch": "Sökfel",
+  "selectSpeciePlace": "Du måste välja \"plats\" eller \"art\" i listan.",    
   "menu": {
     "logout": "Logga ut",
     "settings": "Inställningar",
